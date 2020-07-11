@@ -43,6 +43,12 @@ View top active processes
 Debug programs (signals, arguments, callers, ...)
 `strace ./a.out`
 
+Get IPv4 address
+`ping -4 <url>`
+
+Socket programming functions
+`socket()`, `inet_pton()`, `connect()`, `write()` and `read()`
+
 `malloc()` uses:
 1. `brk()` for small memory allocation in a single contiguous chunk of virtual address space.
 2. `mmap()` for big memory allocation into the heap in independent regions of memory.
