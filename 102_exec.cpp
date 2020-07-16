@@ -21,7 +21,8 @@ int main(void)
 		//         - v (vector, i.e array)
 		//        |
 		// exec --     p (path, search in the env variable paths for the program)
-		//               e (environment, use different env variables for the process than passed ones)
+		//               e (environment, use different env variables for the process
+		//                  than passed ones)
 		//                 NULL (need to be NULL terminated)
 		//        |
 		//         - l (list)
