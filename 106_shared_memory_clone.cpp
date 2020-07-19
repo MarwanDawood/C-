@@ -1,9 +1,11 @@
 /*
- * 106_shared_memory.cpp
+ * 106_shared_memory_clone.cpp
  *
  *  Created on: Jul 8, 2020
  *      Author: marwan
  */
+
+// sharing memory between 2 cloned processes, 1 parent and children
 
 #include <unistd.h> // for fork()
 #include <iostream>
