@@ -13,14 +13,15 @@ struct mycomp {
 };
 int main(void)
 {
-	//std::less means it will start from smallest value (this is the default parameter)
+	//std::less means it will start from smallest value
+	// (this is the default parameter)
 	set<int, less<int>> st;
 	st.insert(100), st.insert(200), st.insert(40), st.insert(10), st.insert(100);
 	for (auto &itr:st)
 		cout<<itr<<" - "<<endl;
 
 	cout<<endl;
-	//std::greater means it will start from bigest value
+	//std::greater means it will start from biggest value
 	map<int, string, greater<int>> mp;
 	mp[10]="abc", mp[40]="def", mp[20]="xyz";
 	for (auto &itr:mp)

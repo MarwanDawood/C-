@@ -1,5 +1,5 @@
 #include <iostream>
-//contigeous memory allocation
+//contiguous memory allocation
 #include <vector>
 #include <algorithm> //to use sort()
 

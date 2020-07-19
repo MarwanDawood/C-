@@ -15,8 +15,8 @@ int main(void)
     //it can add data with insert() only
     map<int, int> mp;
     
-    //mp[2]=300;
-    //mp[1]=100;
+    mp[2]=300;
+    mp[1]=100;
     mp.insert(make_pair(5,400));
     map<int, int>::iterator it = mp.begin();
     
