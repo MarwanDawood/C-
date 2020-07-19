@@ -1,7 +1,7 @@
 /*
- * 112_read_sharedmem_process.cpp
+ * 112_destroy_sharedmem_process.cpp
  *
- * Application that reads from shared memory block
+ * Application that destroys the shared memory block
  *
  *  Created on: Jul 19, 2020
  *      Author: marwan
@@ -27,15 +27,15 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	// grab the shared memory block
-	if (NULL == (block = attach_memory_block(FILENAME, BLOCK_SIZE)))
-	{
-		cout << "ERROR: couldn't get memory block";
-		return -1;
-	}
 
-	cout << "reading: \"" << block << "\"\n";
-	detach_memory_block(block);
+	if (1 == destroy_memory_block(FILENAME))
+	{
+		cout << "destroying the block: " << FILENAME << endl;
+	}
+	else
+	{
+		cout << "ERROR: destroying the block: " << FILENAME << endl;
+	}
 
 	return 0;
 }

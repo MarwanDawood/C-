@@ -35,19 +35,9 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	/* this part is not working
-	if (1 == strncmp(argv[1],"D", 1))
-	{
-		cout << "destroying: " << argv[1] << endl;
-		destroy_memory_block(FILENAME);
-	}
-	else
-	*/
-	{
-		cout << "writing: " << argv[1] << endl;
-		strncpy(block, argv[1], BLOCK_SIZE);
-		detach_memory_block(block);
-	}
+	cout << "writing: " << argv[1] << endl;
+	strncpy(block, argv[1], BLOCK_SIZE);
+	detach_memory_block(block);
 
 	return 0;
 }
