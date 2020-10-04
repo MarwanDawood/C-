@@ -119,3 +119,17 @@ Definitions:
 * byte size: 8 bits, there were some conventions in the past for 7 bits
 * word size: general purpose register size
 * address size: the size of adress that can be allocated, they are stored normally in 64 bits but in the architectural specification only the low-order 48 bits are implemented
+
+**Process Control Block (PCB)** contains all information related to the process.
+
+**Queues:**
+There is a queue for each resource, and the scheduler decides from which queue it will pick up. Queues contain the PCB.
+
+**Scheduler:**
+***Short Term Scheduler:***
+Picks up a queued process from Ready state to the Running state.
+***Medium Term Scheduler:***
+In case that all the resources are occupied and a process need to be run, then OS uses a space in the secondary memory (called swap in Linux and pagefile.sys in Windows) to move some process and clean up the memory for the new process, moved process can be brought back to memory to continue execution afterwards.
+***Long Term Scheduler:***
+Picks up  a process which is not yet queued and add it to the Ready state queue. LTS shall mix between the selected processes so some are processor bounded and some are resources bounded.
+
