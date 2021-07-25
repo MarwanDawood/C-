@@ -5,10 +5,10 @@
 
 INC_DIR    = #"-I/usr/include/SFML/Audio"
 CC         = g++
-CCFLAGS    = -Wall -std=c++11 -O3
+CCFLAGS    = -Wall -std=c++11 -O3 -g
 LDFLAGS    =
 
-TARGET     = a
+TARGET     = a.out
 HFILES     =
 CFILES     = *.cpp
 SRCS       = $(HFILES) $(CFILES)

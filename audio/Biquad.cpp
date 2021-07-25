@@ -9,7 +9,7 @@
 // different conventions for the names of the coefficients and even their signs.  I'm using
 // the conventions from Julius O. Smith:
 //
-// 	http://ccrma-www.stanford.edu/~jos/filters/Direct_ForII.html
+//      http://ccrma-www.stanford.edu/~jos/filters/Direct_ForII.html
 //
 // x ---->o--------->o--- b0 -->o-----> y
 //        ^          |v         ^
@@ -28,21 +28,21 @@
 //
 // The difference equation can be written as
 //
-//		v(n) = x(n) - a1 v(n-1) - a2 v(n-2)
-//		y(n) = b0 v(n) + b1 v(n-1) - b2 v(n-2)
+//              v(n) = x(n) - a1 v(n-1) - a2 v(n-2)
+//              y(n) = b0 v(n) + b1 v(n-1) - b2 v(n-2)
 //
 // which can be interpreted as a two-pole filter followed by a two-zero filter.
 //
 // The z-transform works out to be:
 //
-//		V(z)/X(z) = 1/(1 + a1 z^-1 + a2 ^ z-2)
-//		Y(z)/V(z) = b0 + b1 z^-1 + b2 z^-2
+//              V(z)/X(z) = 1/(1 + a1 z^-1 + a2 ^ z-2)
+//              Y(z)/V(z) = b0 + b1 z^-1 + b2 z^-2
 //
 // and therefore:
 //
-//		Y(z)	(b0 + b1 z^-1 + b2 z^-2)
-//		---- =	------------------------
-//  	X(z)	(1 + a1 z^-1 + a2 ^ z-2)
+//              Y(z)    (b0 + b1 z^-1 + b2 z^-2)
+//              ---- =  ------------------------
+//      X(z)    (1 + a1 z^-1 + a2 ^ z-2)
 //
 // Since the numerator and denominator are both quadratics, this type of filter
 // is known as a biquad.
@@ -87,72 +87,76 @@
 #include "Biquad.h"
 
 // Low-pass filter
-void Biquad::initLPF(float f0, float q)
+void
+Biquad::initLPF (float f0, float q)
 {
-	float w0 = 2*M_PI*f0/m_sr;
-	float alpha = sin(w0)/(2*q);
-	float a0;
-	
-	m_b0 = (1 - cos(w0))/2;
-	m_b1 =  1 - cos(w0);
-	m_b2 = (1 - cos(w0))/2;
-	  a0 =  1 + alpha;
-	m_a1 = -2*cos(w0);
-	m_a2 =  1 - alpha;
-	normalize(a0);
+  float w0 = 2 * M_PI * f0 / m_sr;
+  float alpha = sin (w0) / (2 * q);
+  float a0;
+
+  m_b0 = (1 - cos (w0)) / 2;
+  m_b1 = 1 - cos (w0);
+  m_b2 = (1 - cos (w0)) / 2;
+  a0 = 1 + alpha;
+  m_a1 = -2 * cos (w0);
+  m_a2 = 1 - alpha;
+  normalize (a0);
 }
 
 
 // High-pass filter
-void Biquad::initHPF(float f0, float q)
+void
+Biquad::initHPF (float f0, float q)
 {
-	float w0 = 2*M_PI*f0/m_sr;
-	float alpha = sin(w0)/(2*q);
-	float a0;
-	
-	m_b0 =  (1 + cos(w0))/2;
-	m_b1 = -(1 + cos(w0));
-	m_b2 =  (1 + cos(w0))/2;
-	  a0 =   1 + alpha;
-	m_a1 =  -2*cos(w0);
-	m_a2 =   1 - alpha;
-	normalize(a0);
+  float w0 = 2 * M_PI * f0 / m_sr;
+  float alpha = sin (w0) / (2 * q);
+  float a0;
+
+  m_b0 = (1 + cos (w0)) / 2;
+  m_b1 = -(1 + cos (w0));
+  m_b2 = (1 + cos (w0)) / 2;
+  a0 = 1 + alpha;
+  m_a1 = -2 * cos (w0);
+  m_a2 = 1 - alpha;
+  normalize (a0);
 }
 
 
 // Band-pass filter. g is gain at peak. For unity gain in
 // 'skirt', make g = q.
-void Biquad::initBPF(float f0, float g, float q)
+void
+Biquad::initBPF (float f0, float g, float q)
 {
-	float w0 = 2*M_PI*f0/m_sr;
-	float alpha = sin(w0)/(2*q);
-	float a0;
-	
-	m_b0 =   g*alpha;
-	m_b1 =   0;
-	m_b2 =  -g*alpha;
-	  a0 =   1 + alpha;
-	m_a1 =  -2*cos(w0);
-	m_a2 =   1 - alpha;
-	normalize(a0);
+  float w0 = 2 * M_PI * f0 / m_sr;
+  float alpha = sin (w0) / (2 * q);
+  float a0;
+
+  m_b0 = g * alpha;
+  m_b1 = 0;
+  m_b2 = -g * alpha;
+  a0 = 1 + alpha;
+  m_a1 = -2 * cos (w0);
+  m_a2 = 1 - alpha;
+  normalize (a0);
 }
 
 
 // Notch filter.
-void Biquad::initNotch(float f0, float q)
+void
+Biquad::initNotch (float f0, float q)
 {
-	float w0 = 2*M_PI*f0/m_sr;
-	float alpha = sin(w0)/(2*q);
-	float a0;
-	
-	m_b0 =   1;
-	m_b1 =  -2*cos(w0);
-	m_b2 =   1;
-	  a0 =   1 + alpha;
-	m_a1 =  -2*cos(w0);
-	m_a2 =   1 - alpha;
-	
-	normalize(a0);
+  float w0 = 2 * M_PI * f0 / m_sr;
+  float alpha = sin (w0) / (2 * q);
+  float a0;
+
+  m_b0 = 1;
+  m_b1 = -2 * cos (w0);
+  m_b2 = 1;
+  a0 = 1 + alpha;
+  m_a1 = -2 * cos (w0);
+  m_a2 = 1 - alpha;
+
+  normalize (a0);
 }
 
 

@@ -1,12 +1,13 @@
 // Fig. 8.26: fig08_26.c
-// Using function strtok
+// Using function strtok (string token)
 #include <stdio.h>
 #include <string.h>
 int
 main (void)
 {
 // initialize array string
-  char string[] = "This is a sentence with 7 tokens";
+  char string[] = "th th th th th";
+  //char string[] = "This is a sentence with 7 tokens";
   char *tokenPtr;		// create char pointer
   printf ("%s\n%s\n\n%s\n",
 	  "The string to be tokenized is:", string, "The tokens are:");
