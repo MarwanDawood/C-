@@ -1,3 +1,5 @@
+### Overview
+
 * Run `sudo apt-get install libgtest-dev`
 * Link the libraries `gtest` and `pthread`
 * Clone the gtest repo and include it in the compiler paths
@@ -13,7 +15,7 @@
 ** Assert   to check expected against actual (use that order in test functions)
 
 ---
-###Basic Assertions###
+### Basic Assertions
 
 These assertions do basic true/false condition testing.
 | Fatal assertion          | Nonfatal assertion       | Verifies          |
@@ -21,7 +23,7 @@ These assertions do basic true/false condition testing.
 | ASSERT_TRUE(condition);  | EXPECT_TRUE(condition);  | condition is true |
 | ASSERT_FALSE(condition); | EXPECT_FALSE(condition); | condition         |
 
-###Binary Comparison###
+### Binary Comparison
 
 This section describes assertions that compare two values.
 | Fatal assertion       | Nonfatal assertion    | Verifies     |
@@ -33,7 +35,7 @@ This section describes assertions that compare two values.
 | ASSERT_GT(val1,val2); | EXPECT_GT(val1,val2); | val1 > val2  |
 | ASSERT_GE(val1,val2); | EXPECT_GE(val1,val2); | val1 >= val2 |
 
-###String Comparison###
+### String Comparison
 
 The assertions in this group compare two C strings. If you want to compare two string objects, use EXPECT_EQ, EXPECT_NE, and etc instead.
 | Fatal assertion              | Nonfatal assertion           | Verifies                                                |
