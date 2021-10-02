@@ -1,0 +1,24 @@
+[user]
+	name = Marwan Farrah
+	email = eng.marwan.dawood@gmail.com
+[alias]
+    push-for-review = push origin HEAD:refs/for/master
+    unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -20
+    lgbig = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    #ca = commit -a
+    #ci = commit
+    st = status
+    co = checkout
+    br = branch
+    sh = remote show origin
+    sh-delta = show --color --pretty=format:%b
+    sh-tag = name-rev --tags --name-only
+    repo = refs/for/master
+    # git log --follow -p <file> | grep -B 40 -A 20 <exp> #to show history
+    # gitdir=$(git rev-parse --git-dir); scp -p -P 29418 mfarrah@gerrit.nseu.info:hooks/commit-msg ${gitdir}/hooks/
+    
+    # git push origin 7e6b36b:repo
+    # git show REVISION:path/to/file
+[merge]
+	tool = KDiff3
