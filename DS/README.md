@@ -7,13 +7,16 @@ characteristics:
 3. the values in any right subtree are greater than the value in its parent node.
 
 ### in-order
+The root is printed in the middle.
 The inOrder traversal of a binary search tree prints the node values in _ascending order_.
 The process of creating a _binary search tree_ actually sorts the data and thus this process is called the _binary tree sort_.
 
 ### pre-order
+The root is printed first.
 The value in each node is processed as the node is visited.
 
 ### post-order
+The root is printed last.
 The value in each node is not printed until the values of its children are printed.
 
 ### level order traversal
