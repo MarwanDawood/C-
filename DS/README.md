@@ -6,21 +6,22 @@ characteristics:
 2. the values in any left subtree are less than the value in its parent node.
 3. the values in any right subtree are greater than the value in its parent node.
 
-### in-order
+### pre-order traversal
+The root is printed first.
+The value in each node is processed as the node is visited.
+Used to duplicate nodes and values, it can make a complete duplicate of a binary tree
+
+### in-order traversal
 The root is printed in the middle.
 The inOrder traversal of a binary search tree prints the node values in _ascending order_.
 The process of creating a _binary search tree_ actually sorts the data and thus this process is called the _binary tree sort_.
+It is very commonly used in binary search trees because it returns values from the underlying set in order.
 
-### pre-order
-The root is printed first.
-The value in each node is processed as the node is visited.
-
-### post-order
+### post-order traversal
 The root is printed last.
 The value in each node is not printed until the values of its children are printed.
+Used to delete or free nodes and values, it can delete or free an entire binary tree
 
-### level order traversal
-Visits the nodes of the tree row-by-row starting at the root node level. On each level of the tree, the nodes are visited from left to right.
 
 ---
 # UML
