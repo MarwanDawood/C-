@@ -1,0 +1,345 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Auto-rotate an image displayed on Sense HAT LED matrix</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-24"><meta name="DC.source" content="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample')">Open this Example</a></div><div class="content"><h1>Auto-rotate an image displayed on Sense HAT LED matrix</h1><!--introduction--><p>This example shows you how to develop a Simulink model to implement an algorithm to read the Accelerometer On-board Sense HAT and control the rotation of the image displayed on the LED matrix.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#3">Prerequisites</a></li><li><a href="#4">Required Hardware</a></li><li><a href="#5">Introduction to Auto-rotation algorithm</a></li><li><a href="#6">Auto-rotation algorithm</a></li><li><a href="#7">Task 1 - Implement the auto-rotation algorithm in Simulink</a></li><li><a href="#8">Task 2 - Add hardware specific blocks</a></li><li><a href="#9">Task 3 - Configure and Run the Auto-rotation Model in External Mode</a></li><li><a href="#10">Task 4 - (Optional) Configure and Run the Auto-rotation Model as a Standalone Application</a></li><li><a href="#11">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Raspberry Pi Sense HAT is an add-on board for Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick and includes the following sensors:</p><div><ul><li>Humidity sensor</li><li>Pressure sensor</li><li>IMU sensor (Accelerometer, Gyroscope, and Magnetometer)</li></ul></div><p>In this example, you will develop a Simulink model to auto-rotate an image displayed on LED matrix according to the orientation of Sense HAT. The Accelerometer data is used to determine the orientation of Sense HAT.</p><h2 id="3">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi Hardware</a> example.</li></ul></div><h2 id="4">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>Raspberry Pi Sense HAT</li></ul></div><img vspace="5" hspace="5" src="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample_01.png" alt=""> <h2 id="5">Introduction to Auto-rotation algorithm</h2><p>Auto-rotation of the Image refers to the technique used widely in most of the modern smart phones and tablets to rotate the display of the device according to the position in which the device is held. These devices use the on-board Accelerometer to determine the position. By reading the Accelerometer data, we identify the principal axis along which force of gravity is acting.</p><p>In this example, we will read Accelerometer available on Sense HAT. Depending on the value of acceleration, we can determine the principal axis along which force of gravity is acting. This information will then be used to set the orientation for the image displayed on the LED matrix of Sense HAT.</p><h2 id="6">Auto-rotation algorithm</h2><p>In this section, we will discuss about the auto-rotation algorithm.</p><p>When Raspberry Pi is held vertical (this refers to the position in which the HDMI port of the Raspberry Pi is pointing downwards), the force of gravity acts only on either X or Y axis of the accelerometer.</p><p>Depending on the axis along which the force of gravity is acting, we can decide on the orientation for displaying the image.</p><div><ul><li>If the board is rotated to point upwards, then force of gravity acts along negative y axis.</li></ul></div><p><img vspace="5" hspace="5" src="../raspberrypi_sensehat_rot0.png" alt=""> </p><div><ul><li>If the board is rotated to point downwards, then force of gravity acts along positive y axis.</li></ul></div><p><img vspace="5" hspace="5" src="../raspberrypi_sensehat_rot180.png" alt=""> </p><div><ul><li>If the board is rotated to left, then force of gravity acts along positive X axis.</li></ul></div><p><img vspace="5" hspace="5" src="../raspberrypi_sensehat_rot90.png" alt=""> </p><div><ul><li>If the board is rotated to right, then force of gravity acts along negative X axis.</li></ul></div><p><img vspace="5" hspace="5" src="../raspberrypi_sensehat_rot270.png" alt=""> </p><p>We will heuristically detect orientation of the Sense HAT board by comparing the acceleration value along X and Y axis to a threshold of 0.75g. If the acceleration along one of these axis exceed 0.75g, we will deem that the board is roughly oriented along that axis.</p><p>As in conventional design for auto-rotation algorithm, we will not consider the acceleration along the Z axis to decide on the value of orientation.</p><p>After determining the principal axis, we can now map the value of orientation to each of the positions.</p><div><ul><li>If the board is rotated to point upwards, then force of gravity acts along negative y axis. In this case Orientation = 0.</li></ul></div><div><ul><li>If the board is rotated to point downwards, then force of gravity acts along positive y axis. In this case Orientation = 180.</li></ul></div><div><ul><li>If the board is rotated to left, then force of gravity acts along positive X axis. In this case Orientation = 90.</li></ul></div><div><ul><li>If the board is rotated to right, then force of gravity acts along negative X axis. In this case Orientation = 270.</li></ul></div><h2 id="7">Task 1 - Implement the auto-rotation algorithm in Simulink</h2><p>In this section, we shall implement the auto-rotation algorithm in Simulink using a Stateflow chart.</p><p><b>1,</b> Create a new <a href="matlab:simulink">Simulink</a> model.</p><p><b>2.</b> From the <a href="matlab:slLibraryBrowser">Simulink library browser</a>, add a Stateflow chart to your model. This can be found under the Stateflow library.</p><p><b>3.</b> In the Stateflow chart, create four states corresponding to four positions of Sense HAT.</p><p><b>4.</b> Draw transitions lines between these four states. Each transition corresponds to different value of the acceleration along the X and Y axis.</p><p><b>5.</b> In each state, assign the value of orientation to the output. The value of orientation to be assigned is described in the 'Auto-rotation algorithm' section above.</p><p><b>6.</b> Add the 'default transition' to the state where the orientation for the image is 0.</p><p>The complete algorithm realized using Stateflow chart would look similar to the implementation shown below:</p><p><img vspace="5" hspace="5" src="../raspberrypi_autorotate_staeflow.png" alt=""> </p><h2 id="8">Task 2 - Add hardware specific blocks</h2><p>In this section, we will add Raspberry Pi Sense HAT specific blocks to the Simulink model we have developed in Task 1.</p><p><b>1.</b> In the Simulink library browser, navigate to the <a href="matlab:raspberrypilib">Simulink support package for Raspberry Pi</a> library. Under this, double click on the Sense HAT group. This will open the <a href="matlab:sensehatlib">Simulink Sense HAT library</a>.</p><p><b>2.</b> Add the IMU sensor block from the Sense HAT library into your Simulink model. Configure this block to read acceleration by setting the 'Active sensor' parameter to 'Accelerometer'. Connect the output of this block to the input of Stateflow chart.</p><p><b>3.</b> Add the LED matrix block from the Sense HAT library into your model. In order to configure it to display an image, set the 'Mode' parameter to 'Display Image' and set the 'Orientation Source' as 'Input port'.</p><p><b>4.</b> The LED matrix block displays an 8x8x3 RGB image. Add a constant block to the model and set its value as 'imread('senseHAT_demo.png')'. <a href="matlab:imshow(imread('senseHAT_demo.png'))">senseHAT_demo.png</a> is a sample image shipped as part of this example.</p><p><b>5.</b> The orientation for the image to be displayed is determined by the Stateflow chart. Connect the output of the Stateflow chart to the 'Orientation' port of LED matrix block.</p><h2 id="9">Task 3 - Configure and Run the Auto-rotation Model in External Mode</h2><p>When you run the auto-rotation model in External mode, the image displayed on the LED matrix will be oriented according to the position in which the Sense HAT is held.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_sensehat_autorotate">Auto-rotate image on LED matrix</a> model.</p><p><b>2.</b> Select <b>Tools &gt; Run on Target Hardware &gt; Options...</b>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><b>3.</b> In the model, change the <b>Simulation mode</b> on the toolbar to <b>External</b>.</p><p><b>4.</b> In the model, click the <b>Run</b> button on the toolbar to run the model on Raspberry Pi hardware.</p><p><b>5.</b> Observe the image auto-rotate when you change the position in which the Sense HAT is held.</p><p><b>6.</b> While the model is running, double click on the Stateflow chart and observe the state transitions when you rotate the Sense HAT. The current state is highlighted with a blue boundary.</p><p><b>7.</b> Press the <b>Stop</b> button on the model to stop model execution.</p><h2 id="10">Task 4 - (Optional) Configure and Run the Auto-rotation Model as a Standalone Application</h2><p><b>1.</b> Open the <a href="matlab:raspberrypi_sensehat_autorotate">Auto-rotation image on LED matrix</a> model.</p><p><b>2.</b> Select <b>Tools &gt; Run on Target Hardware &gt; Options...</b>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><b>3.</b> In the model, click the <b>Deploy To Hardware</b> button on the toolbar to run the model on the Raspberry Pi hardware.</p><p><b>4.</b> Stop the model running on the Raspberry Pi hardware by executing the following on the MATLAB&reg; command line</p><pre>stopModel(r,'raspberrypi_sensehat_autorotate');</pre><h2 id="11">Summary</h2><p>This example showed a Simulink model implementing an auto-rotation algorithm.</p><p>IMU sensor and the LED Matrix block from the Raspberry Pi Sense HAT library were used to Implement this algorithm.</p><p>The example showed how the model may be run in External mode and alternatively, how it can also be deployed as a standalone application on Raspberry Pi hardware.</p><p class="footer">Copyright 2016 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Auto-rotate an image displayed on Sense HAT LED matrix
+%
+% This example shows you how to develop a Simulink model to implement an algorithm 
+% to read the Accelerometer On-board Sense HAT and control the rotation 
+% of the image displayed on the LED matrix.
+ 
+% Copyright 2016 The MathWorks, Inc.
+ 
+%% Introduction
+%
+% The Raspberry Pi Sense HAT is an add-on board for
+% Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick
+% and includes the following sensors:
+%%
+% * Humidity sensor
+% * Pressure sensor
+% * IMU sensor (Accelerometer, Gyroscope, and Magnetometer)
+% 
+% In this example, you will develop a Simulink model to auto-rotate an image displayed on 
+% LED matrix according to the orientation of Sense HAT. The Accelerometer
+% data is used to determine the orientation of Sense HAT.
+% 
+ 
+ 
+%% Prerequisites
+%
+% * We recommend completing <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting
+% Started with Raspberry Pi Hardware> example.
+ 
+ 
+ 
+%% Required Hardware
+%
+% To run this example you will need the following hardware:
+%
+% * Raspberry Pi hardware
+% * Raspberry Pi Sense HAT
+
+open_system('raspberrypi_sensehat_autorotate');
+ 
+%% Introduction to Auto-rotation algorithm
+%
+% Auto-rotation of the Image refers to the technique used widely in most of 
+% the modern smart phones and tablets to rotate the display of the device 
+% according to the position in which the device is held.
+% These devices use the on-board Accelerometer to determine the position. By reading the Accelerometer data, we identify the
+% principal axis along which force of gravity is acting.
+% 
+% In this example, we will read Accelerometer available on Sense HAT. 
+% Depending on the value of acceleration, we can determine
+% the principal axis along which force of gravity is acting. 
+% This information will then be used to set the orientation for the image
+% displayed on the LED matrix of Sense HAT.
+%
+%% Auto-rotation algorithm
+% 
+% In this section, we will discuss about the auto-rotation algorithm.
+% 
+% When Raspberry Pi is held vertical (this refers to the position in which
+% the HDMI port of the Raspberry Pi is pointing downwards), the
+% force of gravity acts only on either X or Y axis of the accelerometer.
+%
+% Depending on the axis along which the force of gravity is acting, we can
+% decide on the orientation for displaying the image.
+% 
+% * If the board is rotated to point upwards, then force of gravity acts
+% along negative y axis.
+% 
+% <<../raspberrypi_sensehat_rot0.png>>
+% 
+% * If the board is rotated to point downwards, then force of gravity acts
+% along positive y axis.
+% 
+% <<../raspberrypi_sensehat_rot180.png>>
+% 
+% * If the board is rotated to left, then force of gravity acts
+% along positive X axis.
+% 
+% <<../raspberrypi_sensehat_rot90.png>>
+% 
+% * If the board is rotated to right, then force of gravity acts
+% along negative X axis.
+% 
+% <<../raspberrypi_sensehat_rot270.png>>
+%
+% We will heuristically detect orientation of the Sense HAT board by 
+% comparing the acceleration value along X and Y axis to a threshold 
+% of 0.75g. If the acceleration along one of these axis exceed 0.75g, we
+% will deem that the board is roughly oriented along that axis.
+%
+% As in conventional design for auto-rotation algorithm, we will not consider
+% the acceleration along the Z axis to decide on the value of orientation.
+%  
+% After determining the principal axis, we can now map
+% the value of orientation to each of the positions.
+% 
+% * If the board is rotated to point upwards, then force of gravity acts
+% along negative y axis. In this case Orientation = 0.
+%
+% * If the board is rotated to point downwards, then force of gravity acts
+% along positive y axis. In this case Orientation = 180.
+%
+% * If the board is rotated to left, then force of gravity acts
+% along positive X axis. In this case Orientation = 90.
+%
+% * If the board is rotated to right, then force of gravity acts
+% along negative X axis. In this case Orientation = 270.
+%
+%% Task 1 - Implement the auto-rotation algorithm in Simulink
+% 
+% In this section, we shall implement the auto-rotation algorithm in Simulink
+% using a Stateflow chart.
+% 
+% *1,* Create a new <matlab:simulink Simulink> model.
+% 
+% *2.* From the <matlab:slLibraryBrowser Simulink library browser>, add a Stateflow chart to your model. This can
+% be found under the Stateflow library.
+% 
+% *3.* In the Stateflow chart, create four states corresponding to four
+% positions of Sense HAT.
+% 
+% *4.* Draw transitions lines between these four states. Each transition corresponds to 
+% different value of the acceleration along the X and Y axis. 
+% 
+% *5.* In each state, assign the value of orientation to the output. The
+% value of orientation to be assigned is described in the
+% 'Auto-rotation algorithm' section above.
+% 
+% *6.* Add the 'default transition' to the state where the orientation for the image is 0.
+% 
+% The complete algorithm realized using Stateflow chart would look similar to the
+% implementation shown below:
+% 
+% <<../raspberrypi_autorotate_staeflow.png>>
+% 
+ 
+%% Task 2 - Add hardware specific blocks
+%
+% In this section, we will add Raspberry Pi Sense HAT specific blocks to
+% the Simulink model we have developed in Task 1.
+% 
+% *1.* In the Simulink library browser, navigate to the
+% <matlab:raspberrypilib Simulink support package for Raspberry Pi>
+% library. Under this, double click on the Sense HAT group. This will open
+% the <matlab:sensehatlib Simulink Sense HAT library>.
+% 
+% *2.* Add the IMU sensor block from the Sense HAT library into your
+% Simulink model. Configure this block to read acceleration by setting the
+% 'Active sensor' parameter to 'Accelerometer'. Connect the output
+% of this block to the input of Stateflow chart.
+% 
+% *3.* Add the LED matrix block from the Sense HAT library into your model.
+% In order to configure it to display an image, set the 'Mode' parameter to 'Display Image'
+% and set the 'Orientation Source' as 'Input port'.
+% 
+% *4.* The LED matrix block displays an 8x8x3 RGB image. Add a constant
+% block to the model and set its value as 'imread('senseHAT_demo.png')'.
+% <matlab:imshow(imread('senseHAT_demo.png')) senseHAT_demo.png> is a
+% sample image shipped as part of this example.
+% 
+% *5.* The orientation for the image to be displayed is determined by the Stateflow chart.
+% Connect the output of the Stateflow chart to the 'Orientation' port of LED
+% matrix block.
+% 
+ 
+%% Task 3 - Configure and Run the Auto-rotation Model in External Mode
+%
+% When you run the auto-rotation model in External mode, the image
+% displayed on the LED matrix will be oriented according to the position in
+% which the Sense HAT is held.
+%
+% *1.* Open the <matlab:raspberrypi_sensehat_autorotate Auto-rotate image on LED matrix> model.
+%
+% *2.* Select *Tools > Run on Target Hardware > Options...*. Review the
+% parameters on the page that opens and make sure that the connection
+% parameters for your Raspberry Pi board are correct.
+% 
+% *3.* In the model, change the *Simulation mode* on the toolbar to
+% *External*.
+%
+% *4.* In the model, click the *Run* button on the toolbar to run the model
+% on Raspberry Pi hardware.
+%
+% *5.* Observe the image auto-rotate when you change the position in which
+% the Sense HAT is held.
+%
+% *6.* While the model is running, double click on the Stateflow chart
+% and observe the state transitions when you rotate the Sense HAT. The
+% current state is highlighted with a blue boundary.
+%
+% *7.* Press the *Stop* button on the model to stop model execution.
+ 
+%% Task 4 - (Optional) Configure and Run the Auto-rotation Model as a Standalone Application
+% 
+% *1.* Open the <matlab:raspberrypi_sensehat_autorotate Auto-rotation image on LED matrix> model.
+%
+% *2.* Select *Tools > Run on Target Hardware > Options...*. Review the
+% parameters on the page that opens and make sure that the connection
+% parameters for your Raspberry Pi board are correct.
+%
+% *3.* In the model, click the *Deploy To Hardware* button on the toolbar
+% to run the model on the Raspberry Pi hardware.
+%
+% *4.* Stop the model running on the Raspberry Pi hardware by executing the
+% following on the MATLAB(R) command line
+% 
+%  stopModel(r,'raspberrypi_sensehat_autorotate');
+ 
+%% Summary
+%
+% This example showed a Simulink model implementing an auto-rotation
+% algorithm.
+% 
+% IMU sensor and the LED Matrix block from the Raspberry Pi Sense HAT library were used to Implement this algorithm.
+% 
+% The example showed how the model may be run in External mode and alternatively, how it can also be deployed as a
+% standalone application on Raspberry Pi hardware.
+ 
+close_system('raspberrypi_sensehat_autorotate', 0); 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+##### SOURCE END #####
+--></body></html>

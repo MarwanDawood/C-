@@ -1,0 +1,3 @@
+% MATLAB path entries for hardwaresupportpkgs/targets/raspi
+toolbox/realtime/targets/raspi
+toolbox/realtime/targets/raspi/registry

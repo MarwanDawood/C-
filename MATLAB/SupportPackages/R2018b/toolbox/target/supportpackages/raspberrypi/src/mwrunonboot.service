@@ -1,0 +1,12 @@
+[Unit]
+Description=Simulink Run on boot
+After=multi-user.target
+
+[Service]
+Type=idle
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/MW_runSimulinkModel
+
+[Install]
+WantedBy=multi-user.target
+

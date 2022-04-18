@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Analog Input Using SPI</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Analog Input Using SPI",
+          "description": "This example shows you how to use the SPI peripheral on Raspberry Pi&#174; hardware to connect to an MCP3008 10-bit 8-channel ADC.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxmcp3008_circuit.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.AnalogInputUsingSPIExample",
+          "name": "AnalogInputUsingSPIExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/AnalogInputUsingSPIExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "mcp3008.png",
+        "mcp3008_circuit.png",
+        "spi_diagram.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to use the SPI peripheral on Raspberry Pi&#174; hardware to connect to an MCP3008 10-bit 8-channel ADC."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxmcp3008_circuit.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Analog Input Using SPI</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e480" class="intrnllnk">Introduction</a></li><li><a href="#d120e486" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e496" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e518" class="intrnllnk">Overview of SPI</a></li><li><a href="#d120e546" class="intrnllnk">View available SPI channels</a></li><li><a href="#d120e556" class="intrnllnk">Overview of MCP3008</a></li><li><a href="#d120e602" class="intrnllnk">Connect MCP3008</a></li><li><a href="#d120e616" class="intrnllnk">Measure Voltage at CH0</a></li><li><a href="#d120e622" class="intrnllnk">Read Voltage</a></li><li><a href="#d120e635" class="intrnllnk">Advanced: Create a MATLAB class for MCP3008</a></li><li><a href="#d120e645" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_analog_input_using_spi">Analog Input Using SPI</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/AnalogInputUsingSPIExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex33221361"></meta><meta itemprop="exampletitle" content="Analog Input Using SPI"></meta></div><span id="AnalogInputUsingSPIExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to use the SPI peripheral on Raspberry Pi&#174; hardware to connect to an MCP3008 10-bit 8-channel ADC.</p>
+
+<div class="procedure"><h3 class="title" id="d120e480">Introduction<span id="AnalogInputUsingSPIExample-1" class="anchor_target"></span></h3><p>A wide variety of sensors output analog voltage levels in response to environmental stimulus. Examples of analog sensors are TMP36 temperature sensor, and photo resistors. Raspberry Pi hardware does not have any built-in analog input ports. Too use analog sensors, you need an external ADC. In this example, you interface an ADC chip to Raspberry Pi hardware using the SPI peripheral.</p><h3 class="title" id="d120e486">Prerequisites<span id="AnalogInputUsingSPIExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>It is helpful if you complete the <a href="../ref/getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e496">Required Hardware<span id="AnalogInputUsingSPIExample-3" class="anchor_target"></span></h3><p>To run this example you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>Breadboard and jumper cables</p></li><li><p>MCP3008 ADC</p></li><li><p>10 kOhm Potentiometer</p></li></ul></div><h3 class="title" id="d120e518">Overview of SPI<span id="AnalogInputUsingSPIExample-4" class="anchor_target"></span></h3><p>The Serial Peripheral Interface (SPI) is a synchronous serial data link that you use to interface one or more slave peripheral devices to a single master SPI device. SPI uses three signal lines common to all slave peripherals:</p><div class="itemizedlist"><ul><li><p>Master in slave out (MISO). Data is moved from slave to master on this wire.</p></li><li><p>Master out slave in (MOSI). Data is moved from master to slave on this wire.</p></li><li><p>Serial clock (SCLK). The master SPI device generates this clock.</p></li></ul></div><p>Each slave peripheral is wired to an individual chip-select or slave-transmit enable line. During SPI communication, the master selects only one slave device at a time. Any other slave on the bus that has not been activated using its chip-select line must disregard the input clock and MOSI signals. It also must not drive the MISO line.</p><p></p>
+<div class="informalfigure"><div id="d120e538" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxspi_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>SPI communications are full duplex. When the master sends a bit on the MOSI line, the slave reads the bit and at the same time sends a bit on the MISO line that is in turn read by the master. Therefore, to read from a slave device, you must write to it.</p><p>There are four different SPI modes you can use. Each mode defines a particular clock phase (CPHA) and polarity (CPOL) with respect to the data. Mode 0 (CPOL = 0, CPHA = 0) is the most common use case. The Raspberry Pi hardware has two SPI channels on the board: 0 and 1. It can support up to two SPI slave devices. Each SPI channel has a corresponding bus speed that can range from 500 KHz to 32 MHz. The number of data bits that are exchanged in each SPI transaction can vary between 8 to 16 bits with 8-bits being the most common.</p><h3 class="title" id="d120e546">View available SPI channels<span id="AnalogInputUsingSPIExample-5" class="anchor_target"></span></h3><p>Create a raspi object and inspect the AvailableSPIChannels property of the raspi object.</p><div class="code_responsive"><pre id="d120e552" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+rpi.AvailableSPIChannels
+</pre></div><p>If the SPI peripheral is not enabled, you will see an empty cell array. To enable the SPI peripheral use the raspi-config utility that comes with the Raspbian Linux image. AvailableSPIChannels property of the rpi object should yield 'CE0' and 'CE1' SPI channels listed as available.</p><h3 class="title" id="d120e556">Overview of MCP3008<span id="AnalogInputUsingSPIExample-6" class="anchor_target"></span></h3><p>MCP3008 is a 10-bit, 8-channel analog to digital converter (ADC) with an SPI interface.</p><p></p>
+<div class="informalfigure"><div id="d120e564" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxmcp3008.png" alt=""></img></p></div></div><p>
+ </p><p>As seen in this diagram, pins 1 through 8 are analog input channels. Pin 16 is the digital supply voltage and pin 9 is the digital ground. <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypiio/win64/AnalogInputUsingSPIExample_eq12486582605858171939.png" alt=""></img></span></span> and <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypiio/win64/AnalogInputUsingSPIExample_eq13868714663586801001.png" alt=""></img></span></span> are the pins used for reference voltage level for analog measurements. The digital 10-bit voltage measurement value is scaled so that a value of 0 corresponds to <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypiio/win64/AnalogInputUsingSPIExample_eq13868714663586801001.png" alt=""></img></span></span> and a value of 1023 (2^10 - 1) corresponding to <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypiio/win64/AnalogInputUsingSPIExample_eq09814434291624979474.png" alt=""></img></span></span>. Pins 10 through 13 are connections for SPI interface.</p><h3 class="title" id="d120e602">Connect MCP3008<span id="AnalogInputUsingSPIExample-7" class="anchor_target"></span></h3><p>Connect MCP3008 to the Raspberry Pi hardware as seen in the following circuit diagram. To simulate a variable voltage applied to CH0, use a 10 kOhm potentiometer connected to CH0.</p><p></p>
+<div class="informalfigure"><div id="d120e610" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxmcp3008_circuit.png" alt=""></img></p></div></div><p>
+ </p><p>In this example, the potentiometer (POT) is a three-terminal device with terminals 1 and 3 comprising the end points of a resistor embedded in the POT. The second terminal is connected to a variable wiper. As the wiper moves, the resistance across terminals 1 and 2 and terminals 2 and 3 changes. In this circuit, POT acts as a variable voltage divider. As you move the knob of the potentiometer, the voltage seen at terminal 2 changes between 3.3 Volts and 0 volts.</p><h3 class="title" id="d120e616">Measure Voltage at CH0<span id="AnalogInputUsingSPIExample-8" class="anchor_target"></span></h3><p>MCP3008 uses the SPI interface to communicate with the SPI master which in this case is Raspberry Pi hardware. An SPI transaction between MCP3008 and Raspberry Pi consist of 3 bytes. Raspberry Pi hardware sends a byte containing a value of '1' to MCP3008. At the same time, MCP3008 sends a do not care byte to Raspberry Pi hardware. Raspberry Pi hardware sends another byte to the MCP3008 with the most significant 4 bits containing a value of '1000'. This byte indicates to the MCP3008 that a single-ended voltage measurement at CH0 is requested. At the same time, MCP3008 sends the bits 9 and 10 of the ADC measurement. Finally, Raspberry Pi hardware sends a do not care byte and at the same time reads the least significant 8 bits of the voltage measurement. The 10-bit value read from MCP3008 is then converted to a voltage value.</p><h3 class="title" id="d120e622">Read Voltage<span id="AnalogInputUsingSPIExample-9" class="anchor_target"></span></h3><p>To read the voltage value from MCP3008, first create an spidev object connected to SPI channel 'CE0'. Perform the SPI transaction as previously described.</p><div class="code_responsive"><pre id="d120e628" class="programlisting">clear <span style="color:#A020F0">mcp3008</span>
+mcp3008 = spidev(rpi, <span style="color:#A020F0">'CE0'</span>);
+data = uint16(writeRead(mcp3008,[1, bin2dec(<span style="color:#A020F0">'10000000'</span>), 0]));
+highbits = bitand(data(2), bin2dec(<span style="color:#A020F0">'11'</span>));
+voltage = double(bitor(bitshift(highbits, 8), data(3)));
+voltage = (3.3/1024) * voltage;
+</pre></div><p>The variable <strong class="emphasis bold">voltage</strong> holds the voltage value read from the CH0 pin of the MCP3008. You can substitute various analog sensors, such as a TMP36 temperature sensor, in place of the POT in this circuit.</p><h3 class="title" id="d120e635">Advanced: Create a MATLAB class for MCP3008<span id="AnalogInputUsingSPIExample-10" class="anchor_target"></span></h3><p>You can create a MATLAB class for MCP3008 that makes it easy to use this device from MATLAB command-line interface. You can condense the steps in this example using this MATLAB class.</p><div class="code_responsive"><pre id="d120e641" class="programlisting">clear <span style="color:#A020F0">mcp3008</span>
+mcp3008 = raspi.internal.mcp3008(rpi, <span style="color:#A020F0">'CE0'</span>);
+<span style="color:#0000FF">for</span> i = 1:20
+    voltage = readVoltage(mcp3008, 0);
+    fprintf(<span style="color:#A020F0">'Voltage = %0.2f\n'</span>, voltage);
+    pause(0.2);
+<span style="color:#0000FF">end</span>
+</pre></div><p>Experiment with the POT knob while executing the preceding loop. You see that the voltage value printed on the MATLAB prompt changes.</p><h3 class="title" id="d120e645">Summary<span id="AnalogInputUsingSPIExample-11" class="anchor_target"></span></h3><p>This example introduced the workflow for working with the SPI interface. You learned how to use MCP3008 ADC to read analog input voltages.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:04 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

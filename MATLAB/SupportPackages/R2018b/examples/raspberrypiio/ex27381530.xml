@@ -1,0 +1,10 @@
+<example>
+  <main>ControllingA4Digit7SegmentDisplayUsingI2CExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524833506" component="raspberrypiio">i2c_diagram.png</file>
+  <file timestamp="1524833506" component="raspberrypiio">segment_display.png</file>
+  <file component="raspberrypiio" timestamp="1524826966">segment_display_circuit.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

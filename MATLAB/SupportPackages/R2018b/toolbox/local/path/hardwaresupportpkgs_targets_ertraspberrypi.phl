@@ -1,0 +1,4 @@
+% MATLAB path entries for hardwaresupportpkgs/targets/ertraspberrypi
+toolbox/target/supportpackages/raspberrypi
+toolbox/target/supportpackages/raspberrypi/blocks
+toolbox/target/supportpackages/raspberrypi/registry

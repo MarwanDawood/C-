@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rsccat version="1.0" locale="en_US" product="shared_linuxservices">
+  <message>    
+    <entry key="socketCreationFailed">Error creating a nanomsg socket.</entry>
+    <entry key="sendFailed">Error sending data to the remote server.</entry>
+    <entry key="receiveFailed">Error receiving..... data from the remote server.</entry>
+    <entry key="connectFailed">Cannot create a communication link with the remote server. Please check the input arguments(ADDRESS and PORT) and make sure the server is running.</entry>
+    <entry key="closeFailed">Error while closing the connection with server.</entry>
+    <entry key="receiveTimeout">Timeout while receiving data from remote server</entry>
+    <entry key="receiveError">Error while receiving data from remote server</entry>
+   </message>
+</rsccat>
+

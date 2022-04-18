@@ -1,0 +1,305 @@
+
+        [
+        
+    {
+    "title": "Getting Started with Simulink Support Package for Raspberry Pi Hardware",
+    "description": "This example shows you how to use Simulink® Support Package for Raspberry Pi™ Hardware to run a Simulink models on Raspberry Pi hardware.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_build_model.png",
+    "url": "ref/getting-started-with-raspberry-pi-hardware.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/GettingStartedWithSimulinkRaspberryPiHardwareExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.GettingStartedWithSimulinkRaspberryPiHardwareExample",
+    "example_name": "GettingStartedWithSimulinkRaspberryPiHardwareExample",
+    "example_order": "1"                 
+    }
+    ,
+    {
+    "title": "Communicating with Raspberry Pi® Hardware",
+    "description": "This example shows how to tune the parameters and monitor the signals of an algorithm running on Raspberry Pi board.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/ExternalModeWithRaspberryPiRHardwareExample_01.png",
+    "url": "ref/communicating-with-raspberry-pi-hardware.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/ExternalModeWithRaspberryPiRHardwareExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.ExternalModeWithRaspberryPiRHardwareExample",
+    "example_name": "ExternalModeWithRaspberryPiRHardwareExample",
+    "example_order": "2"                 
+    }
+    ,
+    {
+    "title": "Running Linux® Shell Commands",
+    "description": "This example shows you how to run Linux shell commands on your Raspberry Pi® hardware.",
+    "thumbnail_url": "includes/product/images/doc_center/DefaultImage.png",
+    "url": "ref/running-linux-r-shell-commands.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypi/RunningLinuxRShellCommandsExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.RunningLinuxRShellCommandsExample",
+    "example_name": "RunningLinuxRShellCommandsExample",
+    "example_order": "3"                 
+    }
+    ,
+    {
+    "title": "Getting Started with Robot Operating System (ROS) on Raspberry Pi®",
+    "description": "This example shows you how to generate and build a standalone ROS node from a Simulink model on the Raspberry Pi hardware.",
+    "thumbnail_url": "../../examples/raspberrypi_product/win64/rosberrypi_ros_master.png",
+    "url": "ref/getting-started-with-robot-operating-system-ros-on-raspberry-pi-r.html",
+    "type": "Script",
+    "open_command": "",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi_product.raspberrypi_gettingstarted_with_ros",
+    "example_name": "raspberrypi_gettingstarted_with_ros",
+    "example_order": "4"                 
+    }
+    ,
+    {
+    "title": "Communicating with an EEPROM",
+    "description": "This example shows how to use Simulink® Support Package for Raspberry Pi Hardware to read from and write to an SPI EEPROM.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg",
+    "url": "ref/communicating-with-an-eeprom.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/CommunicatingWithAnEEPROMExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.CommunicatingWithAnEEPROMExample",
+    "example_name": "CommunicatingWithAnEEPROMExample",
+    "example_order": "5"                 
+    }
+    ,
+    {
+    "title": "Read temperature from a TMP102 sensor",
+    "description": "This example illustrates how to use Simulink® Support Package for Raspberry Pi™ Hardware to configure and read temperature from a TMP102 sensor.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg",
+    "url": "ref/read-temperature-from-a-tmp102-sensor.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/ReadTemperatureFromATMP102SensorExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.ReadTemperatureFromATMP102SensorExample",
+    "example_name": "ReadTemperatureFromATMP102SensorExample",
+    "example_order": "6"                 
+    }
+    ,
+    {
+    "title": "MAT-file logging on Raspberry Pi™ Hardware",
+    "description": "This example shows you how to log signals from a Simulink® model on Raspberry Pi™ hardware in the MAT-file format.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/MATfileLoggingOnRaspberryPiTMHardwareExample_01.png",
+    "url": "ref/mat-file-logging-on-raspberry-pi-hardware.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/MATfileLoggingOnRaspberryPiTMHardwareExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.MATfileLoggingOnRaspberryPiTMHardwareExample",
+    "example_name": "MATfileLoggingOnRaspberryPiTMHardwareExample",
+    "example_order": "7"                 
+    }
+    ,
+    {
+    "title": "Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks",
+    "description": "This example shows you how to publish and subscribe to messages from a ThingSpeak broker using MQTT blocks provided by the Simulink® Support Package for Raspberry Pi™ Hardware.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/mqtt_communication.png",
+    "url": "examples/publish-and-subscribe-to-messages-using-mqtt-blocks.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/PublishAndSubscribeToMessagesUsingMQTTBlocksExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypi.PublishAndSubscribeToMessagesUsingMQTTBlocksExample",
+    "example_name": "PublishAndSubscribeToMessagesUsingMQTTBlocksExample",
+    "example_order": "8"                 
+    }
+    ,
+    {
+    "title": "LED Control from Android™ Device",
+    "description": "This example shows you how to control Raspberry Pi® LED from an Android device.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/LEDControlFromAndroidTMDeviceExample_01.png",
+    "url": "ref/led-control-from-android-r-device.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/LEDControlFromAndroidTMDeviceExample')",
+    "examplecat_id": "d0e125", 
+    "examplecat_title": "Communicating with Smartphones and Tablets",
+    "examplecat_order": "2",
+    "example_id": "raspberrypi.LEDControlFromAndroidTMDeviceExample",
+    "example_name": "LEDControlFromAndroidTMDeviceExample",
+    "example_order": "1"                 
+    }
+    ,
+    {
+    "title": "LED Control from Apple iOS Device",
+    "description": "This example shows you how to control Raspberry Pi® LED from iPhone or iPad.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/LEDControlFromAppleIOSDeviceExample_01.png",
+    "url": "ref/led-control-from-apple-r-ios-r-device.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/LEDControlFromAppleIOSDeviceExample')",
+    "examplecat_id": "d0e125", 
+    "examplecat_title": "Communicating with Smartphones and Tablets",
+    "examplecat_order": "2",
+    "example_id": "raspberrypi.LEDControlFromAppleIOSDeviceExample",
+    "example_name": "LEDControlFromAppleIOSDeviceExample",
+    "example_order": "2"                 
+    }
+    ,
+    {
+    "title": "Surveillance Camera with Android™ Device",
+    "description": "This example shows how to use Raspberry Pi® hardware and an Android device to build a surveillance camera.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_mobile_camera.png",
+    "url": "ref/surveillance-camera-with-android-r-device.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/SurveillanceCameraWithAndroidTMDeviceExample')",
+    "examplecat_id": "d0e125", 
+    "examplecat_title": "Communicating with Smartphones and Tablets",
+    "examplecat_order": "2",
+    "example_id": "raspberrypi.SurveillanceCameraWithAndroidTMDeviceExample",
+    "example_name": "SurveillanceCameraWithAndroidTMDeviceExample",
+    "example_order": "3"                 
+    }
+    ,
+    {
+    "title": "Surveillance Camera with Apple iOS Device",
+    "description": "This example shows how to use Raspberry Pi® hardware and an Apple iOS device, such as iPhone or iPad, to build a surveillance camera.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_mobile_camera.png",
+    "url": "ref/surveillance-camera-with-apple-r-ios-r-device.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/SurveillanceCameraWithAppleIOSDeviceExample')",
+    "examplecat_id": "d0e125", 
+    "examplecat_title": "Communicating with Smartphones and Tablets",
+    "examplecat_order": "2",
+    "example_id": "raspberrypi.SurveillanceCameraWithAppleIOSDeviceExample",
+    "example_name": "SurveillanceCameraWithAppleIOSDeviceExample",
+    "example_order": "4"                 
+    }
+    ,
+    {
+    "title": "Parametric Audio Equalizer",
+    "description": "This example shows how to use ALSA Audio Playback block from the Raspberry Pi® block library to implement a parametric audio equalizer algorithm with a Simulink® model and to run the model on Raspberry Pi hardware.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxaudio_equalizer_gui.png",
+    "url": "ref/parametric-audio-equalizer.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/ParametricAudioEqualizerExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.ParametricAudioEqualizerExample",
+    "example_name": "ParametricAudioEqualizerExample",
+    "example_order": "1"                 
+    }
+    ,
+    {
+    "title": "Image Inversion",
+    "description": "This example shows how to use the V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi® block library to implement an image inversion algorithm with a Simulink® model, and to run the model on Raspberry Pi hardware.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/ImageInversionExample_01.png",
+    "url": "ref/image-inversion.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/ImageInversionExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.ImageInversionExample",
+    "example_name": "ImageInversionExample",
+    "example_order": "2"                 
+    }
+    ,
+    {
+    "title": "Motion Sensor",
+    "description": "This example shows how to use Raspberry Pi® hardware to interface to a motion sensor and control an external LED.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxpush_button.png",
+    "url": "ref/motion-sensor.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/MotionSensorExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.MotionSensorExample",
+    "example_name": "MotionSensorExample",
+    "example_order": "3"                 
+    }
+    ,
+    {
+    "title": "Stream Images from Raspberry Pi using Robot Operating System (ROS)",
+    "description": "This example shows you how to stream images captured from a webcam on Raspberry Pi board to the host computer using ROS communication interface.",
+    "thumbnail_url": "../../examples/raspberrypi_product/win64/raspberrypi_stream_images_ros_02.png",
+    "url": "ref/stream-images-from-raspberry-pi-using-robot-operating-system-ros.html",
+    "type": "Model",
+    "open_command": "",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi_product.raspberrypi_stream_images_ros",
+    "example_name": "raspberrypi_stream_images_ros",
+    "example_order": "4"                 
+    }
+    ,
+    {
+    "title": "Auto-rotate an image displayed on Sense HAT LED matrix",
+    "description": "This example shows you how to develop a Simulink model to implement an algorithm to read the Accelerometer On-board Sense HAT and control the rotation of the image displayed on the LED matrix.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_autorotate_staeflow.png",
+    "url": "ref/auto-rotate-an-image-displayed-on-sense-hat-led-matrix.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample",
+    "example_name": "AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample",
+    "example_order": "5"                 
+    }
+    ,
+    {
+    "title": "Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT",
+    "description": "This example shows how to read the Accelerometer on Raspberry Pi Sense HAT and use this data to control the motion of a LEGO MINDSTORMS EV3 robot.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_sensehat_pitchroll.png",
+    "url": "ref/controlling-lego-mindstorms-ev3-robot-using-raspberry-pi-sense-hat.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/ControllingLEGOEV3RobotUsingRaspPiSenseHATExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.ControllingLEGOEV3RobotUsingRaspPiSenseHATExample",
+    "example_name": "ControllingLEGOEV3RobotUsingRaspPiSenseHATExample",
+    "example_order": "6"                 
+    }
+    ,
+    {
+    "title": "Counting Steps using Raspberry Pi Sense HAT",
+    "description": "This example demonstrates an application that counts the number of steps a person walked while holding a Raspberry Pi™ Sense HAT.",
+    "thumbnail_url": "../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig4.png",
+    "url": "ref/counting-steps-using-raspberry-pi-sensehat.html",
+    "type": "Example",
+    "open_command": "matlab:openExample('raspberrypi/CountingStepsUsingRaspberryPiSenseHATExample')",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "raspberrypi.CountingStepsUsingRaspberryPiSenseHATExample",
+    "example_name": "CountingStepsUsingRaspberryPiSenseHATExample",
+    "example_order": "7"                 
+    }
+    ,
+    {
+    "title": "",
+    "description": "",
+    "thumbnail_url": "includes/product/images/doc_center/DefaultImage.png",
+    "url": "",
+    "type": "",
+    "open_command": "",
+    "examplecat_id": "d0e191", 
+    "examplecat_title": "Applications",
+    "examplecat_order": "3",
+    "example_id": "",
+    "example_name": "",
+    "example_order": "8"                 
+    }
+    
+        ]
+      

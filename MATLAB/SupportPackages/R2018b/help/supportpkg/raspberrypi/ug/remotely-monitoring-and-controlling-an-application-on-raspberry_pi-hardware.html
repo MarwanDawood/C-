@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Tune and Monitor Model Running on Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../run-on-target-hardware.html",
+          "name": "Run on Target Hardware"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "run-on-target-hardware"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Use your host computer to monitor and control an application running on Raspberry Pi hardware"></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150939" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150939" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150939" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150939" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150939" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-target-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-target-hardware">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=run-on-target-hardware">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-target-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-target-hardware">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=run-on-target-hardware">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../run-on-target-hardware.html" itemprop="url"><span itemprop="title">Run on Target Hardware</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Tune and Monitor Model Running on Raspberry
+        Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#pithpg0-35" class="intrnllnk">Overview of Using External Mode</a></li><li><a href="#pithpg0-36" class="intrnllnk">Run Your Simulink Model in External Mode</a></li><li><a href="#pithpg0-37" class="intrnllnk">Stop External Mode</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-topic">
+<section itemprop="content"><h2 class="title r2018b" itemprop="title content" id="pithpg0-34">Tune and Monitor Model Running on <span class="trademark entity">Raspberry
+        Pi</span> Hardware</h2><section itemprop="content"><h3 class="title" id="pithpg0-35">Overview of Using External Mode</h3><p>You can use External mode to tune parameters and monitor a model
+running on your target hardware. </p><p>External mode enables you to tune model parameters and evaluate
+the effects of different parameter values on model results in real
+time. Doing so helps you find the optimal values to achieve desired
+performance. This process is called <em class="firstterm">parameter tuning</em>. </p><p>External mode accelerates parameter tuning because you do not
+have to rerun the model each time you change parameters. You can also
+use External mode to develop and validate your model using the actual
+data and hardware for which it is designed. This software-hardware
+interaction is not available solely by simulating a model.</p><p>This workflow lists the tasks usually required to tune parameters
+with External mode:</p><div class="orderedlist"><ol style="list-style: decimal;"><li><p>In the model on your host computer, enable External
+mode.</p></li><li><p>(Optional) Place one or more <a href="../../../simulink/sinks.html" class="a">sink</a> (Simulink) blocks
+in your model. For example, use <a href="../../../simulink/slref/display.html"><span class="block">Display</span></a> or <a href="../../../simulink/slref/scope.html"><span class="block">Scope</span></a> blocks to visualize data, or use
+a <a href="../../../simulink/slref/tofile.html"><span class="block">To File</span></a> block to log signal data. </p></li><li><p>Click the Run button in the model. Simulink automatically:</p><div class="itemizedlist"><ul><li><p>Runs the model on the target hardware</p></li><li><p>Runs the model on the host computer in External mode.</p></li><li><p>Creates an External mode connection between the model
+on target hardware and the model on the host computer.</p></li></ul></div></li><li><p>(Optional) Observe the data External mode sends from
+the target hardware to sink blocks in the model on the host computer.</p></li><li><p>(Optional) Change parameter values in the model on
+your host computer. External mode changes those values in the model
+running on the hardware.</p></li><li><p>Find the optimal parameter values by making adjustments
+and observing the results.</p></li><li><p>Save the new parameter values, disable External mode,
+and save the model.</p></li></ol></div></section><section itemprop="content"><h3 class="title" id="pithpg0-36">Run Your <span class="trademark entity">Simulink</span> Model in External Mode</h3><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>If you have the Embedded
+            Coder<sup>&#x00AE;</sup> or <span class="entity">Simulink<sup>&#x00AE;</sup>
+            Coder&#x2122;</span> software,
+you can use External mode with a model that contains <span class="block">Model</span> blocks
+(uses the “Model reference”). </p></div><div class="orderedlist"><ol style="list-style: decimal;"><li><p>Create a network connection between the Raspberry
+        Pi&#x2122; hardware
+and your host computer. See <a href="getting-the-raspberry_pi-ip-address.html" class="a">Configure Network Settings on Raspberry Pi Hardware</a>.</p></li><li><p>On the model toolbar, set <strong class="guilabel">Simulation mode</strong> to <code class="guidropdown">External</code>.</p><div class="informalfigure"><div id="d120e1908" class="mediaobject"><p class="listimage"><img src="set_external_mode_and_click_run_button.png" alt="" height="58" width="348"></img></p></div></div></li><li><p>Set the <strong class="guilabel">Simulation stop time</strong> parameter,
+located to the left of <strong class="guilabel">Simulation mode</strong> on the
+model toolbar. The default value is <code class="literal">10.0</code> seconds.
+To run the model for an indefinite period, enter <code class="literal">inf</code>.</p></li><li><p>Click the <strong class="guibutton">Run</strong> button. </p><p>If your model does not contain a sink block, the MATLAB<sup>&#x00AE;</sup> Command
+Window displays a warning message. For example:</p><div class="code_responsive"><pre class="programlisting">Warning: No data has been selected for uploading. 
+&gt; In C:\Program Files (x86)\MATLAB\R2013a Student1\toolbox\
+realtime\realtime\+realtime\extModeAutoConnect.p&gt;
+extModeAutoConnect at 17
+In C:\Program Files (x86)\MATLAB\R2013a Student1\toolbox\
+realtime\realtime\sl_customization.p&gt;myRunCallback at 149</pre></div><p>You can disregard this warning or add a sink block to the model.</p><p>After several minutes, Simulink starts running your model
+on the board.</p></li><li><p>Change parameter values in the model on your host
+computer.</p><p>Observe the corresponding changes in the model running on the
+hardware.</p><p>Any Simulink Sinks blocks in your model receive data from
+the hardware and display it on your host computer.</p></li></ol></div><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>External mode increases the processing burden of the model running
+on the board. If the software reports an overrun, disable External
+mode.</p></div></section><section itemprop="content"><h3 class="title" id="pithpg0-37">Stop External Mode</h3><p>To stop the model running in External mode, click the Stop button
+located on the model toolbar.<span class="guiicon"><span class="inlinemediaobject"><img src="stop_simulation_button.png" alt="" height="39" width="34"></img></span></span></p><p>If the <strong class="guilabel">Simulation stop time</strong> parameter is
+set to a specific number of seconds, External mode stops when that
+time elapses.</p><p>When you are finished using External mode, set <strong class="guilabel">Simulation
+mode</strong> back to <code class="guidropdown">Normal</code>.</p></section></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:39:54 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

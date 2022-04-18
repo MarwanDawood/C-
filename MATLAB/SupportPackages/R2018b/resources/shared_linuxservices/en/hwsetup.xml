@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="shared_linuxservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="HardwareBoardName">MyHardwareBoard</entry>
+        <entry key="SelectBoardTitle">Select a Hardware Board</entry>
+        <entry key="SelectBoardLabel">Hardware Board:</entry>
+        <entry key="SelectBoardDescription">Select a hardware board to set-up</entry>
+        <entry key="SelectBoardWhatToConsider">The setup process writes a custom Linux operating system (OS) image on the hardware. The custom image is composed of all the required software packages for the OS to be compatible with MATLAB and Simulink</entry>
+        <entry key="HardwareBoardAInfo">Hardware board A information.</entry>
+        <entry key="HardwareBoardBInfo">Hardware board B information.</entry>
+        <entry key="HardwareBoardCInfo">Hardware board C information.</entry>
+        <entry key="HardwareBoardDInfo">Hardware board D information.</entry>
+        <entry key="SelectNetwork">Select Network Configuration</entry>
+        <entry key="SelectNetworkLAN">Local area or home network</entry>
+        <entry key="SelectNetworkDirectConnection">Direct connection to the development computer</entry>
+        <entry key="SelectNetworkManual">Manually enter network settings</entry>
+        <entry key="SelectNetworkLANWhatToConsider">Make sure that the {0} is connected to your development computer using a local area network (LAN) or home network similar to the ones that the installer displays, as shown in the images. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkLANAboutSelection">This option in Select Network Configuration applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="SelectNetworkDirectWhatToConsider">Make sure that the {0} is connected to your development computer using a direct connection similar to the one that the installer displays, as shown in the image. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkDirectAboutSelection">This option in Select Network Configuration applies static network settings based upon the network settings of the development computer.</entry>
+        <entry key="SelectNetworkManualWhatToConsider">To manually configure the network settings, select this option and connect {0} to your development computer over the network. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkManualAboutSelection">This option in Select Network Configuration allows you to manually enter network settings.</entry>
+        <entry key="SelectConnectWirelessWhatToConsider">Make sure that the {0} is in the vicinity of the wireless access point you want to connect. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectConnectWirelessAboutSelection">This option in Select Network Configuration allows you to connect to a wireless network.</entry>
+        <entry key="SelectNetworkTitle">Network Settings</entry>
+        <entry key="SelectNetworkDescription">Choose your network configuration:</entry>
+        <entry key="SelectNetworkSelectionRadioGroupTitle">Select Network configuration</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem1">Connect to LAN or home network</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem2">Connect to wireless network</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem3">Connect directly to development computer</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem4">Manually enter network settings</entry>
+        <entry key="ManualNetConfigTitle">Configure Network</entry>
+        <entry key="ManualNetConfigHostNameLabel">Host name:</entry>
+        <entry key="ManualNetConfigIPAddressLabel">IP address:</entry>
+        <entry key="ManualNetConfigNetworkMaskLabel">Network mask:</entry>
+        <entry key="ManualNetConfigDefaultGatewayLabel">Default gateway:</entry>
+        <entry key="ManualNetConfigIPAssignmentRGTitle">IP Assignment</entry>
+        <entry key="ManualNetConfigAutomaticIP">Automatically get IP address</entry>
+        <entry key="ManualNetConfigManualIP">Manually enter IP address</entry>
+        <entry key="ManualNetConfigHostNameWhatToConsider">If multiple {0} boards are connected to same network, manually edit the host name to make it unique.</entry>
+        <entry key="ManualNetConfigAutomaticIPAboutSelection">The HostName parameter displays the host name that is assigned to the {0}.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;The selected IP assignment applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="ManualNetConfigManualIPAboutSelection">The HostName parameter displays the host name that is assigned to the {0}.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;Manual IP assignment allows to edit the IP address, Network mask, and Default gateway settings.</entry>
+        <entry key="ManualNetConfigWhatToConsider">The set up process for {0} board consists of copying a Linux firmware image onto a memory card and booting the {0} with this memory card.&lt;br&gt; Checklist &lt;/br&gt; &lt;ul class="bullets"&gt;&lt;li&gt; {0} &lt;/li&gt; &lt;li&gt; SD Card (4GB or larger) &lt;/li&gt; &lt;li&gt; 5V micro USB power supply&lt;/li&gt; &lt;li&gt; Ethernet Cable &lt;/li&gt;&lt;/ul&gt;</entry>
+        <entry key="NoNicDetected">No available NIC detected</entry>
+        <entry key="NoNicDescription">Please connect a network interface card into your computer and click 'Refresh' button</entry>        
+        <entry key="WirelessConfigTitle">Wireless Configuration</entry>
+        <entry key="WirelessConfigSSIDLabel">SSID:</entry>
+        <entry key="WirelessConfigSSIDEditText">Enter SSID</entry>
+        <entry key="WirelessConfigSecurityLabel">Security:</entry>
+        <entry key="WirelessSecurityDropDown1">WPA/WPA2 Personal</entry>
+        <entry key="WirelessSecurityDropDown2">WPA/WPA2 Enterprise</entry>
+        <entry key="WirelessSecurityDropDown3">WEP 128-bit Passphrase</entry>
+        <entry key="WirelessSecurityDropDown4">None</entry>
+        <entry key="WiFiAutomaticIPAboutSelection">Type the SSID name of the wireless network that you want to connect, and set the security options accordingly.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;The selected IP assignment applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="WiFiManualIPAboutSelection">Type the SSID name of the wireless network that you want to connect, and set the security options accordingly.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;Manual IP assignment allows to edit the IP address, Network mask, and Default gateway settings.</entry>     
+        <entry key="WirelessConfigWhatToConsider">Ensure that you have selected the correct security option for the wireless network to be connected.</entry>
+        <entry key="WriteFirmwareTitle">Write Firmware</entry>
+        <entry key="WriteFirmwareDrive">drive</entry>
+        <entry key="WriteFirmwareVolume">volume</entry>
+        <entry key="WriteFirmwareDescription">Write the firmware to the SD card {0}.</entry>
+        <entry key="WriteFirmwareStatusWriting">Writing to SD card...</entry>
+        <entry key="WriteFirmwareStatusCompleted">Completed writing to SD card.</entry>
+        <entry key="WriteFirmwareButtonText">Write</entry>
+        <entry key="WriteFirmwareWhatToConsider">The write operation may take several minutes.&lt;br&gt;&lt;br&gt;&lt;/br&gt;&lt;/br&gt;After first successful 'write firmware to SD card' operation, any changes made to the Network Settings do not effect the firmware already written on the SD card. So, the need for writing the firmware again is not required.</entry>
+        <entry key="WriteFirmwareWhatToConsiderAfterWrite">Write Firmware successful. Click &lt;b&gt;Next&lt;/b&gt; to continue.&lt;br&gt;&lt;br&gt;&lt;/br&gt;&lt;/br&gt;Writing firmware to SD card can be skipped, if at least once the write operation was successful. After successful write, even if changes are made in Network Settings screen, writing firmware again can be skipped.</entry>
+        <entry key="WriteFirmware_Note1">If changes are made to the network configuration in the future, writing firmware to SD card can be skipped.</entry>
+        <entry key="WriteFirmware_Note2">&lt;b&gt;Do not take out inserted SD Card&lt;/b&gt;, after successful writing of firmware. Additional configuration files are written to SD card in the next step, click &lt;b&gt;Next.&lt;/b&gt;</entry>
+        <entry key="WriteFirmwareError">Error writing the firmware to the SD card: {0}</entry>
+        <entry key="WriteFirmware_Warning">WARNING:</entry>
+        <entry key="WriteFirmware_WarningText">All data in the memory card will be erased during firmware write!</entry>
+        <entry key="ErrorWritingFirmware">Error writing firmware to the memory card: {0}</entry>
+        <entry key="Error_ddmsg">Unable to write the firmware to the SD card. To check that the SD card is not in use, unmount the SD card drive, remove the SD card from the development computer and insert it again. Repeat the Write Firmware process. If the error still persists then format the SD card manually using system tools.</entry>
+        <entry key="RemovableDriveQuery">Error while querying removable drives: {0}</entry>
+        <entry key="RemovableDriveDetectionFailed">Not able to detect any SD card with FAT-32 partition. Insert an SD card (>= 4GB) with at least one FAT-32 partition on the development computer.</entry>
+        <entry key="DriveLinux_NoCardInserted">Not able to detect any SD card with FAT-32 partition. Insert an SD card (>= 4GB) with at least one FAT-32 partition on the development computer.\nRestart the set-up process.</entry>
+        <entry key="KeepMemoryCardInserted_ToWriteFW">Not able to detect the memory card.\nKeep the memory card inserted to write firmware.</entry>
+        <entry key="KeepMemoryCardInserted">Not able to detect the memory card.\nKeep the memory card inserted to write additional configuration files.</entry>
+        <entry key="SelectDriveTitle">Select a Drive</entry>
+        <entry key="SelectDriveLabel">Drive:</entry>
+        <entry key="SelectDriveDescription">Insert a 4 GB or larger {0} memory card into a memory card reader on the development computer.\n\nSelect the drive that corresponds to the memory card reader:</entry>
+        <entry key="SelectVolumeTitle">Select a Volume</entry>
+        <entry key="SelectVolumeLabel">Volume:</entry>
+        <entry key="SelectVolumeDescription">Insert a 4 GB or larger {0} memory card into a memory card reader on the development computer.\n\nSelect the Volume that corresponds to the memory card reader:</entry>
+        <entry key="SelectDriveWhatToConsider">If you do not find the memory card reader in the list of drives, reinsert the memory card fully. Then, click &lt;b&gt;Refresh&lt;/b&gt;.</entry>
+        <entry key="SelectDriveAdditional">Navigating to next screen is allowed only when inserted SD card's file system is selected.</entry>
+        <entry key="WMIErrorMessage">Cannot retrieve removable drives: {0}</entry>
+        <entry key="InvalidArgument">{0} must be a character array.</entry>
+        <entry key="InvalidHostName">Invalid host name. Host name must be composed of ASCII letters ('a-z', 'A-Z'), the digits ('0-9'),\nand the hyphen ('-') and must be between 1 and 63 characters long.</entry>
+        <entry key="InvalidSSID">Invalid SSID.</entry>
+        <entry key="InvalidIpAddress">{0} is not a valid IP address.</entry>
+        <entry key="HWSetupError">HW Set-up Validation Error</entry>         
+        <entry key="ConfirmConfiguration_Title">Confirm Hardware Configuration</entry>
+        <entry key="ConfirmConfiguration_Label1">IP address</entry>
+        <entry key="ConfirmConfiguration_Label2">Host name</entry>
+        <entry key="ConfirmConfiguration_Label3">User name</entry>
+        <entry key="ConfirmConfiguration_Label4">Password</entry>
+        <entry key="ConfirmConfiguration_TestConnection">Test Connection</entry>
+        <entry key="ConfirmConfiguration_StatusTitle">Test Hardware Connection Status</entry>
+        <entry key="ConfirmConfiguration_StatusItem1">Connect via SSH, pinging {0} of 3</entry>
+        <entry key="ConfirmConfiguration_StatusItem2">Discovering {0}...</entry>
+        <entry key="ConfirmConfiguration_WhatToConsider">If you want to login to the {0} in the future, the host name, IP address, user name, and password are displayed in the screen.&lt;br&gt;Click &lt;b&gt;Test Connection&lt;/b&gt; to verify the SSH connection to the {0}.</entry>
+        <entry key="Note">&lt;h1&gt;Note&lt;/h1&gt;</entry>
+        <entry key="ConfirmConfiguration_Note1">1. Your {0} will speak its IP address through the analog audio connector when it boots.</entry>
+        <entry key="ConfirmConfiguration_Note2">2. You can configure your {0} to automatically send an e-mail when IP address changes.</entry>
+        <entry key="TestConnectionFailed">Test Hardware Connection Failed</entry>
+        <entry key="TestConnectionSuccessful">Test Hardware Connection successful</entry>
+        <entry key="ConfirmConfiguration_TestPass">If the Test Connection succeeds, click &lt;b&gt;Next&lt;/b&gt; to finish the set-up process. </entry>
+        <entry key="ConfirmConfiguration_TestFail1">If the Test Connection FAILS, click &lt;b&gt;Back&lt;/b&gt; and follow the instructions again or try switching to another Network Setting.</entry>
+        <entry key="ConfirmConfiguration_TestFail2">If the &lt;font color ="red"&gt;Test Connection FAILS&lt;/font&gt;, click &lt;b&gt;Back&lt;/b&gt; and follow the instructions again or try switching to another Network Setting.</entry>
+        <entry key="TestingConnectionTerminated">Test connection terminated, please try again.</entry>
+        <entry key="SetupCompleteDescription">The hardware set-up process for {0} is complete.</entry>
+        <entry key="HWSetupValidationErrorTag">Msgbox_HW Set-up Validation Error</entry>
+        <entry key="ArchiveNotFound">Cannot find the archive file with name, ''{0}'', in the download folder, ''{1}''.</entry>
+        <entry key="RegisteringSysroot">Registering sysroot folder (containing toolchain headers and libraries)...</entry>
+        <entry key="Additional">Additional information</entry>
+        <entry key="StaticNetworkConfigLinux">Modifying network card settings of Linux host computer is not supported.\nTo configure static network, run the following command on the Linux host shell terminal:\n''sudo ifconfig eth0 {0} netmask {1}''</entry>        
+    </message>
+</rsccat>
+<!-- Copyright 2016-2018 The MathWorks, Inc.
+-->
+
+<!-- LocalWords:  NIC WPA WEP NIC WPA WEP
+-->

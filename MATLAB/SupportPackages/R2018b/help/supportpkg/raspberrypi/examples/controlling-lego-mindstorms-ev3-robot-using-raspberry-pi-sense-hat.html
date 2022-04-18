@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT",
+          "description": "This example shows how to read the Accelerometer on Raspberry Pi Sense HAT and use this data to control the motion of a LEGO MINDSTORMS EV3 robot.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_pitchroll.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.ControllingLEGOEV3RobotUsingRaspPiSenseHATExample",
+          "name": "ControllingLEGOEV3RobotUsingRaspPiSenseHATExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/ControllingLEGOEV3RobotUsingRaspPiSenseHATExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_sensehat_pitchroll.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to read the Accelerometer on Raspberry Pi Sense HAT and use this data to control the motion of a LEGO MINDSTORMS EV3 robot."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_pitchroll.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e4457" class="intrnllnk">Introduction</a></li><li><a href="#d120e4502" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e4512" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e4538" class="intrnllnk">Working Principle of Robot motion control</a></li><li><a href="#d120e4556" class="intrnllnk">Task 1 - Familiarize with Sense HAT Accelerometer (Recommended)</a></li><li><a href="#d120e4565" class="intrnllnk">Task 2 - Install Simulink Support Package for LEGO MINDSTORMS EV3</a></li><li><a href="#d120e4596" class="intrnllnk">Task 3 - Set up LEGO MINDSTORMS EV3 robot</a></li><li><a href="#d120e4613" class="intrnllnk">Task 4 - Configure Network Connection</a></li><li><a href="#d120e4650" class="intrnllnk">Task 5 - Run models on Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot</a></li><li><a href="#d120e4674" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e4691" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_sensehat_ev3robot">Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/ControllingLEGOEV3RobotUsingRaspPiSenseHATExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex39577722"></meta><meta itemprop="exampletitle" content="Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT"></meta></div><span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to read the Accelerometer on Raspberry Pi Sense HAT and use this data to control the motion of a LEGO MINDSTORMS EV3 robot.</p>
+
+<div class="procedure"><h3 class="title" id="d120e4457">Introduction<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-1" class="anchor_target"></span></h3><p>The Raspberry Pi Sense HAT is an add-on board for Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick and includes the following sensors:</p><div class="itemizedlist"><ul><li><p>Humidity sensor</p></li><li><p>Pressure sensor</p></li><li><p>IMU sensor (Accelerometer, Gyroscope, and Magnetometer)</p></li></ul></div><p>LEGO MINDSTORMS EV3 is a Linux based educational robot kit developed by the LEGO group. The Simulink Support Package for LEGO MINDSTORMS EV3 Hardware enables you to create and run Simulink models on LEGO MINDSTORMS EV3 hardware. The support package includes a library of Simulink blocks for configuring and accessing LEGO MINDSTORMS EV3 sensors and actuators.</p><p>We will develop two Simulink models,</p><div class="itemizedlist"><ul><li><p><strong class="emphasis bold"><a href="matlab:raspberrypi_sensehat_ev3robot" target="_blank">Raspberry Pi model</a></strong> In this model, we will read the Accelerometer On-board Sense HAT and use the acceleration data to determine the motor speeds for EV3 robot. A network connection would be setup between the Raspberry Pi device and the EV3 robot for data exchange.</p></li><li><p><strong class="emphasis bold"><a href="matlab:ev3_robot" target="_blank">LEGO MINDSTORMS EV3 model</a></strong> In this model, we would receive the data sent by Raspberry Pi device and use this to drive the two motors of the EV3 robot.</p></li></ul></div><p>You will learn how to:</p><div class="itemizedlist"><ul><li><p>Set up network connection between Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot</p></li><li><p>Configure and run a Simulink model for Raspberry Pi hardware to send UDP packets to LEGO MINDSTORMS EV3 robot</p></li><li><p>Configure and run a Simulink model for LEGO MINDSTORMS EV3 robot to receive UDP packets from Raspberry Pi hardware.</p></li></ul></div><h3 class="title" id="d120e4502">Prerequisites<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-3" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e4512">Required Hardware<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-4" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>Raspberry Pi Sense HAT</p></li><li><p>LEGO MINDSTORMS EV3</p></li><li><p>Two LEGO MINDSTORMS EV3 Large Motors</p></li><li><p>EV3 Wi-Fi Dongle</p></li></ul></div><div class="informalfigure"><div id="d120e4535" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/ControllingLEGOEV3RobotUsingRaspPiSenseHATExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e4538">Working Principle of Robot motion control<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-5" class="anchor_target"></span></h3><p>In this section, we will discuss about how the acceleration data is used to control the motion of the robot.</p><p>From the Accelerometer data, we can mathematically determine the value of 'pitch' and 'roll' for a given position of the Sense HAT. We can map the 'pitch' and 'roll' movement of the Sense HAT to the motion of the EV3 robot. The 'pitch' would represent the forward and reverse motion of the motor whereas the 'roll' would represent the sideward motion of the robot.</p><p></p>
+<div class="informalfigure"><div id="d120e4548" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_pitchroll.png" alt=""></img></p></div></div><p>
+ </p><p>The mathematical equations required to convert the 'pitch' and 'roll' values to linear speed of the motors are realized using a MATLAB function block in the Simulink model for Raspberry Pi.</p><p>A communication link for data exchange is set up between Raspberry Pi and the EV3 brick. The linear motor speed derived from the pitch and roll values is sent over UDP from Raspberry Pi to EV3. EV3 would receive this data and use it as input to drive the two motors.</p><h3 class="title" id="d120e4556">Task 1 - Familiarize with Sense HAT Accelerometer (Recommended)<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-6" class="anchor_target"></span></h3><p><a href="../ref/auto-rotate-an-image-displayed-on-sense-hat-led-matrix.html" class="a">Auto-rotate an image displayed on Sense HAT LED matrix</a> example shows usage of the Accelerometer on the Raspberry Pi Sense HAT. The acceleration data is used to auto-rotate an image displayed on the LED matrix of Sense HAT.</p><p>Complete this example to get familiarity with the usage of Accelerometer.</p><h3 class="title" id="d120e4565">Task 2 - Install Simulink Support Package for LEGO MINDSTORMS EV3<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-7" class="anchor_target"></span></h3><p>You need <strong class="emphasis bold">Simulink Support Package for LEGO MINDSTORMS EV3</strong> to run Simulink model on LEGO MINDSTORMS EV3 hardware.</p><p><strong class="emphasis bold">1.</strong> Install <strong class="emphasis bold">Simulink Support Package for LEGO MINDSTORMS EV3</strong>.</p><p>Click link below to</p><p><a href="matlab:hwconnectinstaller.launchInstaller('BaseCode','LEGOEV3','StartAtStep','SelectPackage')" target="_blank">Download and Install Simulink Support Package for LEGO MINDSTORMS EV3</a></p><p><strong class="emphasis bold">2.</strong> (Recommended) Complete the <a href="matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser')" target="_blank">Getting Started with LEGO MINDSTORMS EV3 Hardware</a> example in <strong class="emphasis bold">Simulink Support Package for LEGO MINDSTORMS EV3</strong> you just installed.</p><h3 class="title" id="d120e4596">Task 3 - Set up LEGO MINDSTORMS EV3 robot<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-8" class="anchor_target"></span></h3><p>In this task, we will build a EV3 robot and connect the EV3 brick to the same network as the Host PC.</p><p><strong class="emphasis bold">1.</strong> Build a two-wheeled robot. You can build a robot similar to the one described in the printed building instructions in the education core set.</p><p><strong class="emphasis bold">2.</strong> Set up a connection between EV3 brick and your host machine. Please refer to Task 1 and 2 in <a href="matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser')" target="_blank">Getting Started with LEGO MINDSTORMS EV3 Hardware</a> example.</p><h3 class="title" id="d120e4613">Task 4 - Configure Network Connection<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-9" class="anchor_target"></span></h3><p>In this task, you will set up network connection between Raspberry Pi board and LEGO MINDSTORMS EV3. The communication protocol used in this example is UDP. You can alternatively use TCP/IP protocol. TCP/IP send/receive blocks are available in the library for LEGO MINDSTORMS EV3 and Raspberry Pi.</p><p><strong class="emphasis bold">1.</strong> Connect Raspberry Pi board to the network with Ethernet cable through Ethernet port. Make sure that both the Raspberry Pi board and the EV3 robot are connected to the same network.</p><p><strong class="emphasis bold">2.</strong> Verify the connection between your Raspberry Pi board and LEGO MINDSTORMS EV3.</p><p>Execute the following command on the MATLAB command prompt:</p><div class="code_responsive"><pre id="d120e4629" class="programlisting">r = raspberrypi
+</pre></div><p>This command returns an object with IP address info for the Raspberry Pi board.</p><p>Run command <strong class="emphasis bold">system(r, 'sudo ping [EV3_IP_Address] -c 10')</strong> with the LEGO MINDSTORMS EV3 IP address found in step 2 of Task 3 to verify the connection. e.g.</p><div class="code_responsive"><pre id="d120e4638" class="programlisting">system(r, <span style="color:#A020F0">'sudo ping 192.168.1.2 -c 10'</span>)
+</pre></div><p><strong class="emphasis bold">3.</strong> After verifying the connection, open the <a href="matlab:raspberrypi_sensehat_ev3robot" target="_blank">Raspberry Pi model</a> and update <strong class="emphasis bold">Send to EV3</strong> block with the IP address of your EV3 hardware.</p><h3 class="title" id="d120e4650">Task 5 - Run models on Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-10" class="anchor_target"></span></h3><p>In this task, we will run the models that we have developed on the respective hardware.</p><p><strong class="emphasis bold">1.</strong> Click <strong class="emphasis bold">Deploy to Hardware</strong> button of Raspberry Pi model to run this model on Raspberry Pi hardware.</p><p><strong class="emphasis bold">2.</strong> Click <strong class="emphasis bold">Deploy to Hardware</strong> button of LEGO MINDSTORMS EV3 model to run this model on your LEGO MINDSTORMS EV3 hardware.</p><p><strong class="emphasis bold">3.</strong> Control the EV3 robot using the Sense HAT connected to the Raspberry Pi hardware.</p><h3 class="title" id="d120e4674">Other Things to Try<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-11" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> Improve the control system on the EV3 robot. Try incorporating a PID controller.</p><p>Refer to <a href="matlab:ev3_drive_closedloop" target="_blank">EV3 drive closed loop</a> example and improve the control algorithm on the EV3 robot.</p><p><strong class="emphasis bold">2.</strong> Develop a model to control the EV3 robot using the Joystick on Sense HAT. Use the Joystick block in the Sense HAT library to read the state of the Joystick on-board Sense HAT.</p><h3 class="title" id="d120e4691">Summary<span id="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample-12" class="anchor_target"></span></h3><p>This example showcased the following</p><div class="itemizedlist"><ul><li><p>Accelerometer on Raspberry Pi Sense HAT is used to control the motion of the EV3 robot.</p></li><li><p>Raspberry Pi hardware calculates the value of speed for the left and right motors of the robot and sends the data to the EV3 brick through UDP send block.</p></li><li><p>EV3 receives the data sent by Raspberry Pi and drives the motors of the robot.</p></li></ul></div></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

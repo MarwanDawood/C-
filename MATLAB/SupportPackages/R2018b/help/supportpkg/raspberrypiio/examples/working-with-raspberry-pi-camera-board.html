@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Working with Raspberry Pi Camera Board</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Working with Raspberry Pi Camera Board",
+          "description": "This example shows you how to capture and process images from Raspberry Pi&#174; Camera Board module using the MATLAB&#174; Support Package for Raspberry Pi Hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxroi_diagram.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.WorkingWithRaspberryPiCameraBoardExample",
+          "name": "WorkingWithRaspberryPiCameraBoardExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiCameraBoardExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "camera_board_connection.png",
+        "roi_diagram.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to capture and process images from Raspberry Pi&#174; Camera Board module using the MATLAB&#174; Support Package for Raspberry Pi Hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxroi_diagram.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Working with Raspberry Pi Camera Board</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e1467" class="intrnllnk">Introduction</a></li><li><a href="#d120e1478" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e1486" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e1502" class="intrnllnk">Connect Camera Board</a></li><li><a href="#d120e1514" class="intrnllnk">Create a Camera Board object</a></li><li><a href="#d120e1526" class="intrnllnk">Inspect object properties</a></li><li><a href="#d120e1542" class="intrnllnk">Image effects</a></li><li><a href="#d120e1558" class="intrnllnk">Digital zoom</a></li><li><a href="#d120e1574" class="intrnllnk">Record Video</a></li><li><a href="#d120e1607" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_working_with_camera_board">Working with Raspberry Pi Camera Board</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiCameraBoardExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex28497393"></meta><meta itemprop="exampletitle" content="Working with Raspberry Pi Camera Board"></meta></div><span id="WorkingWithRaspberryPiCameraBoardExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to capture and process images from Raspberry Pi&#174; Camera Board module using the MATLAB&#174; Support Package for Raspberry Pi Hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e1467">Introduction<span id="WorkingWithRaspberryPiCameraBoardExample-1" class="anchor_target"></span></h3><p>The Raspberry Pi Camera Board is a custom designed add-on module for Raspberry Pi hardware. It attaches to Raspberry Pi hardware through a custom CSI interface. The sensor has 5 megapixel native resolution in still capture mode. In video mode it supports capture resolutions up to 1080p at 30 frames per second. The camera module is light weight and small making it an ideal choice for mobile projects.</p><p>In this example you will learn how to create a <strong class="emphasis bold">cameraboard</strong> object to connect to the Raspberry Pi Camera Board, capture images from the camera and process them in MATLAB.</p><h3 class="title" id="d120e1478">Prerequisites<span id="WorkingWithRaspberryPiCameraBoardExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing docid:raspberrypiio_examples.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware&gt; example.</p></li></ul></div><h3 class="title" id="d120e1486">Required Hardware<span id="WorkingWithRaspberryPiCameraBoardExample-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>A Camera Board</p></li></ul></div><h3 class="title" id="d120e1502">Connect Camera Board<span id="WorkingWithRaspberryPiCameraBoardExample-4" class="anchor_target"></span></h3><p>The camera board attaches to the Raspberry Pi via a ribbon cable. One end of the ribbon cable goes to the camera PCB and the other end attached to Raspberry Pi hardware itself. You need to get the ribbon cable connections the right way, or the camera will not work. On the camera PCB, the blue backing on the cable should be facing away from the PCB, and on the Raspberry Pi hardware it should be facing towards the Ethernet connection.</p><p></p>
+<div class="informalfigure"><div id="d120e1510" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxcamera_board_connection.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e1514">Create a Camera Board object<span id="WorkingWithRaspberryPiCameraBoardExample-5" class="anchor_target"></span></h3><p>Create a camera board object by executing the following command on the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e1520" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+cam = cameraboard(rpi,<span style="color:#A020F0">'Resolution'</span>,<span style="color:#A020F0">'640x480'</span>);
+</pre></div><p>The cam is a handle to a cameraboard object. Let's display the images captured from Raspberry Pi Camera Board in MATLAB.</p><div class="code_responsive"><pre id="d120e1524" class="programlisting"><span style="color:#0000FF">for</span> i = 1:100
+    img = snapshot(cam);
+    image(img);
+    drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e1526">Inspect object properties<span id="WorkingWithRaspberryPiCameraBoardExample-6" class="anchor_target"></span></h3><p>The MATLAB command line interface for Camera Board has a number of properties that expose the features of the Camera. To view the properties of the cameraboard class type the following on the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e1532" class="programlisting">cam
+</pre></div><p>Using the properties of the cameraboard object, you can flip the images horizontally or vertically, change image quality parameters such as brightness, contrast, saturation and sharpness and access advanced camera features such as image stabilization and image effects. The Resolution and FrameRate properties cannot be changed after instantiation. If you want to change these properties, clear the cameraboard object from MATLAB workspace and create a new object by specifying the new Resolution and FrameRate parameters.</p><div class="code_responsive"><pre id="d120e1536" class="programlisting">clear <span style="color:#A020F0">cam</span>
+cam = cameraboard(rpi,<span style="color:#A020F0">'Resolution'</span>,<span style="color:#A020F0">'320x240'</span>,<span style="color:#A020F0">'FrameRate'</span>,30);
+</pre></div><p>Other properties of the cameraboard object can be changed at any time. But it takes 5 frames for the new setting to take effect. Let's try flipping the image horizontally.</p><div class="code_responsive"><pre id="d120e1540" class="programlisting">figure(1);
+<span style="color:#0000FF">for</span> i = 1:5
+   img = snapshot(cam);
+<span style="color:#0000FF">end</span>
+image(img);
+cam.HorizontalFlip = true;
+<span style="color:#0000FF">for</span> i = 1:5
+   img = snapshot(cam);
+<span style="color:#0000FF">end</span>
+figure(2);
+image(img);
+</pre></div><h3 class="title" id="d120e1542">Image effects<span id="WorkingWithRaspberryPiCameraBoardExample-7" class="anchor_target"></span></h3><p>Let's try a simple image inversion algorithm on the images captured from Raspberry Pi Camera Board.</p><div class="code_responsive"><pre id="d120e1548" class="programlisting">figure(1);
+<span style="color:#0000FF">for</span> i = 1:100
+   img = snapshot(cam);
+   img = 255 - img;
+   image(img);
+   drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><p>The image inversion creates a color negative effect. The Raspberry Pi Camera Board itself can invert the images by setting ImageEffect property to 'negative'.</p><div class="code_responsive"><pre id="d120e1552" class="programlisting">figure(1);
+cam.ImageEffect = <span style="color:#A020F0">'negative'</span>;
+<span style="color:#0000FF">for</span> i = 1:100
+   img = snapshot(cam);
+   image(img);
+   drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><p>Here is a more interesting image effect.</p><div class="code_responsive"><pre id="d120e1556" class="programlisting">figure(1);
+cam.ImageEffect = <span style="color:#A020F0">'sketch'</span>;
+<span style="color:#0000FF">for</span> i = 1:100
+   img = snapshot(cam);
+   image(img);
+   drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e1558">Digital zoom<span id="WorkingWithRaspberryPiCameraBoardExample-8" class="anchor_target"></span></h3><p>Raspberry Pi Camera Board allows a region of the sensor to be used as the image capture area. This region, called region of interest (ROI), is specified as a normalized vector [x y w h] where x, y defines the top left corner and w and h specifies the width and height.</p><p></p>
+<div class="informalfigure"><div id="d120e1566" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxroi_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>Reducing ROI while holding the output image size constant results in a digital zooming effect. The following MATLAB code varies the x and y parameters of the ROI to zoom into the lower right part of the sensor. The approximate area of the sensor being captured is indicated by a red rectangle.</p><div class="code_responsive"><pre id="d120e1572" class="programlisting">figure(1);
+roi = [0 0 1 1];
+cam.ROI = [0 0 1 1];
+<span style="color:#0000FF">for</span> i = 1:10
+    img = snapshot(cam);
+<span style="color:#0000FF">end</span>
+subplot(211);
+image(img);
+drawnow;
+rect = rectangle(<span style="color:#A020F0">'Position'</span>,[1 1 320 240]);
+rect.EdgeColor = <span style="color:#A020F0">'red'</span>;
+<span style="color:#0000FF">for</span> i = 1:200
+   img = snapshot(cam);
+   <span style="color:#0000FF">if</span> i &gt; 20
+      fc = (i - 5)*0.0025;
+      roi(1:2) = [fc, fc];
+      roi(3:end) = [1-fc, 1-fc];
+      cam.ROI = roi;
+      subplot(211);
+      rect.Position = roi.*[320 240 320 240];
+      drawnow;
+      subplot(212);
+      image(img);
+      drawnow;
+   <span style="color:#0000FF">end</span>
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e1574">Record Video<span id="WorkingWithRaspberryPiCameraBoardExample-9" class="anchor_target"></span></h3><p>You can record video using the MATLAB command line interface for Raspberry Pi Camera Board. You start recording video by executing the record command. The record command returns to the MATLAB command prompt immediately after execution and does not wait for the entire video to be recorded. During video recording, images captured by the Camera Board are saved to a file on the Raspberry Pi hardware in raw H264 format. After video recording is complete, you can bring the video file to your host computer for playback. You cannot take snapshots while video recording is in progress. Since the recorded video is in raw H264 format, most players cannot play the video file directly. The recorded H264 stream must be converted to an appropriate format, such as an MP4, before you can play it back or load it in MATLAB.</p><p>Execute the following on the MATLAB command prompt to record video to a file called 'vid.h264' for 30 seconds.</p><div class="code_responsive"><pre id="d120e1582" class="programlisting">record(cam,<span style="color:#A020F0">'vid.h264'</span>,30)
+</pre></div><p>The record command starts video recording. It does not block the MATLAB command prompt. You can perform MATLAB operations while video recording is in progress. However, you cannot take snapshots from the camera. To check if the recording is complete, use the Recording property of the cameraboard object.</p><div class="code_responsive"><pre id="d120e1586" class="programlisting">cam.Recording
+</pre></div><p>This property returns false when recording is completed. If you want to stop the video recording at any time, use the stop method of the cameraboard object.</p><p>Bring the recorded raw H264 video stream to your host computer.</p><div class="code_responsive"><pre id="d120e1592" class="programlisting">getFile(rpi,<span style="color:#A020F0">'vid.h264'</span>)
+</pre></div><p>The raw H264 stream needs to be converted to a video file format, such as MP4, before you can play it in a media player or load it in MATLAB. You can use FFmpeg&#8482; to convert the raw H264 to an MP4 video file. Install FFmpeg to your host computer using the appropriate download links in the ffmpeg.org web site following appropriate installation instructions. After you install the FFmpeg, define a MATLAB variable storing the install location. For example:</p><div class="code_responsive"><pre id="d120e1596" class="programlisting">ffmpegDir = <span style="color:#A020F0">'C:\ffmpeg-20140218-git-61d5970-win32-static'</span>
+</pre></div><p>Replace the path above with the appropriate FFmpeg installation path in your computer. To create an MP4 video file out of the raw H264 stream you captured, execute the following on the MATLAB command prompt.</p><div class="code_responsive"><pre id="d120e1601" class="programlisting">cmd = [<span style="color:#A020F0">'"'</span> fullfile(ffmpegDir, <span style="color:#A020F0">'bin'</span>, <span style="color:#A020F0">'ffmpeg.exe'</span>) <span style="color:#A020F0">'" -r 30 -i vid.h264 -vcodec copy myvid.mp4 &amp;'</span>];
+[status, message] = system(cmd)
+</pre></div><p>After FFmpeg completes video conversion, you end up with an MP4 video file that you can play in a media player. You can also load the video to MATLAB for processing. To play the captured video in MATLAB, execute the following on the MATLAB command prompt.</p><div class="code_responsive"><pre id="d120e1605" class="programlisting">vid = VideoReader(<span style="color:#A020F0">'myvid.mp4'</span>)
+<span style="color:#0000FF">for</span> k = 1:vid.NumberOfFrames
+    image(read(vid, k));
+    drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e1607">Summary<span id="WorkingWithRaspberryPiCameraBoardExample-10" class="anchor_target"></span></h3><p>This example introduced the workflow for using MATLAB Support Package for Raspberry Pi Camera Board.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:04 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

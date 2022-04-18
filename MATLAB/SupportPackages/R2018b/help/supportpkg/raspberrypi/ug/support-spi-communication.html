@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Support SPI Communication</title>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="other"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Enable communication with other SPI devices by using the SPI Master Transfer block from the support package library."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150939" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150939" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150939" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150939" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150939" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Support SPI Communication</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#bvk8ly6-2" class="intrnllnk">SPI Lines</a></li><li><a href="#bvk8ly6-3" class="intrnllnk">Data Transmission</a></li><li><a href="#bvk8ly6-4" class="intrnllnk">SPI Transfer Modes</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-topic">
+<section itemprop="content"><h2 class="title r2018b" itemprop="title content" id="bvk8ly6-1">Support SPI Communication</h2><p>SPI, or Serial Peripheral Interface, is a synchronous, full duplex serial communication
+      protocol between high-speed devices over short distances. The SPI protocol supports a single
+      master with one or more slaves. The master can communicate to any slave on the bus, but each
+      slave can communicate only with the master. </p><p>The SPI Master Transfer block in the support package library enables communication with
+      other SPI devices. You can use this block only when you use your hardware as the master
+      device.</p><p>With SPI, you can:</p><div class="itemizedlist"><ul><li><p>Connect various sensors to boards to measure different quantities such as
+            temperature, pressure.</p></li><li><p>Connect various shields to boards to enhance capabilities such as WiFi shield.</p></li><li><p>Access an SD card to store data or extend the available memory.</p></li></ul></div><p>You can set SPI properties such as the SPI clock out frequency (in MHz), SPI mode, and the
+      Bit order in the <strong class="guimenuitem">Configuration Parameters</strong> &gt; <strong class="guimenuitem">Hardware Implementation</strong> &gt; <strong class="guimenuitem">SPI properties</strong> section.</p><section itemprop="content"><h3 class="title" id="bvk8ly6-2">SPI Lines</h3><p>SPI uses a four-wire serial bus for communication: MISO, MOSI, SCK, and SS. The MISO,
+         MOSI, and the SCK lines are common to all devices. The SS line is specific to each slave. </p><div class="itemizedlist"><ul><li><p><strong class="emphasis bold"><span class="emphasis"><em>MISO</em></span></strong> (Master In Slave Out) &#8211;
+               This line is the slave line for sending data to the SPI master.</p></li><li><p><strong class="emphasis bold"><span class="emphasis"><em>MOSI</em></span></strong> (Master Out Slave In) &#8211;
+               This line is the master line for sending data to the SPI peripherals.</p></li><li><p><strong class="emphasis bold"><span class="emphasis"><em>SCK </em></span></strong> (Serial Clock) &#8211;The
+               master generates the clock pulses that synchronize the data transmission.</p></li><li><p><strong class="emphasis bold"><span class="emphasis"><em>SS</em></span></strong> (Slave Select) &#8211; This is
+               specific to the device. This is the pin on each device that the SPI master can use to
+               enable and disable the device. This signal is an ‘active low’ signal which means a
+               device becomes a slave when its SS pin is set to low.</p></li></ul></div><p>The SPI lines over In Circuit Serial Programming (ICSP) header are consistent across all
+         the boards shown as follows.</p><div class="informalfigure"><div id="d120e2894" class="mediaobject"><p><img src="spi_over_icsp_header.png" alt="" height="76" width="179"></img></p></div></div></section><section itemprop="content"><h3 class="title" id="bvk8ly6-3">Data Transmission</h3><div class="itemizedlist"><ul><li><p>The SPI master sets the clock with a frequency supported by the SPI slave with
+               which the master wants to communicate.</p></li><li><p>The master selects the slave by setting the SS pin of slave to low (0). The master
+               can select only one slave at a time.</p></li><li><p>As each SPI transfer is a full duplex transmission, the master sends a bit on MOSI
+               line and the slave reads it. The slave also sends a bit on the MISO line and the
+               master reads it. </p><p>When the master makes a data transfer, the slave cannot opt out of sending data.
+               However, the slave device sends dummy bytes (usually all 1s or all 0s) when
+               communication is one-way. Similarly, when the master reads data from a slave, the
+               slave knows to ignore the data that the master sends.</p></li><li><p>When the transfer is complete, the master stops toggling the SCK and mostly pulls
+               up the SS to deselect the slave.</p></li><li><p>During the data transmission, the other slaves on the SPI bus that have not been
+               selected by the master ignore the SCK and the MOSI signals, and do not drive the
+               MISO.</p></li></ul></div><div class="informalfigure"><div id="d120e2919" class="mediaobject"><p><img src="arduino_fullduplex_spi_tranmission.png" alt="" height="321" width="501"></img></p></div></div><div class="informalfigure"><div id="d120e2923" class="mediaobject"><p><img src="arduino_master_slave_transmission.png" alt="" height="173" width="431"></img></p></div></div></section><section itemprop="content"><h3 class="title" id="bvk8ly6-4">SPI Transfer Modes</h3><p>An SPI master sets the clock polarity and the clock phase.</p><p><strong class="emphasis bold"><span class="emphasis"><em>Clock Polarity (CPOL)</em></span></strong> &#8211; is the
+         default value (HIGH/LOW) of SCK signal when the bus is idle.</p><p>CPOL = 0 means a default LOW value of SCK when bus is idle. CPOL = 1 means default HIGH
+         value of SCK when bus is idle.</p><p><strong class="emphasis bold"><span class="emphasis"><em>Clock Phase (CPHA)</em></span></strong> &#8211; indicates, if
+         the clock data is sampled at LEADING (first) or TRAILING (second) edge of SCK. </p><p>CPHA = 0 means sample at LEADING edge of SCK and CPHA = 1 means sample at TRAILING edge
+         of SCK, regardless of whether the clock edge is RISING or FALLING.</p><p>The combination of polarity and phase are referred to as SPI modes. The SPI modes 0&#8211;3
+         are shown in the table.</p><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Mode</th><th>Clock Polarity (CPOL)</th><th>Clock Phase (CPHA) </th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>2</td><td>1</td><td>1</td></tr><tr><td>3</td><td>1</td><td>0</td></tr></tbody></table></div><p><span class="emphasis"><em>Mode 0 </em></span></p><div class="informalfigure"><div id="d120e2993" class="mediaobject"><p><img src="arduino_transfer_mode0.png" alt="" height="299" width="652"></img></p></div></div><p><span class="emphasis"><em>Mode 1</em></span></p><div class="informalfigure"><div id="d120e3001" class="mediaobject"><p><img src="arduino_transfer_mode1.png" alt="" height="325" width="645"></img></p></div></div><p><span class="emphasis"><em>Mode 2</em></span></p><div class="informalfigure"><div id="d120e3008" class="mediaobject"><p><img src="arduino_tranfer_mode2.png" alt="" height="319" width="632"></img></p></div></div><p><span class="emphasis"><em>Mode 3</em></span></p><div class="informalfigure"><div id="d120e3015" class="mediaobject"><p><img src="arduino_tranfer_mode3.png" alt="" height="339" width="644"></img></p></div></div></section></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:39:54 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

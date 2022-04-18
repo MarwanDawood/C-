@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productAdditionalComps>
+  <dependsOn>
+    <component>
+      <name>aps_pubsub_client_cpp/pubsub_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546987276</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/raspi_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546987458</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/asyncioplugins_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1534886167</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/shared_linuxservices_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1534905602</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1532490609</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/raspberrypiio_fe_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546989645</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/examples/raspberrypiio_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546989656</version>
+    </component>
+  </dependsOn>
+  <isControllingProduct>false</isControllingProduct>
+  <licenseAgreementType>ASLA</licenseAgreementType>
+  <platform>glnxa64</platform>
+  <productBaseCode>RASPPIIO</productBaseCode>
+  <productName>MATLAB Support Package for Raspberry Pi Hardware</productName>
+  <productNumber>2026</productNumber>
+  <productVersion>18.2.2</productVersion>
+  <releaseDescription>R2018b</releaseDescription>
+  <releaseFamily>R2018b</releaseFamily>
+</productAdditionalComps>
+

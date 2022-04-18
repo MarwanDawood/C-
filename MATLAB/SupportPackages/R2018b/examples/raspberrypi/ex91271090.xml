@@ -1,0 +1,9 @@
+<example>
+  <main>AudioVisualizerUsingRaspberryPiTMSenseHATExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_audioVisualizer');</callback>
+  <file timestamp="1524240169" component="raspberrypi">raspberrypi_audioVisualizer_model.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

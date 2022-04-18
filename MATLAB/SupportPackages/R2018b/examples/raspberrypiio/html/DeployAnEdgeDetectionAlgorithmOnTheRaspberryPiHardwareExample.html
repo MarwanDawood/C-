@@ -1,0 +1,295 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-09"><meta name="DC.source" content="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware</h1><!--introduction--><p>This example shows you how to deploy an Edge detection function on the Raspberry Pi&#8482; hardware as a stanalone executable using MATLAB&reg; Support Package for Raspberry Pi Hardware. In this example, you will learn how to acquire live image from a webcam connected to the Raspberry Pi hardware, run the edge detection function on the acquired image, and display the result on the monitor that is connected to the same Raspberry Pi hardware.</p><p><img vspace="5" hspace="5" src="../edge_detection.png" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Prerequisites</a></li><li><a href="#2">Required Products</a></li><li><a href="#3">Step 1: Create and Run an Edge Detection Algorithm on a Stored Image</a></li><li><a href="#4">Step 2: Modify the Edge Detection Algorithm to use Live Image from Hardware</a></li><li><a href="#5">Step 3: Add the Compilation Directive to the MATLAB Function</a></li><li><a href="#6">Step 4: Prepare the Edge Detection Function for Deployment</a></li><li><a href="#7">Step 5: Create a Hardware Configuration Object</a></li><li><a href="#8">Step 6: Deploy the MATLAB Function on Hardware</a></li></ul></div><h2 id="1">Prerequisites</h2><p>Before you start with this example, we recommend you to complete these examples:</p><div><ul><li><a href="docid:raspberrypiio_ref.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a></li><li><a href="docid:raspberrypiio_ref.example-raspi_gettingstarted_with_hardware">Working with Raspberry Pi Hardware</a></li></ul></div><h2 id="2">Required Products</h2><div><ul><li>Raspberry Pi hardware</li><li>A supported <a href="https://elinux.org/RPi_USB_Webcams">USB webcam</a> or a <a href="https://www.raspberrypi.org/products/camera-module-v2/">Raspberry Pi camera module</a></li><li>A monitor connected to the Raspberry Pi hardware</li><li>MATLAB Coder license</li></ul></div><h2 id="3">Step 1: Create and Run an Edge Detection Algorithm on a Stored Image</h2><p>1. Copy the <tt>edgeDetection</tt> function and paste it in the MATLAB Editor. The function implements an algorithm to read the <tt>peppers.png</tt> file from the computer, apply edge detection algorithm to <tt>peppers.png</tt>, and display the result as a MATLAB figure. The algorithm consists of a 3-by-3 Sobel operator that is applied to the image in horizontal and vertical directions, and then threshold against a constant value.</p><pre>function edgeDetection()
+% Define convolutional kernel to be used for edge detection
+ kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Read image from file and apply
+ img = imread('peppers.png');
+ h = conv2(img(:,:,2),kern,'same');
+ v = conv2(img(:,:,2),kern','same');
+ e = sqrt(h.*h + v.*v);
+ edgeImg = uint8((e &gt; 100) * 240);
+ image(edgeImg);
+end</pre><p>2. Save the function as <tt>edgeDetection.m</tt> to a folder to which you have write access.</p><p>3. Run the <tt>edgeDetection</tt> function by using the run command in the MATLAB Command Window. When you run the function, MATLAB starts executing the edge detection algorithm on the <tt>peppers.png</tt> file stored in your computer.</p><pre>run edgeDetection</pre><p><img vspace="5" hspace="5" src="../static_image_capture.png" alt=""> </p><h2 id="4">Step 2: Modify the Edge Detection Algorithm to use Live Image from Hardware</h2><p>Before deploying, running the <tt>edgeDetection</tt> function by using live input and output (IO) from the hardware is recommended.</p><p>Using live IO enables you to:</p><div><ul><li>Verify that the MATLAB function is communicating with the hardware as expected.</li><li>Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.</li></ul></div><p>1. To use live IO, you must modify the function to capture live images using the webcam connected to the hardware.</p><pre>function edgeDetection()
+% Create a connection to the Raspberry Pi hardware
+  r = raspi;</pre><pre>% Create a connection to the Raspberry Pi camera module, capture live
+% images, and then display the images
+  w = webcam(r);</pre><pre>% Define convolutional kernel to be used for edge detection
+  kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+  for k = 1:100
+  img = snapshot(w);
+  h = conv2(img(:,:,2),kern,'same');
+  v = conv2(img(:,:,2),kern','same');
+  e = sqrt(h.*h + v.*v);
+  edgeImg = uint8((e &gt; 100) * 240);
+  image(edgeImg);
+  end
+end</pre><p>2. Run the <tt>edgeDetection</tt> function by using the run command in the MATLAB Command Window. When you run the function, MATLAB connects to the hardware and starts executing the edge detection algorithm on the images captured from the webcam connected to the hardware.</p><pre>run edgeDetection</pre><p><img vspace="5" hspace="5" src="../live_image_capture.png" alt=""> </p><p>4. Observe the output and fine tune the edge detection threshold to suit the characteristic of the camera and environment, if required.</p><h2 id="5">Step 3: Add the Compilation Directive to the MATLAB Function</h2><p>Add the <tt>%#codegen</tt> directive (or pragma) after the <tt>edgeDetection</tt> function signature to indicate that you intend to deploy the function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.</p><pre>function edgeDetection() %#codegen</pre><h2 id="6">Step 4: Prepare the Edge Detection Function for Deployment</h2><p>1. Check the <tt>edgeDetection</tt> function using Code Analyzer for any errors and warnings by following the steps in <a href="docid:raspberrypiio_ug.mw_c1e35b00-a28c-4e0a-9761-5f5935961dcb">Check Code with Code Analyzer</a> and fix them before proceeding to the next step.</p><p>In this example, the green color of the indicator specifies that the MATLAB function has no errors or warnings.</p><p><img vspace="5" hspace="5" src="../code_analyzer_edge_errorfree.png" alt=""> </p><p>2. Debug the <tt>edgeDetection</tt> function and replace all the unsupported calls with the calls that are supported by code generation.</p><p>In this example, the <tt><a href="docid:matlab_ref.buqdlnb">image</a></tt> function used at line number 18 is not supported by code generation. Deploying the <tt>edgeDetection</tt> function without any modification will result in an executable that may not behave as expected.</p><p>To fix this unsupported function call error, replace <tt>image</tt> with an equivalent call that is supported by code generation. You can replicate the functionality of <tt>image</tt> by using the <tt><a href="docid:raspberrypiio_ref.bve3b92">displayImage</a></tt> function provided by MATLAB Support Package for Raspberry Pi Hardware.</p><pre>function edgeDetection() %#codegen
+% Create a connection to the Raspberry Pi hardware
+  r = raspi;</pre><pre>% Create a connection to the Raspberry Pi camera module, capture live
+% images, and then display the images
+  w = webcam(r);</pre><pre>% Define convolutional kernel to be used for edge detection
+  kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+  for k = 1:100
+  img = snapshot(w);
+  h = conv2(img(:,:,2),kern,'same');
+  v = conv2(img(:,:,2),kern','same');
+  e = sqrt(h.*h + v.*v);
+  edgeImg = uint8((e &gt; 100) * 240);
+  displayImage(r,edgeImg,'Title','Edge Detection');
+  end
+end</pre><h2 id="7">Step 5: Create a Hardware Configuration Object</h2><p>1. Create a hardware configuration object by using the <tt><a href="docid:raspberrypiio_ref.mw_0826d141-e828-41a5-b465-cdf6268cb39a">targetHardware</a></tt> function in the MATLAB Command Window.</p><pre>board = targetHardware('Raspberry Pi')</pre><pre>board =</pre><pre>targetHardware with properties:</pre><pre>            Name: 'Raspberry Pi'
+   DeviceAddress: '192.168.1.2'
+        Username: 'pi'
+        Password: '*********'
+        BuildDir: '/home/pi'
+     BuildAction: 'Build, load, and run'</pre><p>2. Verify the <tt>DeviceAddress</tt>, <tt>Username</tt>, and <tt>Password</tt> properties listed in the output. If required, change the value of the properties by using the dot notation syntax.</p><p>For example, to change the device address to <tt>173.21.22.327</tt>, enter:</p><pre>board.DeviceAddress = '173.21.22.327'</pre><h2 id="8">Step 6: Deploy the MATLAB Function on Hardware</h2><p>Deploy the MATLAB function as a standalone executable on the hardware by using the <tt><a href="docid:raspberrypiio_ref.mw_a0a7a3d1-17af-452f-af42-8cc2ae09c58d">deploy</a></tt> function.</p><pre>deploy(board,'edgeDetection')</pre><pre>Code generation successful: View report</pre><p>The <tt>deploy</tt> function initiates code generation of the <tt>edgeDetection</tt> function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the <tt>edgeDetection</tt> function for any build errors and warnings in the generated code.</p><p>After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts acquiring live images from the webcam, runs the edge detection algorithm on the acquired image, and then displays the result on the monitor.</p><p><img vspace="5" hspace="5" src="../code_generation_report_edgeDetection.png" alt=""> </p><p class="footer">Copyright 2018 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware
+% This example shows you how to deploy an Edge detection function on  
+% the Raspberry Pi(TM) hardware as a stanalone executable using MATLAB(R) Support Package
+% for Raspberry Pi Hardware. In this
+% example, you will learn how to acquire live image from a webcam connected
+% to the Raspberry Pi hardware, run the edge detection function on the
+% acquired image, and display the result on the monitor that is connected to the
+% same Raspberry Pi hardware.
+%
+% <<../edge_detection.png>>
+%
+% Copyright 2018 The MathWorks, Inc.
+
+%% Prerequisites
+% Before you start with this example, we recommend you to complete these examples:
+%
+% * <docid:raspberrypiio_ref.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware>
+% * <docid:raspberrypiio_ref.example-raspi_gettingstarted_with_hardware Working with Raspberry Pi Hardware>
+%% Required Products
+% 
+% * Raspberry Pi hardware
+% * A supported <https://elinux.org/RPi_USB_Webcams USB webcam> or a
+% <https://www.raspberrypi.org/products/camera-module-v2/ Raspberry Pi camera module>
+% * A monitor connected to the Raspberry Pi hardware  
+% * MATLAB Coder license
+%
+%% Step 1: Create and Run an Edge Detection Algorithm on a Stored Image
+% 1. Copy the |edgeDetection| function and paste it in the MATLAB Editor. The function implements an algorithm to read the |peppers.png| file from the computer, apply edge detection algorithm to |peppers.png|, and display the result as a MATLAB figure. The algorithm consists of a 3-by-3 Sobel operator that is applied to the image in horizontal and vertical directions, and then threshold against a constant value.   
+%
+%  function edgeDetection()
+%  % Define convolutional kernel to be used for edge detection 
+%   kern = [1 2 1; 0 0 0; -1 -2 -1]; 
+%  % Read image from file and apply 
+%   img = imread('peppers.png'); 
+%   h = conv2(img(:,:,2),kern,'same'); 
+%   v = conv2(img(:,:,2),kern','same'); 
+%   e = sqrt(h.*h + v.*v); 
+%   edgeImg = uint8((e > 100) * 240); 
+%   image(edgeImg); 
+%  end
+%
+% 2. Save the function as |edgeDetection.m| to a folder to which you have write access.
+%
+% 3. Run the |edgeDetection| function by using the run command in the MATLAB Command
+% Window. When you run the function, MATLAB
+% starts executing the edge detection algorithm on the |peppers.png| file
+% stored in your computer.
+%
+%  run edgeDetection
+%
+% <<../static_image_capture.png>>
+%
+%% Step 2: Modify the Edge Detection Algorithm to use Live Image from Hardware
+% Before deploying, running the |edgeDetection|
+% function by using live input and output (IO) from the hardware is recommended.
+%
+% Using live IO enables you to:
+%
+% * Verify that the MATLAB function is communicating with
+% the hardware as expected.
+% * Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.
+% 
+% 1. To use live IO, you must modify the function to capture live images using the webcam connected to the hardware. 
+%
+%  function edgeDetection()
+%  % Create a connection to the Raspberry Pi hardware
+%    r = raspi;
+%
+%  % Create a connection to the Raspberry Pi camera module, capture live
+%  % images, and then display the images
+%    w = webcam(r); 
+%
+%  % Define convolutional kernel to be used for edge detection 
+%    kern = [1 2 1; 0 0 0; -1 -2 -1]; 
+%  % Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+%    for k = 1:100
+%    img = snapshot(w); 
+%    h = conv2(img(:,:,2),kern,'same'); 
+%    v = conv2(img(:,:,2),kern','same'); 
+%    e = sqrt(h.*h + v.*v); 
+%    edgeImg = uint8((e > 100) * 240); 
+%    image(edgeImg); 
+%    end
+%  end
+%
+% 2. Run the |edgeDetection| function by using the run command in the MATLAB Command
+% Window. When you run the function, MATLAB connects to the hardware and
+% starts executing the edge detection algorithm on the images captured from
+% the webcam connected to the hardware.
+%
+%  run edgeDetection
+%
+% <<../live_image_capture.png>>
+% 
+% 4. Observe the output and fine tune the edge detection threshold to suit the characteristic of
+% the camera and environment, if required.
+%
+%% Step 3: Add the Compilation Directive to the MATLAB Function
+% Add the |%#codegen| directive (or pragma) after the |edgeDetection| function signature to indicate that you intend to deploy the function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.
+%
+%  function edgeDetection() %#codegen
+%
+%% Step 4: Prepare the Edge Detection Function for Deployment
+%
+% 1. Check the |edgeDetection| function using Code Analyzer for any errors and warnings by following the steps in
+% <docid:raspberrypiio_ug.mw_c1e35b00-a28c-4e0a-9761-5f5935961dcb Check
+% Code with Code Analyzer> and fix them before proceeding to the next step.
+%
+% In this example, the green color of the indicator specifies that the MATLAB function has no errors or warnings.
+%
+% <<../code_analyzer_edge_errorfree.png>>
+%
+% 2. Debug the |edgeDetection| function and replace all the unsupported calls with the calls that are supported
+% by code generation. 
+%
+% In this example, the |<docid:matlab_ref.buqdlnb image>| function used at line number 18 is not supported by code generation. Deploying the |edgeDetection| function without any modification will result in an executable that may not behave as expected. 
+%
+% To fix this unsupported function call error, replace |image| with an equivalent
+% call that is supported by code generation. You can replicate the functionality of |image| by using the
+% |<docid:raspberrypiio_ref.bve3b92 displayImage>| function provided by 
+% MATLAB Support Package for Raspberry Pi Hardware. 
+%
+%  function edgeDetection() %#codegen
+%  % Create a connection to the Raspberry Pi hardware
+%    r = raspi;
+%
+%  % Create a connection to the Raspberry Pi camera module, capture live
+%  % images, and then display the images
+%    w = webcam(r); 
+%
+%  % Define convolutional kernel to be used for edge detection 
+%    kern = [1 2 1; 0 0 0; -1 -2 -1]; 
+%  % Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+%    for k = 1:100
+%    img = snapshot(w); 
+%    h = conv2(img(:,:,2),kern,'same'); 
+%    v = conv2(img(:,:,2),kern','same'); 
+%    e = sqrt(h.*h + v.*v); 
+%    edgeImg = uint8((e > 100) * 240); 
+%    displayImage(r,edgeImg,'Title','Edge Detection');
+%    end
+%  end
+%% Step 5: Create a Hardware Configuration Object
+% 1. Create a hardware configuration object by using the |<docid:raspberrypiio_ref.mw_0826d141-e828-41a5-b465-cdf6268cb39a targetHardware>| function in the MATLAB Command Window.
+%
+%  board = targetHardware('Raspberry Pi')
+%
+%  board = 
+% 
+%  targetHardware with properties:
+% 
+%              Name: 'Raspberry Pi'
+%     DeviceAddress: '192.168.1.2'
+%          Username: 'pi'
+%          Password: '*********'
+%          BuildDir: '/home/pi'
+%       BuildAction: 'Build, load, and run'
+%
+% 2. Verify the |DeviceAddress|, |Username|, and |Password| properties listed in the output. If required, change the value of the properties by using the dot notation syntax.
+%
+% For example, to change the device address to |173.21.22.327|, enter:
+%
+%  board.DeviceAddress = '173.21.22.327'
+%
+%% Step 6: Deploy the MATLAB Function on Hardware
+% Deploy the MATLAB function as a standalone executable on the hardware by using the |<docid:raspberrypiio_ref.mw_a0a7a3d1-17af-452f-af42-8cc2ae09c58d deploy>| function.
+%
+%  deploy(board,'edgeDetection')
+%
+%  Code generation successful: View report
+%
+% The |deploy| function initiates code generation of the |edgeDetection| function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the |edgeDetection| function for any build errors and warnings in the generated code.
+%
+% After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts acquiring live images from the webcam, runs the edge detection algorithm on the
+% acquired image, and then displays the result on the monitor.
+% 
+% <<../code_generation_report_edgeDetection.png>>
+%
+##### SOURCE END #####
+--></body></html>

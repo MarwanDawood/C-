@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/raspi_examples</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/raspi_examples_common_1546987004.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/raspi_examples_common</componentName>
+    <componentVersion>1546987004</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>44</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>3808841</size>
+    <type />
+    <uncompressedBytes>3874768</uncompressedBytes>
+  </component>
+</componentData>
+

@@ -1,0 +1,9 @@
+<example>
+  <main>ReadTemperatureFromATMP102SensorExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_I2C_temp');</callback>
+  <file timestamp="1524247750" component="raspberrypi">raspberrypi_3_modelb_gpio_pinmap.jpg</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

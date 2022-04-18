@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Image Inversion</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Image Inversion",
+          "description": "This example shows how to use the V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi&#174; block library to implement an image inversion algorithm with a Simulink&#174; model, and to run the model on Raspberry Pi hardware.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/ImageInversionExample_01.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.ImageInversionExample",
+          "name": "ImageInversionExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/ImageInversionExample')"
+
+        }</script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to use the V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi&#174; block library to implement an image inversion algorithm with a Simulink&#174; model, and to run the model on Raspberry Pi hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/ImageInversionExample_01.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Image Inversion</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e3276" class="intrnllnk">Introduction</a></li><li><a href="#d120e3308" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e3318" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e3348" class="intrnllnk">Task 1 - Connect Camera</a></li><li><a href="#d120e3386" class="intrnllnk">Task 2 - Configure and Run the Image Inversion Model in External Mode</a></li><li><a href="#d120e3444" class="intrnllnk">Task 3 - (Optional) Configure and Run the Image Inversion Model as a Standalone Application</a></li><li><a href="#d120e3485" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e3493" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_inversion">Image Inversion</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/ImageInversionExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex32445188"></meta><meta itemprop="exampletitle" content="Image Inversion"></meta></div><span id="ImageInversionExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to use the V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi&#174; block library to implement an image inversion algorithm with a Simulink&#174; model, and to run the model on Raspberry Pi hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e3276">Introduction<span id="ImageInversionExample-1" class="anchor_target"></span></h3><p>Black and white image inversion refers to an image processing technique where light areas are mapped to dark, and dark areas are mapped to light. In other words, after image inversion black becomes white and white becomes black. An inverted black and white image can be thought of as a digital negative of the original image.</p><p>In this example, the inversion algorithm will be applied to the red (R), green (G) and blue (B) components of an image captured from a USB camera creating a color digital negative effect. The R, G and B components of the image are represented as uint8 values. That is, the range of the values that any of the color components can take is from 0 to 255. Assuming that the intensity value at position <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypi/win64/ImageInversionExample_eq10772030214071199617.png" alt=""></img></span></span> of the image is <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypi/win64/ImageInversionExample_eq03744512032217266162.png" alt=""></img></span></span>, the inversion mapping is defined by <span class="inlineequation"><span class="inlinemediaobject"><img src="../../../examples/raspberrypi/win64/ImageInversionExample_eq06858848706035486229.png" alt=""></img></span></span>.</p><h3 class="title" id="d120e3308">Prerequisites<span id="ImageInversionExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e3318">Required Hardware<span id="ImageInversionExample-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p><a href="http://elinux.org/RPi_USB_Webcams" target="_blank">A compatible USB camera</a> or <a href="https://www.raspberrypi.org/products/camera-module/" target="_blank">Raspberry Pi camera module</a></p></li></ul></div><p>(Optional) To display the output video on an external monitor you will need the following:</p><div class="itemizedlist"><ul><li><p>HDMI or composite television, or a monitor with DVI or HDMI input, and appropriate cables</p></li><li><p>USB mouse and keyboard</p></li></ul></div><div class="informalfigure"><div id="d120e3345" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/ImageInversionExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e3348">Task 1 - Connect Camera<span id="ImageInversionExample-4" class="anchor_target"></span></h3><p>In this task, you will connect a USB camera or a Raspberry Pi camera module to your Raspberry Pi hardware and check if the camera was detected properly by the Linux kernel.</p><p><strong class="emphasis bold">1.</strong> If you have a USB camera:</p><div class="itemizedlist"><ul><li><p>Connect the USB camera to one of the USB ports on your Raspberry Pi board. Note that some cameras may draw too much power and may require a powered USB hub for proper operation.</p></li></ul></div><p>If you have a Raspberry Pi camera module:</p><div class="itemizedlist"><ul><li><p>Connect the camera module to the Raspberry Pi board using a CSI cable by following the manufacturer's instructions.</p></li><li><p>Activate the Raspberry Pi camera module V4L2 kernel driver by executing the following commands on the MATLAB prompt:</p></li></ul></div><div class="code_responsive"><pre class="programlisting">r = raspberrypi;
+system(r,'/sbin/modprobe bcm2835_v4l2')</pre></div><p><strong class="emphasis bold">2.</strong> Check if the camera is recognized by the Linux kernel by executing the following command on the MATLAB prompt:</p><p>system(r,'ls -al /dev/video*')</p><p>Typical output will be:</p><div class="code_responsive"><pre class="programlisting">crw-rw---T+ 1 root video 81, 0 Dec 16 14:43 /dev/video0</pre></div><p>Make sure that the video device file name displayed above matches to the 'Device name' parameter specified on the V4L2 Video Capture block mask. In this example, the 'Device name' should be set to '/dev/video0'.</p><h3 class="title" id="d120e3386">Task 2 - Configure and Run the Image Inversion Model in External Mode<span id="ImageInversionExample-5" class="anchor_target"></span></h3><p>When you run the image inversion model in External mode, the image is captured from the USB camera connected to the Raspberry Pi hardware and the results of the image inversion is sent back to the host computer to be displayed by the on SDL Video Display block.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_inversion" target="_blank">Image Inversion</a> model.</p><p><strong class="emphasis bold">2.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><strong class="emphasis bold">3.</strong> In the model, change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">4.</strong> In the model, click the <strong class="emphasis bold">Run</strong> button on the toolbar to run the model on Raspberry Pi hardware.</p><p><strong class="emphasis bold">5.</strong> Observe the display of inverted images on the host computer.</p><p><strong class="emphasis bold">6.</strong> While the model is running, double click on the <strong class="emphasis bold">Constant</strong> block and change the <strong class="emphasis bold">Constant value</strong> from 255 to 120, for example. Observe the resulting image effect.</p><p><strong class="emphasis bold">7.</strong> Press the <strong class="emphasis bold">Stop</strong> button on the model to stop model execution.</p><h3 class="title" id="d120e3444">Task 3 - (Optional) Configure and Run the Image Inversion Model as a Standalone Application<span id="ImageInversionExample-6" class="anchor_target"></span></h3><p>In this task, you will connect a monitor to Raspberry Pi hardware. The video captured from the USB camera will be inverted by the model running on Raspberry Pi hardware and displayed on the monitor connected to Raspberry Pi hardware.</p><p><strong class="emphasis bold">1.</strong> Using appropriate cables, connect a monitor or television to the Raspberry Pi hardware. The monitor, once connected, will display the Linux desktop.</p><p><strong class="emphasis bold">2.</strong> Connect a USB mouse and a keyboard to the Raspberry Pi hardware's USB ports. Once connected, login to Linux desktop as you would to any Linux&#174; computer.</p><p><strong class="emphasis bold">3.</strong> Open the <a href="matlab:raspberrypi_inversion" target="_blank">Image Inversion</a> model.</p><p><strong class="emphasis bold">4.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><strong class="emphasis bold">5.</strong> In the model, click the <strong class="emphasis bold">Deploy To Hardware</strong> button on the toolbar to run the model on the Raspberry Pi hardware. On the monitor connected to Raspberry Pi hardware, you will see a window displaying inverted images.</p><p><strong class="emphasis bold">6.</strong> Stop the model running on the Raspberry Pi hardware by executing the following on the MATLAB&#174; command line</p><div class="code_responsive"><pre class="programlisting">stopModel(r,'raspberrypi_inversion');</pre></div><h3 class="title" id="d120e3485">Other Things to Try<span id="ImageInversionExample-7" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Change the model to use a different constant value for each color component. Then, independently change the value of each of the constants to get a wider range of imaging effects.</p></li></ul></div><h3 class="title" id="d120e3493">Summary<span id="ImageInversionExample-8" class="anchor_target"></span></h3><p>This example showed a Simulink model implementing an image inversion algorithm. V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi library were used to capture and display video data. The example showed how the model may be run in External mode, and as a standalone application on Raspberry Pi hardware.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>I2C Master Write</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+            ,
+          {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../referencelist.html?type=block",
+          "name": "Block Libraries"
+}
+
+          }]
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="block:I2C Master Write"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/block"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Write data to an I2C slave device or an I2C slave device register."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">I2C Master Write</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#bvk26k6-1" class="intrnllnk">Description</a></li><li><a href="#bvk26k6-2" class="intrnllnk">Ports</a><ul class="nav"><li><a href="#bvk26v4-1" class="intrnllnk">Input</a><ul class="nav"><li><a href="#bvk26k6-Data" class="intrnllnk">Data</a></li></ul></li></ul><ul class="nav"><li><a href="#mw_a0c9006f-5e0f-44b5-b7fc-a38601301c44" class="intrnllnk">Output</a><ul class="nav"><li><a href="#mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" class="intrnllnk">Status</a></li></ul></li></ul></li><li><a href="#bvk26k6-3" class="intrnllnk">Parameters</a><ul class="nav"><li><a href="#bvk26k6-Board" class="intrnllnk">Board</a></li><li><a href="#bvk26k6-Slaveaddress" class="intrnllnk">Slave address</a></li><li><a href="#bvk26k6-Slavebyteorder" class="intrnllnk">Slave byte order</a></li><li><a href="#bvk26k6-Enableregisteraccess" class="intrnllnk">Enable register access</a></li><li><a href="#bvk26k6-Slaveregisteraccess" class="intrnllnk">Slave register address</a></li><li><a href="#bvk26k6-SendNACKattheendofdatatransfer" class="intrnllnk">Send NACK at the end of data transfer</a></li><li><a href="#bvk26k6-Removestopbitattheendofdatatransfer" class="intrnllnk">Remove stop bit at the end of data transfer</a></li><li><a href="#bvk26k6-Outputerrorstatus" class="intrnllnk">Output error status</a></li></ul></li><li><a href="#bvk26k6_seealso" class="intrnllnk">See Also</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref"><div class="block_ref"><span id="bvk26k6" class="anchor_target"></span><span id="libi2cmasterwrite" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">I2C Master Write</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Write data to I2C slave device or I2C slave device register</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage">expand all in page</a></div></div></div><div itemprop="content" class="ref_sect"><div class="row"><div class="col-xs-12 col-sm-9 col-md-10"><ul class="list-unstyled library_path_container"><li><strong>Library:</strong></li><li><p class="library_path">
+Simulink Support Package for Raspberry Pi Hardware
+</p></li></ul></div><div class="col-xs-12 col-sm-3 col-md-2"><p class="text-right text_center_xs"><span class="guiicon"><span class="inlinemediaobject"><img src="raspberrypi_i2c_write.png" alt="" height="74" width="128"></img></span></span></p></div></div></div><h2 id="bvk26k6-1">Description</h2><p>Write data to an I2C slave device or an I2C slave device register.
+Using this block, you can also write data to a specific register on
+the I2C slave.</p><p>For more information on I2C communication, refer to <a href="../ug/support-i2c-communication.html" class="a">Support I2C Communication</a> and <a href="../../../supportpkg/raspberrypiio/ug/about-i2c-interface-on-the-raspberry-pi-hardware.html" class="a">The Raspberry Pi I2C Interface</a> (MATLAB Support Package for Raspberry Pi Hardware). To open the pin map of the Raspberry Pi board,
+      click the <strong class="guilabel">View pin map</strong>.</p><div class="ref_sect"><h2 id="bvk26k6-2">Ports</h2></div><div class="ref_sect"><h3 id="bvk26v4-1">Input</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="bvk26v4-1_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Data" data-target="#expand_panel_body_bvk26k6-Data" aria-controls="expand_panel_body_bvk26k6-Data" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="bvk26k6-Data"><code class="name">Data</code> &#8212; Input port to write data to I2C slave device or an I2C slave
+device register<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">[1xN] and [Nx1] array</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Data" aria-labelledby="expand_panel_heading_bvk26k6-Data" class="panel-collapse collapse"><div class="panel-body">
+<p>The input port write data to the I2C slave device or I2C slave
+device register.</p>
+<p class="datatypelist"><strong>Data Types: </strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h3 id="mw_a0c9006f-5e0f-44b5-b7fc-a38601301c44">Output</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_a0c9006f-5e0f-44b5-b7fc-a38601301c44_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" data-target="#expand_panel_body_mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" aria-controls="expand_panel_body_mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="mw_f5213c09-e77a-400a-add4-8c5bf83b06dc"><code class="name">Status</code> &#8212; Status of write operation<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" aria-labelledby="expand_panel_heading_mw_f5213c09-e77a-400a-add4-8c5bf83b06dc" class="panel-collapse collapse"><div class="panel-body">
+            <p>Output port to display error status. For more information, see <a href="i2cmasterwrite.html#bvk26k6-Outputerrorstatus" class="intrnllnk">Output error
+                status</a>.</p>
+            
+              <h4 class="descriptionsect">Dependencies</h4>
+              <p>This port  appears only when you select the <strong class="guilabel">Output error
+                  status</strong> parameter.</p>
+            
+          <p class="datatypelist"><strong>Data Types: </strong><code>uint8</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="bvk26k6-3">Parameters</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="bvk26k6-3_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Board" data-target="#expand_panel_body_bvk26k6-Board" aria-controls="expand_panel_body_bvk26k6-Board" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Board" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Board"><code class="name">Board</code> &#8212; Specific board used for I2C communication<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">Pi 2 Model B (default) | Model B Rev1 | Model B Rev2 | Model B+ | Pi 3 Model B</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Board" aria-labelledby="expand_panel_heading_bvk26k6-Board" class="panel-collapse collapse"><div class="panel-body">
+<p>Select the specific board that you are using. Changing the board
+updates the pin choices that you get.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Slaveaddress" data-target="#expand_panel_body_bvk26k6-Slaveaddress" aria-controls="expand_panel_body_bvk26k6-Slaveaddress" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Slaveaddress" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Slaveaddress"><code class="name">Slave address</code> &#8212; Address of I2C slave device<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">10 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Slaveaddress" aria-labelledby="expand_panel_heading_bvk26k6-Slaveaddress" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the I2C slave device address to which you want to write
+the data. The I2C slave device address is a 7-bit address.</p>
+<p>Specify this address as an integer or in hexadecimal format
+by using <code class="function">hex2dec()</code>, for example hex2dec(‘61’).</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Slavebyteorder" data-target="#expand_panel_body_bvk26k6-Slavebyteorder" aria-controls="expand_panel_body_bvk26k6-Slavebyteorder" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Slavebyteorder" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Slavebyteorder"><code class="name">Slave byte order</code> &#8212; Byte order supported by the I2C slave device<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">BigEndian (default) | LittleEndian</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Slavebyteorder" aria-labelledby="expand_panel_heading_bvk26k6-Slavebyteorder" class="panel-collapse collapse"><div class="panel-body">
+<p>Select the byte ordering that your I2C slave supports.</p>
+<p>The two byte ordering options are:</p>
+<div class="itemizedlist"><ul><li><p>Big Endian &#8212; The most significant byte is written
+first over the I2C bus. This option is the default option.</p></li><li><p>Little Endian &#8212; The least significant byte
+is written first over the I2C bus.</p></li></ul></div>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Enableregisteraccess" data-target="#expand_panel_body_bvk26k6-Enableregisteraccess" aria-controls="expand_panel_body_bvk26k6-Enableregisteraccess" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Enableregisteraccess" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Enableregisteraccess"><code class="name">Enable register access</code> &#8212; Option to enable writing to the register on I2C slave device<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">On (default) | Off</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Enableregisteraccess" aria-labelledby="expand_panel_heading_bvk26k6-Enableregisteraccess" class="panel-collapse collapse"><div class="panel-body">
+<p>Select this check box to write data to a specific I2C slave
+register.</p>
+<p>When you clear this parameter, the <strong class="guilabel">Send NACK at the
+end of data transfer</strong> and <strong class="guilabel">Remove stop bit at the
+end of data transfer </strong> parameters are displayed. Using these
+parameters, you can modify the write operation according to your requirements.
+For more information, <a href="../ug/support-i2c-communication.html#bvgq6rk-5" class="a">I2C Register Read/Write</a></p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Slaveregisteraccess" data-target="#expand_panel_body_bvk26k6-Slaveregisteraccess" aria-controls="expand_panel_body_bvk26k6-Slaveregisteraccess" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Slaveregisteraddress" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Slaveregisteraccess"><code class="name">Slave register address</code> &#8212; I2C slave device register address<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">0 (default) (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Slaveregisteraccess" aria-labelledby="expand_panel_heading_bvk26k6-Slaveregisteraccess" class="panel-collapse collapse"><div class="panel-body">
+          <p>Enter the slave device register address to which you want to write the data. </p>
+          
+            <h4 class="descriptionsect">Dependencies</h4>
+            <p>This parameter is enabled only when you select the <strong class="guilabel">Enable register
+                access</strong> parameter.</p>
+          
+        </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-SendNACKattheendofdatatransfer" data-target="#expand_panel_body_bvk26k6-SendNACKattheendofdatatransfer" aria-controls="expand_panel_body_bvk26k6-SendNACKattheendofdatatransfer" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_SendNACKattheendofdatatransfer" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-SendNACKattheendofdatatransfer"><code class="name">Send NACK at the end of data transfer</code> &#8212; Option to send Not Acknowledge bit at the end of data transfer<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">off (default) | on</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-SendNACKattheendofdatatransfer" aria-labelledby="expand_panel_heading_bvk26k6-SendNACKattheendofdatatransfer" class="panel-collapse collapse"><div class="panel-body">
+<p>When you select this parameter, the <span class="block">I2C Master Write</span> block
+sends a NACK (Not Acknowledge) bit to the slave device with the final
+byte.</p>
+<p>When the slave device receives the NACK, it waits for a STOP
+condition from the I2C master block. The master block generates either
+a STOP condition to abort the transfer or a repeated START condition
+to start a new transfer.</p>
+<p>When you clear this parameter, the <span class="block">I2C Master Write</span> block
+sends an ACK (Acknowledge) bit to the slave device at the end of every
+byte. The ACK indicates that the <span class="block">I2C Master Write</span> block
+is ready to read the next byte from the slave device.</p>
+
+<h4 class="descriptionsect">Dependencies</h4>
+<p>This parameter appears only when you clear the <strong class="guilabel">Enable
+register access</strong> parameter.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Removestopbitattheendofdatatransfer" data-target="#expand_panel_body_bvk26k6-Removestopbitattheendofdatatransfer" aria-controls="expand_panel_body_bvk26k6-Removestopbitattheendofdatatransfer" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Removestopbitattheendofdatatransfer" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Removestopbitattheendofdatatransfer"><code class="name">Remove stop bit at the end of data transfer</code> &#8212; Option to remove STOP bit at the end of data transfer<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">off (default) | on</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Removestopbitattheendofdatatransfer" aria-labelledby="expand_panel_heading_bvk26k6-Removestopbitattheendofdatatransfer" class="panel-collapse collapse"><div class="panel-body">
+<p>When you clear this parameter, the block sends a STOP condition.
+This condition indicates that the block has terminated the data transmission
+and the I2C bus is free for any other I2C master block to initiate
+the read/write operation. </p>
+<p>When you select this parameter, the block sends another START
+condition followed by an address and read/write bit. The block sends
+any number of start conditions recursively. Such a repeated START
+condition allows write operations to the slave devices without releasing
+the bus. No other master block interrupts the operation. </p>
+
+<h4 class="descriptionsect">Dependencies</h4>
+<p>This parameter appears only when you clear the <strong class="guilabel">Enable
+register access</strong> parameter.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk26k6-Outputerrorstatus" data-target="#expand_panel_body_bvk26k6-Outputerrorstatus" aria-controls="expand_panel_body_bvk26k6-Outputerrorstatus" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Outputerrorstatus" class="anchor_target"></span><h3 class="panel-title" id="bvk26k6-Outputerrorstatus"><code class="name">Output error status</code> &#8212; Option to display output error status<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">Off (default) | On</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk26k6-Outputerrorstatus" aria-labelledby="expand_panel_heading_bvk26k6-Outputerrorstatus" class="panel-collapse collapse"><div class="panel-body">
+<p>Select this option to display the output error status. When
+you select this parameter, the block configures an output port. The
+port on the block is labeled as <code class="literal">Status</code>, indicating
+that the block outputs the status of the write operation at the output
+port.</p>
+<p>The block outputs the status as a <code class="literal">uint8</code> value.
+Each value corresponds to a data transfer status.</p>
+<span id="bvptw5_-1" class="anchor_target"></span><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="50%"></col><col class="tcol2" width="50%"></col></colgroup><thead><tr><th>Status value</th><th>Status
+description</th></tr></thead><tbody><tr><td><code class="literal">0</code></td><td><code class="literal">SUCCESS</code></td></tr><tr><td><code class="literal">1</code></td><td><code class="literal">BUSY</code></td></tr><tr><td><code class="literal">2</code></td><td><code class="literal">ARBITRATION_LOST</code></td></tr><tr><td><code class="literal">4</code></td><td><code class="literal">NO_ACKNOWLEDGE</code></td></tr><tr><td><code class="literal">8</code></td><td><code class="literal">BUS_ERROR</code></td></tr><tr><td><code class="literal">16</code></td><td><code class="literal">BUS_NOT_IN_USE</code></td></tr></tbody></table></div>
+</div></div></div></div></div></div></div><div class="ref_sect"><h2 id="bvk26k6_seealso">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="i2cmasterread.html"><span itemprop="name">I2C Master Read</span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="../ug/serial-communication.html#bvp9e43"><span itemprop="name">Troubleshooting Serial, SPI, and I2C Interface</span></a></span></p></div><div class="release_introduced"><h4>Introduced in R2017a</h4></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

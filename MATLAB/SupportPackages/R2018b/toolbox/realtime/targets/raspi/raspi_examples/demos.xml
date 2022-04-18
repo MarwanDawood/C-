@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    -->
+<!-- Copyright 2013 The MathWorks, Inc. -->
+<demos>
+    <name>MATLAB Support Package for Raspberry Pi Hardware</name>
+    <type>matlab</type>
+    <icon>HelpIcon.DEMOS</icon>
+    <description isCdata="no">
+        <p>MATLAB&#174; lets you communicate with Raspberry Pi&#174; hardware. With this capability, you can use Raspberry Pi hardware as a physical I/O device.</p>
+    </description>
+    <website>
+        <a href="http://www.mathworks.com/pl_matlab">Product page at mathworks.com&#032;</a>
+        <a href="http://www.mathworks.com/pl_matlab"><img src="html/demo_arrow.png" border="none" alt="arrow" align="middle"></img></a>
+    </website> 
+    <demosection>
+        <label>Tutorials</label>
+        <demoitem>
+            <label>Getting Started with MATLAB Support Package for Raspberry Pi Hardware</label>
+            <type>M-file</type>
+            <source>raspi_gettingstarted</source>
+            <file>html/raspi_gettingstarted.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Working with Raspberry Pi Hardware</label>
+            <type>M-file</type>
+            <source>raspi_gettingstarted_with_hardware</source>
+            <file>html/raspi_gettingstarted_with_hardware.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Analog Input Using SPI</label>
+            <type>M-file</type>
+            <source>raspi_analog_input_using_spi</source>
+            <file>html/raspi_analog_input_using_spi.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Controlling a 4-Digit 7-Segment Display Using I2C</label>
+            <type>M-file</type>
+            <source>raspi_segmented_display_using_i2c</source>
+            <file>html/raspi_segmented_display_using_i2c.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Controlling a 4-Digit 7-Segment Display Using Serial Port</label>
+            <type>M-file</type>
+            <source>raspi_segmented_display_using_serial</source>
+            <file>html/raspi_segmented_display_using_serial.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Working with Raspberry Pi Camera Board</label>
+            <type>M-file</type>
+            <source>raspi_working_with_camera_board</source>
+            <file>html/raspi_working_with_camera_board.html</file>
+        </demoitem>
+    <demoitem>
+            <label>Working with Raspberry Pi Sense HAT</label>
+            <type>M-file</type>
+            <source>raspi_working_with_sensehat</source>
+            <file>html/raspi_working_with_sensehat.html</file>
+        </demoitem>
+    </demosection>
+    <demosection>
+        <label>Application Examples</label>
+        <demoitem>
+            <label>Build a Digital Voltmeter</label>
+            <type>M-file</type>
+            <source>raspi_build_a_digital_voltmeter</source>
+            <file>html/raspi_build_a_digital_voltmeter.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Track a Green Ball</label>
+            <type>M-file</type>
+            <source>raspi_track_a_green_ball</source>
+            <file>html/raspi_track_a_green_ball.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Build a Motion Sensor Camera</label>
+            <type>M-file</type>
+            <source>raspi_build_a_motion_sensor_camera</source>
+            <file>html/raspi_build_a_motion_sensor_camera.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</label>
+            <type>M-file</type>
+            <source>raspi_add_gpio_pins</source>
+            <file>html/raspi_add_gpio_pins.html</file>
+        </demoitem>
+    <demoitem>
+            <label>Auto-rotate the image displayed on the Sense HAT LED Matrix</label>
+            <type>M-file</type>
+            <source>raspi_autorotate_sensehat</source>
+            <file>html/raspi_autorotate_sensehat.html</file>
+        </demoitem>
+    </demosection>   
+</demos>
+
+<!-- LocalWords:  raspberrypi raspi gettingstarted SPI I2C
+-->

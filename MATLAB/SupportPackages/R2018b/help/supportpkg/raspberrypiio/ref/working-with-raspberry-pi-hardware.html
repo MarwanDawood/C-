@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Working with Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../gpio-pins.html",
+          "name": "GPIO Pins"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "gpio-pins"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Working with Raspberry Pi Hardware",
+          "description": "This example shows you basics of working with Raspberry Pi&#174; Hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxpushbutton_circuit_diagram.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.WorkingWithRaspberryPiHardwareExample",
+          "name": "WorkingWithRaspberryPiHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiHardwareExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "led_circuit_diagram.png",
+        "led_breadboard_diagram.png",
+        "pushbutton_circuit_diagram.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you basics of working with Raspberry Pi&#174; Hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxpushbutton_circuit_diagram.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=gpio-pins">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=gpio-pins">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=gpio-pins">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=gpio-pins">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../gpio-pins.html" itemprop="url"><span itemprop="title">GPIO Pins</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Working with Raspberry Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e22426" class="intrnllnk">Introduction</a></li><li><a href="#d120e22436" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e22446" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e22471" class="intrnllnk">Overview of Raspberry Pi Hardware</a></li><li><a href="#d120e22487" class="intrnllnk">Best Practices and Restrictions</a></li><li><a href="#d120e22515" class="intrnllnk">Turning Your Raspberry Pi Hardware On and Off</a></li><li><a href="#d120e22532" class="intrnllnk">Working with LEDs</a></li><li><a href="#d120e22567" class="intrnllnk">Working with Pushbuttons</a></li><li><a href="#d120e22585" class="intrnllnk">Push button Controlled LED</a></li><li><a href="#d120e22593" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_gettingstarted_with_hardware">Working with Raspberry Pi Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiHardwareExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex20977462"></meta><meta itemprop="exampletitle" content="Working with Raspberry Pi Hardware"></meta></div><span id="WorkingWithRaspberryPiHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you basics of working with Raspberry Pi&#174; Hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e22426">Introduction<span id="WorkingWithRaspberryPiHardwareExample-1" class="anchor_target"></span></h3><p>Raspberry Pi is a single board, credit-card size computer that can run Linux&#174;. Raspberry Pi hardware has low-level interfaces intended to connect directly with external devices such as A/D converters, sensors, motor drivers, etc. You can take advantage of these low-level interfaces to develop meaningful real-world applications. The Raspberry Pi support package includes MATLAB command-line interfaces to communicate with external devices connected to Raspberry Pi hardware. You can, for example, turn a LED connected to one of the GPIO pins on or off or sense the position of a push button from the MATLAB command prompt.</p><p>Most of the low-level interfaces of Raspberry Pi hardware are not plug-and-play. To use these low-level interfaces, you must have a sound understanding of basic electrical concepts. If you mis-wire a GPIO pin, for example, you risk losing a GPIO pin, and, in some cases, your Raspberry Pi hardware.</p><p>This example is intended to familiarize you with low level interfaces of the Raspberry Pi hardware, establish sound practices for wiring and connections when working with external electrical components and use MATLAB command-line interface for Raspberry Pi hardware to control simple devices like LEDs, push buttons, and relays.</p><h3 class="title" id="d120e22436">Prerequisites<span id="WorkingWithRaspberryPiHardwareExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>It is helpful to complete the <a href="getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e22446">Required Hardware<span id="WorkingWithRaspberryPiHardwareExample-3" class="anchor_target"></span></h3><p>To run this example, you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>Breadboard and jumper cables</p></li><li><p>Red LED</p></li><li><p>330 Ohm, 1 kOhm and 10 kOhm resistors</p></li><li><p>A push button or switch</p></li></ul></div><h3 class="title" id="d120e22471">Overview of Raspberry Pi Hardware<span id="WorkingWithRaspberryPiHardwareExample-4" class="anchor_target"></span></h3><p>In addition to USB, Ethernet, HDMI, and Audio Out ports, the Raspberry Pi hardware has expansion headers that offer general purpose digital I/O, SPI, I2C, and serial UART. Depending on the revision of your Raspberry Pi hardware, the available digital I/O pins, pin-outs for I2C, SPI, and serial ports change.</p><p>All versions of the Raspberry Pi hardware have one or more expansion headers. You can use some of the pins on the expansion headers for digital I/O. To see a diagram of the pins of your Raspberry Pi hardware, use showPins() method of raspi object.</p><div class="code_responsive"><pre id="d120e22479" class="programlisting">rpi = raspi();
+showPins(rpi);
+</pre></div><p>The showPins() method displays a MATLAB figure showing a diagram of pins available. The raspi object determines the version number of your Raspberry Pi hardware and displays the correct pin diagram for your version of the board. Raspberry Pi Model B+ board has more I/O pins exposed than Raspberry Pi Model B board.</p><p>The GPIO pins use 3.3 volt logic levels and are not 5 volt tolerant. There is no over-voltage protection on the CPU chip. A CSI (camera serial interface) is available so that you can connect an available Camera Board. You can use some of the pins available on the Raspberry Pi hardware for multiple purposes. For example, if you do not need to use SPI interface, you can use SPI pins as general purpose digital I/O. The pins marked as SDA0 and SCL0 are preset to be used as an I2C interface. There are 1.8 kOhm pull-up resistors on the board for these pins.</p><p>You can power external components using 3.3 volt and 5 volt power pins on the expansion headers. The maximum permitted current draw from the 3.3 volt pins is 50 mA.</p><h3 class="title" id="d120e22487">Best Practices and Restrictions<span id="WorkingWithRaspberryPiHardwareExample-5" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Do not connect electrical components to Raspberry Pi expansion headers while Raspberry Pi hardware is running. If you want to connect an electrical component, turn off your board first. Instructions for turning off you board are provided below.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Raspberry Pi pins use 3.3 volt logic levels. Do not connect devices using 5 volt logic levels directly to the Raspberry Pi pins.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Use logic level converters when interfacing devices using 5 volt logic levels to Raspberry Pi hardware.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Do not short a GPIO pin configured as digital output.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Do not short 5 volt power pins to any other pin on the expansion header. Be extremely careful when working in the vicinity of 5 volt power pins.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Do not touch bare expansion header pins while Raspberry Pi hardware is on. You can accidentally short some of the pins.</p></li></ul></div><h3 class="title" id="d120e22515">Turning Your Raspberry Pi Hardware On and Off<span id="WorkingWithRaspberryPiHardwareExample-6" class="anchor_target"></span></h3><p>Raspberry Pi runs a Linux operating system. Turning off the power can result in corrupting the operating system image on the SD card. To turn off your board, first shut down the Linux operating system by executing the following:</p><div class="code_responsive"><pre id="d120e22521" class="programlisting">system(rpi, <span style="color:#A020F0">'sudo shutdown -h now'</span>);
+clear <span style="color:#A020F0">rpi</span>
+</pre></div><p>You can also execute the preceding command above on an interactive command shell as described in the Getting Started with MATLAB Support Package for Raspberry Pi Hardware example. To turn off your board in MATLAB Online, you must execute the following Linux command from the command shell on the Raspberry Pi. Access the command shell remotely via SSH with PuTTY, as described in <a href="https://www.raspberrypi.org/documentation/remote-access/" target="_blank">Remote Access</a>.</p><div class="code_responsive"><pre id="d120e22528" class="programlisting">$sudo shutdown <span style="color:#A020F0">-h</span> <span style="color:#A020F0">now</span>
+</pre></div><p>After executing the command, wait until the operating system shuts down all LEDs on the board except for PWR LED. Then, unplug the power cable from the board. To restart your board, plug the power cable back into the board. It takes approximately a minute for the board to fully reboot.</p><h3 class="title" id="d120e22532">Working with LEDs<span id="WorkingWithRaspberryPiHardwareExample-7" class="anchor_target"></span></h3><p>A light-emitting diode (LED) is a semiconductor light source. An LED has two legs. One is called anode and the other is called cathode. The two legs of LED have different names because LED works only in one direction. The anode leg is longer than the cathode leg, and must be attached to the positive voltage terminal while the cathode is attached to the negative voltage terminal. The current going through an LED goes from anode to cathode. If you wire an LED backwards, it does not light up.</p><p>LEDs come in different colors and sizes. Common sizes are 3mm, 5mm and 10mm and refer to the diameter of the LED. A red LED, when it is on will have a forward voltage anywhere from 1.8 volts to 2.5 volts. When a LED is on, it behaves like a diode and passes a large amount of current that may produce enough heat to cause the LED to burn out. Therefore, you should always use a current-limiting resistor when working with an LED.</p><p>In this example, you connect a red LED across a GPIO pin and turn the LED on and off using the MATLAB command-line interface. You need a red LED and a 330 Ohm resistor. You connect the LED and the resistor as shown in the circuit diagram.</p><p></p>
+<div class="informalfigure"><div id="d120e22544" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxled_circuit_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>Here is another view showing the actual connections on a breadboard.</p><p></p>
+<div class="informalfigure"><div id="d120e22552" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxled_breadboard_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>The anode (positive or long leg) is connected to the GPIO24 pin and the cathode is connected to the ground through the resistor. Once you make the connections, execute the following command at the MATLAB command prompt to turn the LED on.</p><div class="code_responsive"><pre id="d120e22558" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+writeDigitalPin(rpi, 24, 1);
+</pre></div><p>The writeDigitalPin() method configures GPIO pin 24 as output and sets the logical value of the digital pin to one (logic high) causing 3.3 volts to be output at the pin. Writing a zero to a digital pin results in an output of logic low, which is digital ground in this case.</p><p>Make the LED "blink" for 10 seconds.</p><div class="code_responsive"><pre id="d120e22565" class="programlisting"><span style="color:#0000FF">for</span> i = 1:10
+    writeDigitalPin(rpi, 24, 1);
+    pause(0.5);
+    writeDigitalPin(rpi, 24, 0);
+    pause(0.5);
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e22567">Working with Pushbuttons<span id="WorkingWithRaspberryPiHardwareExample-8" class="anchor_target"></span></h3><p>A push button is a simple switch mechanism. When pressed or in closed position, the legs of a push button are shorted allowing electrical current to pass. When in open position, the switch does not conduct electricity. You can use a digital input pin to sense if the push button is in an open or closed position.</p><p>For this task, you need a breadboard-friendly pushbutton and 1 kOhm and 10 kOhm resistors. Connect the push button to GPIO pin 23, as shown in the following circuit diagram.</p><p></p>
+<div class="informalfigure"><div id="d120e22577" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxpushbutton_circuit_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>In this circuit, the GPIO pin sees ground when the push button is not pressed. When the pushbutton is pressed, the GPIO pin sees 3.3 volts. You can read the position of the push-button using the readDigitalPin() method.</p><div class="code_responsive"><pre class="programlisting">readDigitalPin(rpi, 23)</pre></div><h3 class="title" id="d120e22585">Push button Controlled LED<span id="WorkingWithRaspberryPiHardwareExample-9" class="anchor_target"></span></h3><p>Blink the LED rapidly for 1 second whenever the push button is pressed.</p><div class="code_responsive"><pre id="d120e22591" class="programlisting"><span style="color:#0000FF">for</span> i = 1:100
+    buttonPressed = readDigitalPin(rpi, 23);
+    <span style="color:#0000FF">if</span> buttonPressed
+        <span style="color:#0000FF">for</span> j = 1:10
+            writeDigitalPin(rpi, 24, 1);
+            pause(0.05);
+            writeDigitalPin(rpi, 24, 0);
+            pause(0.05);
+        <span style="color:#0000FF">end</span>
+    <span style="color:#0000FF">end</span>
+    pause(0.1);
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e22593">Summary<span id="WorkingWithRaspberryPiHardwareExample-10" class="anchor_target"></span></h3><p>This example introduced the workflow for working with GPIO pins. You learned how to connect LEDs and push buttons to GPIO pins.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:36 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

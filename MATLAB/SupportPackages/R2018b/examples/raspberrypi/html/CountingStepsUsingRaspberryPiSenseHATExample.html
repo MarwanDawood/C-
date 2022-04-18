@@ -1,0 +1,313 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Counting Steps using Raspberry Pi Sense HAT</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-06"><meta name="DC.source" content="CountingStepsUsingRaspberryPiSenseHATExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/CountingStepsUsingRaspberryPiSenseHATExample')">Open this Example</a></div><div class="content"><h1>Counting Steps using Raspberry Pi Sense HAT</h1><!--introduction--><p>This example demonstrates an application that counts the number of steps a person walked while holding a Raspberry Pi&#8482; Sense HAT.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 &#8212; Create a Simulink model for Raspberry Pi Hardware</a></li><li><a href="#7">Task 2 &#8212; Enable MAT file logging</a></li><li><a href="#8">Task 3 &#8212; Deploy the Model on Raspberry Pi Hardware</a></li><li><a href="#9">Task 4 &#8212; Import and Analyze Data</a></li><li><a href="#10">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>A pedometer is an electronic device that estimates the distance traveled by a person by recording the number of steps walked. Pedometers use an accelerometer to count the number of steps.</p><p>In this example, a Raspberry Pi&#8482; SenseHAT records acceleration along X, Y, and Z axes. This data is recorded over a duration of time using the MAT-file logging feature. You can then use MATLAB&reg; to analyze the imported MAT-files to count the number of steps.</p><p>To use the MAT-file logging feature with the Simulink&reg; Support Package for Raspberry Pi&#8482; hardware, you must have a Simulink Coder&#8482; license.</p><h2 id="2">Prerequisites</h2><p>Before you start with this example, we recommend you to complete the <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi&reg; Hardware</a> and <a href="docid:raspberrypi_ref.example-raspberrypi_mat_file_logging">MAT-file logging on Raspberry Pi Hardware&reg;</a> examples.</p><h2 id="3">Required Hardware</h2><p>To run this example, you must have the following hardware:</p><div><ul><li>Raspberry Pi board</li><li>Raspberry Pi Sense HAT</li></ul></div><h2 id="4">Task 1 &#8212; Create a Simulink model for Raspberry Pi Hardware</h2><p><b>1.</b> Open the <a href="matlab:raspberrypi_countstep">Log Accelerometer data using Raspberry Pi Hardware</a> model.</p><img vspace="5" hspace="5" src="CountingStepsUsingRaspberryPiSenseHATExample_01.png" alt=""> <p><b>2.</b>  In your Simulink model, click <b>Simulation &gt; Model Configuration Parameters</b> to open the <b>Configuration Parameters</b> dialog box.</p><p><b>3.</b> Under the <b>Hardware Implementation</b> pane, select <tt>Raspberry Pi</tt> in the <b>Hardware    board</b> list. Do not change any other settings.</p><p><b>4.</b> Click <b>Apply</b> to save your changes, and then click <b>OK</b>.</p><h2 id="7">Task 2 &#8212; Enable MAT file logging</h2><p>This task explains how to enable MAT-file logging to save acceleration data as MAT-files.</p><p><b>1.</b> To open the <b>Model Configuration Parameters</b> dialog box, click the gear icon on the Simulink model toolbar.</p><p><b>2.</b> Browse to <b>Code Generation &gt; Interface &gt; Advanced Parameters</b>, or type <tt>MAT-file logging</tt> in the search box.</p><p><b>3.</b> Select the <b>MAT-file logging</b> option and click <b>Apply</b> to save the changes.</p><p><b>4.</b> Click <b>OK</b> to close the dialog box.</p><p><b>5.</b> In the Simulink model, double-click the <tt>Scope</tt> block, and click the gear icon to open the <b>Configuration Properties</b> dialog box.</p><p><b>6.</b>  In the <b>Logging</b> tab, select the <b>Log data to workspace</b> option, and click <b>Apply</b> to save the changes.</p><p><b>7.</b> On the Simulink model toolbar, set the <b>Simulation stop time</b>    parameter. This parameter specifies the duration for which the signals are logged.    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run.    For example, if the <b>Simulation stop time</b> parameter is specified as    <tt>10.0</tt> seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time.</p><h2 id="8">Task 3 &#8212; Deploy the Model on Raspberry Pi Hardware</h2><p><b>1.</b> On the Simulink model toolbar, click the <b>Deploy To Hardware</b> button. This action builds, downloads, and runs the model on the Raspberry Pi hardware.</p><p><b>2.</b> Walk a few steps while holding the Raspberry Pi&#8482; hardware. Make sure that you walk at least for the duration specified by the <b>Simulation stop time</b> parameter.</p><h2 id="9">Task 4 &#8212; Import and Analyze Data</h2><p>This task explains how to import the generated MAT-files from the hardware to your computer after the logging is completed.</p><p><b>1.</b> In the MATLAB command window, use the following command to create a raspberrypi object. The parameters specified in this command must match the board parameters specified in <b>Simulation &gt; Model Configuration Parameters &gt; Target hardware resources &gt; Board Parameters</b>.</p><pre>r = raspberrypi(&lt;IP address&gt;, &lt;username&gt;, &lt;password&gt;);</pre><p><b>2.</b> Use the <tt>getFile</tt> function to copy the MAT-files from the Raspberry Pi&#8482; board to your computer.</p><pre class="language-matlab">getFile(r,&lt;filename&gt;)
+</pre><p>Here, <tt>r</tt> specifies the raspberrypi object and <tt>filename</tt> specifies the path and name of the file created. After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB&reg;.</p><p><b>3.</b> Load the MAT files into workspace variables.</p><pre class="language-matlab">load(<span class="string">'raspberrypi_countstep_1_1.mat'</span>);
+a(:,:) =  rt_simout.signals.values(1,:,:) * 9.8;
+a = a';
+t =  rt_tout;
+</pre><p><b>4.</b> Plot raw sensor data.</p><pre class="language-matlab">plot(t, a);
+legend(<span class="string">'X'</span>, <span class="string">'Y'</span>, <span class="string">'Z'</span>);
+xlabel(<span class="string">'Relative time (s)'</span>);
+ylabel(<span class="string">'Acceleration (m/s^2)'</span>);
+</pre><p><img vspace="5" hspace="5" src="../raspberrypi_countstep_fig1.png" alt=""> </p><p><b>5.</b> Process raw acceleration data.</p><p>To convert the XYZ acceleration vectors at each point in time into scalar values, calculate the magnitude of each vector. This way, you can detect large changes in overall acceleration, such as steps taken while walking, regardless of device orientation.</p><pre class="language-matlab">x = a(:,1);
+y = a(:,2);
+z = a(:,3);
+mag = sqrt(sum(x.^2 + y.^2 + z.^2, 2));
+</pre><p>Plot the magnitude to visualize the general changes in acceleration.</p><pre class="language-matlab">plot(t, mag);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'Acceleration (m/s^2)'</span>);
+</pre><p><img vspace="5" hspace="5" src="../raspberrypi_countstep_fig2.png" alt=""> </p><p>The plot shows that the acceleration magnitude is not zero mean. Subtract the mean from the data to remove any constant effects, such as gravity.</p><pre class="language-matlab">magNoG = mag - mean(mag);
+plot(t, magNoG);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'Acceleration (m/s^2)'</span>);
+</pre><p><img vspace="5" hspace="5" src="../raspberrypi_countstep_fig3.png" alt=""> </p><p>The plotted data is now centered about zero and clearly shows peaks in acceleration magnitude. Each peak corresponds to a step being taken while walking.</p><p><b>6.</b> Count the number of steps taken.</p><p>Use <tt>findpeaks</tt>, a function from the Signal Processing Toolbox&#8482;, to find the local maxima of the acceleration magnitude data. Only peaks with a minimum height above one standard deviation are treated as a step. This threshold must be tuned experimentally to match a person's level of movement while walking, hardness of floor surfaces, and other variables.</p><pre class="language-matlab">minPeakHeight = std(magNoG);
+[pks, locs] = findpeaks(magNoG, <span class="string">'MINPEAKHEIGHT'</span>, minPeakHeight);
+</pre><p>The number of steps taken is simply the number of peaks found.</p><pre class="language-matlab">numSteps = numel(pks)
+</pre><p>Visualize the peak locations with the acceleration magnitude data.</p><pre class="language-matlab">hold <span class="string">on</span>;
+plot(t(locs), pks, <span class="string">'r'</span>, <span class="string">'Marker'</span>, <span class="string">'v'</span>, <span class="string">'LineStyle'</span>, <span class="string">'none'</span>);
+title(<span class="string">'Counting Steps'</span>);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'Acceleration Magnitude, No Gravity (m/s^2)'</span>);
+hold <span class="string">off</span>;
+</pre><p><img vspace="5" hspace="5" src="../raspberrypi_countstep_fig4.png" alt=""> </p><h2 id="10">Summary</h2><p>This example demonstrated the use of the IMU sensor on Raspberry Pi&#8482; Sense HAT to count the number of steps a person walked.</p><p class="footer">Copyright 2017 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Counting Steps using Raspberry Pi Sense HAT
+% 
+% This example demonstrates an application that counts the number of steps
+% a person walked while holding a Raspberry Pi(TM) Sense HAT.
+
+% Copyright 2017 The MathWorks, Inc.
+ 
+%% Introduction 
+% 
+% A pedometer is an electronic device that estimates the distance traveled
+% by a person by recording the number of steps walked. Pedometers use
+% an accelerometer to count the number of steps.
+% 
+% In this example, a Raspberry Pi(TM) SenseHAT records acceleration along X, Y, and Z axes.
+% This data is recorded over a duration of time using the MAT-file logging feature.
+% You can then use MATLAB(R) to analyze the imported MAT-files to count the number of steps.
+% 
+% To use the MAT-file logging feature with the Simulink&reg; Support Package for Raspberry Pi&trade; hardware, you must have a Simulink Coder&trade; license.
+%  
+%% Prerequisites  
+%
+% Before you start with this example, we recommend you to complete the
+% <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started with Raspberry Pi(R)
+% Hardware> and 
+% <docid:raspberrypi_ref.example-raspberrypi_mat_file_logging MAT-file logging on Raspberry Pi
+% Hardware(R)> examples.
+% 
+%% Required Hardware
+%
+% To run this example, you must have the following hardware:
+% 
+% * Raspberry Pi board
+% * Raspberry Pi Sense HAT
+% 
+%% Task 1 &mdash; Create a Simulink model for Raspberry Pi Hardware
+% 
+% *1.* Open the <matlab:raspberrypi_countstep Log Accelerometer data
+% using Raspberry Pi Hardware> model.
+%
+%%
+open_system('raspberrypi_countstep');
+%%
+% *2.*  In your Simulink model, click *Simulation > Model Configuration
+% Parameters* to open the *Configuration Parameters* dialog box.
+%
+% *3.* Under the *Hardware Implementation* pane, select |Raspberry Pi| in the *Hardware
+%    board* list. Do not change any other settings.
+%
+% *4.* Click *Apply* to save your changes, and then click *OK*.
+%
+%% Task 2 &mdash; Enable MAT file logging
+% 
+% This task explains how to enable MAT-file logging to save acceleration data as MAT-files.
+%
+% *1.* To open the *Model Configuration Parameters* dialog box, click the gear icon on the Simulink model toolbar.
+% 
+% *2.* Browse to *Code Generation > Interface > Advanced Parameters*, or type |MAT-file logging| in the search box. 
+% 
+% *3.* Select the *MAT-file logging* option and click *Apply* to save the changes.
+% 
+% *4.* Click *OK* to close the dialog box. 
+%
+% *5.* In the Simulink model, double-click the |Scope| block, and click the gear icon to open the *Configuration Properties* dialog box. 
+% 
+% *6.*  In the *Logging* tab, select the *Log data to workspace* option, and click *Apply* to save the changes.
+% 
+% *7.* On the Simulink model toolbar, set the *Simulation stop time*
+%    parameter. This parameter specifies the duration for which the signals are logged.
+%    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run. 
+%    For example, if the *Simulation stop time* parameter is specified as
+%    |10.0| seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time.
+%  
+%% Task 3 &mdash; Deploy the Model on Raspberry Pi Hardware
+% 
+% *1.* On the Simulink model toolbar, click the *Deploy To Hardware* button.
+% This action builds, downloads, and runs the model on the Raspberry Pi hardware.
+% 
+% *2.* Walk a few steps while holding the Raspberry Pi(TM) hardware. Make sure that
+% you walk at least for the duration specified by the *Simulation stop time* parameter.
+% 
+%% Task 4 &mdash; Import and Analyze Data
+% 
+% This task explains how to import the generated MAT-files from the hardware to your computer after the logging is completed. 
+% 
+% *1.* In the MATLAB command window, use the following command to create a raspberrypi object. The parameters specified in this command must match the board parameters specified in *Simulation > Model Configuration Parameters > Target hardware resources > Board Parameters*.
+% 
+%  r = raspberrypi(<IP address>, <username>, <password>);
+% 
+% *2.* Use the |getFile| function to copy the MAT-files from the Raspberry Pi(TM) board to your computer.
+% 
+%   getFile(r,<filename>)
+% 
+% Here, |r| specifies the raspberrypi object and |filename| specifies the
+% path and name of the file created. After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB(R).
+% 
+% *3.* Load the MAT files into workspace variables.
+%   
+%   load('raspberrypi_countstep_1_1.mat');
+%   a(:,:) =  rt_simout.signals.values(1,:,:) * 9.8;
+%   a = a';
+%   t =  rt_tout;
+% 
+% *4.* Plot raw sensor data.
+% 
+%   plot(t, a);
+%   legend('X', 'Y', 'Z');
+%   xlabel('Relative time (s)');
+%   ylabel('Acceleration (m/s^2)');
+% 
+% <<../raspberrypi_countstep_fig1.png>>
+% 
+% *5.* Process raw acceleration data.
+% 
+% To convert the XYZ acceleration vectors at each point in time into scalar
+% values, calculate the magnitude of each vector. This way, you can detect large changes in overall
+% acceleration, such as steps taken while walking, regardless of device orientation.
+% 
+%   x = a(:,1);
+%   y = a(:,2);
+%   z = a(:,3);
+%   mag = sqrt(sum(x.^2 + y.^2 + z.^2, 2));
+% 
+% Plot the magnitude to visualize the general changes in acceleration.
+% 
+%   plot(t, mag);
+%   xlabel('Time (s)');
+%   ylabel('Acceleration (m/s^2)');
+% 
+% <<../raspberrypi_countstep_fig2.png>>
+% 
+% The plot shows that the acceleration magnitude is not zero mean. 
+% Subtract the mean from the data to remove any constant effects, such as gravity.
+% 
+%   magNoG = mag - mean(mag);
+%   plot(t, magNoG);
+%   xlabel('Time (s)');
+%   ylabel('Acceleration (m/s^2)');
+% 
+% <<../raspberrypi_countstep_fig3.png>>
+% 
+% The plotted data is now centered about zero and clearly shows peaks 
+% in acceleration magnitude. Each peak corresponds to a step being
+% taken while walking.
+% 
+% *6.* Count the number of steps taken.
+% 
+% Use |findpeaks|, a function from the Signal Processing Toolbox(TM), to
+% find the local maxima of the acceleration magnitude data.
+% Only peaks with a minimum height above one standard deviation are treated
+% as a step. This threshold must be tuned experimentally to match a
+% person's level of movement while walking, hardness of floor surfaces, and other variables.
+% 
+%   minPeakHeight = std(magNoG);
+%   [pks, locs] = findpeaks(magNoG, 'MINPEAKHEIGHT', minPeakHeight);
+% 
+% The number of steps taken is simply the number of peaks found.
+% 
+%   numSteps = numel(pks)
+% 
+% Visualize the peak locations with the acceleration magnitude data.
+% 
+%   hold on;
+%   plot(t(locs), pks, 'r', 'Marker', 'v', 'LineStyle', 'none');
+%   title('Counting Steps');
+%   xlabel('Time (s)');
+%   ylabel('Acceleration Magnitude, No Gravity (m/s^2)');
+%   hold off;
+% 
+% <<../raspberrypi_countstep_fig4.png>>
+% 
+%% Summary
+%
+% This example demonstrated the use of the IMU sensor on Raspberry Pi(TM) Sense HAT to count the number of steps a person walked.
+%
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,231 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Surveillance Camera with Apple iOS Device</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-07"><meta name="DC.source" content="SurveillanceCameraWithAppleIOSDeviceExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/SurveillanceCameraWithAppleIOSDeviceExample')">Open this Example</a></div><div class="content"><h1>Surveillance Camera with Apple iOS Device</h1><!--introduction--><p>This example shows how to use Raspberry Pi&reg; hardware and an Apple iOS device, such as iPhone or iPad, to build a surveillance camera.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 - Set up hardware</a></li><li><a href="#5">Task 2 - Configure models</a></li><li><a href="#6">Task 3 - Run models on Raspberry Pi hardware and Apple iOS device</a></li><li><a href="#7">Other Things to Try</a></li><li><a href="#8">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>In this example you will learn how to create Simulink&reg; models that stream video captured on a Raspberry Pi hardware board to an Apple iPhone/iPad. A USB camera attached to a servo motor connected to the Raspberry Pi board captures the raw video. The generated iOS app displays the video captured from Raspberry Pi board. In the iOS app, you also have a slider to control the camera angle, a button to inverses the video image, a button to detect the edge and a slider to adjust the brightness of the video image.</p><h2 id="2">Prerequisites</h2><div><ul><li>This example requires Computer Vision System Toolbox&#8482;.</li></ul></div><div><ul><li>Complete <a href="docid:raspberrypi_ref.example-raspberrypiiosgettingstarted">LED Control from Apple iOS Device</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi board</li><li>Apple iPhone/iPad</li><li><a href="matlab:web('http://elinux.org/RPi_USB_Webcams','-browser')">A compatible USB camera</a></li><li>(Optional) Servo motor (tested with TowerPro SG-5010)</li><li>(Optional) Battery pack (4 AA Battery pack for TowerPro SG-5010)</li><li>(Optional) Breadboard and jumper wires</li></ul></div><img vspace="5" hspace="5" src="SurveillanceCameraWithAppleIOSDeviceExample_01.png" alt=""> <h2 id="4">Task 1 - Set up hardware</h2><p>In this task, you will set up a servo motor(optional) and USB web camera with Raspberry Pi board.</p><p><b>1.</b> (If you don't have a servo motor, skip this step.) Secure USB camera on the shaft of the servo motor and secure the servo motor on a surface.</p><p><b>2.</b> Plug the USB interface of USB web camera into the USB port of Raspberry Pi board</p><p><b>3.</b> (If you don't have a servo motor, skip this step.) Wire the servo motor as shown in the simplified circuit diagram below. For the servo motor and battery pack, read the specification of your servo motor and install battery pack properly. Make sure to connect the ground of battery pack to the ground of Raspberry Pi board. Improper installation of the servo motor and battery pack will damage Raspberry Pi board. In the circuit schematic below, the servo motor control line is connected to GPIO 18 pin.</p><p><img vspace="5" hspace="5" src="../raspberrypi_mobile_camera.png" alt=""> </p><h2 id="5">Task 2 - Configure models</h2><p>In this task you will configure models for Raspberry Pi hardware and Apple iOS device.</p><p>Assume that <b>Simulink Support Package for Apple iOS Devices</b> is installed and the hardware network connection between Raspberry Pi board and your iPhone/iPad are set up. Otherwise, refer to <a href="docid:raspberrypi_ref.example-raspberrypiiosgettingstarted">LED Control from Apple&reg; iOS&reg; Device</a> example for setup steps.</p><p><b>1.</b> Open the <a href="matlab:iosraspberrypicamera">Apple iOS model</a>. Double click the <b>UDP Send</b> block and update the <b>Remote IP address</b> with your Raspberry Pi IP address.</p><p><b>2.</b> Open the <a href="matlab:raspberrypiioscamera">Raspberry Pi model</a>. Double-click <b>Video Send Subsystem</b>, update <b>UDP Send Red</b>, <b>UDP Send Blue</b> and <b>UDP Send Green</b> blocks with the IP address of your iPhone/iPad. If you have a servo motor, double click <b>Standard Servo Write</b> and update <b>Minimum pulse duration</b> and <b>Maximum pulse duration</b> based on your servo motor.</p><h2 id="6">Task 3 - Run models on Raspberry Pi hardware and Apple iOS device</h2><p><b>1.</b> Click <b>Deploy to Hardware</b> button of Raspberry Pi model to run this model on Raspberry Pi hardware.</p><p><b>2.</b> Click <b>Deploy to Hardware</b> button of Apple iOS model to run this model on your iPhone/iPad.</p><p><b>3.</b> Observe the image captured from Raspberry Pi board display on the screen. Slide the <b>View Angle</b> and observe the change of camera angle. Slide the <b>Brightness Control</b> and observe the brightness change. Press <b>Image Inversion</b> button to invert image color. Press <b>Edge Detection</b> button to detect edges.</p><h2 id="7">Other Things to Try</h2><p>Add more functionalities to surveillance camera, such as</p><div><ul><li>Add motion sensor in Raspberry Pi hardware to trigger video only when motion detected.</li></ul></div><h2 id="8">Summary</h2><p>This example showed you</p><div><ul><li>Raspberry Pi hardware sends video data to Apple iOS device through UDP.</li><li>Apple iOS device receives video data through UDP and display on screen.</li><li>Apple iOS app uses a slider to control view angle and send the control information to Raspberry Pi hardware.</li><li>Raspberry Pi receives control information and drives a servo motor.</li><li>Model video processing algorithms: image inversion, edge detection and brightness control.</li></ul></div><p class="footer">Copyright 2016 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Surveillance Camera with Apple iOS Device
+%
+% This example shows how to use Raspberry Pi(R) hardware and an Apple iOS
+% device, such as iPhone or iPad, to build a surveillance camera.
+ 
+% Copyright 2016 The MathWorks, Inc.
+ 
+ 
+%% Introduction
+% 
+% In this example you will learn how to create Simulink(R) models that stream
+% video captured on a Raspberry Pi hardware board to an Apple iPhone/iPad.
+% A USB camera attached to a servo motor connected to the Raspberry Pi board
+% captures the raw video. The generated iOS app displays the video captured
+% from Raspberry Pi board. In the iOS app, you also have a slider to control the
+% camera angle, a button to inverses the video image, a button to detect
+% the edge and a slider to adjust the brightness of the video image.
+ 
+%% Prerequisites
+%
+% * This example requires Computer Vision System Toolbox(TM).
+%
+% * Complete
+% <docid:raspberrypi_ref.example-raspberrypiiosgettingstarted LED Control from Apple iOS Device> example. 
+ 
+ 
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi board
+% * Apple iPhone/iPad
+% * <matlab:web('http://elinux.org/RPi_USB_Webcams','-browser') A
+% compatible USB camera>
+% * (Optional) Servo motor (tested with TowerPro SG-5010)
+% * (Optional) Battery pack (4 AA Battery pack for TowerPro SG-5010)
+% * (Optional) Breadboard and jumper wires
+  
+open_system('raspberrypiioscamera');
+ 
+ 
+%% Task 1 - Set up hardware
+%
+% In this task, you will set up a servo motor(optional) and USB web camera with Raspberry Pi
+% board.
+%
+% *1.* (If you don't have a servo motor, skip this step.) Secure USB camera on the shaft of the servo motor and secure the servo motor on a surface.
+%
+% *2.* Plug the USB interface of USB web camera into the USB port of Raspberry Pi board 
+%
+% *3.* (If you don't have a servo motor, skip this step.) Wire the servo motor as shown in the simplified circuit diagram below.
+% For the servo motor and battery pack, read the specification of your servo
+% motor and install battery pack properly. Make sure to connect the ground
+% of battery pack to the ground of Raspberry Pi board. Improper
+% installation of the servo motor and battery pack will damage Raspberry Pi
+% board. In the circuit schematic below, the servo motor control line is
+% connected to GPIO 18 pin.
+% 
+% <<../raspberrypi_mobile_camera.png>>
+%
+ 
+%% Task 2 - Configure models
+%
+% In this task you will configure models for Raspberry Pi hardware and
+% Apple iOS device. 
+%
+% Assume that *Simulink Support Package for Apple iOS Devices* is installed and the hardware
+% network connection between Raspberry Pi board and your iPhone/iPad are set up. Otherwise, refer to
+% <docid:raspberrypi_ref.example-raspberrypiiosgettingstarted LED Control from Apple(R) iOS(R) Device> example for setup steps.
+%
+% *1.* Open the <matlab:iosraspberrypicamera Apple iOS model>. 
+% Double click the *UDP Send* block and update the *Remote IP address* with your Raspberry Pi IP
+% address.
+%
+% *2.* Open the <matlab:raspberrypiioscamera Raspberry Pi model>.
+% Double-click *Video Send Subsystem*, update *UDP Send Red*, *UDP Send Blue* and *UDP Send Green* blocks with
+% the IP address of your iPhone/iPad. If you have a servo motor, double click *Standard Servo Write* and
+% update *Minimum pulse duration* and *Maximum pulse duration* based on
+% your servo motor.
+%
+ 
+ 
+%% Task 3 - Run models on Raspberry Pi hardware and Apple iOS device
+%
+%
+% *1.* Click *Deploy to Hardware* button of Raspberry Pi model to run this
+% model on Raspberry Pi hardware.
+%
+% *2.* Click *Deploy to Hardware* button of Apple iOS model to run this
+% model on your iPhone/iPad. 
+%
+% *3.* Observe the image captured from Raspberry Pi
+% board display on the screen. Slide the *View Angle* and observe
+% the change of camera angle. Slide the *Brightness Control* and observe the
+% brightness change. Press *Image Inversion* button to invert image color.
+% Press *Edge Detection* button to detect edges.
+%
+ 
+ 
+%% Other Things to Try
+% 
+% Add more functionalities to surveillance camera, such as
+%
+% * Add motion sensor in Raspberry Pi hardware to trigger video only when
+% motion detected.
+ 
+ 
+%% Summary
+% 
+% This example showed you 
+%
+% * Raspberry Pi hardware sends video data to Apple iOS device through UDP.
+% * Apple iOS device receives video data through UDP and display on screen.
+% * Apple iOS app uses a slider to control view angle and send the control
+% information to Raspberry Pi hardware.
+% * Raspberry Pi receives control information and drives a servo motor.
+% * Model video processing algorithms: image inversion, edge detection and
+% brightness control.
+ 
+close_system('raspberrypiioscamera', 0); 
+ 
+##### SOURCE END #####
+--></body></html>

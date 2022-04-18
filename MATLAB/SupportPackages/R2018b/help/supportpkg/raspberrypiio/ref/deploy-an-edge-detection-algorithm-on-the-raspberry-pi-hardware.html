@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../run-on-hardware.html",
+          "name": "Run on Target Hardware"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../display.html",
+          "name": "Display"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "run-on-hardware",
+        "display"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware",
+          "description": "This example shows you how to deploy an Edge detection function on the Raspberry Pi&#8482; hardware as a stanalone executable using MATLAB&#174; Support Package for Raspberry Pi Hardware. In this example, you will learn how to acquire live image from a webcam connected to the Raspberry Pi hardware, run the edge detection function on the acquired image, and display the result on the monitor that is connected to the same Raspberry Pi hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxcode_generation_report_edgeDetection.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample",
+          "name": "DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": ""
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "static_image_capture.png",
+        "code_analyzer_edge_errorfree.png",
+        "live_image_capture.png",
+        "edge_detection.png",
+        "code_generation_report_edgeDetection.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to deploy an Edge detection function on the Raspberry Pi&#8482; hardware as a stanalone executable using MATLAB&#174; Support Package for Raspberry Pi Hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxcode_generation_report_edgeDetection.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-hardware">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-hardware">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../run-on-hardware.html" itemprop="url"><span itemprop="title">Run on Target Hardware</span></a></li></ul><ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li><a href="../display.html" itemprop="url">Display</a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e25279" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e25292" class="intrnllnk">Required Products</a></li><li><a href="#d120e25314" class="intrnllnk">Step 1: Create and Run an Edge Detection Algorithm on a Stored Image</a></li><li><a href="#d120e25352" class="intrnllnk">Step 2: Modify the Edge Detection Algorithm to use Live Image from Hardware</a></li><li><a href="#d120e25394" class="intrnllnk">Step 3: Add the Compilation Directive to the MATLAB Function</a></li><li><a href="#d120e25408" class="intrnllnk">Step 4: Prepare the Edge Detection Function for Deployment</a></li><li><a href="#d120e25457" class="intrnllnk">Step 5: Create a Hardware Configuration Object</a></li><li><a href="#d120e25492" class="intrnllnk">Step 6: Deploy the MATLAB Function on Hardware</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-edge_detection_deployment">Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex70277531"></meta><meta itemprop="exampletitle" content="Deploy an Edge Detection Algorithm on the Raspberry Pi Hardware"></meta></div><span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to deploy an Edge detection function on the Raspberry Pi&#8482; hardware as a stanalone executable using MATLAB&#174; Support Package for Raspberry Pi Hardware. In this example, you will learn how to acquire live image from a webcam connected to the Raspberry Pi hardware, run the edge detection function on the acquired image, and display the result on the monitor that is connected to the same Raspberry Pi hardware.</p>
+
+<p></p>
+<div class="informalfigure"><div id="d120e25273" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxedge_detection.png" alt=""></img></p></div></div><p>
+ </p>
+
+<div class="procedure"><h3 class="title" id="d120e25279">Prerequisites<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-1" class="anchor_target"></span></h3><p>Before you start with this example, we recommend you to complete these examples:</p><div class="itemizedlist"><ul><li><p><a href="getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a></p></li><li><p><a href="working-with-raspberry-pi-hardware.html" class="a">Working with Raspberry Pi Hardware</a></p></li></ul></div><h3 class="title" id="d120e25292">Required Products<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A supported <a href="https://elinux.org/RPi_USB_Webcams" target="_blank">USB webcam</a> or a <a href="https://www.raspberrypi.org/products/camera-module-v2/" target="_blank">Raspberry Pi camera module</a></p></li><li><p>A monitor connected to the Raspberry Pi hardware</p></li><li><p>MATLAB Coder license</p></li></ul></div><h3 class="title" id="d120e25314">Step 1: Create and Run an Edge Detection Algorithm on a Stored Image<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-3" class="anchor_target"></span></h3><p>1. Copy the <code class="literal">edgeDetection</code> function and paste it in the MATLAB Editor. The function implements an algorithm to read the <code class="literal">peppers.png</code> file from the computer, apply edge detection algorithm to <code class="literal">peppers.png</code>, and display the result as a MATLAB figure. The algorithm consists of a 3-by-3 Sobel operator that is applied to the image in horizontal and vertical directions, and then threshold against a constant value.</p><div class="code_responsive"><pre class="programlisting">function edgeDetection()
+% Define convolutional kernel to be used for edge detection
+ kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Read image from file and apply
+ img = imread('peppers.png');
+ h = conv2(img(:,:,2),kern,'same');
+ v = conv2(img(:,:,2),kern','same');
+ e = sqrt(h.*h + v.*v);
+ edgeImg = uint8((e &gt; 100) * 240);
+ image(edgeImg);
+end</pre></div><p>2. Save the function as <code class="literal">edgeDetection.m</code> to a folder to which you have write access.</p><p>3. Run the <code class="literal">edgeDetection</code> function by using the run command in the MATLAB Command Window. When you run the function, MATLAB starts executing the edge detection algorithm on the <code class="literal">peppers.png</code> file stored in your computer.</p><div class="code_responsive"><pre class="programlisting">run edgeDetection</pre></div><p></p>
+<div class="informalfigure"><div id="d120e25348" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxstatic_image_capture.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e25352">Step 2: Modify the Edge Detection Algorithm to use Live Image from Hardware<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-4" class="anchor_target"></span></h3><p>Before deploying, running the <code class="literal">edgeDetection</code> function by using live input and output (IO) from the hardware is recommended.</p><p>Using live IO enables you to:</p><div class="itemizedlist"><ul><li><p>Verify that the MATLAB function is communicating with the hardware as expected.</p></li><li><p>Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.</p></li></ul></div><p>1. To use live IO, you must modify the function to capture live images using the webcam connected to the hardware.</p><div class="code_responsive"><pre class="programlisting">function edgeDetection()
+% Create a connection to the Raspberry Pi hardware
+  r = raspi;</pre></div><div class="code_responsive"><pre class="programlisting">% Create a connection to the Raspberry Pi camera module, capture live
+% images, and then display the images
+  w = webcam(r);</pre></div><div class="code_responsive"><pre class="programlisting">% Define convolutional kernel to be used for edge detection
+  kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+  for k = 1:100
+  img = snapshot(w);
+  h = conv2(img(:,:,2),kern,'same');
+  v = conv2(img(:,:,2),kern','same');
+  e = sqrt(h.*h + v.*v);
+  edgeImg = uint8((e &gt; 100) * 240);
+  image(edgeImg);
+  end
+end</pre></div><p>2. Run the <code class="literal">edgeDetection</code> function by using the run command in the MATLAB Command Window. When you run the function, MATLAB connects to the hardware and starts executing the edge detection algorithm on the images captured from the webcam connected to the hardware.</p><div class="code_responsive"><pre class="programlisting">run edgeDetection</pre></div><p></p>
+<div class="informalfigure"><div id="d120e25387" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxlive_image_capture.png" alt=""></img></p></div></div><p>
+ </p><p>4. Observe the output and fine tune the edge detection threshold to suit the characteristic of the camera and environment, if required.</p><h3 class="title" id="d120e25394">Step 3: Add the Compilation Directive to the MATLAB Function<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-5" class="anchor_target"></span></h3><p>Add the <code class="literal">%#codegen</code> directive (or pragma) after the <code class="literal">edgeDetection</code> function signature to indicate that you intend to deploy the function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.</p><div class="code_responsive"><pre class="programlisting">function edgeDetection() %#codegen</pre></div><h3 class="title" id="d120e25408">Step 4: Prepare the Edge Detection Function for Deployment<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-6" class="anchor_target"></span></h3><p>1. Check the <code class="literal">edgeDetection</code> function using Code Analyzer for any errors and warnings by following the steps in <a href="../ug/check-the-matlab-function-using-code-analyzer.html" class="a">Check the MATLAB Function Using Code Analyzer</a> and fix them before proceeding to the next step.</p><p>In this example, the green color of the indicator specifies that the MATLAB function has no errors or warnings.</p><p></p>
+<div class="informalfigure"><div id="d120e25423" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxcode_analyzer_edge_errorfree.png" alt=""></img></p></div></div><p>
+ </p><p>2. Debug the <code class="literal">edgeDetection</code> function and replace all the unsupported calls with the calls that are supported by code generation.</p><p>In this example, the <code class="literal"><a href="../../../matlab/ref/image.html" class="a"><code class="olink">image</code></a></code> function used at line number 18 is not supported by code generation. Deploying the <code class="literal">edgeDetection</code> function without any modification will result in an executable that may not behave as expected.</p><p>To fix this unsupported function call error, replace <code class="literal">image</code> with an equivalent call that is supported by code generation. You can replicate the functionality of <code class="literal">image</code> by using the <code class="literal"><a href="displayimage.html" class="a"><code class="olink">displayImage</code></a></code> function provided by MATLAB Support Package for Raspberry Pi Hardware.</p><div class="code_responsive"><pre class="programlisting">function edgeDetection() %#codegen
+% Create a connection to the Raspberry Pi hardware
+  r = raspi;</pre></div><div class="code_responsive"><pre class="programlisting">% Create a connection to the Raspberry Pi camera module, capture live
+% images, and then display the images
+  w = webcam(r);</pre></div><div class="code_responsive"><pre class="programlisting">% Define convolutional kernel to be used for edge detection
+  kern = [1 2 1; 0 0 0; -1 -2 -1];
+% Run the edge detection algorithm on the images captured from the Raspberry Pi camera module.
+  for k = 1:100
+  img = snapshot(w);
+  h = conv2(img(:,:,2),kern,'same');
+  v = conv2(img(:,:,2),kern','same');
+  e = sqrt(h.*h + v.*v);
+  edgeImg = uint8((e &gt; 100) * 240);
+  displayImage(r,edgeImg,'Title','Edge Detection');
+  end
+end</pre></div><h3 class="title" id="d120e25457">Step 5: Create a Hardware Configuration Object<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-7" class="anchor_target"></span></h3><p>1. Create a hardware configuration object by using the <code class="literal"><a href="targethardware.targethardware.html" class="a"><code class="olink">targetHardware</code></a></code> function in the MATLAB Command Window.</p><div class="code_responsive"><pre class="programlisting">board = targetHardware('Raspberry Pi')</pre></div><div class="code_responsive"><pre class="programlisting">board =</pre></div><div class="code_responsive"><pre class="programlisting">targetHardware with properties:</pre></div><div class="code_responsive"><pre class="programlisting">            Name: 'Raspberry Pi'
+   DeviceAddress: '192.168.1.2'
+        Username: 'pi'
+        Password: '*********'
+        BuildDir: '/home/pi'
+     BuildAction: 'Build, load, and run'</pre></div><p>2. Verify the <code class="literal">DeviceAddress</code>, <code class="literal">Username</code>, and <code class="literal">Password</code> properties listed in the output. If required, change the value of the properties by using the dot notation syntax.</p><p>For example, to change the device address to <code class="literal">173.21.22.327</code>, enter:</p><div class="code_responsive"><pre class="programlisting">board.DeviceAddress = '173.21.22.327'</pre></div><h3 class="title" id="d120e25492">Step 6: Deploy the MATLAB Function on Hardware<span id="DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample-8" class="anchor_target"></span></h3><p>Deploy the MATLAB function as a standalone executable on the hardware by using the <code class="literal"><span class="missinglink"></span></code> function.</p><div class="code_responsive"><pre class="programlisting">deploy(board,'edgeDetection')</pre></div><div class="code_responsive"><pre class="programlisting">Code generation successful: View report</pre></div><p>The <code class="literal">deploy</code> function initiates code generation of the <code class="literal">edgeDetection</code> function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the <code class="literal">edgeDetection</code> function for any build errors and warnings in the generated code.</p><p>After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts acquiring live images from the webcam, runs the edge detection algorithm on the acquired image, and then displays the result on the monitor.</p><p></p>
+<div class="informalfigure"><div id="d120e25520" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxcode_generation_report_edgeDetection.png" alt=""></img></p></div></div><p>
+ </p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:36 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

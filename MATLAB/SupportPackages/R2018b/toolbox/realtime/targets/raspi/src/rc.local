@@ -1,0 +1,147 @@
+#!/bin/sh
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exec 2> /tmp/rc.local.log # send stderr to a log file
+exec 1>&2                 # send stdout to the same log file
+set -x                    # tell sh to display commands before executing
+
+
+get_init_sys() {
+  # See https://github.com/asb/raspi-config/blob/master/LICENSE for license information
+  if command -v systemctl > /dev/null && systemctl | grep -q '\-\.mount'; then
+    SYSTEMD=1
+  elif [ -f /etc/init.d/cron ] && [ ! -h /etc/init.d/cron ]; then
+    SYSTEMD=0
+  else
+    echo "Unrecognised init system"
+    return 1
+  fi
+}
+
+do_expand_rootfs() {
+  # See https://github.com/asb/raspi-config/blob/master/LICENSE for license information
+  get_init_sys
+  if [ $SYSTEMD -eq 1 ]; then
+    ROOT_PART=$(mount | sed -n 's|^/dev/\(.*\) on / .*|\1|p')
+  else
+    if ! [ -h /dev/root ]; then
+      echo "/dev/root does not exist or is not a symlink. Don't know how to expand"
+      return 0
+    fi
+    ROOT_PART=$(readlink /dev/root)
+  fi
+
+  PART_NUM=${ROOT_PART#mmcblk0p}
+  if [ "$PART_NUM" = "$ROOT_PART" ]; then
+    echo "$ROOT_PART is not an SD card. Don't know how to expand"
+    return 0
+  fi
+
+  # NOTE: the NOOBS partition layout confuses parted. For now, let's only 
+  # agree to work with a sufficiently simple partition layout
+  if [ "$PART_NUM" -ne 2 ]; then
+    echo "Your partition layout is not currently supported by this tool. You are probably using NOOBS, in which case your root filesystem is already expanded anyway."
+    return 0
+  fi
+
+  LAST_PART_NUM=$(parted /dev/mmcblk0 -ms unit s p | tail -n 1 | cut -f 1 -d:)
+  if [ $LAST_PART_NUM -ne $PART_NUM ]; then
+    echo "$ROOT_PART is not the last partition. Don't know how to expand"
+    return 0
+  fi
+
+  # Get the starting offset of the root partition
+  PART_START=$(parted /dev/mmcblk0 -ms unit s p | grep "^${PART_NUM}" | cut -f 2 -d: | sed 's/[^0-9]//g')
+  [ "$PART_START" ] || return 1
+  # Return value will likely be error for fdisk as it fails to reload the
+  # partition table because the root fs is mounted
+  fdisk /dev/mmcblk0 <<EOF
+p
+d
+$PART_NUM
+n
+p
+$PART_NUM
+$PART_START
+
+p
+w
+EOF
+
+  # now set up an init.d script
+cat <<EOF > /etc/init.d/resize2fs_once &&
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          resize2fs_once
+# Required-Start:
+# Required-Stop:
+# Default-Start: 3
+# Default-Stop:
+# Short-Description: Resize the root filesystem to fill partition
+# Description:
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+case "\$1" in
+  start)
+    log_daemon_msg "Starting resize2fs_once" &&
+    resize2fs /dev/$ROOT_PART &&
+    update-rc.d resize2fs_once remove &&
+    rm /etc/init.d/resize2fs_once &&
+    log_end_msg \$?
+    ;;
+  *)
+    echo "Usage: \$0 start" >&2
+    exit 3
+    ;;
+esac
+EOF
+  chmod +x /etc/init.d/resize2fs_once &&
+  update-rc.d resize2fs_once defaults &&
+  echo "Root partition has been resized.\nThe filesystem will be enlarged upon the next reboot"
+  return 0
+}
+
+# Copy hostname file from boot partition if available
+BOOT_HOSTNAME=/boot/hostname
+ETC_HOSTNAME=/etc/hostname
+ETC_HOSTS=/etc/hosts
+if [ -f $BOOT_HOSTNAME ]; then
+    mv -f $BOOT_HOSTNAME $ETC_HOSTNAME
+    NEW_HOSTNAME=`cat $ETC_HOSTNAME`
+    echo "Setting new hostname: " > /var/log/hostname.log
+    cat $ETC_HOSTNAME >> /var/log/hostname.log
+    echo "127.0.0.1	localhost" > $ETC_HOSTS
+    echo "::1		localhost ip6-localhost ip6-loopback" >> $ETC_HOSTS
+    echo "fe00::0	ip6-localnet" >> $ETC_HOSTS
+    echo "ff00::0	ip6-mcastprefix" >> $ETC_HOSTS
+    echo "ff02::1	ip6-allnodes" >> $ETC_HOSTS
+    echo "ff02::2	ip6-allrouters" >> $ETC_HOSTS
+    echo " " >> $ETC_HOSTS
+    echo "127.0.2.1     raspberrypi" >> $ETC_HOSTS 
+    echo "127.0.1.1	$NEW_HOSTNAME" >> $ETC_HOSTS
+    echo "rebooting " >> /var/log/hostname.log
+    do_expand_rootfs
+    shutdown -r now
+else
+    # Print the IP address
+   _IP=$(hostname -I) || true
+   if [ "$_IP" ]; then
+      printf "My IP address is %s\n" "$_IP"
+      # Speak IP address through default audio device
+      espeak -s 100 -p 82 --stdout "My IP address is `hostname -I`" | aplay -f cd &
+   fi
+fi
+
+exit 0

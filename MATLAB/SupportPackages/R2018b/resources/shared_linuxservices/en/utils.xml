@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2014-2017 The MathWorks, Inc. -->
+<rsccat version="1.0" locale="en_US" product="shared_linuxservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="InvalidModelName">'model-name' argument should be a character-array.</entry>
+        <entry key="InvalidBoardParamsClass">Incorrect BoardParameters object specified:should be matlabshared.internal.BoardParameters object.</entry>
+        <entry key="FileCopyFailed">Error while copying file from {0} to {1}.\n{2}</entry>
+        <entry key="NetworkConnectionFailure">Cannot connect to the hardware. Following error was returned while attempting to connect:\n{0}</entry>
+        <entry key="SystemCommandFailed">System command ''{0}'' failed: {1}</entry>
+        <entry key="ComPortSelectDlgName">Serial (USB-UART) Port setup</entry>
+        <entry key="ComPortSelectDlgPrompt">Select COM Port connected to the {0} hardware</entry>
+        <entry key="AppNotRunningTimeout">Timed out waiting for application to start.</entry>   
+        <entry key="NoSuchProcess">Cannot stop {0}. There is no such process running on host {1}.</entry>
+        <entry key="OpenShellTypeError">Unknown connection type ''{0}''. The connection type must be 'ssh' or 'serial'.</entry>
+        <entry key="SSHConnectionError">SSH connection to host {0} failed:\n{1}</entry>
+        <entry key="SSHError">Error executing SSH command: {0}</entry>
+        <entry key="SerialPortValidationFailed">Cannot connect to serial Port "{0}".\nIt is recommended that you shutdown all other applications using this port.\nCheck that the USB-UART cable of the hardware is connected to this port.</entry>
+        <entry key="TCPConnectionError">Failed to execute the command. Try again.</entry>
+        <entry key="PopenError">Error executing command. System returned an exit status of {0}.</entry>
+        <entry key="FwUpdateHelper_Text">Enter the administrator password of your host machine</entry>
+        <entry key="FwUpdateHelper_NotSudoer">Permission denied. Ensure that you have root privileges to perform this task.</entry>
+        <entry key="FwUpdateHelper_Retry">Retry: Authentication failed</entry>
+        <entry key="FwUpdateHelper_AuthenticationFailed">3 incorrect password attempts. Enter the correct password next time.</entry>
+        <entry key="FwUpdateHelper_WrongPassword">Exited. Enter the correct password next time.</entry>
+        <entry key="InvalidIPAddress">Invalid Remote address specified.</entry>
+        <entry key="ClientConnectionExist">Client connection to {0} already exist</entry>
+        <entry key="LocalPortInUse">Local port {0} already in use</entry>
+        <entry key="SameBlockConnect">Trying to connect 2 {0} blocks. Please check the connection parameters.</entry>
+        <entry key="ExtModePortConflict">Port number {0} cannot be used. Reserved for external mode</entry>
+        <entry key="ReservedPortConflict">Port number {0} cannot be use. Reserved for internal usage.</entry>
+        <entry key="MaxConnExceeded">Maximum supported TCP/IP connections exceeded.</entry>
+        <entry key="MaxSizeExceeded">The combination of Data Size(N) {0} and Data type {1} exceeds the maximum limit of  4294967295.</entry>
+        <entry key="InvalidSampleTimeNeedScalar">Invalid sample time. Sample time must be a real scalar value or an array of two real values.</entry>
+        <entry key="InvalidSampleTimeNeedSmallerOffset">Invalid sample time. Sample time offset must be smaller than the sample time period.</entry>
+        <entry key="InvalidSampleTimeNeedZeroOffset">Invalid sample time. When period is -1, offset must be 0.</entry>
+        <entry key="InvalidSampleTimeNeedOffsetOne">Invalid sample time. When period is 0, offset must be 1.</entry> 
+        <entry key="InvalidSampleTimeNeedPositive">Invalid sample time. Sample time must be non-negative or -1 (for inherited).</entry>
+		<entry key="SSH2ConnectionError">Error connecting to SSH server at {0}.</entry>
+		<entry key="CannotOpenFileForWriting">Cannot open the file ''{0}'' for writing.</entry>
+		<entry key="SCPOpenFileError">Cannot open the file ''{0}'', on the remote file system, for reading</entry>
+		<entry key="SCPReadFileError">Error reading the file ''{0}'', on the remote file system.</entry>
+        <entry key="NoSuchFileOrFolder">File or folder ''{0}'' not found.</entry>
+        <entry key="SetSysrootFolder">Download and install the sysroot files for ''{0}'' toolchain in ''{1}'' and run hardware setup again.</entry>
+    </message>
+</rsccat>
+
+

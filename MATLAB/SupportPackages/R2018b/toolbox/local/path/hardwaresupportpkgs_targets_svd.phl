@@ -1,0 +1,4 @@
+% MATLAB path entries for hardwaresupportpkgs/targets/svd
+toolbox/target/shared/svd
+toolbox/target/shared/svd/blocks
+toolbox/target/shared/svd/blocks/mex

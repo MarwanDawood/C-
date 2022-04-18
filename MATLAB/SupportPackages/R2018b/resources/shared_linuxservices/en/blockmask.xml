@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2016 The MathWorks, Inc. -->
+<rsccat version="1.0" locale="en_US" product="shared_linuxservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+  <message>
+        <entry key="TCPIPSendMaskTitle">TCP/IP Send</entry>
+        <entry key="TCPIPSendMaskDescription">Send TCP/IP packets to another TCP/IP host on an Internet network.\n\nThe block accepts a 1-D array of type uint8, int8, uint16, int16, uint32, int32, boolean, single-precision, or double-precision.\n\nIn Server connection mode, set the Local IP port parameter to the listening port of the local TCP/IP Server.\nIn Client connection mode, set the Remote IP address and Remote IP port parameters to the IP address and port number of the receiving TCP/IP host, respectively.</entry>
+        
+        <entry key="TCPIPReceiveMaskTitle">TCP/IP Receive</entry>
+        <entry key="TCPIPReceiveMaskDescription">Receive TCP/IP packets from another TCP/IP host on an Internet network.\n\nThe Data port outputs the received data as a [Nx1] array.\nThe Status port outputs 0 when the available data size is less than the Data size parameter.\n\nIn Server connection mode, set the Local IP port to the listening port of the TCP/IP Server.\nIn Client connection mode, set the Remote IP address and Remote IP port parameters to the IP address and port number of the sending TCP/IP host, respectively.</entry>
+
+        <entry key="UDPReceiveMaskTitle">UDP Receive</entry>
+        <entry key="UDPReceiveMaskDescription">Receive UDP packets from another UDP host on an Internet network.\n\nThe block outputs the values received as an [Nx1] array.\n\nSet the Local IP port parameter to the port number used by the sending UDP host.</entry>
+
+        <entry key="UDPSendMaskTitle">UDP Send</entry>
+        <entry key="UDPSendMaskDescription">Send UDP packets to another UDP host on an Internet network.\n\nThe block accepts 1-D arrays of type uint8, int8, uint16, int16, uint32, int32, single-precision or double-precision.\n\nSet the Remote IP address and Remote IP port parameters to the IP address and port number of the receiving UDP host, respectively.</entry>
+</message>
+</rsccat>

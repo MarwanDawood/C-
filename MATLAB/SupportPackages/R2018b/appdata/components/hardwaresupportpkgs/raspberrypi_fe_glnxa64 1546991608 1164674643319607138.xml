@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/raspberrypi_fe</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/raspberrypi_fe_glnxa64_1546991608.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/raspberrypi_fe_glnxa64</componentName>
+    <componentVersion>1546991608</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>43</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>3748246</size>
+    <type />
+    <uncompressedBytes>3814084</uncompressedBytes>
+  </component>
+</componentData>
+

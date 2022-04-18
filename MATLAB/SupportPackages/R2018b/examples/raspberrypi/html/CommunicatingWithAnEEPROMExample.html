@@ -1,0 +1,385 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Communicating with an EEPROM</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-07"><meta name="DC.source" content="CommunicatingWithAnEEPROMExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/CommunicatingWithAnEEPROMExample')">Open this Example</a></div><div class="content"><h1>Communicating with an EEPROM</h1><!--introduction--><p>This example shows how to use Simulink&reg; Support Package for Raspberry Pi Hardware to read from and write to an SPI EEPROM.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Model</a></li><li><a href="#5">Configure the SPI Interface on the Raspberry Pi Hardware</a></li><li><a href="#6">Task 1 - Connect the EEPROM to the Raspberry Pi Hardware</a></li><li><a href="#7">Task 2 - Configure the Model for Supported Raspberry Pi Hardware</a></li><li><a href="#8">Task 3 - Configure the SPI properties of the Model</a></li><li><a href="#9">Task 4 - Configure the Model to Write and Read Data using the SPI Blocks</a></li><li><a href="#10">Task 5 - Run the Model in External Mode</a></li><li><a href="#11">Other Things to Try</a></li><li><a href="#12">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Simulink Support Package for Raspberry Pi Hardware enables you to use the SPI interface to communicate with SPI based devices. In this example, you will learn how to communicate with an EEPROM connected to the Raspberry Pi board via SPI. The example uses the 256kB "ON Semiconductor EEPROM CAT25256". This device uses a standard SPI protocol that is common to many other EEPROMs provided by different vendors. For more details about the device, refer to the <a href="matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')">CAT25256 datasheet</a>.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi&reg; Hardware</a> example and completing the <a href="docid:raspberrypi_ref.example-raspberrypi_external_mode">Communicating with Raspberry Pi&reg; Hardware</a> example to learn about External mode.</li></ul></div><div><ul><li>Refer to <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ug','about-spi-interface-on-the-raspberry-pi-hardware.html'),'-helpbrowser')">The Raspberry Pi SPI Interface</a> to learn more about the SPI interface on Raspberry Pi.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example, you need the following hardware:</p><div><ul><li>Raspberry Pi board</li><li>CAT25256 256kB SPI EEPROM Memory</li><li>USB cable</li><li>Breadboard wires</li><li>A breadboard (recommended)</li></ul></div><h2 id="4">Model</h2><p>The following figure shows the example model:</p><img vspace="5" hspace="5" src="CommunicatingWithAnEEPROMExample_01.png" alt=""> <h2 id="5">Configure the SPI Interface on the Raspberry Pi Hardware</h2><p>The SPI interface is disabled by default in Raspberry Pi. To enable the SPI interface use the <b>raspi-config</b> utility that comes with the Raspbian Linux image. You can open an interactive shell to your Raspberry Pi board and execute the following command:</p><pre>     $ sudo raspi-config</pre><p>To enable or disable the SPI interface, use up and down arrow keys to select the Advanced Options &gt; SPI menu item which brings up a <b>Yes</b> or <b>No</b> question.</p><p>Go back to the main menu using left and right arrow keys and select <b>Finish</b>. If the raspi-config utility asks you to reboot, accept it. After your board reboots, the SPI interface is enabled on channels <b>CE0</b> and <b>CE1</b>.</p><h2 id="6">Task 1 - Connect the EEPROM to the Raspberry Pi Hardware</h2><p>In this task, you connect the EEPROM to the Raspberry Pi board.</p><p><b>1.</b> Refer to the following pin-out diagram of Raspberry Pi 3 Model B for connections.</p><p><img vspace="5" hspace="5" src="../raspberrypi_3_modelb_gpio_pinmap.jpg" alt=""> </p><p>Attach the EEPROM to the Raspberry Pi board using the following connections:</p><pre>   SPI EEPROM pin   | Raspberry Pi pin
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+      /CS   (pin 1) |  GPIO 8 (CE0)
+      SO    (pin 2) |  GPIO 9 (SPI0_MISO)
+      /WP   (pin 3) |  5 V
+      VSS   (pin 4) |  GND
+      SI    (pin 5) |  GPIO 10 (SPI0_MOSI)
+      SCK   (pin 6) |  GPIO 11 (SPI0_SCLK)
+      /HOLD (pin 7) |  5 V
+      VCC   (pin 8) |  5 V
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</pre><p>You can also connect /CS pin of EEPROM to GPIO 7 (CE1) of Raspberry Pi. This example shows Raspberry Pi 3 Model B connected to EEPROM. However, you can connect any Raspberry Pi board supported by Simulink Support Package for Raspberry Pi Hardware. Use <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ref','showpins.html'),'-helpbrowser')">showPins</a> method of the <b>raspi</b> object to check the pin-out diagram of your Raspberry Pi board.</p><h2 id="7">Task 2 - Configure the Model for Supported Raspberry Pi Hardware</h2><p>In this task, you configure the model for Raspberry Pi hardware.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_SPI_EEPROM">Communicating with an SPI based EEPROM using Raspberry Pi Hardware</a> model.</p><p><b>2.</b>  In your Simulink model, click <b>Simulation &gt; Model Configuration Parameters</b> to open <b>Configuration Parameters</b> dialog.</p><p><b>3.</b> Select the <b>Hardware Implementation</b> pane and select <b>Raspberry Pi</b> from the <b>Hardware board</b> parameter list. Do not change any other settings.</p><p><b>4.</b> Click <b>Apply</b>.</p><h2 id="8">Task 3 - Configure the SPI properties of the Model</h2><p>In this task, you configure the SPI properties of the model according to the SPI settings supported by the EEPROM.</p><p><b>1.</b> Click <b>Target Hardware Resources</b> &gt; <b>SPI</b>.</p><p><b>2.</b> Set the <b>SPI0 CE0 BusSpeed(kHz)</b> parameter in the SPI group to one of the values in dropdown, say, 8000. As per the <a href="matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')">CAT25256 datasheet</a>, the EEPROM supports a maximum SPI clock frequency of 20 MHz.</p><p><b>3.</b> Click <b>OK</b>.</p><h2 id="9">Task 4 - Configure the Model to Write and Read Data using the SPI Blocks</h2><p>In this task, you have to configure the model to read data from the EEPROM using the SPI WriteRead, SPI Register Write, and SPI Register Read blocks. You will run the model in <b>External mode</b> to view the data read from the EEPROM.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_SPI_EEPROM">Communicating with an SPI based EEPROM using Raspberry Pi Hardware</a> model.</p><p><b>2.</b>  Notice the following subsystems in the model:</p><p>The <a href="matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/One_time_initialization')">One_time_initialization</a> subsystem enables the EEPROM and writes data to it.</p><p>The <a href="matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/Execution_loop')">Execution_loop</a> subsystem reads data from the EEPROM.</p><div><ul><li>The <b>One_time_initialization</b> subsystem runs at model initialization while the <b>Execution_loop</b> subsystem runs every sample hit. This selective execution of subsystems is handled using the <b>Unit Delay</b> and the <b>Enabled Subsystem</b> blocks from the Simulink library.</li></ul></div><div><ul><li>The EEPROM uses the following opcodes for enable, write, and read operations as per the <a href="matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')">CAT25256 datasheet</a>:</li></ul></div><pre>       Command  | Opcode | Operation
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+        WREN    | 6      | Enable Write Operations
+        WRITE   | 2      | Write Data to Memory
+        READ    | 3      | Read Data from Memory
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</pre><p><b>3.</b> Open the <b>One_time_initialization</b> subsystem and note the following:</p><div><ul><li>The <b>Slave select pin</b> parameter of the SPI WriteRead block is set to SPI0_CE0.</li></ul></div><div><ul><li>Before writing to the EEPROM memory, you need to enable the write operations on the device. The <b>Write Enable</b> constant block outputs WREN command (numeric value 6) to the EEPROM.</li></ul></div><div><ul><li>After the <b>WRITE</b> command is sent, the 16-bit EEPROM memory location followed by the data bytes are sent to the EEPROM.</li></ul></div><p>The <b>Register address</b> parameter in the SPI Register Write block contains [2 0 10] which sends the WRITE command followed by the 16-bit memory location 10 (0x000A) on the EEPROM.  The <b>Data to Write</b> constant block with the value of [101 -19 35 -87 4] writes 5 int8 values to the EEPROM.</p><div><ul><li>The <b>delay</b> subsystems provide the delay required for the successful completion of the Write Enable before sending data values.</li></ul></div><div><ul><li>The priority of the <b>delay</b> subsystem (corresponding to the WREN command) is set to 1. The priority of the <b>SPI Register Write</b> block (corresponding to the WRITE command) is set to any value higher than 1. This ensures that the EEPROM is write enabled before sending the data bytes to be written.</li></ul></div><p>To set the Priority of a block, right click on the block &gt; Properties &gt; General &gt; Priority. To know more about block priorities and their impact on block execution order, refer to <a href="matlab:helpview(fullfile(docroot,'simulink','ug','block-properties-dialog-box.html'),'-helpbrowser')">Set Block Properties</a>.</p><p><b>4.</b> Open the <b>Execution_loop</b> subsystem and observe the following:</p><div><ul><li>After the <b>READ</b> command, the 16-bit EEPROM memory location is sent.</li></ul></div><p>The <b>Register address</b> parameter in the SPI Register Read block with the value of [3 0 10] sends the READ command followed by the 16-bit memory location 10 on the EEPROM. The <b>Output data type</b> parameter is set to <b>int8</b> and <b>Output data length</b> parameter is set to 5 corresponding to the data type and number of values written to the EEPROM.</p><p><b>5.</b> The EEPROM latches the input data on the rising edge of the SCK clock and shifts out data on the falling edge of the SCK clock. This behavior corresponds to SPI mode 0 (Clock Polarity 0, Clock Phase 0) of the Raspberry Pi. Notice the <b>Mode (Clock polarity and phase)</b> parameter on SPI WriteRead, SPI Register Write, and SPI Register Read blocks are set to 0.</p><h2 id="10">Task 5 - Run the Model in External Mode</h2><p>In this task, you will run the model in <b>External mode</b> to monitor the data read from the EEPROM.</p><p><b>1.</b> Change the <b>Simulation mode</b> on the toolbar of the model to <b>External</b>.</p><p><b>2.</b> Click the <b>Run</b> button on the toolbar of the model to run it in External mode.</p><p><b>3.</b> In the <b>Execution_loop</b> subsystem, monitor the <b>Display</b> block to observe the data read from the EEPROM.</p><p><b>4.</b> Click the <b>Stop</b> button in the Simulink model to end the External mode execution.</p><h2 id="11">Other Things to Try</h2><div><ul><li>Change the SPI clock frequency to a different value supported by the EEPROM.</li></ul></div><div><ul><li>Follow the steps in this example to communicate to other SPI devices.</li></ul></div><h2 id="12">Summary</h2><p>This example showed how to program your Raspberry Pi board to write to and read from an SPI based EEPROM. In this example you learned how to:</p><div><ul><li>Communicate with an SPI device.</li></ul></div><div><ul><li>Initialize an EEPROM for a write operation.</li></ul></div><div><ul><li>Program the Raspberry Pi board to write and read multiple bytes of data from the SPI EEPROM.</li></ul></div><p>You can use this example as a reference to access other SPI devices.</p><p class="footer">Copyright 2016 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Communicating with an EEPROM
+%
+% This example shows how to use Simulink(R) Support Package for Raspberry
+% Pi Hardware to read from and write to an SPI EEPROM.
+
+% Copyright 2016 The MathWorks, Inc.
+
+%% Introduction
+%
+% Simulink Support Package for Raspberry Pi Hardware enables you to use the
+% SPI interface to communicate with SPI based devices. In this example, you
+% will learn how to communicate with an EEPROM connected to the Raspberry
+% Pi board via SPI. The example uses the 256kB "ON Semiconductor EEPROM
+% CAT25256". This device uses a standard SPI protocol that is common to
+% many other EEPROMs provided by different vendors. For more details about
+% the device, refer to the
+% <matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')
+% CAT25256 datasheet>.
+%
+ 
+%% Prerequisites
+%
+% * We recommend completing <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting
+% Started with Raspberry Pi(R) Hardware> example and completing the
+% <docid:raspberrypi_ref.example-raspberrypi_external_mode Communicating with
+% Raspberry Pi(R) Hardware> example to learn about External mode.
+%
+% * Refer to
+% <matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ug','about-spi-interface-on-the-raspberry-pi-hardware.html'),'-helpbrowser')
+% The Raspberry Pi SPI Interface> to learn more about the SPI interface on
+% Raspberry Pi.
+% 
+
+%% Required Hardware
+%
+% To run this example, you need the following hardware:
+% 
+% * Raspberry Pi board
+% * CAT25256 256kB SPI EEPROM Memory
+% * USB cable
+% * Breadboard wires
+% * A breadboard (recommended)
+%
+ 
+%% Model
+% The following figure shows the example model:
+open_system('raspberrypi_SPI_EEPROM');
+
+%% Configure the SPI Interface on the Raspberry Pi Hardware
+% The SPI interface is disabled by default in Raspberry Pi. To enable the
+% SPI interface use the *raspi-config* utility that comes with the Raspbian
+% Linux image. You can open an interactive shell to your Raspberry Pi board
+% and execute the following command:
+%
+%       $ sudo raspi-config
+% 
+% To enable or disable the SPI interface, use up and down arrow keys to
+% select the Advanced Options > SPI menu item which brings up a *Yes* or
+% *No* question.
+%
+% Go back to the main menu using left and right arrow keys and select
+% *Finish*. If the raspi-config utility asks you to reboot, accept it.
+% After your board reboots, the SPI interface is enabled on channels *CE0*
+% and *CE1*.
+%
+
+%% Task 1 - Connect the EEPROM to the Raspberry Pi Hardware
+%
+% In this task, you connect the EEPROM to the Raspberry Pi board.
+%
+% *1.* Refer to the following pin-out diagram of Raspberry Pi 3 Model B for
+% connections.
+%
+% <<../raspberrypi_3_modelb_gpio_pinmap.jpg>>
+%
+% Attach the EEPROM to the Raspberry Pi board using the following
+% connections:
+%   
+%     SPI EEPROM pin   | Raspberry Pi pin
+%   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+%        /CS   (pin 1) |  GPIO 8 (CE0)
+%        SO    (pin 2) |  GPIO 9 (SPI0_MISO)
+%        /WP   (pin 3) |  5 V
+%        VSS   (pin 4) |  GND
+%        SI    (pin 5) |  GPIO 10 (SPI0_MOSI)
+%        SCK   (pin 6) |  GPIO 11 (SPI0_SCLK)
+%        /HOLD (pin 7) |  5 V
+%        VCC   (pin 8) |  5 V
+%   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+%
+% You can also connect /CS pin of EEPROM to GPIO 7 (CE1) of Raspberry Pi.
+% This example shows Raspberry Pi 3 Model B connected to EEPROM. However,
+% you can connect any Raspberry Pi board supported by Simulink Support
+% Package for Raspberry Pi Hardware. Use
+% <matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ref','showpins.html'),'-helpbrowser')
+% showPins> method of the *raspi* object to check the pin-out diagram of
+% your Raspberry Pi board.
+%
+%% Task 2 - Configure the Model for Supported Raspberry Pi Hardware
+%
+% In this task, you configure the model for Raspberry Pi hardware.
+%
+% *1.* Open the <matlab:raspberrypi_SPI_EEPROM Communicating with an SPI
+% based EEPROM using Raspberry Pi Hardware> model.
+%
+% *2.*  In your Simulink model, click *Simulation > Model Configuration
+% Parameters* to open *Configuration Parameters* dialog.
+%
+% *3.* Select the *Hardware Implementation* pane and select *Raspberry Pi*
+% from the *Hardware board* parameter list. Do not change any other
+% settings.
+%
+% *4.* Click *Apply*.
+%
+%% Task 3 - Configure the SPI properties of the Model
+%
+% In this task, you configure the SPI properties of the model according to
+% the SPI settings supported by the EEPROM.
+%
+% *1.* Click *Target Hardware Resources* > *SPI*.
+%
+% *2.* Set the *SPI0 CE0 BusSpeed(kHz)* parameter in the SPI group to one
+% of the values in dropdown, say, 8000. As per the
+% <matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')
+% CAT25256 datasheet>, the EEPROM supports a maximum SPI clock frequency of
+% 20 MHz.
+% 
+% *3.* Click *OK*.
+%
+
+%% Task 4 - Configure the Model to Write and Read Data using the SPI Blocks
+%
+% In this task, you have to configure the model to read data from the
+% EEPROM using the SPI WriteRead, SPI Register Write, and SPI Register Read
+% blocks. You will run the model in *External mode* to view the data read
+% from the EEPROM.
+%
+% *1.* Open the <matlab:raspberrypi_SPI_EEPROM Communicating with an SPI
+% based EEPROM using Raspberry Pi Hardware> model.
+%
+% *2.*  Notice the following subsystems in the model:
+%
+% The
+% <matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/One_time_initialization')
+% One_time_initialization> subsystem enables the EEPROM and writes data to
+% it.
+%
+% The
+% <matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/Execution_loop')
+% Execution_loop> subsystem reads data from the EEPROM.
+%
+% * The *One_time_initialization* subsystem runs at model initialization
+% while the *Execution_loop* subsystem runs every sample hit. This
+% selective execution of subsystems is handled using the *Unit Delay* and
+% the *Enabled Subsystem* blocks from the Simulink library.
+%
+% * The EEPROM uses the following opcodes for enable, write, and read
+% operations as per the
+% <matlab:web('http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF','-browser')
+% CAT25256 datasheet>:
+%  
+%         Command  | Opcode | Operation
+%      _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+%          WREN    | 6      | Enable Write Operations
+%          WRITE   | 2      | Write Data to Memory
+%          READ    | 3      | Read Data from Memory
+%      _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+%
+% *3.* Open the *One_time_initialization* subsystem and note the following:
+%
+% * The *Slave select pin* parameter of the SPI WriteRead block is set to
+% SPI0_CE0.
+%
+% * Before writing to the EEPROM memory, you need to enable the write
+% operations on the device. The *Write Enable* constant block outputs WREN
+% command (numeric value 6) to the EEPROM.
+%
+% * After the *WRITE* command is sent, the 16-bit EEPROM memory location
+% followed by the data bytes are sent to the EEPROM.
+% 
+% The *Register address* parameter in the SPI Register Write block contains
+% [2 0 10] which sends the WRITE command followed by the 16-bit memory
+% location 10 (0x000A) on the EEPROM.  The *Data to Write* constant block
+% with the value of [101 -19 35 -87 4] writes 5 int8 values to the EEPROM.
+%
+% * The *delay* subsystems provide the delay required for the successful
+% completion of the Write Enable before sending data values.
+%
+% * The priority of the *delay* subsystem (corresponding to the WREN
+% command) is set to 1. The priority of the *SPI Register Write* block
+% (corresponding to the WRITE command) is set to any value higher than 1.
+% This ensures that the EEPROM is write enabled before sending the data
+% bytes to be written.
+%
+% To set the Priority of a block, right click on the block > Properties >
+% General > Priority. To know more about block priorities and their impact
+% on block execution order, refer to
+% <matlab:helpview(fullfile(docroot,'simulink','ug','block-properties-dialog-box.html'),'-helpbrowser')
+% Set Block Properties>.
+%
+% *4.* Open the *Execution_loop* subsystem and observe the following:
+%
+% * After the *READ* command, the 16-bit EEPROM memory location is sent.
+% 
+% The *Register address* parameter in the SPI Register Read block with the
+% value of [3 0 10] sends the READ command followed by the 16-bit memory
+% location 10 on the EEPROM. The *Output data type* parameter is set to
+% *int8* and *Output data length* parameter is set to 5 corresponding to
+% the data type and number of values written to the EEPROM.
+%
+% *5.* The EEPROM latches the input data on the rising edge of the SCK
+% clock and shifts out data on the falling edge of the SCK clock. This
+% behavior corresponds to SPI mode 0 (Clock Polarity 0, Clock Phase 0) of
+% the Raspberry Pi. Notice the *Mode (Clock polarity and phase)* parameter
+% on SPI WriteRead, SPI Register Write, and SPI Register Read blocks are
+% set to 0.
+%
+
+%% Task 5 - Run the Model in External Mode
+%
+% In this task, you will run the model in *External mode* to monitor the
+% data read from the EEPROM.
+%
+% *1.* Change the *Simulation mode* on the toolbar of the model to
+% *External*.
+%
+% *2.* Click the *Run* button on the toolbar of the model to run it in
+% External mode.
+%
+% *3.* In the *Execution_loop* subsystem, monitor the *Display* block to
+% observe the data read from the EEPROM.
+%
+% *4.* Click the *Stop* button in the Simulink model to end the External
+% mode execution.
+%
+%% Other Things to Try
+%
+% * Change the SPI clock frequency to a different value supported by the
+% EEPROM.
+%
+% * Follow the steps in this example to communicate to other SPI devices.
+
+%% Summary
+%
+% This example showed how to program your Raspberry Pi board to write to
+% and read from an SPI based EEPROM. In this example you learned how to:
+%
+% * Communicate with an SPI device.
+%
+% * Initialize an EEPROM for a write operation.
+%
+% * Program the Raspberry Pi board to write and read multiple bytes of data
+% from the SPI EEPROM.
+%
+% You can use this example as a reference to access other SPI devices.
+%
+
+close_system('raspberrypi_SPI_EEPROM', 0);
+
+% LocalWords:  raspberrypi SPI
+##### SOURCE END #####
+--></body></html>

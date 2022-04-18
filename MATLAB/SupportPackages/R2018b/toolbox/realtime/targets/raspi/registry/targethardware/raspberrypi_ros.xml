@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015 The MathWorks, Inc. -->
+<productinfo version="2.0">
+    <name>Raspberry Pi - Robot Operating System (ROS)</name>
+    <deviceid>ARM</deviceid>
+    <subfamily>ARM</subfamily>
+    <productionhwdevicetype>ARM Compatible-&gt;ARM Cortex</productionhwdevicetype>
+    <toolchain name="Catkin" IsLoadCommandMATLABFcn="true"> 
+        <loadcommand>codertarget.raspi.ros.loadCommand</loadcommand>  
+        <loadcommandargs>get_param(getModel(hCS),'Name')</loadcommandargs>
+    </toolchain>
+    <parameterinfo>$(TARGET_ROOT)/registry/parameters/raspberrypi_ros_parameters.xml</parameterinfo>
+    <attributeinfo>$(TARGET_ROOT)/registry/attributes/raspberrypi_ros_attributes.xml</attributeinfo>
+    <rtosinfo>$(MATLAB_ROOT)/toolbox/target/codertarget/rtos/registry/linux.xml</rtosinfo>  
+</productinfo>

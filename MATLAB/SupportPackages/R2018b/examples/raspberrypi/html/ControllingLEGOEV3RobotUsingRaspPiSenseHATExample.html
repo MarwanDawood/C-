@@ -1,0 +1,318 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-06"><meta name="DC.source" content="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/ControllingLEGOEV3RobotUsingRaspPiSenseHATExample')">Open this Example</a></div><div class="content"><h1>Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</h1><!--introduction--><p>This example shows how to read the Accelerometer on Raspberry Pi Sense HAT and use this data to control the motion of a LEGO MINDSTORMS EV3 robot.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#3">Prerequisites</a></li><li><a href="#4">Required Hardware</a></li><li><a href="#5">Working Principle of Robot motion control</a></li><li><a href="#6">Task 1 - Familiarize with Sense HAT Accelerometer (Recommended)</a></li><li><a href="#7">Task 2 - Install Simulink Support Package for LEGO MINDSTORMS EV3</a></li><li><a href="#8">Task 3 - Set up LEGO MINDSTORMS EV3 robot</a></li><li><a href="#9">Task 4 - Configure Network Connection</a></li><li><a href="#10">Task 5 - Run models on Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot</a></li><li><a href="#11">Other Things to Try</a></li><li><a href="#12">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Raspberry Pi Sense HAT is an add-on board for Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick and includes the following sensors:</p><div><ul><li>Humidity sensor</li><li>Pressure sensor</li><li>IMU sensor (Accelerometer, Gyroscope, and Magnetometer)</li></ul></div><p>LEGO MINDSTORMS EV3 is a Linux based educational robot kit developed by the LEGO group. The Simulink Support Package for LEGO MINDSTORMS EV3 Hardware enables you to create and run Simulink models on LEGO MINDSTORMS EV3 hardware. The support package includes a library of Simulink blocks for configuring and accessing LEGO MINDSTORMS EV3 sensors and actuators.</p><p>We will develop two Simulink models,</p><div><ul><li><b><a href="matlab:raspberrypi_sensehat_ev3robot">Raspberry Pi model</a></b> In this model, we will read the Accelerometer On-board Sense HAT and use the acceleration data to determine the motor speeds for EV3 robot. A network connection would be setup between the Raspberry Pi device and the EV3 robot for data exchange.</li><li><b><a href="matlab:ev3_robot">LEGO MINDSTORMS EV3 model</a></b> In this model, we would receive the data sent by Raspberry Pi device and use this to drive the two motors of the EV3 robot.</li></ul></div><p>You will learn how to:</p><div><ul><li>Set up network connection between Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot</li><li>Configure and run a Simulink model for Raspberry Pi hardware to send UDP packets to LEGO MINDSTORMS EV3 robot</li><li>Configure and run a Simulink model for LEGO MINDSTORMS EV3 robot to receive UDP packets from Raspberry Pi hardware.</li></ul></div><h2 id="3">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi Hardware</a> example.</li></ul></div><h2 id="4">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>Raspberry Pi Sense HAT</li><li>LEGO MINDSTORMS EV3</li><li>Two LEGO MINDSTORMS EV3 Large Motors</li><li>EV3 Wi-Fi Dongle</li></ul></div><img vspace="5" hspace="5" src="ControllingLEGOEV3RobotUsingRaspPiSenseHATExample_01.png" alt=""> <h2 id="5">Working Principle of Robot motion control</h2><p>In this section, we will discuss about how the acceleration data is used to control the motion of the robot.</p><p>From the Accelerometer data, we can mathematically determine the value of 'pitch' and 'roll' for a given position of the Sense HAT. We can map the 'pitch' and 'roll' movement of the Sense HAT to the motion of the EV3 robot. The 'pitch' would represent the forward and reverse motion of the motor whereas the 'roll' would represent the sideward motion of the robot.</p><p><img vspace="5" hspace="5" src="../raspberrypi_sensehat_pitchroll.png" alt=""> </p><p>The mathematical equations required to convert the 'pitch' and 'roll' values to linear speed of the motors are realized using a MATLAB function block in the Simulink model for Raspberry Pi.</p><p>A communication link for data exchange is set up between Raspberry Pi and the EV3 brick. The linear motor speed derived from the pitch and roll values is sent over UDP from Raspberry Pi to EV3. EV3 would receive this data and use it as input to drive the two motors.</p><h2 id="6">Task 1 - Familiarize with Sense HAT Accelerometer (Recommended)</h2><p><a href="docid:raspberrypi_ref.example-raspberrypi_sensehat_autorotate">Sense HAT Auto-rotate</a> example shows usage of the Accelerometer on the Raspberry Pi Sense HAT. The acceleration data is used to auto-rotate an image displayed on the LED matrix of Sense HAT.</p><p>Complete this example to get familiarity with the usage of Accelerometer.</p><h2 id="7">Task 2 - Install Simulink Support Package for LEGO MINDSTORMS EV3</h2><p>You need <b>Simulink Support Package for LEGO MINDSTORMS EV3</b> to run Simulink model on LEGO MINDSTORMS EV3 hardware.</p><p><b>1.</b> Install <b>Simulink Support Package for LEGO MINDSTORMS EV3</b>.</p><p>Click link below to</p><p><a href="matlab:hwconnectinstaller.launchInstaller('BaseCode','LEGOEV3','StartAtStep','SelectPackage')">Download and Install Simulink Support Package for LEGO MINDSTORMS EV3</a></p><p><b>2.</b> (Recommended) Complete the <a href="matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser')">Getting Started with LEGO MINDSTORMS EV3 Hardware</a> example in <b>Simulink Support Package for LEGO MINDSTORMS EV3</b> you just installed.</p><h2 id="8">Task 3 - Set up LEGO MINDSTORMS EV3 robot</h2><p>In this task, we will build a EV3 robot and connect the EV3 brick to the same network as the Host PC.</p><p><b>1.</b> Build a two-wheeled robot. You can build a robot similar to the one described in the printed building instructions in the education core set.</p><p><b>2.</b> Set up a connection between EV3 brick and your host machine. Please refer to Task 1 and 2 in <a href="matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser')">Getting Started with LEGO MINDSTORMS EV3 Hardware</a> example.</p><h2 id="9">Task 4 - Configure Network Connection</h2><p>In this task, you will set up network connection between Raspberry Pi board and LEGO MINDSTORMS EV3. The communication protocol used in this example is UDP. You can alternatively use TCP/IP protocol. TCP/IP send/receive blocks are available in the library for LEGO MINDSTORMS EV3 and Raspberry Pi.</p><p><b>1.</b> Connect Raspberry Pi board to the network with Ethernet cable through Ethernet port. Make sure that both the Raspberry Pi board and the EV3 robot are connected to the same network.</p><p><b>2.</b> Verify the connection between your Raspberry Pi board and LEGO MINDSTORMS EV3.</p><p>Execute the following command on the MATLAB command prompt:</p><pre class="language-matlab">r = raspberrypi
+</pre><p>This command returns an object with IP address info for the Raspberry Pi board.</p><p>Run command <b>system(r, 'sudo ping [EV3_IP_Address] -c 10')</b> with the LEGO MINDSTORMS EV3 IP address found in step 2 of Task 3 to verify the connection. e.g.</p><pre class="language-matlab">system(r, <span class="string">'sudo ping 192.168.1.2 -c 10'</span>)
+</pre><p><b>3.</b> After verifying the connection, open the <a href="matlab:raspberrypi_sensehat_ev3robot">Raspberry Pi model</a> and update <b>Send to EV3</b> block with the IP address of your EV3 hardware.</p><h2 id="10">Task 5 - Run models on Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot</h2><p>In this task, we will run the models that we have developed on the respective hardware.</p><p><b>1.</b> Click <b>Deploy to Hardware</b> button of Raspberry Pi model to run this model on Raspberry Pi hardware.</p><p><b>2.</b> Click <b>Deploy to Hardware</b> button of LEGO MINDSTORMS EV3 model to run this model on your LEGO MINDSTORMS EV3 hardware.</p><p><b>3.</b> Control the EV3 robot using the Sense HAT connected to the Raspberry Pi hardware.</p><h2 id="11">Other Things to Try</h2><p><b>1.</b> Improve the control system on the EV3 robot. Try incorporating a PID controller.</p><p>Refer to <a href="matlab:ev3_drive_closedloop">EV3 drive closed loop</a> example and improve the control algorithm on the EV3 robot.</p><p><b>2.</b> Develop a model to control the EV3 robot using the Joystick on Sense HAT. Use the Joystick block in the Sense HAT library to read the state of the Joystick on-board Sense HAT.</p><h2 id="12">Summary</h2><p>This example showcased the following</p><div><ul><li>Accelerometer on Raspberry Pi Sense HAT is used to control the motion of the EV3 robot.</li><li>Raspberry Pi hardware calculates the value of speed for the left and right motors of the robot and sends the data to the EV3 brick through UDP send block.</li><li>EV3 receives the data sent by Raspberry Pi and drives the motors of the robot.</li></ul></div><p class="footer">Copyright 2016-2017 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT
+%
+% This example shows how to read the Accelerometer on
+% Raspberry Pi Sense HAT and use this data to control the motion of a
+% LEGO MINDSTORMS EV3 robot.
+ 
+% Copyright 2016-2017 The MathWorks, Inc.
+ 
+%% Introduction
+%
+% The Raspberry Pi Sense HAT is an add-on board for
+% Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick
+% and includes the following sensors:
+%%
+% * Humidity sensor
+% * Pressure sensor
+% * IMU sensor (Accelerometer, Gyroscope, and Magnetometer)
+% 
+% LEGO MINDSTORMS EV3 is a Linux based educational robot kit developed by
+% the LEGO group. The Simulink Support Package for LEGO MINDSTORMS EV3 Hardware enables you to create
+% and run Simulink models on LEGO MINDSTORMS EV3 hardware. The support package
+% includes a library of Simulink blocks for configuring and accessing LEGO
+% MINDSTORMS EV3 sensors and actuators.
+% 
+% 
+% We will develop two Simulink models,
+% 
+% * *<matlab:raspberrypi_sensehat_ev3robot Raspberry Pi model>* 
+% In this model, we will read the Accelerometer On-board Sense HAT and 
+% use the acceleration data to determine the motor speeds for EV3 robot. A
+% network connection would be setup between the Raspberry Pi device and
+% the EV3 robot for data exchange.
+% * *<matlab:ev3_robot LEGO MINDSTORMS EV3 model>* In this model, we would receive the data sent by Raspberry Pi
+% device and use this to drive the two motors of the EV3 robot.
+% 
+% You will learn how to:
+%
+% * Set up network connection between Raspberry Pi hardware and LEGO
+% MINDSTORMS EV3 robot
+% * Configure and run a Simulink model for Raspberry Pi hardware to send
+% UDP packets to LEGO MINDSTORMS EV3 robot
+% * Configure and run a Simulink model for LEGO MINDSTORMS EV3 robot to 
+% receive UDP packets from Raspberry Pi hardware.
+ 
+ 
+%% Prerequisites
+%
+% * We recommend completing <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting
+% Started with Raspberry Pi Hardware> example.
+ 
+ 
+ 
+%% Required Hardware
+%
+% To run this example you will need the following hardware:
+%
+% * Raspberry Pi hardware
+% * Raspberry Pi Sense HAT
+% * LEGO MINDSTORMS EV3 
+% * Two LEGO MINDSTORMS EV3 Large Motors
+% * EV3 Wi-Fi Dongle
+ 
+ 
+open_system('raspberrypi_sensehat_ev3robot');
+ 
+%% Working Principle of Robot motion control
+%
+% In this section, we will discuss about how the acceleration data is used
+% to control the motion of the robot.
+% 
+% From the Accelerometer data, we can mathematically determine the value of
+% 'pitch' and 'roll' for a given position of the Sense HAT.
+% We can map the 'pitch' and 'roll' movement of the Sense HAT to the motion of
+% the EV3 robot. The 'pitch' would represent the forward and reverse motion
+% of the motor whereas the 'roll' would represent the sideward motion of
+% the robot.
+% 
+% <<../raspberrypi_sensehat_pitchroll.png>>
+% 
+% The mathematical equations required to convert the 'pitch' and 'roll'
+% values to linear speed of the motors are realized using a MATLAB function
+% block in the Simulink model for Raspberry Pi.
+% 
+% A communication link for data exchange is set up between Raspberry Pi and the EV3 brick.
+% The linear motor speed derived from the pitch and roll values is sent
+% over UDP from Raspberry Pi to EV3. EV3 would receive this data and use it
+% as input to drive the two motors.
+% 
+ 
+%% Task 1 - Familiarize with Sense HAT Accelerometer (Recommended)
+% <docid:raspberrypi_ref.example-raspberrypi_sensehat_autorotate Sense HAT Auto-rotate> example shows usage
+% of the Accelerometer on the Raspberry Pi Sense HAT. The acceleration data
+% is used to auto-rotate an image displayed on the LED matrix of Sense HAT.
+% 
+% Complete this example to get familiarity with the usage of Accelerometer.
+ 
+%% Task 2 - Install Simulink Support Package for LEGO MINDSTORMS EV3
+%
+% You need *Simulink Support Package for LEGO MINDSTORMS EV3* to run Simulink
+% model on LEGO MINDSTORMS EV3 hardware.
+%
+% *1.* Install *Simulink Support Package for LEGO MINDSTORMS EV3*.
+% 
+% Click link below to 
+%
+% <matlab:hwconnectinstaller.launchInstaller('BaseCode','LEGOEV3','StartAtStep','SelectPackage') Download and Install Simulink Support Package for LEGO MINDSTORMS EV3>
+%
+% *2.* (Recommended) Complete the <matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser') Getting Started with LEGO MINDSTORMS EV3 Hardware> example in *Simulink Support Package for
+% LEGO MINDSTORMS EV3* you just installed.
+%
+ 
+%% Task 3 - Set up LEGO MINDSTORMS EV3 robot
+% 
+% In this task, we will build a EV3 robot and connect the EV3 brick to the
+% same network as the Host PC.
+%
+% *1.* Build a two-wheeled robot. You can build a robot similar to the one described in the printed building instructions in the education core set.
+%
+% *2.* Set up a connection between EV3 brick and your host machine. Please refer to Task 1 and 2 in <matlab:helpview(fullfile(codertarget.internal.legomindstormsev3.getDocRoot,'examples','getting-started-with-lego-mindstorms-ev3-hardware.html'),'-helpbrowser') Getting Started with LEGO MINDSTORMS EV3 Hardware> example.
+% 
+ 
+%% Task 4 - Configure Network Connection 
+% 
+% In this task, you will set up network connection between Raspberry Pi
+% board and LEGO MINDSTORMS EV3. The communication protocol used in this example
+% is UDP. You can alternatively use TCP/IP protocol. TCP/IP send/receive
+% blocks are available in the library for LEGO MINDSTORMS EV3 and Raspberry
+% Pi.
+%  
+% *1.* Connect Raspberry Pi board to the network with Ethernet cable
+% through Ethernet port. Make sure that both the Raspberry Pi board and the
+% EV3 robot are connected to the same network.
+%
+% *2.* Verify the connection between your Raspberry Pi board and LEGO MINDSTORMS EV3.
+% 
+% Execute the following command on the MATLAB command prompt:
+%
+%   r = raspberrypi
+% 
+% This command returns an object with IP address info for the Raspberry Pi
+% board.
+% 
+% Run command *system(r, 'sudo ping [EV3_IP_Address] -c 10')* with the
+% LEGO MINDSTORMS EV3 IP address found in step 2 of Task 3 to verify the connection. e.g.
+%
+%   system(r, 'sudo ping 192.168.1.2 -c 10')
+%
+% *3.* After verifying the connection, open the
+% <matlab:raspberrypi_sensehat_ev3robot Raspberry Pi model> and update *Send to EV3*
+% block with the IP address of your EV3 hardware.
+ 
+ 
+%% Task 5 - Run models on Raspberry Pi hardware and LEGO MINDSTORMS EV3 robot
+%
+% In this task, we will run the models that we have developed on the
+% respective hardware.
+%
+% *1.* Click *Deploy to Hardware* button of Raspberry Pi model to run this
+% model on Raspberry Pi hardware.
+%
+% *2.* Click *Deploy to Hardware* button of LEGO MINDSTORMS EV3 model to run this
+% model on your LEGO MINDSTORMS EV3 hardware. 
+%
+% *3.* Control the EV3 robot using the Sense HAT connected to the Raspberry
+% Pi hardware.
+%
+ 
+ 
+%% Other Things to Try
+% 
+% *1.* Improve the control system on the EV3 robot. Try incorporating a PID
+% controller.
+% 
+% Refer to <matlab:ev3_drive_closedloop EV3 drive closed loop> example and improve the control algorithm on the EV3 robot. 
+%  
+% *2.* Develop a model to control the EV3 robot using the Joystick on Sense
+% HAT. Use the Joystick block in the Sense HAT library to read the state of
+% the Joystick on-board Sense HAT.
+ 
+%% Summary
+% 
+% This example showcased the following
+%
+% * Accelerometer on Raspberry Pi Sense HAT is used to control the motion of the EV3 robot.
+% * Raspberry Pi hardware calculates the value of speed for the left and right
+% motors of the robot and sends the data to the EV3 brick through UDP send block.
+% * EV3 receives the data sent by Raspberry Pi and drives the motors of the robot.
+ 
+ 
+close_system('raspberrypi_sensehat_ev3robot', 0); 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+##### SOURCE END #####
+--></body></html>

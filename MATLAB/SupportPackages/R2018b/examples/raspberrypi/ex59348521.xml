@@ -1,0 +1,12 @@
+<example>
+  <main>PublishAndSubscribeToMessagesUsingMQTTBlocksExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_MQTT_publish')</callback>
+  <file component="raspberrypi" timestamp="1526653201">mqtt_connect.png</file>
+  <file component="raspberrypi" timestamp="1533807291">mqtt_publish.png</file>
+  <file component="raspberrypi" timestamp="1533015921">mqtt_communication.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+  <thumbnail>mqtt_communication.png</thumbnail>
+</example>

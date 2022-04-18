@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="linux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+  <message>
+    <entry key="ConnectFailed">Could not connect to the board at {0}. Please check:\n1: IP address, User name and Password are valid.\n2: The board is powered up and connected to the network\n\nDetails:\n{1}</entry>      
+    <entry key="TcpPortInUse">The TCP/IP port {0} is used by another process with PID {1}. Choose a different TCP/IP port number or kill the process with PID {2}.</entry>      
+    <entry key="Error">{0}</entry>
+</message>
+</rsccat>
+<!-- Copyright 2012 The MathWorks, Inc.
+-->

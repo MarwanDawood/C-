@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<productinfo>
+    <name>Raspberry Pi</name>
+    <parametergroup>
+        <name>Board Parameters</name>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onDeviceAddressChange" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Device Address:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.DeviceAddress" Tag="DeviceAddress" Type="edit" Value="codertarget.raspi.getDeviceAddress" ValueType="callback" Visible="1"/>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onUsernameChange" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Username:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.Username" Tag="Username" Type="edit" Value="codertarget.raspi.getUsername" ValueType="callback" Visible="1"/>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onPasswordChange" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Password:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.Password" Tag="Password" Type="edit" Value="codertarget.raspi.getPassword" ValueType="callback" Visible="1" EchoMode="password"/>
+    </parametergroup>
+    <parametergroup>
+        <name>Build options</name>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="Build; Build and run" Name="Build action:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Runtime.BuildAction" Tag="Build_action" Type="combobox" Value="Build and run" Visible="1"/>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onBuildDirChange" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Build directory:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.BuildDir" Tag="BuildDir" Type="edit" Value="codertarget.raspi.getBuildDir" ValueType="callback" Visible="1"/>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Run on boot" RowSpan="[0,0]" SaveValueAsString="false" Storage="Runtime.RunOnBoot" Tag="RunOnBoot" Type="checkbox" Value="false" Visible="1"/>  
+    </parametergroup>
+    <parametergroup>
+        <name>SPI</name>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="32000;16000;8000;4000;2000;1000;500" Name="SPI0 CE0 Bus Speed (kHz):" RowSpan="[1,1]" SaveValueAsString="true" Storage="SPI.SPI0CE0BusSpeed" Tag="SPI_SPI0CE0BusSpeed" Type="combobox" Value="500" Visible="1"/>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="32000;16000;8000;4000;2000;1000;500" Name="SPI0 CE1 Bus Speed (kHz):" RowSpan="[2,2]" SaveValueAsString="true" Storage="SPI.SPI0CE1BusSpeed" Tag="SPI_SPI0CE1BusSpeed" Type="combobox" Value="500" Visible="1"/>
+    </parametergroup>
+    <parametergroup>
+        <name>MQTT</name>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Broker Address:" RowSpan="[0,0]" SaveValueAsString="true" Storage="MQTT.BrokerAddress" Tag="MQTTBrokerAddress" Type="edit" Value="mqtt.thingspeak.com" Visible="1"/>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Username:" RowSpan="[0,0]" SaveValueAsString="true" Storage="MQTT.Username" Tag="MQTTUsername" Type="edit" Value="" Visible="1"/>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Password:" RowSpan="[0,0]" SaveValueAsString="true" Storage="MQTT.Password" Tag="MQTTPassword" Type="edit" Value="" Visible="1" EchoMode="password"/>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Client ID:" RowSpan="[0,0]" SaveValueAsString="true" Storage="MQTT.ClientID" Tag="MQTTClientID" Type="edit" Value="" Visible="1"/>
+    </parametergroup>
+</productinfo>

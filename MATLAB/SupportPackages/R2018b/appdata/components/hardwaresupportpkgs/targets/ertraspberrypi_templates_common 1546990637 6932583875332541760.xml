@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/ertraspberrypi_templates</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/ertraspberrypi_templates_common_1546990637.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/ertraspberrypi_templates_common</componentName>
+    <componentVersion>1546990637</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>9</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>407549</size>
+    <type />
+    <uncompressedBytes>408335</uncompressedBytes>
+  </component>
+</componentData>
+

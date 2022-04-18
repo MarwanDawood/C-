@@ -1,0 +1,245 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MAT-file logging on Raspberry Pi&#8482; Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-24"><meta name="DC.source" content="MATfileLoggingOnRaspberryPiTMHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/MATfileLoggingOnRaspberryPiTMHardwareExample')">Open this Example</a></div><div class="content"><h1>MAT-file logging on Raspberry Pi&#8482; Hardware</h1><!--introduction--><p>This example shows you how to log signals from a Simulink&reg; model on Raspberry Pi&#8482; hardware in the MAT-file format.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1: Open a Simulink Model Template</a></li><li><a href="#7">Task 2: Enable MAT-file Logging</a></li><li><a href="#8">Task 3: Configure and Deploy the Model on Raspberry Pi&#8482; hardware.</a></li><li><a href="#9">Task 4: Import the MAT-files from Raspberry Pi&#8482; Hardware</a></li><li><a href="#10">Other things to try</a></li><li><a href="#11">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Simulink&reg; Support Package for Raspberry Pi&#8482; Hardware supports logging of signals from your Simulink&reg; model on Raspberry Pi&#8482; hardware in the MAT-file format. Signal logging enables you to monitor the behavior of the signal and perform analysis of historical data. To use the MAT-file logging feature with the Simulink&reg; Support Package for Raspberry Pi&#8482; hardware, you must have a Simulink Coder&#8482; license.</p><h2 id="2">Prerequisites</h2><p>Before you start with this example, we recommend you to complete the <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi&reg; Hardware</a> example.</p><h2 id="3">Required Hardware</h2><p>To run this example, you must have a Raspberry Pi&#8482; board.</p><h2 id="4">Task 1: Open a Simulink Model Template</h2><p>The Simulink Support Package for Raspberry Pi&#8482; Hardware provides different Simulink model templates. The models in these templates are pre-configured for you to use with Raspberry Pi&#8482; hardware. You can use these models as a starting point to understand how the MAT-file logging works on Raspberry Pi&#8482; hardware.</p><p><b>1.</b> Open the <a href="matlab:simulink">Simulink Start Page</a>.</p><p><b>2.</b> Scroll down and click the <b>Simulink Support Package for Raspberry Pi&#8482; Hardware</b> template. From the expanded list, click <b>Basic Model</b> to create a new model. This model consists of a <tt>Sine Wave</tt> source block, a <tt>Scope</tt> block, and a <tt>GPIO</tt> block from the Raspberry Pi Simulink library. The <tt>Sine Wave</tt> block is connected to the <tt>Scope</tt> block and the <tt>GPIO</tt> block.</p><p>In this example, the signal driving the <tt>GPIO</tt> block is logged by the <tt>Scope</tt> block.</p><img vspace="5" hspace="5" src="MATfileLoggingOnRaspberryPiTMHardwareExample_01.png" alt=""> <p><b>3.</b> Save the model.</p><h2 id="7">Task 2: Enable MAT-file Logging</h2><p><b>1.</b> To open the <b>Model Configuration Parameters</b> dialog box, click the gear icon on the Simulink model toolbar.</p><p><b>2.</b> Browse to <b>Code Generation &gt; Interface &gt; Advanced Parameters</b>, or type <tt>MAT-file logging</tt> in the search box.</p><p><b>3.</b> Select the <b>MAT-file logging</b> option and click <b>Apply</b> to save the changes.</p><p><b>4.</b> Click <b>OK</b> to close the dialog box.</p><p><b>5.</b> In the Simulink model, double-click the <tt>Scope</tt> block, and click the gear icon to open the <b>Configuration Properties</b> dialog box.</p><p><b>6.</b> In the <b>Logging</b> tab, select the <b>Log data to workspace</b> option, and click <b>Apply</b> to save the changes.</p><p><b>7.</b> On the Simulink model toolbar, set the <b>Simulation stop time</b> parameter. This parameter specifies the duration for which the signals are logged.    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run.    For example, if the <b>Simulation stop time</b> parameter is specified as <tt>10.0</tt> seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time.</p><h2 id="8">Task 3: Configure and Deploy the Model on Raspberry Pi&#8482; hardware.</h2><p>In this task, you will configure the model to be deployed on the Raspberry Pi&#8482; hardware. As we started with a Raspberry Pi&#8482; template model, the model is already configured.</p><p><b>1.</b> Open the pre-configured model that you saved in Task 1.</p><p><b>2.</b> Select <b>Tools &gt; Run on Target Hardware &gt; Options...</b>. Verify the parameter values in the <b>Hardware Implementation</b> pane.</p><p><b>3.</b> On the Simulink model toolbar, click the <b>Deploy To Hardware</b> button. This action builds, downloads, and runs the model on the Raspberry Pi&#8482; hardware.</p><h2 id="9">Task 4: Import the MAT-files from Raspberry Pi&#8482; Hardware</h2><p><b>1.</b> In the MATLAB&reg; command window, use the following command to create a raspberrypi object. The parameters specified in this command should match the board parameters specified in <b>Simulation&gt; Model Configuration Parameters&gt; Target hardware resources&gt; Board Parameters</b>.</p><pre>r = raspberrypi(&lt;IP address&gt;, &lt;username&gt;, &lt;password&gt;);</pre><p><b>2.</b> Use the <tt>getFile</tt> function to copy the MAT-files from the Raspberry Pi&#8482; board to your computer.</p><pre class="language-matlab">getFile(r,&lt;filename&gt;)
+</pre><p>Here, <tt>r</tt> specifies the raspberrypi object and <tt>filename</tt> specifies the path and name of the file created.</p><p>The model running on Raspberry Pi&#8482; creates multiple MAT-files depending on the duration for which the signals are logged. The files are named as <b>'&lt;modelname&gt;_&lt;runindex&gt;_&lt;fileindex&gt;.mat'</b>. '&lt;modelname&gt;' is the name with which the Simulink&reg; model is saved. '&lt;runindex&gt;' starts with 1 and is incremented by one during successive runs.&lt;fileindex&gt; starts with 1 and is incremented by 1 every time a new MAT file is created in the same run.</p><p>To import multiple MAT-files from Raspberry Pi into MATLAB&reg;, use the following function in the MATLAB command window:</p><pre class="language-matlab">getFile(r,&lt;modelname&gt;*.mat)
+</pre><p>The '*' character is used to copy all the files having names starting with '&lt;modelname&gt;' and ending with '.mat'.</p><p>After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB&reg;.</p><p>Since the model running on the hardware creates multiple MAT-files, the logged data points are distributed across the generated MAT-files.</p><p>You can create a stitcher function to combine these MAT-files into a single MAT-file that contains all the logged data points. An example of the MAT-file stitcher is provided. In the MATLAB&reg; command window, enter the following command and refer the file to know more about its usage.</p><pre class="language-matlab">edit(<span class="string">'Raspberrypi_MAT_stitcher.m'</span>);
+</pre><h2 id="10">Other things to try</h2><p>In this example, a <tt>Scope</tt> block is used to log signals. The signals can also be logged using the <tt>To Workspace</tt> block or the <tt>Output port</tt> block.</p><p>Try logging signals using these two blocks.</p><h2 id="11">Summary</h2><p>This example demonstrated how to configure the Simulink model to log signals on Raspberry Pi&#8482; in the MAT-file format.</p><p class="footer">Copyright 2017 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% MAT-file logging on Raspberry Pi(TM) Hardware
+% 
+% This example shows you how to log signals from a Simulink(R) model on Raspberry Pi(TM) hardware in the MAT-file format.
+%
+% Copyright 2017 The MathWorks, Inc.
+ 
+%% Introduction 
+% 
+% The Simulink(R) Support Package for Raspberry Pi(TM) Hardware supports logging of
+% signals from your Simulink(R) model on Raspberry Pi(TM) hardware in the
+% MAT-file format. Signal logging enables you to monitor the behavior of
+% the signal and perform analysis of historical data. To use the MAT-file
+% logging feature with the Simulink(R) Support Package for Raspberry Pi(TM) hardware, you must have a Simulink Coder(TM) license.
+% 
+%% Prerequisites 
+%
+% Before you start with this example, we recommend you to complete the <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started with Raspberry Pi(R) Hardware> example. 
+% 
+%% Required Hardware
+%
+% To run this example, you must have a Raspberry Pi(TM) board.
+% 
+%% Task 1: Open a Simulink Model Template
+% 
+% The Simulink Support Package for Raspberry Pi(TM) Hardware provides different Simulink
+% model templates. The models in these templates are pre-configured for you
+% to use with Raspberry Pi(TM) hardware. You can use these models as a starting
+% point to understand how the MAT-file logging works on Raspberry Pi(TM)
+% hardware.
+% 
+% *1.* Open the <matlab:simulink Simulink Start Page>.
+% 
+% *2.* Scroll down and click the *Simulink Support Package for Raspberry Pi(TM) Hardware* template. From the expanded list, click *Basic Model* to create a new model. 
+% This model consists of a |Sine Wave| source block, a |Scope| block, and a |GPIO| block from the Raspberry
+% Pi Simulink library. The |Sine Wave| block is connected to the |Scope|
+% block and the |GPIO| block.
+% 
+% In this example, the signal driving the |GPIO| block is logged by the |Scope| block.
+%
+%%
+open_system('raspberrypi_matfilelogging');
+%%
+%
+% *3.* Save the model.
+%  
+%% Task 2: Enable MAT-file Logging 
+%
+% *1.* To open the *Model Configuration Parameters* dialog box, click the gear icon on the Simulink model toolbar.
+% 
+% *2.* Browse to *Code Generation > Interface > Advanced Parameters*, or type |MAT-file logging| in the search box. 
+% 
+% *3.* Select the *MAT-file logging* option and click *Apply* to save the changes.
+% 
+% *4.* Click *OK* to close the dialog box. 
+%
+% *5.* In the Simulink model, double-click the |Scope| block, and click the gear icon to open the *Configuration Properties* dialog box. 
+% 
+% *6.* In the *Logging* tab, select the *Log data to workspace* option, and click *Apply* to save the changes.
+% 
+% *7.* On the Simulink model toolbar, set the *Simulation stop time* parameter. This parameter specifies the duration for which the signals are logged. 
+%    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run. 
+%    For example, if the *Simulation stop time* parameter is specified as |10.0| seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time. 
+%  
+%%  Task 3: Configure and Deploy the Model on Raspberry Pi(TM) hardware.
+% 
+% In this task, you will configure the model to be deployed on the
+% Raspberry Pi(TM) hardware. As we started with a Raspberry Pi(TM) template model, the model is
+% already configured.
+% 
+% *1.* Open the pre-configured model that you saved in Task 1.
+% 
+% *2.* Select *Tools > Run on Target Hardware > Options...*. Verify the parameter values in the *Hardware Implementation* pane.
+% 
+% *3.* On the Simulink model toolbar, click the *Deploy To Hardware* button.
+% This action builds, downloads, and runs the model on the Raspberry Pi(TM) hardware.
+% 
+%% Task 4: Import the MAT-files from Raspberry Pi(TM) Hardware
+%  
+% 
+% *1.* In the MATLAB(R) command window, use the following command to create a raspberrypi object. The parameters specified in this command should match the board parameters specified in *Simulation> Model Configuration Parameters> Target hardware resources> Board Parameters*.
+% 
+%  r = raspberrypi(<IP address>, <username>, <password>);
+% 
+% *2.* Use the |getFile| function to copy the MAT-files from the Raspberry Pi(TM) board to your computer.
+% 
+%   getFile(r,<filename>)
+% 
+% Here, |r| specifies the raspberrypi object and |filename| specifies the
+% path and name of the file created.
+% 
+% The model running on Raspberry Pi(TM) creates multiple MAT-files depending on
+% the duration for which the signals are logged. The files are named
+% as *'<modelname>_<runindex>_<fileindex>.mat'*. '<modelname>' is the name with which
+% the Simulink(R) model is saved. '<runindex>' starts with 1 and is incremented
+% by one during successive runs.<fileindex> starts with 1 and is
+% incremented by 1 every time a new MAT file is created in the same run.
+% 
+% To import multiple MAT-files from Raspberry Pi into MATLAB(R), use the
+% following function in the MATLAB command window:
+% 
+%   getFile(r,<modelname>*.mat)
+% 
+% The '*' character is used to copy all the files having names starting with
+% '<modelname>' and ending with '.mat'.
+% 
+% After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB(R).
+% 
+% Since the model running on the hardware creates multiple MAT-files, the logged data points are distributed across the generated MAT-files.
+% 
+% You can create a stitcher function to combine these MAT-files into a single
+% MAT-file that contains all the logged data points. An example of the
+% MAT-file stitcher is provided. In the MATLAB(R) command window, enter the
+% following command and refer the file to know more about its usage.
+% 
+%   edit('Raspberrypi_MAT_stitcher.m');
+% 
+%% Other things to try
+% 
+% In this example, a |Scope| block is used to log signals. The signals can also be logged using the |To Workspace| block or the |Output port| block. 
+% 
+% Try logging signals using these two blocks.
+% 
+%% Summary 
+% 
+% This example demonstrated how to configure the Simulink model to log signals on Raspberry Pi(TM) in the MAT-file format. 
+ 
+ 
+ 
+ 
+
+
+
+##### SOURCE END #####
+--></body></html>

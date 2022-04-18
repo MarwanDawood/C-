@@ -1,0 +1,166 @@
+%% Abstract:
+%%      TLC file for Unpacking block
+%%
+%% Copyright 1996-2018 The MathWorks, Inc.
+%%  
+%implements byte2any_svd "C"
+
+%function Outputs(block,system) Output
+  %%Block parameters
+  %assign byteAlign        = block.SFcnParamSettings.ByteAlign
+  %assign inPortType       = LibBlockInputSignalDataTypeName(0,"")
+  %% Config parameters
+  %if EXISTS(CompiledModel.ConfigSet.ProdEndianess)
+    %assign endianess       = CompiledModel.ConfigSet.ProdEndianess
+  %else
+    %assign endianess       = "LittleEndian"
+  %endif
+  %if EXISTS(CompiledModel.ConfigSet.ProdBitPerChar)
+    %assign baseTypeSize    = CompiledModel.ConfigSet.ProdBitPerChar
+  %else
+    %assign baseTypeSize    = 8
+  %endif
+  
+  /* Unpack: %<block.Name> */
+  {
+     uint32_T MW_inputPortOffset = 0;
+     uint32_T MW_outputPortWidth = 0;
+     uint32_T MW_remainder2 = 0;
+
+  /* Packed input data type - %<LibBlockInputSignalDataTypeName(0, "")> */
+  %% Loop through all output ports
+  %foreach i = NumDataOutputPorts
+  /* Unpacking the values to output %<i+1> */
+  /* Output data type - %<LibBlockOutputSignalDataTypeName(i, "")>, size - %<LibBlockOutputSignalWidth(i)> */
+     %% Targets with bits per char as 8
+     %if(baseTypeSize == 8)
+        {
+            MW_outputPortWidth = %<LibBlockOutputSignalWidth(i)> * sizeof(%<LibBlockOutputSignalDataTypeName(i, "")>);		
+            memcpy((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>, (uint8_T*)%<LibBlockInputSignalAddr(0, "", "", 0)> +  MW_inputPortOffset, MW_outputPortWidth);
+        }
+    %% Targets with bits per char as 16
+     %elseif(baseTypeSize == 16)
+        %% Packed input size is 8 bits and unpacked data size is greater than 8 bits. The data needs to be combined properly.
+		%if(((inPortType == "uint8_T") || (inPortType == "int8_T")) && ...
+                   ((LibBlockOutputSignalDataTypeName(i, "") == "int16_T") || (LibBlockOutputSignalDataTypeName(i, "") == "uint16_T") || ...
+                   (LibBlockOutputSignalDataTypeName(i, "") == "int32_T") || (LibBlockOutputSignalDataTypeName(i, "") == "uint32_T") || ...
+                   (LibBlockOutputSignalDataTypeName(i, "") == "real32_T") || (LibBlockOutputSignalDataTypeName(i, "") == "real_T")))
+		{
+			MW_outputPortWidth = %<2 * LibBlockOutputSignalWidth(i)> * sizeof(%<LibBlockOutputSignalDataTypeName(i, "")>);
+            uint16_T* MW_pTmp2%<i> = (uint16_T*)%<LibBlockInputSignalAddr(0, "", "", 0)> + MW_inputPortOffset;
+            uint32_T MW_idx2 = 0;
+            uint16_T MW_tmp2[%<LibBlockInputSignalWidth(0)>];
+            
+            for(MW_idx2 = 0; MW_idx2 < (MW_outputPortWidth/2); MW_idx2++)
+            {
+                %if(endianess == "LittleEndian")
+				MW_tmp2[MW_idx2] = (uint16_T)((uint16_T)(*(MW_pTmp2%<i> + (2*MW_idx2))) & 0x00FF);
+                MW_tmp2[MW_idx2] |= (uint16_T)(((uint16_T)(*(MW_pTmp2%<i> + ((2*MW_idx2)+1))) & 0x00FF) << 8);
+			    %else
+				MW_tmp2[MW_idx2] = (uint16_T)(((uint16_T)(*(MW_pTmp2%<i> + (2*MW_idx2))) & 0x00FF) << 8);
+                MW_tmp2[MW_idx2] |= (uint16_T)((uint16_T)(*(MW_pTmp2%<i> + ((2*MW_idx2)+1))) & 0x00FF);
+                %endif
+            }
+
+            memcpy((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>, (uint8_T*)&MW_tmp2[0], (MW_outputPortWidth/2));
+        }
+        %% Packed input size is greater than 8 bits and unpacked data size is 8 bits. The data needs to be split properly.
+        %elseif(((LibBlockOutputSignalDataTypeName(i, "") == "uint8_T") || (LibBlockOutputSignalDataTypeName(i, "") == "int8_T")) && ...
+                   ((inPortType == "int16_T") || (inPortType == "uint16_T") || ...
+                   (inPortType == "int32_T") || (inPortType == "uint32_T") || ...
+                   (inPortType == "real32_T") || (inPortType == "real_T")))
+        {
+            %if ((LibBlockOutputSignalWidth(i) % 2) == 0)
+            MW_outputPortWidth = %<LibBlockOutputSignalWidth(i) / 2> * sizeof(%<LibBlockOutputSignalDataTypeName(i, "")>);
+            %else
+            MW_outputPortWidth = %<(LibBlockOutputSignalWidth(i) + 1)/ 2> * sizeof(%<LibBlockOutputSignalDataTypeName(i, "")>);
+            %endif
+            uint16_T* MW_pTmp2%<i> = (uint16_T*)%<LibBlockInputSignalAddr(0, "", "", 0)> + MW_inputPortOffset;
+            uint32_T MW_idx2 = 0;
+            %<LibBlockOutputSignalDataTypeName(i, "")> MW_tmp2[%<LibBlockInputSignalWidth(0)>];
+
+            %if ((LibBlockOutputSignalWidth(i) % 2) == 0)
+            for(MW_idx2 = 0; MW_idx2 < (MW_outputPortWidth); MW_idx2++)
+            %else
+            for(MW_idx2 = 0; MW_idx2 < (MW_outputPortWidth - 1); MW_idx2++)
+            %endif            
+            {
+                %if(endianess == "LittleEndian")
+				MW_tmp2[2*MW_idx2]  = (%<LibBlockOutputSignalDataTypeName(i, "")>)((uint16_T)(*(MW_pTmp2%<i> + MW_idx2)) & 0x00FF);
+                MW_tmp2[(2*MW_idx2)+1] = (%<LibBlockOutputSignalDataTypeName(i, "")>)(((uint16_T)(*(MW_pTmp2%<i> + MW_idx2)) & 0xFF00) >> 8);
+			    %else
+				MW_tmp2[2*MW_idx2] = (%<LibBlockOutputSignalDataTypeName(i, "")>)(((uint16_T)(*(MW_pTmp2%<i> + MW_idx2)) & 0xFF00) >> 8);
+                MW_tmp2[(2*MW_idx2)+1] = (%<LibBlockOutputSignalDataTypeName(i, "")>)((uint16_T)(*(MW_pTmp2%<i> + MW_idx2)) & 0x00FF);
+                %endif
+                %%Additional condition to handle the 8 bit negative values in 16 bit char processor
+                %if((LibBlockOutputSignalDataTypeName(i, "") == "int8_T"))
+                    if((int8_T)MW_tmp2[2*MW_idx2] > 127)
+                    {
+                        MW_tmp2[2*MW_idx2] = (%<LibBlockOutputSignalDataTypeName(i, "")>)(MW_tmp2[2*MW_idx2] - 256);
+                    }
+                    if((int8_T)MW_tmp2[(2*MW_idx2)+1] > 127)
+                    {
+                        MW_tmp2[(2*MW_idx2)+1] = (%<LibBlockOutputSignalDataTypeName(i, "")>)(MW_tmp2[(2*MW_idx2)+1] - 256);
+                    }
+                %endif
+            }
+            %if ((LibBlockOutputSignalWidth(i) % 2) == 0)
+            memcpy((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)> , (uint8_T*)&MW_tmp2[0], MW_outputPortWidth * 2);
+            %else
+			MW_tmp2[2*MW_idx2]  = (%<LibBlockOutputSignalDataTypeName(i, "")>)((uint16_T)(*(MW_pTmp2%<i> + MW_idx2)) & 0x00FF);
+                %%Additional condition to handle the 8 bit negative values in 16 bit char processor
+                %if((LibBlockOutputSignalDataTypeName(i, "") == "int8_T"))
+                if((int8_T)MW_tmp2[2*MW_idx2] > 127)
+                {
+                    MW_tmp2[2*MW_idx2] = (%<LibBlockOutputSignalDataTypeName(i, "")>)(MW_tmp2[2*MW_idx2] - 256);
+                }
+                %endif
+            memcpy((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)> , (uint8_T*)&MW_tmp2[0], (MW_outputPortWidth * 2) - 1);
+            %endif
+        }
+        %%Default
+		%else
+        {
+            MW_outputPortWidth = %<LibBlockOutputSignalWidth(i)> * sizeof(%<LibBlockOutputSignalDataTypeName(i, "")>);
+            memcpy((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>, (uint8_T*)%<LibBlockInputSignalAddr(0, "", "", 0)> +  MW_inputPortOffset, MW_outputPortWidth);
+            %if((LibBlockOutputSignalDataTypeName(i, "") == "int8_T"))
+            uint32_T MW_idx2 = 0;
+            for(MW_idx2 = 0; MW_idx2 < (MW_outputPortWidth); MW_idx2++)         
+            {
+                %%Additional condition to handle the 8 bit negative values in 16 bit char processor                
+                if((int8_T)*((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>+MW_idx2) > 127)
+                {
+                    *((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>+MW_idx2) = (%<LibBlockOutputSignalDataTypeName(i, "")>)(*((uint8_T*)%<LibBlockOutputSignalAddr(i, "", "", 0)>+MW_idx2) - 256);
+                }
+            }
+            %endif
+        }
+        %endif
+     %else
+     %% For targets of base type 32 bit or more - Not supporting this now
+     %endif
+	 
+     %% Offset calculations for the packed data based on the alignment for the next output port.
+     %if i != NumDataOutputPorts-1
+     /* Offset calculations based on alignemnt for packing next input */
+     %if (inPortType == "uint8_T") || (inPortType == "int8_T") || byteAlign < (baseTypeSize / 8)
+	 MW_remainder2 = MW_outputPortWidth % %<byteAlign>;
+     %else
+	 MW_remainder2 = MW_outputPortWidth % %<byteAlign / (baseTypeSize / 8)>;
+     %endif
+	 if (MW_remainder2  == 0)
+	 {
+	     MW_inputPortOffset = MW_inputPortOffset + MW_outputPortWidth;
+	 }
+	 else
+	 {
+         %if (inPortType == "uint8_T") || (inPortType == "int8_T") || byteAlign < (baseTypeSize / 8)
+		 MW_inputPortOffset = MW_inputPortOffset + MW_outputPortWidth + (%<byteAlign> - MW_remainder2);
+         %else
+		 MW_inputPortOffset = MW_inputPortOffset + MW_outputPortWidth + (%<byteAlign / (baseTypeSize / 8)> - MW_remainder2);
+         %endif
+	 }
+     %endif
+  %endforeach
+  }
+%endfunction

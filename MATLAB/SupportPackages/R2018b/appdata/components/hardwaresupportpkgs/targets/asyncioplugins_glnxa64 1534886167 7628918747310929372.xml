@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/asyncioplugins</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/asyncioplugins_glnxa64_1534886167.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/asyncioplugins_glnxa64</componentName>
+    <componentVersion>1534886167</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>2</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>96688</size>
+    <type />
+    <uncompressedBytes>326360</uncompressedBytes>
+  </component>
+</componentData>
+

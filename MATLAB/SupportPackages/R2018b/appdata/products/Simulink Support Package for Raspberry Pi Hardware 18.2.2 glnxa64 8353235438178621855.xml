@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productData>
+  <altDependencies>
+    <product>
+      <productBaseCode>SL</productBaseCode>
+      <productName>Simulink</productName>
+      <productNumber>2</productNumber>
+      <productVersion>9.2</productVersion>
+      <releaseDescription>R2018b</releaseDescription>
+      <releaseFamily>R2018b</releaseFamily>
+    </product>
+  </altDependencies>
+  <dependsOn>
+    <component>
+      <name>hardwaresupportpkgs/licenses/asla_license_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1493829372</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/ertraspberrypi_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1547562098</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/ertraspberrypi_examples_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546990893</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/asyncioplugins_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1527229852</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/raspberrypi_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1532705250</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/raspberrypi_doc_en_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1547563347</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/rttlinux_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1534873367</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/rttlinux_demos_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546987003</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/rttlinux_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1525248048</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1532752750</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1534871054</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/ertraspberrypi_templates_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546990637</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/examples/raspberrypi_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546987026</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/file_logging_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1527254631</version>
+    </component>
+  </dependsOn>
+  <installerUsage>
+    <usage>professional</usage>
+  </installerUsage>
+  <isControllingProduct>false</isControllingProduct>
+  <licenseAgreementType>ASLA</licenseAgreementType>
+  <platformList>
+    <platform>glnxa64</platform>
+    <platform>maci64</platform>
+    <platform>win64</platform>
+  </platformList>
+  <productBaseCode>RASPPI</productBaseCode>
+  <productName>Simulink Support Package for Raspberry Pi Hardware</productName>
+  <productNumber>2017</productNumber>
+  <productVersion>18.2.2</productVersion>
+  <releaseDescription>R2018b</releaseDescription>
+  <releaseFamily>R2018b</releaseFamily>
+  <requiredProducts>
+    <product>
+      <productBaseCode>RASPPIIO</productBaseCode>
+      <productName>MATLAB Support Package for Raspberry Pi Hardware</productName>
+      <productNumber>2026</productNumber>
+      <productVersion>18.2.2</productVersion>
+      <releaseDescription>R2018b</releaseDescription>
+      <releaseFamily>R2018b</releaseFamily>
+    </product>
+  </requiredProducts>
+</productData>
+

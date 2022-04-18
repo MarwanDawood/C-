@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productData>
+  <altDependencies>
+    <product>
+      <isControllingProduct>true</isControllingProduct>
+      <productBaseCode>ML</productBaseCode>
+      <productName>MATLAB</productName>
+      <productNumber>1</productNumber>
+      <productVersion>9.5</productVersion>
+      <releaseDescription>R2018b</releaseDescription>
+      <releaseFamily>R2018b</releaseFamily>
+    </product>
+  </altDependencies>
+  <dependsOn>
+    <component>
+      <name>hardwaresupportpkgs/licenses/asla_license_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1493829372</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/raspi_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1547563261</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/raspi_examples_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546987004</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/asyncioplugins_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1527229852</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/shared_linuxservices_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1533857066</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/shared_linuxservices_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1529959766</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/raspi_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1533787944</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1532752750</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_resources_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1534871054</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/raspberrypiio_doc_en_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1547563298</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/examples/raspberrypiio_common</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+        <platform>maci64</platform>
+        <platform>win64</platform>
+      </platformList>
+      <version>1546987006</version>
+    </component>
+  </dependsOn>
+  <installerUsage>
+    <usage>professional</usage>
+  </installerUsage>
+  <isControllingProduct>false</isControllingProduct>
+  <licenseAgreementType>ASLA</licenseAgreementType>
+  <platformList>
+    <platform>glnxa64</platform>
+    <platform>maci64</platform>
+    <platform>win64</platform>
+  </platformList>
+  <productBaseCode>RASPPIIO</productBaseCode>
+  <productName>MATLAB Support Package for Raspberry Pi Hardware</productName>
+  <productNumber>2026</productNumber>
+  <productVersion>18.2.2</productVersion>
+  <releaseDescription>R2018b</releaseDescription>
+  <releaseFamily>R2018b</releaseFamily>
+  <requiredProducts />
+</productData>
+

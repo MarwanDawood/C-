@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Communicating with Raspberry Pi&#174; Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../run-on-target-hardware.html",
+          "name": "Run on Target Hardware"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "run-on-target-hardware"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Communicating with Raspberry Pi&#174; Hardware",
+          "description": "This example shows how to tune the parameters and monitor the signals of an algorithm running on Raspberry Pi board.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/ExternalModeWithRaspberryPiRHardwareExample_01.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.ExternalModeWithRaspberryPiRHardwareExample",
+          "name": "ExternalModeWithRaspberryPiRHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/ExternalModeWithRaspberryPiRHardwareExample')"
+
+        }</script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to tune the parameters and monitor the signals of an algorithm running on Raspberry Pi board."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/ExternalModeWithRaspberryPiRHardwareExample_01.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-target-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-target-hardware">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=run-on-target-hardware">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-target-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-target-hardware">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=run-on-target-hardware">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../run-on-target-hardware.html" itemprop="url"><span itemprop="title">Run on Target Hardware</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Communicating with Raspberry Pi&#174; Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e11177" class="intrnllnk">Introduction</a></li><li><a href="#d120e11202" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e11210" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e11224" class="intrnllnk">Task 1 - Configure the Model for Raspberry Pi Hardware</a></li><li><a href="#d120e11264" class="intrnllnk">Task 2 - Simulate the Model</a></li><li><a href="#d120e11305" class="intrnllnk">Task 3 - Run the Model in External Mode</a></li><li><a href="#d120e11326" class="intrnllnk">Task 4 - Communicate with the Model</a></li><li><a href="#d120e11364" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e11375" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_external_mode">Communicating with Raspberry Pi&#174; Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/ExternalModeWithRaspberryPiRHardwareExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex14661568"></meta><meta itemprop="exampletitle" content="Communicating with Raspberry Pi&#174; Hardware"></meta></div><span id="ExternalModeWithRaspberryPiRHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to tune the parameters and monitor the signals of an algorithm running on Raspberry Pi board.</p>
+
+<div class="procedure"><h3 class="title" id="d120e11177">Introduction<span id="ExternalModeWithRaspberryPiRHardwareExample-1" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi hardware enables you to monitor and tune algorithms running on Raspberry Pi board from the same Simulink&#174; models from which you developed the algorithms.</p><p>In this example you will learn how to tune and monitor the algorithm in real time as it is executing. When you are developing algorithms, it is often necessary to determine appropriate values of critical algorithm parameters in an iterative fashion. For example, a surveillance algorithm that measures motion energy in a room may use a threshold to determine an intruder in the presence of ambient noise. If the threshold value is set too low, the algorithm may erroneously interpret any movement as an intruder. If the threshold value is set too high, the algorithm may not be able to detect any movement at all. In such cases, the right threshold value may be obtained by trying different values until the desired algorithm performance is reached. This iterative process is called parameter tuning.</p><p>Simulink's External mode feature enables you to accelerate the process of parameter tuning by letting you change certain parameter values while the model is running on target hardware, without stopping the model. When you change parameter values from within Simulink, the modified parameter values are communicated to the target hardware immediately. The effects of the parameters tuning activity may be monitored by viewing algorithm signals on scopes or displays in Simulink.</p><p>This example introduces the Simulink <strong class="emphasis bold">External mode</strong> feature by showing you how to:</p><div class="itemizedlist"><ul><li><p>Set up communication between Simulink and Raspberry Pi board.</p></li><li><p>Use a Simulink model to tune the parameters of an algorithm that is running on Raspberry Pi board.</p></li><li><p>Use Simulink scopes to monitor the state of an algorithm running on Raspberry Pi board.</p></li></ul></div><h3 class="title" id="d120e11202">Prerequisites<span id="ExternalModeWithRaspberryPiRHardwareExample-2" class="anchor_target"></span></h3><p>We recommend completing <a href="getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p><h3 class="title" id="d120e11210">Required Hardware<span id="ExternalModeWithRaspberryPiRHardwareExample-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li></ul></div><div class="informalfigure"><div id="d120e11221" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/ExternalModeWithRaspberryPiRHardwareExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e11224">Task 1 - Configure the Model for Raspberry Pi Hardware<span id="ExternalModeWithRaspberryPiRHardwareExample-4" class="anchor_target"></span></h3><p>In this task, you will configure the model for the supported Raspberry Pi board.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_external_mode" target="_blank">Communicating with Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong>  In your Simulink model, click <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters</strong> to open <strong class="emphasis bold">Configuration Parameters</strong> dialog.</p><p><strong class="emphasis bold">3.</strong> Select the <strong class="emphasis bold">Hardware Implementation</strong> pane and select Raspberry Pi hardware from the <strong class="emphasis bold">Hardware board</strong> parameter list. Do not change any other settings.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">OK</strong>.</p><h3 class="title" id="d120e11264">Task 2 - Simulate the Model<span id="ExternalModeWithRaspberryPiRHardwareExample-5" class="anchor_target"></span></h3><p>To simulate the model, follow these steps:</p><p><strong class="emphasis bold">1.</strong> Observe that the model plays the motion energy recorded in a room and compares it with a threshold to detect intrusion.</p><p><strong class="emphasis bold">2.</strong> In the model, change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar to <strong class="emphasis bold">Normal</strong>. This tells Simulink to run the model on the host computer. See Task 4 below to run the model on the Raspberry Pi hardware.</p><p><strong class="emphasis bold">3.</strong> In the model, click the <strong class="emphasis bold">Run</strong> button in the Simulink toolbar.</p><p><strong class="emphasis bold">4.</strong> Double click the <strong class="emphasis bold">Scope</strong> block. Observe that the algorithm detects multiple intrusions.</p><p><strong class="emphasis bold">5.</strong> Click <strong class="emphasis bold">Stop</strong> button in the Simulink model.</p><h3 class="title" id="d120e11305">Task 3 - Run the Model in External Mode<span id="ExternalModeWithRaspberryPiRHardwareExample-6" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> In the model, change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">2.</strong> In the model, click the <strong class="emphasis bold">Run</strong> button on the toolbar.</p><h3 class="title" id="d120e11326">Task 4 - Communicate with the Model<span id="ExternalModeWithRaspberryPiRHardwareExample-7" class="anchor_target"></span></h3><p>At this point, your model is running on Raspberry Pi board. As the model runs on hardware, it communicates with Simulink model in External mode using TCP/IP.</p><p><strong class="emphasis bold">1.</strong> Notice that the user LED is glowing almost constantly. This means that the selected threshold is too low and that the algorithm misinterprets even a minor motion energy change as an intrusion. You need to find a more optimal value of the threshold.</p><p><strong class="emphasis bold">2.</strong> Double-click the <strong class="emphasis bold">Threshold</strong> block in the model, increase its value, and click <strong class="emphasis bold">OK</strong> or <strong class="emphasis bold">Apply</strong>. This changes the threshold value in the model running on the board.</p><p><strong class="emphasis bold">3.</strong> Check whether the glowing pattern of the LED has changed. The LED should light up every 10 and 11.5 seconds in a correctly tuned algorithm.</p><p><strong class="emphasis bold">4.</strong> If there is no change in LED light pattern, repeat the Steps 2 and 3 until you find the right value of the threshold.</p><p><strong class="emphasis bold">5.</strong> Click <strong class="emphasis bold">Stop</strong> button in the Simulink model.</p><h3 class="title" id="d120e11364">Other Things to Try<span id="ExternalModeWithRaspberryPiRHardwareExample-8" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Monitor other signals in the model. For example, add another scope to monitor the value of the recorded motion energy.</p></li><li><p>Improve the detection algorithm to filter out any motion energy changes that are shorter than 0.2 seconds.</p></li></ul></div><h3 class="title" id="d120e11375">Summary<span id="ExternalModeWithRaspberryPiRHardwareExample-9" class="anchor_target"></span></h3><p>This example showed a workflow for tuning and monitoring an algorithm running on Raspberry Pi board. In this example you learned:</p><div class="itemizedlist"><ul><li><p>How to tune an algorithm parameter on Raspberry Pi board using the External mode feature.</p></li><li><p>How to monitor the outputs of an algorithm running on Raspberry Pi board in real-time</p></li></ul></div></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

@@ -1,0 +1,446 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Working with Raspberry Pi Camera Board</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-27"><meta name="DC.source" content="WorkingWithRaspberryPiCameraBoardExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiCameraBoardExample')">Open this Example</a></div><div class="content"><h1>Working with Raspberry Pi Camera Board</h1><!--introduction--><p>This example shows you how to capture and process images from Raspberry Pi&reg; Camera Board module using the MATLAB&reg; Support Package for Raspberry Pi Hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Connect Camera Board</a></li><li><a href="#5">Create a Camera Board object</a></li><li><a href="#6">Inspect object properties</a></li><li><a href="#7">Image effects</a></li><li><a href="#8">Digital zoom</a></li><li><a href="#9">Record Video</a></li><li><a href="#10">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Raspberry Pi Camera Board is a custom designed add-on module for Raspberry Pi hardware. It attaches to Raspberry Pi hardware through a custom CSI interface. The sensor has 5 megapixel native resolution in still capture mode. In video mode it supports capture resolutions up to 1080p at 30 frames per second. The camera module is light weight and small making it an ideal choice for mobile projects.</p><p>In this example you will learn how to create a <b>cameraboard</b> object to connect to the Raspberry Pi Camera Board, capture images from the camera and process them in MATLAB.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing docid:raspberrypiio_examples.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware&gt; example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>A Camera Board</li></ul></div><h2 id="4">Connect Camera Board</h2><p>The camera board attaches to the Raspberry Pi via a ribbon cable. One end of the ribbon cable goes to the camera PCB and the other end attached to Raspberry Pi hardware itself. You need to get the ribbon cable connections the right way, or the camera will not work. On the camera PCB, the blue backing on the cable should be facing away from the PCB, and on the Raspberry Pi hardware it should be facing towards the Ethernet connection.</p><p><img vspace="5" hspace="5" src="../camera_board_connection.png" alt=""> </p><h2 id="5">Create a Camera Board object</h2><p>Create a camera board object by executing the following command on the MATLAB prompt.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+rpi = raspi();
+cam = cameraboard(rpi,<span class="string">'Resolution'</span>,<span class="string">'640x480'</span>);
+</pre><p>The cam is a handle to a cameraboard object. Let's display the images captured from Raspberry Pi Camera Board in MATLAB.</p><pre class="language-matlab"><span class="keyword">for</span> i = 1:100
+    img = snapshot(cam);
+    image(img);
+    drawnow;
+<span class="keyword">end</span>
+</pre><h2 id="6">Inspect object properties</h2><p>The MATLAB command line interface for Camera Board has a number of properties that expose the features of the Camera. To view the properties of the cameraboard class type the following on the MATLAB prompt.</p><pre class="language-matlab">cam
+</pre><p>Using the properties of the cameraboard object, you can flip the images horizontally or vertically, change image quality parameters such as brightness, contrast, saturation and sharpness and access advanced camera features such as image stabilization and image effects. The Resolution and FrameRate properties cannot be changed after instantiation. If you want to change these properties, clear the cameraboard object from MATLAB workspace and create a new object by specifying the new Resolution and FrameRate parameters.</p><pre class="language-matlab">clear <span class="string">cam</span>
+cam = cameraboard(rpi,<span class="string">'Resolution'</span>,<span class="string">'320x240'</span>,<span class="string">'FrameRate'</span>,30);
+</pre><p>Other properties of the cameraboard object can be changed at any time. But it takes 5 frames for the new setting to take effect. Let's try flipping the image horizontally.</p><pre class="language-matlab">figure(1);
+<span class="keyword">for</span> i = 1:5
+   img = snapshot(cam);
+<span class="keyword">end</span>
+image(img);
+cam.HorizontalFlip = true;
+<span class="keyword">for</span> i = 1:5
+   img = snapshot(cam);
+<span class="keyword">end</span>
+figure(2);
+image(img);
+</pre><h2 id="7">Image effects</h2><p>Let's try a simple image inversion algorithm on the images captured from Raspberry Pi Camera Board.</p><pre class="language-matlab">figure(1);
+<span class="keyword">for</span> i = 1:100
+   img = snapshot(cam);
+   img = 255 - img;
+   image(img);
+   drawnow;
+<span class="keyword">end</span>
+</pre><p>The image inversion creates a color negative effect. The Raspberry Pi Camera Board itself can invert the images by setting ImageEffect property to 'negative'.</p><pre class="language-matlab">figure(1);
+cam.ImageEffect = <span class="string">'negative'</span>;
+<span class="keyword">for</span> i = 1:100
+   img = snapshot(cam);
+   image(img);
+   drawnow;
+<span class="keyword">end</span>
+</pre><p>Here is a more interesting image effect.</p><pre class="language-matlab">figure(1);
+cam.ImageEffect = <span class="string">'sketch'</span>;
+<span class="keyword">for</span> i = 1:100
+   img = snapshot(cam);
+   image(img);
+   drawnow;
+<span class="keyword">end</span>
+</pre><h2 id="8">Digital zoom</h2><p>Raspberry Pi Camera Board allows a region of the sensor to be used as the image capture area. This region, called region of interest (ROI), is specified as a normalized vector [x y w h] where x, y defines the top left corner and w and h specifies the width and height.</p><p><img vspace="5" hspace="5" src="../roi_diagram.png" alt=""> </p><p>Reducing ROI while holding the output image size constant results in a digital zooming effect. The following MATLAB code varies the x and y parameters of the ROI to zoom into the lower right part of the sensor. The approximate area of the sensor being captured is indicated by a red rectangle.</p><pre class="language-matlab">figure(1);
+roi = [0 0 1 1];
+cam.ROI = [0 0 1 1];
+<span class="keyword">for</span> i = 1:10
+    img = snapshot(cam);
+<span class="keyword">end</span>
+subplot(211);
+image(img);
+drawnow;
+rect = rectangle(<span class="string">'Position'</span>,[1 1 320 240]);
+rect.EdgeColor = <span class="string">'red'</span>;
+<span class="keyword">for</span> i = 1:200
+   img = snapshot(cam);
+   <span class="keyword">if</span> i &gt; 20
+      fc = (i - 5)*0.0025;
+      roi(1:2) = [fc, fc];
+      roi(3:end) = [1-fc, 1-fc];
+      cam.ROI = roi;
+      subplot(211);
+      rect.Position = roi.*[320 240 320 240];
+      drawnow;
+      subplot(212);
+      image(img);
+      drawnow;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><h2 id="9">Record Video</h2><p>You can record video using the MATLAB command line interface for Raspberry Pi Camera Board. You start recording video by executing the record command. The record command returns to the MATLAB command prompt immediately after execution and does not wait for the entire video to be recorded. During video recording, images captured by the Camera Board are saved to a file on the Raspberry Pi hardware in raw H264 format. After video recording is complete, you can bring the video file to your host computer for playback. You cannot take snapshots while video recording is in progress. Since the recorded video is in raw H264 format, most players cannot play the video file directly. The recorded H264 stream must be converted to an appropriate format, such as an MP4, before you can play it back or load it in MATLAB.</p><p>Execute the following on the MATLAB command prompt to record video to a file called 'vid.h264' for 30 seconds.</p><pre class="language-matlab">record(cam,<span class="string">'vid.h264'</span>,30)
+</pre><p>The record command starts video recording. It does not block the MATLAB command prompt. You can perform MATLAB operations while video recording is in progress. However, you cannot take snapshots from the camera. To check if the recording is complete, use the Recording property of the cameraboard object.</p><pre class="language-matlab">cam.Recording
+</pre><p>This property returns false when recording is completed. If you want to stop the video recording at any time, use the stop method of the cameraboard object.</p><p>Bring the recorded raw H264 video stream to your host computer.</p><pre class="language-matlab">getFile(rpi,<span class="string">'vid.h264'</span>)
+</pre><p>The raw H264 stream needs to be converted to a video file format, such as MP4, before you can play it in a media player or load it in MATLAB. You can use FFmpeg&#8482; to convert the raw H264 to an MP4 video file. Install FFmpeg to your host computer using the appropriate download links in the ffmpeg.org web site following appropriate installation instructions. After you install the FFmpeg, define a MATLAB variable storing the install location. For example:</p><pre class="language-matlab">ffmpegDir = <span class="string">'C:\ffmpeg-20140218-git-61d5970-win32-static'</span>
+</pre><p>Replace the path above with the appropriate FFmpeg installation path in your computer. To create an MP4 video file out of the raw H264 stream you captured, execute the following on the MATLAB command prompt.</p><pre class="language-matlab">cmd = [<span class="string">'"'</span> fullfile(ffmpegDir, <span class="string">'bin'</span>, <span class="string">'ffmpeg.exe'</span>) <span class="string">'" -r 30 -i vid.h264 -vcodec copy myvid.mp4 &amp;'</span>];
+[status, message] = system(cmd)
+</pre><p>After FFmpeg completes video conversion, you end up with an MP4 video file that you can play in a media player. You can also load the video to MATLAB for processing. To play the captured video in MATLAB, execute the following on the MATLAB command prompt.</p><pre class="language-matlab">vid = VideoReader(<span class="string">'myvid.mp4'</span>)
+<span class="keyword">for</span> k = 1:vid.NumberOfFrames
+    image(read(vid, k));
+    drawnow;
+<span class="keyword">end</span>
+</pre><h2 id="10">Summary</h2><p>This example introduced the workflow for using MATLAB Support Package for Raspberry Pi Camera Board.</p><p class="footer">Copyright 2013 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Working with Raspberry Pi Camera Board
+%
+% This example shows you how to capture and process images from Raspberry
+% Pi(R) Camera Board module using the MATLAB(R) Support Package for Raspberry
+% Pi Hardware.
+ 
+% Copyright 2013 The MathWorks, Inc.
+ 
+
+%% Introduction
+%
+% The Raspberry Pi Camera Board is a custom designed add-on module for
+% Raspberry Pi hardware. It attaches to Raspberry Pi hardware through a 
+% custom CSI interface. The sensor has 5 megapixel native resolution
+% in still capture mode. In video mode it supports capture resolutions
+% up to 1080p at 30 frames per second. The camera module is light weight
+% and small making it an ideal choice for mobile projects.
+%
+% In this example you will learn how to create a *cameraboard* object to
+% connect to the Raspberry Pi Camera Board, capture images from the camera
+% and process them in MATLAB.
+
+
+%% Prerequisites
+%
+% * We recommend completing
+% docid:raspberrypiio_examples.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware> example. 
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output
+% * A Camera Board
+ 
+%% Connect Camera Board
+%
+% The camera board attaches to the Raspberry Pi via a ribbon cable. One end
+% of the ribbon cable goes to the camera PCB and the other end attached to
+% Raspberry Pi hardware itself. You need to get the ribbon cable
+% connections the right way, or the camera will not work. On the camera
+% PCB, the blue backing on the cable should be facing away from the PCB,
+% and on the Raspberry Pi hardware it should be facing towards the Ethernet
+% connection.
+%
+% <<../camera_board_connection.png>>
+%
+
+
+%% Create a Camera Board object
+%
+% Create a camera board object by executing the following command on the
+% MATLAB prompt.
+%
+%   clear rpi
+%   rpi = raspi();
+%   cam = cameraboard(rpi,'Resolution','640x480');
+%
+% The cam is a handle to a cameraboard object. Let's display the images
+% captured from Raspberry Pi Camera Board in MATLAB.
+% 
+%   for i = 1:100
+%       img = snapshot(cam);
+%       image(img);
+%       drawnow;
+%   end
+%
+
+%% Inspect object properties
+%
+% The MATLAB command line interface for Camera Board has a number of
+% properties that expose the features of the Camera. To view the
+% properties of the cameraboard class type the following on the MATLAB
+% prompt.
+%
+%   cam
+%
+% Using the properties of the cameraboard object, you can flip the images
+% horizontally or vertically, change image quality parameters such as
+% brightness, contrast, saturation and sharpness and access advanced camera
+% features such as image stabilization and image effects. The Resolution
+% and FrameRate properties cannot be changed after instantiation. If you
+% want to change these properties, clear the cameraboard object from MATLAB
+% workspace and create a new object by specifying the new Resolution and
+% FrameRate parameters.
+%
+%   clear cam
+%   cam = cameraboard(rpi,'Resolution','320x240','FrameRate',30);
+%
+% Other properties of the cameraboard object can be changed at any time.
+% But it takes 5 frames for the new setting to take effect. Let's try
+% flipping the image horizontally.
+%
+%   figure(1);
+%   for i = 1:5
+%      img = snapshot(cam);
+%   end
+%   image(img);
+%   cam.HorizontalFlip = true;
+%   for i = 1:5
+%      img = snapshot(cam);
+%   end
+%   figure(2);
+%   image(img);
+
+
+%% Image effects
+%
+% Let's try a simple image inversion algorithm on the images captured from
+% Raspberry Pi Camera Board.
+%
+%   figure(1); 
+%   for i = 1:100
+%      img = snapshot(cam); 
+%      img = 255 - img; 
+%      image(img);
+%      drawnow;
+%   end
+%
+% The image inversion creates a color negative effect. The Raspberry Pi
+% Camera Board itself can invert the images by setting ImageEffect property
+% to 'negative'.
+%
+%   figure(1);
+%   cam.ImageEffect = 'negative';
+%   for i = 1:100
+%      img = snapshot(cam); 
+%      image(img);
+%      drawnow;
+%   end
+% 
+% Here is a more interesting image effect.
+%
+%   figure(1);
+%   cam.ImageEffect = 'sketch';
+%   for i = 1:100
+%      img = snapshot(cam); 
+%      image(img);
+%      drawnow;
+%   end
+
+
+%% Digital zoom
+% 
+% Raspberry Pi Camera Board allows a region of the sensor to be used as the
+% image capture area. This region, called region of interest (ROI), is
+% specified as a normalized vector [x y w h] where x, y defines the top
+% left corner and w and h specifies the width and height.
+%
+% <<../roi_diagram.png>>
+%
+% Reducing ROI while holding the output image size constant results in a
+% digital zooming effect. The following MATLAB code varies the x and y
+% parameters of the ROI to zoom into the lower right part of the sensor.
+% The approximate area of the sensor being captured is indicated by a red
+% rectangle.
+%
+%   figure(1);
+%   roi = [0 0 1 1];
+%   cam.ROI = [0 0 1 1];
+%   for i = 1:10
+%       img = snapshot(cam);
+%   end
+%   subplot(211);
+%   image(img);
+%   drawnow;
+%   rect = rectangle('Position',[1 1 320 240]);
+%   rect.EdgeColor = 'red';
+%   for i = 1:200
+%      img = snapshot(cam); 
+%      if i > 20
+%         fc = (i - 5)*0.0025;
+%         roi(1:2) = [fc, fc];
+%         roi(3:end) = [1-fc, 1-fc];
+%         cam.ROI = roi;
+%         subplot(211);
+%         rect.Position = roi.*[320 240 320 240];
+%         drawnow;
+%         subplot(212);
+%         image(img);
+%         drawnow;
+%      end
+%  end
+
+%% Record Video
+%
+% You can record video using the MATLAB command line interface for
+% Raspberry Pi Camera Board. You start recording video by executing the
+% record command. The record command returns to the MATLAB command prompt
+% immediately after execution and does not wait for the entire video to be
+% recorded. During video recording, images captured by the Camera Board are
+% saved to a file on the Raspberry Pi hardware in raw H264 format. After
+% video recording is complete, you can bring the video file to your host
+% computer for playback. You cannot take snapshots while video recording is
+% in progress. Since the recorded video is in raw H264 format, most players
+% cannot play the video file directly. The recorded H264 stream must be
+% converted to an appropriate format, such as an MP4, before you can play
+% it back or load it in MATLAB.
+%
+% Execute the following on the MATLAB command prompt to record video to a
+% file called 'vid.h264' for 30 seconds.
+%
+%   record(cam,'vid.h264',30)
+%
+% The record command starts video recording. It does not block the MATLAB
+% command prompt. You can perform MATLAB operations while video recording
+% is in progress. However, you cannot take snapshots from the camera. To
+% check if the recording is complete, use the Recording property of the
+% cameraboard object.
+%
+%   cam.Recording
+%
+% This property returns false when recording is completed. If you want to
+% stop the video recording at any time, use the stop method of the
+% cameraboard object. 
+%
+% Bring the recorded raw H264 video stream to your host computer.
+%
+%   getFile(rpi,'vid.h264')
+%
+% The raw H264 stream needs to be converted to a video file format, such as
+% MP4, before you can play it in a media player or load it in MATLAB. You
+% can use FFmpeg(TM) to convert the raw H264 to an MP4 video file. Install
+% FFmpeg to your host computer using the appropriate download links in the
+% ffmpeg.org web site following appropriate installation instructions.
+% After you install the FFmpeg, define a MATLAB variable storing the
+% install location. For example:
+%
+%   ffmpegDir = 'C:\ffmpeg-20140218-git-61d5970-win32-static'
+%
+% Replace the path above with the appropriate FFmpeg installation path in
+% your computer. To create an MP4 video file out of the raw H264 stream you
+% captured, execute the following on the MATLAB command prompt.
+%
+%   cmd = ['"' fullfile(ffmpegDir, 'bin', 'ffmpeg.exe') '" -r 30 -i vid.h264 -vcodec copy myvid.mp4 &'];
+%   [status, message] = system(cmd)
+%
+% After FFmpeg completes video conversion, you end up with an MP4 video
+% file that you can play in a media player. You can also load the video to
+% MATLAB for processing. To play the captured video in MATLAB, execute the
+% following on the MATLAB command prompt.
+%
+%   vid = VideoReader('myvid.mp4')
+%   for k = 1:vid.NumberOfFrames
+%       image(read(vid, k));
+%       drawnow;
+%   end
+
+
+%% Summary
+% This example introduced the workflow for using MATLAB Support Package for
+% Raspberry Pi Camera Board.
+ 
+ 
+##### SOURCE END #####
+--></body></html>

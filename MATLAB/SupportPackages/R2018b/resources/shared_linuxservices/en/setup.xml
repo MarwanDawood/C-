@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2012-2014 The MathWorks, Inc. -->
+<rsccat version="1.0" locale="en_US" product="shared_linuxservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="ErrorExecutingSSHCommand">Error while executing SSH command: ''{0}''. \nPlease check IP Address, user name and password options.</entry>
+        <entry key="TestingConnection">Testing connection...</entry>
+        <entry key="ConnectingTo">Connecting to {0}...</entry>
+        <entry key="ConnectionSuccessful">Connection successful...</entry>
+        <entry key="Progress_SettingBoardParameters">Setting board parameters...</entry>
+        <entry key="ConfiguringNetwork">Configuring network...</entry>
+        <entry key="IdentifyingNic">Identifying network interface cards...</entry>
+        <entry key="DetectingHardware">Detecting {0} hardware...</entry>
+        <entry key="DetectingHardwareSeconds">Detecting the hardware ({0} seconds left)...</entry>
+        <entry key="ConfiguringNicForDhcp">Configuring "{0}" for DHCP...</entry>
+        <entry key="NoNic">No network interface cards are detected on this computer.</entry>
+        <entry key="ChooseNic">Choose the network interface the hardware is connected to:</entry>
+        <entry key="MustChooseNic">You must choose a network connection.</entry>
+        <entry key="ConfigureNetworkConnection">Configure network connection</entry>
+        <entry key="ConfigureNicForDhcp">Wired Ethernet interface "{0}" will be reconfigured\nto communicate with the hardware.</entry>
+        <entry key="ManuallyConfigureNic">"{0}" must be configured for DHCP to communicate with XXXX.\nIf you do not want to re-configure this network connection, go back to "Configure network"\nscreen and select a different network configuration.</entry>
+        <entry key="OK">OK</entry>
+        <entry key="Cancel">Cancel</entry>
+        <entry key="ErrorWhileConfiguringNic">Error while configuring network card for DHCP: {0}</entry>
+        <entry key="ErrorWhileQueryingNic">Error while querying a list of network cards: {0}</entry>
+        <entry key="NicDisconnected">The network interface "{0}" is not connected.\nCheck your Ethernet connection to the hardware..</entry>
+        <entry key="NicNotDetected">Could not detect the hardware on "{0}". Check your Ethernet connection to the hardware.\nFor network trouble-shooting instructions see &lt;a href = "http://www.mathworks.com">MathWorks Web Site&lt;/a&gt;</entry>
+        <entry key="CannotAddRoute">Error while adding a route to the hardware: {0}</entry>
+        <entry key="CannotConnect">Cannot connect to "{0}". Details: {1}</entry>           
+        <entry key="FirmwareManifestDownloadError">Error downloading firmware. Wait a couple of minutes and try downloading again.</entry>
+        <entry key="Progress_EnumeratingSerialPorts">Enumerating available serial ports...</entry>
+        <entry key="Progress_EnumeratingDrives">Enumerating memory card drives...</entry>
+        <entry key="Progress_Wait">Wait...</entry>
+        <entry key="Progress_ConnectingToBoard">Connecting to the hardware...</entry>
+        <entry key="Progress_SettingDate">Setting date...</entry>
+        <entry key="Progress_SettingIpParameters">Setting IP parameters...</entry>
+        <entry key="Progress_SettingBoardName">Setting board name...</entry>
+        <entry key="Progress_ReadingIpAddress">Reading IP address...</entry>
+        <entry key="Progress_ClosingSerialConnection">Closing serial connection...</entry>
+        <entry key="Progress_TestingEthernetConnection">Testing Ethernet connection...</entry>
+        <entry key="Progress_DownloadingFirmware">Downloading firmware...</entry>
+        <entry key="Progress_DecompressingFirmareImage">Decompressing firmware image...</entry>
+        <entry key="Progress_WritingFirmwareImage">Writing firmware image to SD card...</entry>
+        <entry key="Progress_OpeningSerialConnection">Opening serial connection...</entry>
+        <entry key="Progress_Booting">Booting board...</entry>
+        <entry key="ThirdPartyToolValidate">Validating third-party tools...</entry>
+        <entry key="FormatFailed">Error while formatting removable drive {0}: {1}</entry>
+        <entry key="ConfirmThirdParty_Label">Third-party installation successful</entry>
+        <entry key="ConfirmThirdParty_Description">Following is a summary of the third-party software information:</entry>
+        <entry key="ConfirmThirdParty_ConfirmationNote">Validated third-party software tools successfully.</entry>
+        <entry key="ConfirmThirdParty_Confirm">Next</entry>
+        <entry key="UnableToAccessMemoryCard">Unable to access the memory card. If you removed the memory card from the computer, re-insert it and repeat this operation.</entry>
+        <entry key="InvalidBoardName">Invalid Board name. Board name must be between 1 and 63 characters long.</entry>
+        <entry key="Progress_FetchingFirmwareInfo">Fetching firmware information...</entry>
+        <entry key="BootErrorWrongImage">There was a problem booting with the SD card inserted. Re-create the SD card and repeat this step.</entry>
+        <entry key="MissingFirmwareXML">Cannot find the file containing firmware information:\n"{0}"\nThis file has either been deleted or moved to a different location. Re-install the support package to get the required files.</entry>
+        <entry key="CorruptedFirmwareXML">Corrupted firmware information file: \n"{0}"\nRe-install the support package to get the required files.</entry>
+        <entry key="CorruptedFirmware">Corrupted firmware image. Re-install the support package to get the latest firmware.</entry>
+        <entry key="NotValidChars">"{0}" contains invalid characters. Use only alpha-numeric characters. Please check the {1} provided.</entry>
+        <entry key="DetectingDevice">Detecting the hardware...</entry>
+        <entry key="IncompatibleUnameModel">The version of Linux running on your hardware has not been tested with the {0} product. \nUsing an untested version of Linux may produce unexpected results.</entry> 
+        <entry key="HardwareFound">Found ''{0}'' connected at Serial Port ''{1}''.</entry>
+        <entry key="SpecifySerialPort">Could not find COM port connected to {0} hardware automatically. Please specify the serial port:</entry>
+        <entry key="ConnectToSerial">Connecting to {0} using serial port {1}...</entry>
+        <entry key="SetupComplete">Setup for {0} is complete...\n\nMATLAB will use following settings to communicate with {1} hardware:</entry>
+        <entry key="BootWait">Wait for {0} hardware to boot up...</entry>
+        <entry key="SerialConnect">Connecting to {0} hardware over serial port...</entry>
+        <entry key="ConnectToSerialFailed">Could not connect to the hardware over Serial Port.\nCheck that USB cable is plugged into ''USB-to-UART'' port of the hardware and the power switch is turned on.\nIf this error persists, switch off the hardware, wait for 10 seconds, switch on the hardware and then repeat this step.</entry>
+        <entry key="SelectASerialPort">You must select a serial port connected to your hardware.</entry>
+        <entry key="DownloadError">Could not download "{0}"</entry>
+        <entry key="UnableToFindPartition">Unable to find device partitions.</entry>
+        <entry key="SerialPortNotAvailable">The serial port, {0}, is not available. Check that you have selected the correct serial port\nand that no other program is using {1} and repeat this step.</entry>
+        <entry key="RemovableDriveQuery">Error while querying removable drives: {0}</entry>
+        <entry key="ErrorWritingFirmware">Error writing firmware to the memory card: {0}</entry>
+        <entry key="ErrorWritingFirmwareTimeout">Error writing firmware image to the SD card. Firmware write has timed out.\nClick "Back" and try again.</entry>
+        <entry key="md5sumDependonJava">md5sum function requires MATLAB to be started with java. An incorrect checksum of all zeros will be returned.</entry>
+        <entry key="FirmwareDecompressionFailed">Firmware decompression failed: {0}</entry>
+        <entry key="InvalidArgument">{0} must be a character array.</entry>
+        <entry key="InvalidIpAddress">{0} is not a valid IPv4 address.</entry>
+        <entry key="ArchNotSupported">{0} function/utility is not supported on {1}.</entry>
+        <entry key="SerialCmdTimeout">The serial console timed out while waiting for a response from the board.\nCheck your serial connection and repeat this operation again.</entry>
+        <entry key="SerialPortWriteError">An error occurred while attempting to send a serial message through the selected serial port {0}.\nCheck that you have selected the correct serial port and repeat this step again.\nDetails: {1}</entry>
+    </message>
+</rsccat>
+

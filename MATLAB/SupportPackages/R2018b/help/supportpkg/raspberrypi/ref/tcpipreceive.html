@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>TCP/IP Receive</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+            ,
+          {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../referencelist.html?type=block",
+          "name": "Block Libraries"
+}
+
+          }]
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="block:TCP/IP Receive"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/block"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Receive data from a remote host/another target hardware over a network."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">TCP/IP Receive</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#bvk8fim.bvk8fim-1" class="intrnllnk">Description</a></li><li><a href="#bvk8fim.bvk8fim-2" class="intrnllnk">Ports</a><ul class="nav"><li><a href="#bvk8fim.bvk8fkr-2" class="intrnllnk">Output</a><ul class="nav"><li><a href="#bvk8fim-Data" class="intrnllnk">Data</a></li><li><a href="#bvk8fim-Status" class="intrnllnk">Status</a></li></ul></li></ul></li><li><a href="#bvk8fim.bvk8fim-3" class="intrnllnk">Parameters</a><ul class="nav"><li><a href="#d120e7596" class="intrnllnk">Main Tab</a><ul class="nav"><li><a href="#bvk8fim-Connectionmode" class="intrnllnk">Connection mode</a></li><li><a href="#bvk8fim-LocalIPport" class="intrnllnk">Local IP port</a></li><li><a href="#bvk8fim-RemoteIPaddress" class="intrnllnk">Remote IP address</a></li><li><a href="#bvk8fim-RemoteIPport" class="intrnllnk">Remote IP port</a></li><li><a href="#bvk8fim-Datatype" class="intrnllnk">Data type</a></li><li><a href="#bvk8fim-DatasizeN" class="intrnllnk">Data size(N)</a></li><li><a href="#bvk8fim-Sampletime" class="intrnllnk">Sample time</a></li></ul></li></ul><ul class="nav"><li><a href="#d120e7809" class="intrnllnk">Advanced Tab</a><ul class="nav"><li><a href="#bvk8fim-ManuallyspecifylocalIPport" class="intrnllnk">Manually specify local IP port</a></li><li><a href="#bvk8fim-LocalIPport-dup1" class="intrnllnk">Local IP port</a></li><li><a href="#bvk8fim-Waituntildatareceived" class="intrnllnk">Wait until data received</a></li><li><a href="#bvk8fim-Timeoutinseconds" class="intrnllnk">Timeout in seconds</a></li></ul></li></ul></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref"><div class="block_ref"><span id="bvk8fim" class="anchor_target"></span><span id="legoev3libev3tcpipreceive" class="anchor_target"></span><span id="androidlibtcpipreceive" class="anchor_target"></span><span id="ioslibtcpipreceive" class="anchor_target"></span><span id="libtcpipreceive" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">TCP/IP Receive</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Receive data over TCP/IP network from remote host</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage">expand all in page</a></div></div></div><div itemprop="content" class="ref_sect"><div class="row"><div class="col-xs-12 col-sm-9 col-md-10"><ul class="list-unstyled library_path_container"><li><strong>Library:</strong></li><li><p class="library_path">
+                Simulink Support Package for LEGO MINDSTORMS EV3 Hardware
+            </p><p class="library_path">
+                Simulink Support Package for Raspberry Pi Hardware
+            </p><p class="library_path">
+                Simulink Support Package for Android Devices /
+                    Communication
+            </p><p class="library_path">
+                 Simulink Support Package for Apple iOS Devices
+            </p><p class="library_path">
+                 Simulink Coder Support Package for BeagleBone Blue
+                    Hardware
+            </p></li></ul></div><div class="col-xs-12 col-sm-3 col-md-2"><p class="text-right text_center_xs"><span class="guiicon"><span class="inlinemediaobject"><img src="ev3_tcpip_receive.png" alt="" height="80" width="127"></img></span></span></p></div></div></div><h2 id="bvk8fim.bvk8fim-1">Description</h2><p>Receive data from a remote host/another target hardware over
+a network. When you set the connection mode as server, you must provide
+the local port. The local port acts as the listening port of the TCP/IP
+server. When you set the block as a client, you must provide the remote
+address and the remote port of the TCP/IP server to receive data.
+The block accepts data either in blocking mode or in non-blocking
+mode. The <strong class="emphasis bold">Data</strong> port output contains
+the requested data at each time step. The <strong class="emphasis bold">Status</strong> port
+contains 0 or 1 to indicate whether the new data at the specified
+time step is received. The Status port value 1 indicates that the
+data from <strong class="emphasis bold">Data</strong> port is valid.</p><p>In blocking mode, the model blocks the execution while it waits for the requested data to
+          be available.</p><div class="informalfigure"><div id="d120e7466" class="mediaobject"><p><img src="blockingmoderec.png" alt="" height="351" width="646"></img></p></div></div><p>At time step 1, the block requests four data values, and the TCP/IP receive buffer gets
+          four data values. The execution runs.</p><p>At time step 2, the block requests for data again, but the TCP/IP receive buffer gets
+          only three data values. The execution pauses until the buffer receives the fourth data
+          value or the time-out value elapses. Then, the execution resumes.</p><p>At time step 3, the block requests for data, and the buffer receives five data values.
+          The block returns the first four data values, and the remaining data value is used in the
+          next receipt cycle.</p><p>In non-blocking mode, the model runs continuously.</p><div class="informalfigure"><div id="d120e7478" class="mediaobject"><p><img src="nonblockingmoderec.png" alt="" height="350" width="607"></img></p></div></div><p>At time step 1, the block requests data, and the buffer gets four data values. The block
+          changes the <strong class="emphasis bold">Status</strong> port value to 1, indicating that new
+          data is available. The <strong class="emphasis bold">Data</strong> port, at this point, contains
+          the newly received data values. The block resets the buffer value to 0.</p><p>At time step 2, the block requests data again, but the buffer gets only three values. The
+          block cannot return a value of 3 because the data size is specified as 4. Therefore, the
+          block sets the <strong class="emphasis bold">Status</strong> port value to 0, indicating that
+          there is no new data. All values on the <strong class="emphasis bold">Data</strong> port become
+          0. The buffer, at this point, has three data values. However, during this phase, the
+          execution does not stop unlike in the blocking mode.</p><p>At time step 3, the buffer has five data values, and the block returns the first four
+          data values in the order received and changes the <strong class="emphasis bold">Status</strong>
+          port value to 1. The remaining data value is used in the next receipt cycle.</p><div class="ref_sect"><h2 id="bvk8fim.bvk8fim-2">Ports</h2></div><div class="ref_sect"><h3 id="bvk8fim.bvk8fkr-2">Output</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="bvk8fim.bvk8fkr-2_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Data" data-target="#expand_panel_body_bvk8fim-Data" aria-controls="expand_panel_body_bvk8fim-Data" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="bvk8fim-Data"><code class="name">Data</code> &#8212; Output port to emit the data received<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">[Nx1] array</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Data" aria-labelledby="expand_panel_heading_bvk8fim-Data" class="panel-collapse collapse"><div class="panel-body">
+<p>The block outputs data as an [Nx1] array.</p>
+<p class="datatypelist"><strong>Data Types: </strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>Boolean</code></p></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Status" data-target="#expand_panel_body_bvk8fim-Status" aria-controls="expand_panel_body_bvk8fim-Status" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="bvk8fim-Status"><code class="name">Status</code> &#8212; Output port to emit the data received status<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">1 | 0</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Status" aria-labelledby="expand_panel_heading_bvk8fim-Status" class="panel-collapse collapse"><div class="panel-body">
+<p>This port shows the data received status. The status value 1
+means successful receipt of data.</p>
+<p class="datatypelist"><strong>Data Types: </strong><code>int8</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="bvk8fim.bvk8fim-3">Parameters</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="bvk8fim.bvk8fim-3_panel-group" role="tablist" aria-multiselectable="true"><h4 class="mw-doc-parametersgrp" id="d120e7596">Main Tab</h4><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Connectionmode" data-target="#expand_panel_body_bvk8fim-Connectionmode" aria-controls="expand_panel_body_bvk8fim-Connectionmode" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Connectionmode" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-Connectionmode"><code class="name">Connection mode</code> &#8212; The option to set the block as server or client<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">Server (default) | Client</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Connectionmode" aria-labelledby="expand_panel_heading_bvk8fim-Connectionmode" class="panel-collapse collapse"><div class="panel-body">
+<p>Select the option to connect the block as TCP/IP server or TCP/IP
+client. </p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-LocalIPport" data-target="#expand_panel_body_bvk8fim-LocalIPport" aria-controls="expand_panel_body_bvk8fim-LocalIPport" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_LocalIPport" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-LocalIPport"><code class="name">Local IP port</code> &#8212; Local port acting as the listening port of the server<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">25000 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-LocalIPport" aria-labelledby="expand_panel_heading_bvk8fim-LocalIPport" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the local port number which acts as the listening port
+of the TCP/IP server. This parameter appears only when you set the <strong class="guilabel">Connection
+mode</strong> to <code class="guidropdown">Server</code></p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-RemoteIPaddress" data-target="#expand_panel_body_bvk8fim-RemoteIPaddress" aria-controls="expand_panel_body_bvk8fim-RemoteIPaddress" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_RemoteIPaddress" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-RemoteIPaddress"><code class="name">Remote IP address</code> &#8212; Remote address of the server from which to receive data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">127.0.0.1 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-RemoteIPaddress" aria-labelledby="expand_panel_heading_bvk8fim-RemoteIPaddress" class="panel-collapse collapse"><div class="panel-body">
+                    <p>Enter the remote server address from which to receive the data. This
+                        parameter appears only when you set the <strong class="guilabel">Connection mode</strong>
+                        to <code class="guidropdown">Client</code>.</p>
+                </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-RemoteIPport" data-target="#expand_panel_body_bvk8fim-RemoteIPport" aria-controls="expand_panel_body_bvk8fim-RemoteIPport" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_RemoteIPport" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-RemoteIPport"><code class="name">Remote IP port</code> &#8212; Remote port of the server from which to receive data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">25000 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-RemoteIPport" aria-labelledby="expand_panel_heading_bvk8fim-RemoteIPport" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the remote server port. This parameter appears only when
+you set the <strong class="guilabel">Connection mode</strong> to <code class="guidropdown">Client</code>.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Datatype" data-target="#expand_panel_body_bvk8fim-Datatype" aria-controls="expand_panel_body_bvk8fim-Datatype" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Datatype" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-Datatype"><code class="name">Data type</code> &#8212; Data type to receive<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">uint8 (default) | double | single | int8 | uint16 | int16 | uint32 | int32 | boolean</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Datatype" aria-labelledby="expand_panel_heading_bvk8fim-Datatype" class="panel-collapse collapse"><div class="panel-body">
+<p>Select the data type that is to be received from the remote
+host.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-DatasizeN" data-target="#expand_panel_body_bvk8fim-DatasizeN" aria-controls="expand_panel_body_bvk8fim-DatasizeN" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_DatasizeN" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-DatasizeN"><code class="name">Data size(N)</code> &#8212; Data size to receive<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">1 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-DatasizeN" aria-labelledby="expand_panel_heading_bvk8fim-DatasizeN" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the data size to be received from the remote host.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Sampletime" data-target="#expand_panel_body_bvk8fim-Sampletime" aria-controls="expand_panel_body_bvk8fim-Sampletime" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Sampletime" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-Sampletime"><code class="name">Sample time</code> &#8212; The time frequency at which to receive data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">0.1 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Sampletime" aria-labelledby="expand_panel_heading_bvk8fim-Sampletime" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the time frequency at which to receive data.</p>
+</div></div></div></div><h4 class="mw-doc-parametersgrp" id="d120e7809">Advanced Tab</h4><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-ManuallyspecifylocalIPport" data-target="#expand_panel_body_bvk8fim-ManuallyspecifylocalIPport" aria-controls="expand_panel_body_bvk8fim-ManuallyspecifylocalIPport" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_ManuallyspecifylocalIPport" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-ManuallyspecifylocalIPport"><code class="name">Manually specify local IP port</code> &#8212; Manually specify the number of the local IP port<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">Off (default) | logical</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-ManuallyspecifylocalIPport" aria-labelledby="expand_panel_heading_bvk8fim-ManuallyspecifylocalIPport" class="panel-collapse collapse"><div class="panel-body">
+<p>Allow manual specification of local IP port at which to receive
+data. This parameter appears only when you set the <strong class="guilabel">Connection
+mode</strong> to <code class="guidropdown">Client</code>.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-LocalIPport-dup1" data-target="#expand_panel_body_bvk8fim-LocalIPport-dup1" aria-controls="expand_panel_body_bvk8fim-LocalIPport-dup1" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_LocalIPport" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-LocalIPport-dup1"><code class="name">Local IP port</code> &#8212; Local port at which to receive data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">25000 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-LocalIPport-dup1" aria-labelledby="expand_panel_heading_bvk8fim-LocalIPport-dup1" class="panel-collapse collapse"><div class="panel-body">
+<p>Enter the local port of the client to receive data. This parameter
+appears only when you set the <strong class="guilabel">Connection mode</strong> to <code class="guidropdown">Client</code> and
+select the check box <strong class="guilabel">Manually specify local IP port</strong>.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Waituntildatareceived" data-target="#expand_panel_body_bvk8fim-Waituntildatareceived" aria-controls="expand_panel_body_bvk8fim-Waituntildatareceived" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Waituntildatareceived" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-Waituntildatareceived"><code class="name">Wait until data received</code> &#8212; Option to set for the block to wait for the data to be received<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">Off (default) | On</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Waituntildatareceived" aria-labelledby="expand_panel_heading_bvk8fim-Waituntildatareceived" class="panel-collapse collapse"><div class="panel-body">
+<p>Select this option to specify if the block waits for the data
+to be received. Selecting this check box enables the blocking mode.</p>
+</div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvk8fim-Timeoutinseconds" data-target="#expand_panel_body_bvk8fim-Timeoutinseconds" aria-controls="expand_panel_body_bvk8fim-Timeoutinseconds" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Timeoutinseconds" class="anchor_target"></span><h3 class="panel-title" id="bvk8fim-Timeoutinseconds"><code class="name">Timeout in seconds</code> &#8212; Time to wait until the data is received<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">0.1 (default) | scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvk8fim-Timeoutinseconds" aria-labelledby="expand_panel_heading_bvk8fim-Timeoutinseconds" class="panel-collapse collapse"><div class="panel-body">
+<p>Specify the time the block waits for the data to be received
+during each simulation time step. This field is unavailable, if you
+have not selected <strong class="guilabel">Wait until data received</strong> parameter.
+Enter ‘inf’ value in this parameter, if you want the
+block to wait indefinitely until it receives the data.</p>
+</div></div></div></div></div></div></div><div class="release_introduced"><h4>Introduced in R2017a</h4></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

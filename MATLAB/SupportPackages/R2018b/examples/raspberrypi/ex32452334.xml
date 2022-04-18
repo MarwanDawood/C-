@@ -1,0 +1,8 @@
+<example>
+  <main>MATfileLoggingOnRaspberryPiTMHardwareExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_matfilelogging');</callback>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

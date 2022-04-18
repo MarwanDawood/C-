@@ -1,0 +1,369 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Working with Raspberry Pi Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-25"><meta name="DC.source" content="WorkingWithRaspberryPiHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiHardwareExample')">Open this Example</a></div><div class="content"><h1>Working with Raspberry Pi Hardware</h1><!--introduction--><p>This example shows you basics of working with Raspberry Pi&reg; Hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Overview of Raspberry Pi Hardware</a></li><li><a href="#5">Best Practices and Restrictions</a></li><li><a href="#6">Turning Your Raspberry Pi Hardware On and Off</a></li><li><a href="#7">Working with LEDs</a></li><li><a href="#8">Working with Pushbuttons</a></li><li><a href="#9">Push button Controlled LED</a></li><li><a href="#10">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Raspberry Pi is a single board, credit-card size computer that can run Linux&reg;. Raspberry Pi hardware has low-level interfaces intended to connect directly with external devices such as A/D converters, sensors, motor drivers, etc. You can take advantage of these low-level interfaces to develop meaningful real-world applications. The Raspberry Pi support package includes MATLAB command-line interfaces to communicate with external devices connected to Raspberry Pi hardware. You can, for example, turn a LED connected to one of the GPIO pins on or off or sense the position of a push button from the MATLAB command prompt.</p><p>Most of the low-level interfaces of Raspberry Pi hardware are not plug-and-play. To use these low-level interfaces, you must have a sound understanding of basic electrical concepts. If you mis-wire a GPIO pin, for example, you risk losing a GPIO pin, and, in some cases, your Raspberry Pi hardware.</p><p>This example is intended to familiarize you with low level interfaces of the Raspberry Pi hardware, establish sound practices for wiring and connections when working with external electrical components and use MATLAB command-line interface for Raspberry Pi hardware to control simple devices like LEDs, push buttons, and relays.</p><h2 id="2">Prerequisites</h2><div><ul><li>It is helpful to complete the <a href="docid:raspberrypiio_ref.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example, you need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>Breadboard and jumper cables</li><li>Red LED</li><li>330 Ohm, 1 kOhm and 10 kOhm resistors</li><li>A push button or switch</li></ul></div><h2 id="4">Overview of Raspberry Pi Hardware</h2><p>In addition to USB, Ethernet, HDMI, and Audio Out ports, the Raspberry Pi hardware has expansion headers that offer general purpose digital I/O, SPI, I2C, and serial UART. Depending on the revision of your Raspberry Pi hardware, the available digital I/O pins, pin-outs for I2C, SPI, and serial ports change.</p><p>All versions of the Raspberry Pi hardware have one or more expansion headers. You can use some of the pins on the expansion headers for digital I/O. To see a diagram of the pins of your Raspberry Pi hardware, use showPins() method of raspi object.</p><pre class="language-matlab">rpi = raspi();
+showPins(rpi);
+</pre><p>The showPins() method displays a MATLAB figure showing a diagram of pins available. The raspi object determines the version number of your Raspberry Pi hardware and displays the correct pin diagram for your version of the board. Raspberry Pi Model B+ board has more I/O pins exposed than Raspberry Pi Model B board.</p><p>The GPIO pins use 3.3 volt logic levels and are not 5 volt tolerant. There is no over-voltage protection on the CPU chip. A CSI (camera serial interface) is available so that you can connect an available Camera Board. You can use some of the pins available on the Raspberry Pi hardware for multiple purposes. For example, if you do not need to use SPI interface, you can use SPI pins as general purpose digital I/O. The pins marked as SDA0 and SCL0 are preset to be used as an I2C interface. There are 1.8 kOhm pull-up resistors on the board for these pins.</p><p>You can power external components using 3.3 volt and 5 volt power pins on the expansion headers. The maximum permitted current draw from the 3.3 volt pins is 50 mA.</p><h2 id="5">Best Practices and Restrictions</h2><div><ul><li>Do not connect electrical components to Raspberry Pi expansion headers while Raspberry Pi hardware is running. If you want to connect an electrical component, turn off your board first. Instructions for turning off you board are provided below.</li></ul></div><div><ul><li>Raspberry Pi pins use 3.3 volt logic levels. Do not connect devices using 5 volt logic levels directly to the Raspberry Pi pins.</li></ul></div><div><ul><li>Use logic level converters when interfacing devices using 5 volt logic levels to Raspberry Pi hardware.</li></ul></div><div><ul><li>Do not short a GPIO pin configured as digital output.</li></ul></div><div><ul><li>Do not short 5 volt power pins to any other pin on the expansion header. Be extremely careful when working in the vicinity of 5 volt power pins.</li></ul></div><div><ul><li>Do not touch bare expansion header pins while Raspberry Pi hardware is on. You can accidentally short some of the pins.</li></ul></div><h2 id="6">Turning Your Raspberry Pi Hardware On and Off</h2><p>Raspberry Pi runs a Linux operating system. Turning off the power can result in corrupting the operating system image on the SD card. To turn off your board, first shut down the Linux operating system by executing the following:</p><pre class="language-matlab">system(rpi, <span class="string">'sudo shutdown -h now'</span>);
+clear <span class="string">rpi</span>
+</pre><p>You can also execute the preceding command above on an interactive command shell as described in the Getting Started with MATLAB Support Package for Raspberry Pi Hardware example. To turn off your board in MATLAB Online, you must execute the following Linux command from the command shell on the Raspberry Pi. Access the command shell remotely via SSH with PuTTY, as described in <a href="matlab:web('https://www.raspberrypi.org/documentation/remote-access/','-browser')">Remote Access</a>.</p><pre class="language-matlab">$sudo shutdown <span class="string">-h</span> <span class="string">now</span>
+</pre><p>After executing the command, wait until the operating system shuts down all LEDs on the board except for PWR LED. Then, unplug the power cable from the board. To restart your board, plug the power cable back into the board. It takes approximately a minute for the board to fully reboot.</p><h2 id="7">Working with LEDs</h2><p>A light-emitting diode (LED) is a semiconductor light source. An LED has two legs. One is called anode and the other is called cathode. The two legs of LED have different names because LED works only in one direction. The anode leg is longer than the cathode leg, and must be attached to the positive voltage terminal while the cathode is attached to the negative voltage terminal. The current going through an LED goes from anode to cathode. If you wire an LED backwards, it does not light up.</p><p>LEDs come in different colors and sizes. Common sizes are 3mm, 5mm and 10mm and refer to the diameter of the LED. A red LED, when it is on will have a forward voltage anywhere from 1.8 volts to 2.5 volts. When a LED is on, it behaves like a diode and passes a large amount of current that may produce enough heat to cause the LED to burn out. Therefore, you should always use a current-limiting resistor when working with an LED.</p><p>In this example, you connect a red LED across a GPIO pin and turn the LED on and off using the MATLAB command-line interface. You need a red LED and a 330 Ohm resistor. You connect the LED and the resistor as shown in the circuit diagram.</p><p><img vspace="5" hspace="5" src="../led_circuit_diagram.png" alt=""> </p><p>Here is another view showing the actual connections on a breadboard.</p><p><img vspace="5" hspace="5" src="../led_breadboard_diagram.png" alt=""> </p><p>The anode (positive or long leg) is connected to the GPIO24 pin and the cathode is connected to the ground through the resistor. Once you make the connections, execute the following command at the MATLAB command prompt to turn the LED on.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+rpi = raspi();
+writeDigitalPin(rpi, 24, 1);
+</pre><p>The writeDigitalPin() method configures GPIO pin 24 as output and sets the logical value of the digital pin to one (logic high) causing 3.3 volts to be output at the pin. Writing a zero to a digital pin results in an output of logic low, which is digital ground in this case.</p><p>Make the LED "blink" for 10 seconds.</p><pre class="language-matlab"><span class="keyword">for</span> i = 1:10
+    writeDigitalPin(rpi, 24, 1);
+    pause(0.5);
+    writeDigitalPin(rpi, 24, 0);
+    pause(0.5);
+<span class="keyword">end</span>
+</pre><h2 id="8">Working with Pushbuttons</h2><p>A push button is a simple switch mechanism. When pressed or in closed position, the legs of a push button are shorted allowing electrical current to pass. When in open position, the switch does not conduct electricity. You can use a digital input pin to sense if the push button is in an open or closed position.</p><p>For this task, you need a breadboard-friendly pushbutton and 1 kOhm and 10 kOhm resistors. Connect the push button to GPIO pin 23, as shown in the following circuit diagram.</p><p><img vspace="5" hspace="5" src="../pushbutton_circuit_diagram.png" alt=""> </p><p>In this circuit, the GPIO pin sees ground when the push button is not pressed. When the pushbutton is pressed, the GPIO pin sees 3.3 volts. You can read the position of the push-button using the readDigitalPin() method.</p><pre>readDigitalPin(rpi, 23)</pre><h2 id="9">Push button Controlled LED</h2><p>Blink the LED rapidly for 1 second whenever the push button is pressed.</p><pre class="language-matlab"><span class="keyword">for</span> i = 1:100
+    buttonPressed = readDigitalPin(rpi, 23);
+    <span class="keyword">if</span> buttonPressed
+        <span class="keyword">for</span> j = 1:10
+            writeDigitalPin(rpi, 24, 1);
+            pause(0.05);
+            writeDigitalPin(rpi, 24, 0);
+            pause(0.05);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    pause(0.1);
+<span class="keyword">end</span>
+</pre><h2 id="10">Summary</h2><p>This example introduced the workflow for working with GPIO pins. You learned how to connect LEDs and push buttons to GPIO pins.</p><p class="footer">Copyright 2013 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Working with Raspberry Pi Hardware
+%
+% This example shows you basics of working with Raspberry Pi(R) Hardware.
+ 
+% Copyright 2013 The MathWorks, Inc.
+ 
+
+%% Introduction
+% 
+% Raspberry Pi is a single board, credit-card size computer that can run
+% Linux(R). Raspberry Pi hardware has low-level interfaces intended to
+% connect directly with external devices such as A/D converters, sensors,
+% motor drivers, etc. You can take advantage of these low-level interfaces
+% to develop meaningful real-world applications. The Raspberry Pi support
+% package includes MATLAB command-line interfaces to communicate with
+% external devices connected to Raspberry Pi hardware. You can, for
+% example, turn a LED connected to one of the GPIO pins on or off or sense
+% the position of a push button from the MATLAB command prompt.
+%
+% Most of the low-level interfaces of Raspberry Pi hardware are not
+% plug-and-play. To use these low-level interfaces, you must have a sound
+% understanding of basic electrical concepts. If you mis-wire a GPIO pin,
+% for example, you risk losing a GPIO pin, and, in some cases, your
+% Raspberry Pi hardware.
+%
+% This example is intended to familiarize you with low level interfaces
+% of the Raspberry Pi hardware, establish sound practices for wiring and
+% connections when working with external electrical components and use
+% MATLAB command-line interface for Raspberry Pi hardware to control simple
+% devices like LEDs, push buttons, and relays.
+
+
+%% Prerequisites
+%
+% * It is helpful to complete the
+% <docid:raspberrypiio_ref.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware>
+% example.
+
+%% Required Hardware
+% 
+% To run this example, you need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output
+% * Breadboard and jumper cables
+% * Red LED
+% * 330 Ohm, 1 kOhm and 10 kOhm resistors
+% * A push button or switch
+
+ 
+%% Overview of Raspberry Pi Hardware
+%
+% In addition to USB, Ethernet, HDMI, and Audio Out ports, the Raspberry Pi
+% hardware has expansion headers that offer general purpose digital I/O,
+% SPI, I2C, and serial UART. Depending on the revision of your Raspberry Pi
+% hardware, the available digital I/O pins, pin-outs for I2C, SPI, and
+% serial ports change.
+% 
+% All versions of the Raspberry Pi hardware have one or more expansion
+% headers. You can use some of the pins on the expansion headers for
+% digital I/O. To see a diagram of the pins of your Raspberry Pi hardware,
+% use showPins() method of raspi object.
+%
+%   rpi = raspi();
+%   showPins(rpi);
+%
+% The showPins() method displays a MATLAB figure showing a diagram of pins
+% available. The raspi object determines the version number of your
+% Raspberry Pi hardware and displays the correct pin diagram for your
+% version of the board. Raspberry Pi Model B+ board has more I/O pins
+% exposed than Raspberry Pi Model B board.
+% 
+% The GPIO pins use 3.3 volt logic levels and are not 5 volt tolerant.
+% There is no over-voltage protection on the CPU chip. A CSI (camera serial
+% interface) is available so that you can connect an available Camera
+% Board. You can use some of the pins available on the Raspberry Pi
+% hardware for multiple purposes. For example, if you do not need to use
+% SPI interface, you can use SPI pins as general purpose digital I/O. The
+% pins marked as SDA0 and SCL0 are preset to be used as an I2C interface.
+% There are 1.8 kOhm pull-up resistors on the board for these pins.
+%
+% You can power external components using 3.3 volt and 5 volt power pins on
+% the expansion headers. The maximum permitted current draw from the 3.3
+% volt pins is 50 mA.
+ 
+%% Best Practices and Restrictions
+%
+% * Do not connect electrical components to Raspberry Pi expansion headers
+% while Raspberry Pi hardware is running. If you want to connect an
+% electrical component, turn off your board first. Instructions for
+% turning off you board are provided below.
+%
+% * Raspberry Pi pins use 3.3 volt logic levels. Do not connect devices
+% using 5 volt logic levels directly to the Raspberry Pi pins.
+%
+% * Use logic level converters when interfacing devices using 5 volt logic
+% levels to Raspberry Pi hardware.
+% 
+% * Do not short a GPIO pin configured as digital output.
+%
+% * Do not short 5 volt power pins to any other pin on the expansion
+% header. Be extremely careful when working in the vicinity of 5 volt power
+% pins.
+% 
+% * Do not touch bare expansion header pins while Raspberry Pi hardware is
+% on. You can accidentally short some of the pins.
+
+%% Turning Your Raspberry Pi Hardware On and Off
+% 
+% Raspberry Pi runs a Linux operating system. Turning off the power can
+% result in corrupting the operating system image on the SD card. To turn
+% off your board, first shut down the Linux operating system by executing
+% the following:
+%
+%   system(rpi, 'sudo shutdown -h now');
+%   clear rpi
+%
+% You can also execute the preceding command above on an interactive
+% command shell as described in the Getting Started with MATLAB Support
+% Package for Raspberry Pi Hardware example. To turn off your board in
+% MATLAB Online, you must execute the following Linux command from the
+% command shell on the Raspberry Pi. Access the command shell remotely via
+% SSH with PuTTY, as described in
+% <matlab:web('https://www.raspberrypi.org/documentation/remote-access/','-browser')
+% Remote Access>.
+%
+%   $sudo shutdown -h now
+%
+% After executing the command, wait until the operating system shuts down
+% all LEDs on the board except for PWR LED. Then, unplug the power cable
+% from the board. To restart your board, plug the power cable back into the
+% board. It takes approximately a minute for the board to fully reboot.
+
+%% Working with LEDs
+%
+% A light-emitting diode (LED) is a semiconductor light source. An LED has
+% two legs. One is called anode and the other is called cathode. The
+% two legs of LED have different names because LED works only in one
+% direction. The anode leg is longer than the cathode leg, and must be
+% attached to the positive voltage terminal while the cathode is attached
+% to the negative voltage terminal. The current going through an LED goes
+% from anode to cathode. If you wire an LED backwards, it does not light
+% up. 
+%
+% LEDs come in different colors and sizes. Common sizes are 3mm, 5mm and
+% 10mm and refer to the diameter of the LED. A red LED, when it is on will
+% have a forward voltage anywhere from 1.8 volts to 2.5 volts. When a LED
+% is on, it behaves like a diode and passes a large amount of current that
+% may produce enough heat to cause the LED to burn out. Therefore, you
+% should always use a current-limiting resistor when working with an LED.
+% 
+% In this example, you connect a red LED across a GPIO pin and turn the LED
+% on and off using the MATLAB command-line interface. You need a red LED
+% and a 330 Ohm resistor. You connect the LED and the resistor as shown in
+% the circuit diagram.
+%
+% <<../led_circuit_diagram.png>>
+%
+% Here is another view showing the actual connections on a breadboard.
+%
+% <<../led_breadboard_diagram.png>>
+%
+% The anode (positive or long leg) is connected to the GPIO24 pin and the
+% cathode is connected to the ground through the resistor. Once you make
+% the connections, execute the following command at the MATLAB command
+% prompt to turn the LED on.
+%  
+%   clear rpi
+%   rpi = raspi();
+%   writeDigitalPin(rpi, 24, 1);
+%
+% The writeDigitalPin() method configures GPIO pin 24 as output and sets
+% the logical value of the digital pin to one (logic high) causing 3.3
+% volts to be output at the pin. Writing a zero to a digital pin results in
+% an output of logic low, which is digital ground in this case.
+%
+% Make the LED "blink" for 10 seconds.
+%  
+%   for i = 1:10
+%       writeDigitalPin(rpi, 24, 1);
+%       pause(0.5);
+%       writeDigitalPin(rpi, 24, 0);
+%       pause(0.5);
+%   end
+%  
+
+%% Working with Pushbuttons
+%
+% A push button is a simple switch mechanism. When pressed or in closed
+% position, the legs of a push button are shorted allowing electrical
+% current to pass. When in open position, the switch does not conduct
+% electricity. You can use a digital input pin to sense if the push button
+% is in an open or closed position.
+% 
+% For this task, you need a breadboard-friendly pushbutton and 1 kOhm and
+% 10 kOhm resistors. Connect the push button to GPIO pin 23, as shown in
+% the following circuit diagram.
+%
+% <<../pushbutton_circuit_diagram.png>>
+%
+% In this circuit, the GPIO pin sees ground when the push button is not
+% pressed. When the pushbutton is pressed, the GPIO pin sees 3.3 volts. You
+% can read the position of the push-button using the readDigitalPin()
+% method.
+%  
+%  readDigitalPin(rpi, 23)
+%  
+
+%% Push button Controlled LED
+%
+% Blink the LED rapidly for 1 second whenever the push button is pressed.
+%  
+%   for i = 1:100
+%       buttonPressed = readDigitalPin(rpi, 23);
+%       if buttonPressed
+%           for j = 1:10
+%               writeDigitalPin(rpi, 24, 1);
+%               pause(0.05);
+%               writeDigitalPin(rpi, 24, 0);
+%               pause(0.05);
+%           end
+%       end
+%       pause(0.1);
+%   end
+%  
+
+
+%% Summary
+% 
+% This example introduced the workflow for working with GPIO pins. You
+% learned how to connect LEDs and push buttons to GPIO pins.
+
+
+##### SOURCE END #####
+--></body></html>

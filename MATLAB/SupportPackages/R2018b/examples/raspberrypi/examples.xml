@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<demos>
+  <demoitem>
+    <source>SurveillanceCameraWithAndroidTMDeviceExample</source>
+    <type>other</type>
+    <metadata>ex06251346</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypiandroidcamera');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524305497" component="raspberrypi">raspberrypi_mobile_camera.png</file>
+  </demoitem>
+  <demoitem>
+    <source>AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample</source>
+    <type>other</type>
+    <metadata>ex09269382</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_sensehat_autorotate');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot0.png</file>
+    <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot90.png</file>
+    <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot180.png</file>
+    <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot270.png</file>
+    <file timestamp="1524250264" component="raspberrypi">raspberrypi_autorotate_staeflow.png</file>
+  </demoitem>
+  <demoitem>
+    <source>LEDControlFromAndroidTMDeviceExample</source>
+    <type>other</type>
+    <metadata>ex11240596</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypiandroidgettingstarted');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>ExternalModeWithRaspberryPiRHardwareExample</source>
+    <type>other</type>
+    <metadata>ex14661568</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_external_mode');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>ImageInversionExample</source>
+    <type>other</type>
+    <metadata>ex32445188</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_inversion');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>MATfileLoggingOnRaspberryPiTMHardwareExample</source>
+    <type>other</type>
+    <metadata>ex32452334</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_matfilelogging');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>MotionSensorExample</source>
+    <type>other</type>
+    <metadata>ex33832240</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_motion_sensor_led');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524249680" component="raspberrypi">motion_sensor.png</file>
+    <file timestamp="1524249680" component="raspberrypi">push_button.png</file>
+  </demoitem>
+  <demoitem>
+    <source>ControllingLEGOEV3RobotUsingRaspPiSenseHATExample</source>
+    <type>other</type>
+    <metadata>ex39577722</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_sensehat_ev3robot');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524250633" component="raspberrypi">raspberrypi_sensehat_pitchroll.png</file>
+  </demoitem>
+  <demoitem>
+    <source>RunningLinuxRShellCommandsExample</source>
+    <type>M-file</type>
+    <metadata>ex40192612</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>StreamImagesFromRaspberryPiUsingRobotOperatingSystemROSExample</source>
+    <type>M-file</type>
+    <metadata>ex58268306</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>PublishAndSubscribeToMessagesUsingMQTTBlocksExample</source>
+    <type>other</type>
+    <metadata>ex59348521</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_MQTT_publish')</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <thumbnail>mqtt_communication.png</thumbnail>
+    <file component="raspberrypi" timestamp="1526653201">mqtt_connect.png</file>
+    <file component="raspberrypi" timestamp="1533807291">mqtt_publish.png</file>
+    <file component="raspberrypi" timestamp="1533015921">mqtt_communication.png</file>
+  </demoitem>
+  <demoitem>
+    <source>ParametricAudioEqualizerExample</source>
+    <type>other</type>
+    <metadata>ex59430568</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_audioequalizer');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524239941" component="raspberrypi">audio_equalizer_gui.png</file>
+  </demoitem>
+  <demoitem>
+    <source>SurveillanceCameraWithAppleIOSDeviceExample</source>
+    <type>other</type>
+    <metadata>ex61134983</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypiioscamera');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file component="raspberrypi" timestamp="1524305497">raspberrypi_mobile_camera.png</file>
+  </demoitem>
+  <demoitem>
+    <source>LEDControlFromAppleIOSDeviceExample</source>
+    <type>other</type>
+    <metadata>ex72524579</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypiiosgettingstarted');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+  <demoitem>
+    <source>GettingStartedWithSimulinkRaspberryPiHardwareExample</source>
+    <type>other</type>
+    <metadata>ex74263426</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_gettingstarted');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <product>simulink</product>
+    <file timestamp="1524243161" component="raspberrypi">raspberrypi_workflow.png</file>
+    <file timestamp="1524243161" component="raspberrypi">raspberrypi_verify_device_address.png</file>
+    <file timestamp="1524243161" component="raspberrypi">raspberrypi_build_model.png</file>
+  </demoitem>
+  <demoitem>
+    <source>CommunicatingWithAnEEPROMExample</source>
+    <type>other</type>
+    <metadata>ex78698343</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_SPI_EEPROM');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file component="raspberrypi" timestamp="1524247750">raspberrypi_3_modelb_gpio_pinmap.jpg</file>
+  </demoitem>
+  <demoitem>
+    <source>CountingStepsUsingRaspberryPiSenseHATExample</source>
+    <type>other</type>
+    <metadata>ex81140827</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_countstep');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig1.png</file>
+    <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig2.png</file>
+    <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig3.png</file>
+    <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig4.png</file>
+  </demoitem>
+  <demoitem>
+    <source>ReadTemperatureFromATMP102SensorExample</source>
+    <type>other</type>
+    <metadata>ex83199558</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_I2C_temp');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524247750" component="raspberrypi">raspberrypi_3_modelb_gpio_pinmap.jpg</file>
+  </demoitem>
+  <demoitem>
+    <source>AudioVisualizerUsingRaspberryPiTMSenseHATExample</source>
+    <type>other</type>
+    <metadata>ex91271090</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_audioVisualizer');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+    <file timestamp="1524240169" component="raspberrypi">raspberrypi_audioVisualizer_model.png</file>
+  </demoitem>
+  <demoitem>
+    <source>CommunicatingWithRaspberryPiRHardwareExample</source>
+    <type>other</type>
+    <metadata>ex97546030</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <callback>open_system('raspberrypi_communication');</callback>
+    <product>matlab</product>
+    <product>raspberrypi</product>
+  </demoitem>
+</demos>

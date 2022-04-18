@@ -1,0 +1,10 @@
+<example>
+  <main>DeployAMATLABFunctionOnTheRaspberryPiHardwareExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <noButton/>
+  <file component="raspberrypiio" timestamp="1532671059">code_analyzer_errorfree.png</file>
+  <file component="raspberrypiio" timestamp="1532671202">code_generation_report.png</file>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+  <thumbnail>code_generation_report.png</thumbnail>
+</example>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2017 The MathWorks, Inc. -->
+<rsccat version="1.0" locale="en_US" product="linux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="ThingSpeakReadLine1">Read data stored in a ThingSpeak channel. The hardware must be connected to the Internet.</entry>
+        <entry key="ThingSpeakReadLine2">The block outputs the most recent data read from a specified field of a channel on ThingSpeak.com, the Mathworks IoT Analytics Platform. Data type for the field value is single. The status port outputs http response for each ThingSpeak read request.</entry>
+        <entry key="ThingSpeakReadLine3">Check "Print diagnostic messages" if you want to see the ThingSpeak server response to data download requests.</entry>
+        <entry key="AudioCaptureMask">Captures audio from the sound card using ALSA driver framework.\n\n
+            The block outputs audio data as NxC array, where N is the samples per audio channel and C is the number of channels.\n\n
+            Enter the device name and the number of channels supported by the device. Use the Audio sampling frequency parameter to set the sampling rate in Hertz(Hz). Sample time of the block will be derived from the sampling frequency and the Samples per frame(N) specified by the user.
+        </entry>
+        <entry key="AudioPlaybackMask">Sends audio to the sound card for playback using ALSA driver framework.\n\n
+            The block accepts NxC array of type int8, int16 or int32, where N is the samples per audio channel and C is the number of channels.\n\n
+            Enter the device name and use the Audio sampling frequency parameter to set the sampling rate in Hertz (Hz).
+        </entry>
+        <entry key="MQTTPublishBlockName">MQTT Publish</entry>
+        <entry key="MQTTPublishMask">Publish message to the MQTT broker with the specified topic.\n\n
+            The block accepts a 1-D array of type uint8, int8, uint16, int16, uint32, int32, boolean, single-precision, or double-precision.\n\n
+            Status port outputs 0 for a successful publish and error code for failures.\n\n
+            Select the retain flag parameter if the message should be saved by the broker as last known good value.
+        </entry>
+        <entry key="MQTTSubscribeBlockName">MQTT Subscribe</entry>
+        <entry key="MQTTSubscribeMask">Subscribe to an MQTT topic and receive message from the broker.\n\n
+            The Msg port outputs the receiced message as double Nx1 array. The Topic output port will be visible if you use any wildcards. This will output the complete topic string corresponding to the received message.\n\n
+            Select QoS as per the requirement and set the message length N as the array size of the message expected.
+        </entry>
+    </message>
+</rsccat>

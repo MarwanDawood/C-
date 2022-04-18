@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toc version="2.0">
+<tocitem target="functionlistbycat.html">Functions
+<tocitem target="setup-and-configuration.html">Setup and Configuration
+<tocitem target="ref/raspberrypi.html">
+<name>raspberrypi</name>
+<purpose>Get host name, user name, password, and build directory</purpose>
+</tocitem>
+<tocitem target="ref/getrunonboot.html">
+<name>getRunOnBoot</name>
+<purpose>Get name of Simulink model added to Run-on-boot</purpose>
+</tocitem>
+<tocitem target="ref/addtorunonboot.html">
+<name>addToRunOnBoot</name>
+<purpose>Add Simulink model to Run-on-boot</purpose>
+</tocitem>
+<tocitem target="ref/removerunonboot.html">
+<name>removeRunOnBoot</name>
+<purpose>Remove a Simulink model from Run-on-boot</purpose>
+</tocitem>
+<tocitem target="ref/listaudiodevices.html">
+<name>listAudioDevices</name>
+<purpose>List available ALSA audio devices</purpose>
+</tocitem>
+</tocitem>
+</tocitem>
+</toc>

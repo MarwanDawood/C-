@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/shared_linuxservices_resources</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/shared_linuxservices_resources_common_1529959766.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/shared_linuxservices_resources_common</componentName>
+    <componentVersion>1529959766</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>5</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>9979</size>
+    <type />
+    <uncompressedBytes>31495</uncompressedBytes>
+  </component>
+</componentData>
+

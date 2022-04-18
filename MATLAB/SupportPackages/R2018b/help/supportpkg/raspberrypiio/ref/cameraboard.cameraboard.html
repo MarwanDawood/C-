@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>cameraboard</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../camera-board.html",
+          "name": "Camera Board"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "camera-board"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "ExtendedCapabilities",
+
+        "itemListElement":
+        [
+{
+          "@type": "ListItem",
+          "position": 1,
+"item": 
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "codegen",
+          "value": "full"
+
+        }
+          }
+        ]
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="function:cameraboard"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="method:cameraboard.cameraboard"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fcn"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/function"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This MATLAB function creates a connection, mycamera, from the MATLAB software to a Camera Board that is attached the Raspberry Pi board."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=camera-board">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=camera-board">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=camera-board">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=camera-board">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../camera-board.html" itemprop="url"><span itemprop="title">Camera Board</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">cameraboard</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e8227" class="intrnllnk">Syntax</a></li><li><a href="#description" class="intrnllnk">Description</a></li><li><a href="#bt548g7-5" class="intrnllnk">Examples</a><ul class="nav"><li><a href="#bt548g7-1_sep_bt548hg-40" class="intrnllnk">Use the Camera Board</a></li></ul></li><li><a href="#bt548g7-3" class="intrnllnk">Input Arguments</a><ul class="nav"><li><a href="#bt548g7-1_sep_shared-mypi" class="intrnllnk">mypi</a></li></ul><ul class="nav"><li><a href="#namevaluepairs" class="intrnllnk">Name-Value Pair Arguments</a><ul class="nav"><li><a href="#shared-Resolution" class="intrnllnk">Resolution</a></li><li><a href="#shared-Quality" class="intrnllnk">Quality</a></li><li><a href="#shared-Rotation" class="intrnllnk">Rotation</a></li><li><a href="#shared-HorizontalFlip" class="intrnllnk">HorizontalFlip</a></li><li><a href="#shared-VerticalFlip" class="intrnllnk">VerticalFlip</a></li><li><a href="#shared-FrameRate" class="intrnllnk">FrameRate</a></li><li><a href="#shared-Brightness" class="intrnllnk">Brightness</a></li><li><a href="#shared-Contrast" class="intrnllnk">Contrast</a></li><li><a href="#shared-Saturation" class="intrnllnk">Saturation</a></li><li><a href="#shared-Sharpness" class="intrnllnk">Sharpness</a></li><li><a href="#shared-ExposureMode" class="intrnllnk">ExposureMode</a></li><li><a href="#shared-ExposureCompensation" class="intrnllnk">ExposureCompensation</a></li><li><a href="#shared-AWBMode" class="intrnllnk">AWBMode</a></li><li><a href="#shared-MeteringMode" class="intrnllnk">MeteringMode</a></li><li><a href="#shared-ImageEffect" class="intrnllnk">ImageEffect</a></li><li><a href="#shared-VideoStabilization" class="intrnllnk">VideoStabilization</a></li><li><a href="#shared-ROI" class="intrnllnk">ROI</a></li></ul></li></ul></li><li><a href="#bt7ovmc-1" class="intrnllnk">Output Arguments</a><ul class="nav"><li><a href="#bt548g7-1-mycamera" class="intrnllnk">mycamera</a></li></ul></li><li><a href="#mw_325c7fce-69cf-4192-b755-0c5cb7f001bc" class="intrnllnk">Extended Capabilities</a></li><li><a href="#bt548g7-1_seealso" class="intrnllnk">See Also</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref-function"><div class="function_ref"><span id="bt548g7-1" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">cameraboard</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Create connection to <span class="trademark entity">Raspberry
+        Pi</span> Camera Board Module</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage" data-allexpanded="true1">collapse all in page</a></div></div></div>
+<div class="ref_sect"><h2 id="d120e8227">Syntax</h2><div class="syntax_signature"><div class="syntax_signature_module"><div class="code_responsive"><code class="synopsis">mycamera = cameraboard(mypi)</code></div><div class="code_responsive"><code class="synopsis">mycamera = cameraboard(mypi,Name,Value)</code></div></div></div></div><div class="clear"></div><span id="bt548g7-2" class="anchor_target"></span><h2 id="description">Description</h2><div class="descriptions"><div class="description_module"><div class="description_element"><p class="syntax_example"><a href="cameraboard.cameraboard.html#bt548g7-1_sep_bt548hg-40" class="intrnllnk">example</a></p><div class="code_responsive"><p><span itemprop="syntax"><code class="synopsis"><a href="#bt548g7-1-mycamera" class="intrnllnk"><code class="argument">mycamera</code></a> = cameraboard(<a href="#bt548g7-1_sep_shared-mypi" class="intrnllnk"><code class="argument">mypi</code></a>)</code></span>
+                                creates a connection, <em class="replaceable"><code>mycamera</code></em>, from the
+                                        MATLAB<sup>&#x00AE;</sup> software to a Camera Board that is attached the
+                                        Raspberry
+        Pi&#x2122; board. You can capture video and still images by using
+                                        <em class="replaceable"><code>mycamera</code></em> with the <a href="raspi.cameraboard.record.html"><code class="function">record</code></a>,
+                                        <a href="raspi.cameraboard.stop.html"><code class="function">stop</code></a>,
+                                and <a href="raspi.cameraboard.snapshot.html"><code class="function">snapshot</code></a> methods. </p></div></div><div class="description_element"><p class="syntax_example"><a href="cameraboard.cameraboard.html#bt548g7-1_sep_bt548hg-40" class="intrnllnk">example</a></p><div class="code_responsive"><p><span itemprop="syntax"><code class="synopsis"><a href="#bt548g7-1-mycamera" class="intrnllnk"><code class="argument">mycamera</code></a> = cameraboard(<a href="#bt548g7-1_sep_shared-mypi" class="intrnllnk"><code class="argument">mypi</code></a>,<a href="#namevaluepairarguments" class="intrnllnk"><code class="argument">Name,Value</code></a>)</code></span>
+                                uses name-value pair arguments to override the default values of
+                                writable Camera Board properties. You can use these properties to
+                                control image properties such as size, resolution, orientation,
+                                exposure, and special effects.</p><p><code class="literal">Name</code> must appear inside single quotes (<code class="literal">'
+                                        '</code>). You can specify several name-value pair
+                                arguments in any order as
+                                        <code class="literal">Name1,Value1,...,NameN,ValueN</code>.</p></div></div></div></div><div class="clear"></div><div class="examples"><h2 id="bt548g7-5">Examples</h2><div class="expandableContent" id="expandableExamples"><p class="switch"><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true3">collapse all</a></p><div class="panel-group" role="tablist" aria-multiselectable="true" id="expand_panel_heading_bt548g7-1.bt548hg-40"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bt548g7-1_sep_bt548hg-40" data-target="#expand_panel_body_bt548g7-1_sep_bt548hg-40" aria-controls="expand_panel_body_bt548g7-1_sep_bt548hg-40" class="panel-heading add_cursor_pointer" aria-expanded="true"><h3 class="panel-title" id="bt548g7-1_sep_bt548hg-40">Use the Camera Board<br/> </h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bt548g7-1_sep_bt548hg-40" aria-labelledby="expand_panel_heading_bt548g7-1_sep_bt548hg-40" class="panel-collapse collapse in"><div class="panel-body">
+<p class="shortdesc">You can connect from the MATLAB  software
+to the Camera Board, take a photograph, and record video.</p>
+<div class="procedure"><p>Create a connection from the MATLAB  software to
+the Raspberry
+        Pi board.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>mypi = raspi</pre></div></div></div><p>Create a connection, <em class="replaceable"><code>mycam</code></em>,
+from the MATLAB  software to the Camera Board, and set the image
+resolution. The connection displays the Camera Board properties.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>mycam = cameraboard(mypi,<span style="color:#A020F0">'Resolution'</span>,<span style="color:#A020F0">'1280x720'</span>)</pre></div></div></div><div class="code_responsive"><div class="programlisting"><div class="codeoutput"><pre>mycam = 
+
+Cameraboard with Properties:
+
+                    Name: Camera Board   
+              Resolution: '1280x720'       (View available resolutions)
+                 Quality: 10              (1 to 100)
+                Rotation: 0               (0, 90, 180 or 270)
+          HorizontalFlip: 0              
+            VerticalFlip: 0              
+               FrameRate: 30              (2 to 30)
+               Recording: 0              
+
+   Picture Settings
+              Brightness: 50              (0 to 100)
+                Contrast: 0               (-100 to 100)
+              Saturation: 0               (-100 to 100)
+               Sharpness: 0               (-100 to 100)
+
+   Exposure and AWB
+            ExposureMode: 'auto'          (View available exposure modes)
+    ExposureCompensation: 0               (-10 to 10)
+                 AWBMode: 'auto'          (View available AWB modes)
+            MeteringMode: 'average'       (View available metering modes)
+
+   Effects
+             ImageEffect: 'none'          (View available image effects)
+      VideoStabilization: 'off'          
+                     ROI: [0.00 0.00 1.00 1.00] (0.0 to 1.0 [top, left, width, height])</pre></div></div></div><p>Import and display a sequence of 10 snapshots on your
+host computer. </p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre><span style="color:#0000FF">for</span> ii = 1:10
+img = snapshot(mycam)
+    imagesc(img)
+    drawnow
+<span style="color:#0000FF">end</span></pre></div></div></div><p>If the image is upside down, change its orientation.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>mycam.Rotation = 180</pre></div></div></div><p>You can use the same approach to change the values of many <code class="literal">cameraboard</code> properties.</p><p>Record a 60 second video.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>record(mycam,<span style="color:#A020F0">'myvideo.h264'</span>,60)</pre></div></div></div><p>Stop the recording immediately.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>stop(mycam)</pre></div></div></div><p>Copy the video from the board to your host computer.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>getFile(mypi,'myvideo.h264','C:\MATLAB ')</pre></div></div></div><p>Delete the video file from the board to free up space.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>deleteFile(mypi,<span style="color:#A020F0">'myvideo.h264'</span>)</pre></div></div></div></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="bt548g7-3">Input Arguments</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="panel-group" id="bt548g7-3_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NamedInputArgument" itemid="bt548g7-1_sep_shared-mypi"><div role="tab" data-toggle="collapse" id="expand_panel_heading_bt548g7-1_sep_shared-mypi" data-target="#expand_panel_body_bt548g7-1_sep_shared-mypi" aria-controls="expand_panel_body_bt548g7-1_sep_shared-mypi" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_mypi" class="anchor_target"></span><h3 class="panel-title" id="bt548g7-1_sep_shared-mypi"><code itemprop="name">mypi</code> &#8212; <span itemprop="purpose">Connection to specific Raspberry         Pi hardware board</span><br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue">raspi object</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bt548g7-1_sep_shared-mypi" aria-labelledby="expand_panel_heading_bt548g7-1_sep_shared-mypi" class="panel-collapse collapse in"><div class="panel-body">
+<p>Connection to a specific Raspberry
+        Pi hardware board, specified
+as a <a href="raspi.html"><code class="object">raspi</code></a> object.</p>
+<p>Use the <a href="raspi.raspi.html"><code class="function">raspi</code></a> function
+to create this connection.</p>
+</div></div></div></div></div><span id="namevaluepairarguments" class="anchor_target"></span><span id="bt7oxy0-1" class="anchor_target"></span><h3 id="namevaluepairs" class="bottom_ruled">Name-Value Pair Arguments</h3><div class="namevaluecontainer"><p class="nvpair_boilerplate">Specify optional
+      comma-separated pairs of <code class="argument">Name,Value</code> arguments. <code class="literal">Name</code> is
+      the argument name and <code class="literal">Value</code> is the corresponding value.
+        <code class="literal">Name</code> must appear inside quotes. You can specify several name and value
+      pair arguments in any order as <code class="literal">Name1,Value1,...,NameN,ValueN</code>.</p><span class="example_desc"><strong>Example: </strong><code class="literal">mycam =
+                                        cameraboard(mypi,'Resolution','1280x720')</code></span></div><div class="ref_sect"><div class="expandableContent"><div class="panel-group" id="d120e8366_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Resolution"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Resolution" data-target="#expand_panel_body_shared-Resolution" aria-controls="expand_panel_body_shared-Resolution" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Resolution" class="anchor_target"></span><h3 class="panel-title" id="shared-Resolution"><code itemprop="name">'Resolution'</code> &#8212; <span itemprop="purpose">Image dimensions</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'640x480'</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'160x120'</code></span> | <span itemprop="inputvalue"><code class="literal">'320x240'</code></span> | <span itemprop="inputvalue"><code class="literal">'800x600'</code></span> | <span itemprop="inputvalue"><code class="literal">'1024x768'</code></span> | <span itemprop="inputvalue"><code class="literal">'1280x720'</code></span> | <span itemprop="inputvalue"><code class="literal">'1920x1080'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Resolution" aria-labelledby="expand_panel_heading_shared-Resolution" class="panel-collapse collapse in"><div class="panel-body"><p>This property is read-only.</p>
+<p>Image dimensions, specified as a string. </p>
+<p>When you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object, you
+can specify this value.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'1024x768'</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Quality"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Quality" data-target="#expand_panel_body_shared-Quality" aria-controls="expand_panel_body_shared-Quality" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Quality" class="anchor_target"></span><h3 class="panel-title" id="shared-Quality"><code itemprop="name">'Quality'</code> &#8212; <span itemprop="purpose">JPEG image quality</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">10</code></span> (default) | <span itemprop="inputvalue">integer from 0 to 100</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Quality" aria-labelledby="expand_panel_heading_shared-Quality" class="panel-collapse collapse in"><div class="panel-body"><p>This property is read-only.</p>
+<p>JPEG image quality, specified as a scalar from 1 to 100 (low
+to high).</p>
+<p>The value of this parameter is inversely related to the amount
+of compression the camera performs upon the JPEG images. A value of <code class="literal">1</code> applies
+maximum compression. Avalue of 100 applies minimal compression.</p>
+<p>When you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object, you
+can specify this value.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">10</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Rotation"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Rotation" data-target="#expand_panel_body_shared-Rotation" aria-controls="expand_panel_body_shared-Rotation" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Rotation" class="anchor_target"></span><h3 class="panel-title" id="shared-Rotation"><code itemprop="name">'Rotation'</code> &#8212; <span itemprop="purpose">Degrees of clockwise rotation</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue"><code class="literal">90</code></span> | <span itemprop="inputvalue"><code class="literal">180</code></span> | <span itemprop="inputvalue"><code class="literal">270</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Rotation" aria-labelledby="expand_panel_heading_shared-Rotation" class="panel-collapse collapse in"><div class="panel-body">
+<p>Degrees of clockwise rotation, specified as <code class="literal">0</code>, <code class="literal">90</code>, <code class="literal">180</code>,
+or <code class="literal">270</code>.</p>
+<p>Use this value to alter the orientation of the images that the
+Camera Board captures.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">180</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-HorizontalFlip"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-HorizontalFlip" data-target="#expand_panel_body_shared-HorizontalFlip" aria-controls="expand_panel_body_shared-HorizontalFlip" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_HorizontalFlip" class="anchor_target"></span><h3 class="panel-title" id="shared-HorizontalFlip"><code itemprop="name">'HorizontalFlip'</code> &#8212; <span itemprop="purpose">Enable horizontal flip</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue"><code class="literal">1</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-HorizontalFlip" aria-labelledby="expand_panel_heading_shared-HorizontalFlip" class="panel-collapse collapse in"><div class="panel-body">
+<p>Enable horizontal flip, specified as a logical value.</p>
+<p>Use this value to reverse the left and right orientation of
+the images captured that the Camera Board captures.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">1</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">logical</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-VerticalFlip"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-VerticalFlip" data-target="#expand_panel_body_shared-VerticalFlip" aria-controls="expand_panel_body_shared-VerticalFlip" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_VerticalFlip" class="anchor_target"></span><h3 class="panel-title" id="shared-VerticalFlip"><code itemprop="name">'VerticalFlip'</code> &#8212; <span itemprop="purpose">Flip image vertically</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue"><code class="literal">1</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-VerticalFlip" aria-labelledby="expand_panel_heading_shared-VerticalFlip" class="panel-collapse collapse in"><div class="panel-body">
+<p>Flip image vertically, specified as a logical value.</p>
+<p>Use this value to reverse the top and bottom orientation of
+the images captured that the Camera Board captures.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">1</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">logical</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-FrameRate"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-FrameRate" data-target="#expand_panel_body_shared-FrameRate" aria-controls="expand_panel_body_shared-FrameRate" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_FrameRate" class="anchor_target"></span><h3 class="panel-title" id="shared-FrameRate"><code itemprop="name">'FrameRate'</code> &#8212; <span itemprop="purpose">Video frame rate</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">30</code></span> (default) | <span itemprop="inputvalue">integer from 2 to 30</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-FrameRate" aria-labelledby="expand_panel_heading_shared-FrameRate" class="panel-collapse collapse in"><div class="panel-body"><p>This property is read-only.</p>
+<p>Video frame rate, specified as a scalar from 2 to 30 frames
+per second (fps).</p>
+<p>When you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object, you
+can specify this value.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">30</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Brightness"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Brightness" data-target="#expand_panel_body_shared-Brightness" aria-controls="expand_panel_body_shared-Brightness" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Brightness" class="anchor_target"></span><h3 class="panel-title" id="shared-Brightness"><code itemprop="name">'Brightness'</code> &#8212; <span itemprop="purpose">Image brightness</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">50</code></span> (default) | <span itemprop="inputvalue">integer from 0 to 100</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Brightness" aria-labelledby="expand_panel_heading_shared-Brightness" class="panel-collapse collapse in"><div class="panel-body">
+<p>Image brightness, specified as a scalar from 0 to 100 (low to
+high).</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">60</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Contrast"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Contrast" data-target="#expand_panel_body_shared-Contrast" aria-controls="expand_panel_body_shared-Contrast" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Contrast" class="anchor_target"></span><h3 class="panel-title" id="shared-Contrast"><code itemprop="name">'Contrast'</code> &#8212; <span itemprop="purpose">Image contrast</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue">integer from -100 to 100</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Contrast" aria-labelledby="expand_panel_heading_shared-Contrast" class="panel-collapse collapse in"><div class="panel-body">
+<p>Image contrast, specified as a scalar from -100 to 100 (low
+to high).</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">60</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Saturation"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Saturation" data-target="#expand_panel_body_shared-Saturation" aria-controls="expand_panel_body_shared-Saturation" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Saturation" class="anchor_target"></span><h3 class="panel-title" id="shared-Saturation"><code itemprop="name">'Saturation'</code> &#8212; <span itemprop="purpose">Image color saturation</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue">integer from -100 to 100</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Saturation" aria-labelledby="expand_panel_heading_shared-Saturation" class="panel-collapse collapse in"><div class="panel-body">
+<p>Image color saturation, specified as a scalar from -100 to 100
+(low to high).</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">60</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-Sharpness"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-Sharpness" data-target="#expand_panel_body_shared-Sharpness" aria-controls="expand_panel_body_shared-Sharpness" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_Sharpness" class="anchor_target"></span><h3 class="panel-title" id="shared-Sharpness"><code itemprop="name">'Sharpness'</code> &#8212; <span itemprop="purpose">Image sharpness</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue">integer from -100 to 100</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-Sharpness" aria-labelledby="expand_panel_heading_shared-Sharpness" class="panel-collapse collapse in"><div class="panel-body">
+<p>Image sharpness, specified as a scalar from -100 to 100 (low
+to high).</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">60</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-ExposureMode"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-ExposureMode" data-target="#expand_panel_body_shared-ExposureMode" aria-controls="expand_panel_body_shared-ExposureMode" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_ExposureMode" class="anchor_target"></span><h3 class="panel-title" id="shared-ExposureMode"><code itemprop="name">'ExposureMode'</code> &#8212; <span itemprop="purpose">Exposure mode</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'auto'</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'night'</code></span> | <span itemprop="inputvalue"><code class="literal">'nightpreview'</code></span> | <span itemprop="inputvalue"><code class="literal">'backlight'</code></span> | <span itemprop="inputvalue"><code class="literal">'spotlight'</code></span> | <span itemprop="inputvalue"><code class="literal">'sports'</code></span> | <span itemprop="inputvalue"><code class="literal">'snow'</code></span> | <span itemprop="inputvalue"><code class="literal">'beach'</code></span> | <span itemprop="inputvalue"><code class="literal">'verylong'</code></span> | <span itemprop="inputvalue"><code class="literal">'fixedfps'</code></span> | <span itemprop="inputvalue"><code class="literal">'antishake'</code></span> | <span itemprop="inputvalue"><code class="literal">'fireworks'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-ExposureMode" aria-labelledby="expand_panel_heading_shared-ExposureMode" class="panel-collapse collapse in"><div class="panel-body">
+<p>Exposure mode, specified as a string.</p>
+<p>Select the exposure mode for various conditions, or use <code class="literal">auto</code> to
+have the camera select the best mode.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'backlight'</code></p>
+<p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-ExposureCompensation"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-ExposureCompensation" data-target="#expand_panel_body_shared-ExposureCompensation" aria-controls="expand_panel_body_shared-ExposureCompensation" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_ExposureCompensation" class="anchor_target"></span><h3 class="panel-title" id="shared-ExposureCompensation"><code itemprop="name">'ExposureCompensation'</code> &#8212; <span itemprop="purpose">Exposure compensation</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">0</code></span> (default) | <span itemprop="inputvalue">integer from -10 to 10</span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-ExposureCompensation" aria-labelledby="expand_panel_heading_shared-ExposureCompensation" class="panel-collapse collapse in"><div class="panel-body">
+<p>Exposure compensation, specified as a scalar from -10 to 10
+(low to high).</p>
+<p>Fine-tune the automatic exposure. For example, if a backlit
+subject is too dark when <code class="literal">ExposureMode</code> is <code class="literal">'backlight'</code>,
+increase the value of <code class="literal">ExposureCompensation</code>.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal remove_text_wrapping">-1</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-AWBMode"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-AWBMode" data-target="#expand_panel_body_shared-AWBMode" aria-controls="expand_panel_body_shared-AWBMode" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_AWBMode" class="anchor_target"></span><h3 class="panel-title" id="shared-AWBMode"><code itemprop="name">'AWBMode'</code> &#8212; <span itemprop="purpose">Automatic white balance mode</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'auto</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'off'</code></span> | <span itemprop="inputvalue"><code class="literal">'sun'</code></span> | <span itemprop="inputvalue"><code class="literal">'cloud'</code></span> | <span itemprop="inputvalue"><code class="literal">'shade'</code></span> | <span itemprop="inputvalue"><code class="literal">'tungsten'</code></span> | <span itemprop="inputvalue"><code class="literal">'fluorescent'</code></span> | <span itemprop="inputvalue"><code class="literal">'incandescent'</code></span> | <span itemprop="inputvalue"><code class="literal">'flash'</code></span> | <span itemprop="inputvalue"><code class="literal">'horizon'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-AWBMode" aria-labelledby="expand_panel_heading_shared-AWBMode" class="panel-collapse collapse in"><div class="panel-body">
+<p>Automatic white balance mode, specified as a string.</p>
+<p>Select the white balance mode for various conditions, or use <code class="literal">auto</code> to
+have the camera select the best mode.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p>This mode adjusts the hue of the image to match the color temperature
+of various light sources.</p>
+<p>For example, tungsten light bulbs tend to produce images that
+have an orange hue. To reduce this effect, set <code class="literal">AWBMode</code> to <code class="literal">auto</code> or <code class="literal">tungsten</code>.
+To keep this effect, set <code class="literal">AWBMode</code> to <code class="literal">off</code>.
+To heighten this effect, set <code class="literal">AWBMode</code> to <code class="literal">auto</code> or <code class="literal">shade</code>.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'backlight'</code></p>
+<p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-MeteringMode"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-MeteringMode" data-target="#expand_panel_body_shared-MeteringMode" aria-controls="expand_panel_body_shared-MeteringMode" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_MeteringMode" class="anchor_target"></span><h3 class="panel-title" id="shared-MeteringMode"><code itemprop="name">'MeteringMode'</code> &#8212; <span itemprop="purpose">Metering mode</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'average'</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'spot'</code></span> | <span itemprop="inputvalue"><code class="literal">'backlit'</code></span> | <span itemprop="inputvalue"><code class="literal">'matrix'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-MeteringMode" aria-labelledby="expand_panel_heading_shared-MeteringMode" class="panel-collapse collapse in"><div class="panel-body">
+<p>Metering mode, specified as a string.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p>This mode selects which portion of the image determines exposure. </p>
+<div class="itemizedlist"><ul><li><p><code class="literal">average</code> &#8212; Uses values from
+across the scene, with a moderate bias toward values near the center.</p></li><li><p><code class="literal">spot</code> &#8212; Uses values from
+a narrow area in the center of the image.</p></li><li><p><code class="literal">backlit</code> &#8212; Uses a cluster
+of lower values near the center of the image.</p></li><li><p><code class="literal">matrix</code> &#8212; Uses values from
+a grid of specific points in the image.</p></li></ul></div>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'backlight'</code></p>
+<p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-ImageEffect"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-ImageEffect" data-target="#expand_panel_body_shared-ImageEffect" aria-controls="expand_panel_body_shared-ImageEffect" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_ImageEffect" class="anchor_target"></span><h3 class="panel-title" id="shared-ImageEffect"><code itemprop="name">'ImageEffect'</code> &#8212; <span itemprop="purpose">Special effect</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'none</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'negative'</code></span> | <span itemprop="inputvalue"><code class="literal">'solarise'</code></span> | <span itemprop="inputvalue"><code class="literal">'sketch'</code></span> | <span itemprop="inputvalue"><code class="literal">'denoise'</code></span> | <span itemprop="inputvalue"><code class="literal">'emboss'</code></span> | <span itemprop="inputvalue"><code class="literal">'oilpaint'</code></span> | <span itemprop="inputvalue"><code class="literal">'hatch'</code></span> | <span itemprop="inputvalue"><code class="literal">'gpen'</code></span> | <span itemprop="inputvalue"><code class="literal">'pastel'</code></span> | <span itemprop="inputvalue"><code class="literal">'watercolour'</code></span> | <span itemprop="inputvalue"><code class="literal">'film'</code></span> | <span itemprop="inputvalue"><code class="literal">'blur'</code></span> | <span itemprop="inputvalue"><code class="literal">'saturation'</code></span> | <span itemprop="inputvalue"><code class="literal">'colourswap'</code></span> | <span itemprop="inputvalue"><code class="literal">'washedout'</code></span> | <span itemprop="inputvalue"><code class="literal">'posterise'</code></span> | <span itemprop="inputvalue"><code class="literal">'colourpoint'</code></span> | <span itemprop="inputvalue"><code class="literal">'colourbalance'</code></span> | <span itemprop="inputvalue"><code class="literal">'cartoon'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-ImageEffect" aria-labelledby="expand_panel_heading_shared-ImageEffect" class="panel-collapse collapse in"><div class="panel-body">
+<p>Special effect, specified as a string.</p>
+<p>Select a special effect, or use <code class="literal">none</code> to disable
+special effects.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'cartoon'</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-VideoStabilization"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-VideoStabilization" data-target="#expand_panel_body_shared-VideoStabilization" aria-controls="expand_panel_body_shared-VideoStabilization" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_VideoStabilization" class="anchor_target"></span><h3 class="panel-title" id="shared-VideoStabilization"><code itemprop="name">'VideoStabilization'</code> &#8212; <span itemprop="purpose">Video stabilization</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">'off'</code></span> (default) | <span itemprop="inputvalue"><code class="literal">'on'</code></span></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-VideoStabilization" aria-labelledby="expand_panel_heading_shared-VideoStabilization" class="panel-collapse collapse in"><div class="panel-body">
+<p>Video stabilization, specified as a string. </p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p>Activate built-in video stabilization to reduce effects of vibration.</p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">'on'</code></p><p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">char</code></p></div></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div itemscope="" itemprop="inputargument" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/NameValuePairInputArgument" itemid="shared-ROI"><div role="tab" data-toggle="collapse" id="expand_panel_heading_shared-ROI" data-target="#expand_panel_body_shared-ROI" aria-controls="expand_panel_body_shared-ROI" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="inputarg_ROI" class="anchor_target"></span><h3 class="panel-title" id="shared-ROI"><code itemprop="name">'ROI'</code> &#8212; <span itemprop="purpose">Region of interest</span><br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><span itemprop="inputvalue defaultvalue"><code class="literal">[0.00 0.00 1.00 1.00]</code></span> (default)</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_shared-ROI" aria-labelledby="expand_panel_heading_shared-ROI" class="panel-collapse collapse in"><div class="panel-body">
+<p>Region of interest (ROI), specified as a vector of four values:
+x, y, width, height.</p>
+<p>You can specify this value when you create the <a href="cameraboard.html"><code class="object">cameraboard</code></a> object,
+and later by writing a new value to the property that has the same
+name.</p>
+<p>ROI defines which portion of the camera sensor to use. You can
+use this definition to perform digital panning and zooming while you
+record video.</p>
+<p>For still images (<code class="function">snapshot</code>) and video (<code class="function">record</code>),
+the camera “smooths” ROI changes by applying them gradually
+over a sequence of image frames. </p>
+<p>The following values define the starting point and size of the
+ROI:</p>
+<div class="itemizedlist"><ul><li><p>X, the vertical starting point, from 0.0000 to 1.0000
+(top to bottom)</p></li><li><p>Y, the horizontal starting point, from 0.0000 to 1.0000
+(left to right)</p></li><li><p>Height, from 0.0000 to 1.0000 (small to large)</p></li><li><p>Width, from 0.0000 to 1.0000 (small to large)</p></li></ul></div>
+<p>The following illustration shows how X and Y position the ROI
+relative to the Camera Board sensor:</p>
+<div class="itemizedlist"><ul><li><p>The red dot is at X = 0.00 and Y = 0.00.</p></li><li><p>The blue dot is at X = 1.00, Y = 1.00.</p></li></ul></div>
+<div class="informalfigure"><div id="d120e9378" class="mediaobject"><p><img src="roi.png" alt="" height="215" width="293"></img></p></div></div>
+<p>For example, entering:</p>
+<p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>mycam.ROI = [0.50 0.50 0.33 0.33]</pre></div></div></div>produces
+the following ROI.</p>
+<div class="informalfigure"><div id="d120e9390" class="mediaobject"><p><img src="roi-example.png" alt="" height="209" width="293"></img></p></div></div><p></p>
+<p>The <code class="literal">0.50 0.50</code> values place the upper left
+corner of the ROI in the center of the sensor. The <code class="literal">0.33 0.33</code> values
+resize the ROI to 1/3 of the sensor. If ROI exceeds the dimensions
+of the sensor, the method that you are using produces the following
+error: <div class="code_responsive"><div class="programlisting"><div class="codeoutput"><pre>Index exceeds matrix dimensions.</pre></div></div></div></p>
+<p class="description_valueexample"><strong>Example: </strong><code class="literal">[0.50 0.50 0.33 0.33]</code></p>
+<p class="datatypelist"><strong>Data Types: </strong><code itemprop="datatype">double</code></p></div></div></div></div></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="bt7ovmc-1">Output Arguments</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="true">collapse all</a></p><div class="panel-group" id="bt7ovmc-1_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bt548g7-1-mycamera" data-target="#expand_panel_body_bt548g7-1-mycamera" aria-controls="expand_panel_body_bt548g7-1-mycamera" class="panel-heading add_cursor_pointer" aria-expanded="true"><span id="outputarg_mycamera" class="anchor_target"></span><h3 class="panel-title" id="bt548g7-1-mycamera"><code class="name">mycamera</code> &#8212; Connection to Raspberry         Pi Camera Board<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">cameraboard object</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bt548g7-1-mycamera" aria-labelledby="expand_panel_heading_bt548g7-1-mycamera" class="panel-collapse collapse in"><div class="panel-body">
+                                        <p>Connection to a Raspberry
+        Pi Camera Board.</p>
+                                        <p>You can use <code class="argument">mycamera</code> with the
+                                                following methods:</p>
+                                        <div class="itemizedlist"><ul><li><p><a href="raspi.cameraboard.record.html"><code class="function">record</code></a></p></li><li><p><a href="raspi.cameraboard.stop.html"><code class="function">stop</code></a></p></li><li><p><a href="raspi.cameraboard.snapshot.html"><code class="function">snapshot</code></a></p></li></ul></div>
+                                        <p>While creating <code class="argument">mycamera</code>, use the
+                                                  <a href="cameraboard.cameraboard.html#bt7oxy0-1" class="intrnllnk">Name-Value Pair Arguments</a> to configure
+                                                the Camera Board. After creating
+                                                  <code class="argument">mycamera</code>, use writable object
+                                                properties to configure the Camera Board. See <a href="cameraboard.html#buno94s-2" class="a">Properties</a>.</p>
+                                        <p>To see whether the Camera Board is recording video,
+                                                read the value of the <code class="literal">Recording</code>
+                                                property.</p>
+                                </div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_325c7fce-69cf-4192-b755-0c5cb7f001bc">Extended Capabilities</h2><div class="expand_collapse" id="accordion_mw_325c7fce-69cf-4192-b755-0c5cb7f001bc" role="tablist" aria-multiselectable="true"><span id="mw_1b312150-a4f6-4582-a48b-2859f96b2a2a" class="anchor_target"></span><span id="bt548g7-1" class="anchor_target"></span><h3 class="expand_trigger remove_cursor_pointer" id="mw_325c7fce-69cf-4192-b755-0c5cb7f001bc_codegen">C/C++ Code Generation<br/> <span class=" remove_bold add_font_color_general">Generate C and C++ code using MATLAB&#174; Coder&#8482;.</span></h3></div></div><div class="ref_sect"><h2 id="bt548g7-1_seealso">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="cameraboard.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="object">cameraboard</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="deletefile.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">deleteFile</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="getfile.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">getFile</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="raspi.raspi.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">raspi</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="raspi_examples.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">raspi_examples</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="raspi.cameraboard.record.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">record</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="raspi.cameraboard.snapshot.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">snapshot</code></span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="raspi.cameraboard.stop.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="function">stop</code></span></a></span></p><div class="examples_container"><h3 class="remove_border">Topics</h3><div itemprop="content"><ul class="list-unstyled"><li><a href="working-with-raspberry-pi-camera-board.html" class="a">Working with Raspberry Pi Camera Board</a></li><li><a href="../ug/get-video-from-the-raspberry-pi-camera-board.html" class="a">Use the Raspberry Pi Camera Board to Capture Images and Video</a></li><li><a href="../ug/issues-with-the-raspberry-pi-camera-board.html" class="a">Troubleshoot the Raspberry Pi Camera Board</a></li><li><a href="../camera-board.html" class="a">Camera Board</a></li><li><a href="../ug/about-the-raspberry-pi-camera-board.html" class="a">The Raspberry Pi Camera Board</a></li></ul></div></div><div class="examples_container"><h3 class="remove_border">External Websites</h3><div itemprop="content"><ul class="list-unstyled"><li><a href="https://www.raspberrypi.org/wp-content/uploads/2013/07/RaspiCam-Documentation.pdf" target="_blank">RaspiCam Documentation</a></li></ul></div></div></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:36 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

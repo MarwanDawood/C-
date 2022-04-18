@@ -1,0 +1,12 @@
+<example>
+  <main>GettingStartedWithSimulinkRaspberryPiHardwareExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <product>simulink</product>
+  <callback>open_system('raspberrypi_gettingstarted');</callback>
+  <file timestamp="1524243161" component="raspberrypi">raspberrypi_workflow.png</file>
+  <file timestamp="1524243161" component="raspberrypi">raspberrypi_verify_device_address.png</file>
+  <file timestamp="1524243161" component="raspberrypi">raspberrypi_build_model.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

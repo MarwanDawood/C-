@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Read temperature from a TMP102 sensor</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Read temperature from a TMP102 sensor",
+          "description": "This example illustrates how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to configure and read temperature from a TMP102 sensor.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.ReadTemperatureFromATMP102SensorExample",
+          "name": "ReadTemperatureFromATMP102SensorExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/ReadTemperatureFromATMP102SensorExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_3_modelb_gpio_pinmap.jpg"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example illustrates how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to configure and read temperature from a TMP102 sensor."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Read temperature from a TMP102 sensor</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e12473" class="intrnllnk">Introduction</a></li><li><a href="#d120e12484" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e12497" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e12520" class="intrnllnk">Model</a></li><li><a href="#d120e12530" class="intrnllnk">Task 1 - Connect the TMP102 sensor to the Raspberry Pi Hardware</a></li><li><a href="#d120e12551" class="intrnllnk">Task 2 - Configure the Model for Raspberry Pi Hardware</a></li><li><a href="#d120e12594" class="intrnllnk">Task 3 - Configure the Model to Read Temperature using the I2C Master Read Block</a></li><li><a href="#d120e12674" class="intrnllnk">Task 4 - Run the Model in External Mode</a></li><li><a href="#d120e12725" class="intrnllnk">Task 5 - Configure the Model to Initialize the Temperature Sensor to 13-bit Extended Mode</a></li><li><a href="#d120e12879" class="intrnllnk">Task 6 - Run the Model in External Mode</a></li><li><a href="#d120e12943" class="intrnllnk">Task 7 - Log the Temperature value into MAT file</a></li><li><a href="#d120e12987" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e13019" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_I2C_temp">Read temperature from a TMP102 sensor</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/ReadTemperatureFromATMP102SensorExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex83199558"></meta><meta itemprop="exampletitle" content="Read temperature from a TMP102 sensor"></meta></div><span id="ReadTemperatureFromATMP102SensorExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example illustrates how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to configure and read temperature from a TMP102 sensor.</p>
+
+<div class="procedure"><h3 class="title" id="d120e12473">Introduction<span id="ReadTemperatureFromATMP102SensorExample-1" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi Hardware enables you to use the I2C interface to communicate with I2C devices. In this example, you will learn how to read temperature from TMP102 digital sensor. This sensor is connected to the Raspberry Pi board using the I2C bus. By default, TMP102 sensor outputs temperature values with 12-bit precision which corresponds to a resolution of 0.0625 degree Celsius. You can configure TMP102 to provide 13-bit temperature measurements when needed. For more details about the device, refer to the <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a>.</p><p>This example shows how to program the Raspberry Pi board to read the temperature from the sensor using the I2C bus. It also illustrates how to program the Raspberry Pi board to initialize the sensor with some advanced settings.</p><h3 class="title" id="d120e12484">Prerequisites<span id="ReadTemperatureFromATMP102SensorExample-2" class="anchor_target"></span></h3><p>We recommend completing <a href="getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example and completing the <a href="communicating-with-raspberry-pi-hardware.html" class="a">Communicating with Raspberry Pi&#174; Hardware</a> example to learn about External mode. Refer to <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ug','about-i2c-interface-on-the-raspberry-pi-hardware.html'),'-helpbrowser')" target="_blank">The Raspberry Pi I2C Interface</a> to know more about the I2C interface on Raspberry Pi.</p><h3 class="title" id="d120e12497">Required Hardware<span id="ReadTemperatureFromATMP102SensorExample-3" class="anchor_target"></span></h3><p>To run this example, you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li><li><p><a href="https://www.sparkfun.com/products/11931" target="_blank">Sparkfun Digital Temperature Sensor Breakout - TMP102</a></p></li><li><p>USB cable</p></li><li><p>Breadboard wires</p></li><li><p>A breadboard (recommended)</p></li></ul></div><h3 class="title" id="d120e12520">Model<span id="ReadTemperatureFromATMP102SensorExample-4" class="anchor_target"></span></h3><p>The following figure shows the example model:</p><div class="informalfigure"><div id="d120e12527" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/ReadTemperatureFromATMP102SensorExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e12530">Task 1 - Connect the TMP102 sensor to the Raspberry Pi Hardware<span id="ReadTemperatureFromATMP102SensorExample-5" class="anchor_target"></span></h3><p>In this task, you have to connect the TMP102 sensor to the Raspberry Pi board. Refer to the following pin-out diagram of Raspberry Pi 3 Model B for connections.</p><p></p>
+<div class="informalfigure"><div id="d120e12538" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg" alt=""></img></p></div></div><p>
+ </p><p>Attach the TMP102 sensor to the Raspberry Pi board using the following connections:</p><div class="code_responsive"><pre class="programlisting">    TMP102 pin |   Raspberry Pi pin
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+      VCC      |  3.3 V
+      GND      |  GND
+      SDA      |  I2C1_SDA (GPIO 2)
+      SCL      |  I2C1_SCL (GPIO 3)
+      ALT      |  Not Connected
+      ADD0     |  GND
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</pre></div><p>This example shows Raspberry Pi 3 Model B connected to TMP102. However, you can connect any Raspberry Pi board supported by Simulink Support Package for Raspberry Pi Hardware. Use <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ref','showpins.html'),'-helpbrowser')" target="_blank">showPins</a> method to check the pin-out diagram of your Raspberry Pi board.</p><h3 class="title" id="d120e12551">Task 2 - Configure the Model for Raspberry Pi Hardware<span id="ReadTemperatureFromATMP102SensorExample-6" class="anchor_target"></span></h3><p>In this task, you have to configure the model for the Raspberry Pi hardware.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_I2C_temp" target="_blank">Read temperature from an I2C sensor using Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong>  In your Simulink model, click <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters</strong> to open <strong class="emphasis bold">Configuration Parameters</strong> dialog.</p><p><strong class="emphasis bold">3.</strong> Select the <strong class="emphasis bold">Hardware Implementation</strong> pane and select <strong class="emphasis bold">Raspberry Pi</strong> from the <strong class="emphasis bold">Hardware board</strong> parameter list. Do not change any other settings.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">OK</strong>.</p><h3 class="title" id="d120e12594">Task 3 - Configure the Model to Read Temperature using the I2C Master Read Block<span id="ReadTemperatureFromATMP102SensorExample-7" class="anchor_target"></span></h3><p>In this task, you have to configure the model to read data from the TMP102 sensor using the I2C Master Read block.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_I2C_temp" target="_blank">Read temperature from an I2C sensor using Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong> Configure the I2C Master Read block:</p><div class="itemizedlist"><ul><li><p>Open the I2C Master Read block. Notice that the <strong class="emphasis bold">Slave address</strong> parameter of the block is set to '0x48'. The ADD0 pin of the TMP102 sensor is grounded which corresponds to a <strong class="emphasis bold">7-bit address</strong> of 1001000 (0x48 in hexadecimal) according to the <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a>.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The TMP102 sensor contains multiple registers. On power-up reading data from the device returns the value stored in register 0 - <strong class="emphasis bold">Temperature Register (Read Only)</strong>. Leave the <strong class="emphasis bold">Enable register access</strong> parameter unchecked as you will read the Temperature Register in this step.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The Temperature Register has a size of 16-bit. It stores the 12-bit temperature value in a left justified 2's complement format. The TMP102 sensor sends data in Big Endian byte order. Select the <strong class="emphasis bold">Slave byte order</strong> to 'Big Endian', <strong class="emphasis bold">Data size (N)</strong> to 1, <strong class="emphasis bold">Data type</strong> to 'int16' (to take care of positive and negative temperature), and <strong class="emphasis bold">Sample Time</strong> to 0.1.</p></li></ul></div><p><strong class="emphasis bold">3.</strong> Notice the following in the model:</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">Gain</strong> block is used to right shift the int16 data by 4 bits (division by 16) to right justify the upper 12 bits of the temperature measurement. The <strong class="emphasis bold">Gain</strong> block also multiplies the 12-bit data with the sensor resolution of 0.0625 to get the corresponding temperature in Celsius.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The two <strong class="emphasis bold">Constant</strong> blocks with values of 1 and 0 are used with a <strong class="emphasis bold">Switch</strong> block to compare the temperature reading against a threshold of 27 degree Celsius. When temperature value read from TMP102 exceeds the threshold Raspberry Pi user LED glows. Try pressing on the TMP102 chip to increase sensor temperature to observe this behavior.</p></li></ul></div><h3 class="title" id="d120e12674">Task 4 - Run the Model in External Mode<span id="ReadTemperatureFromATMP102SensorExample-8" class="anchor_target"></span></h3><p>In this task, you have to run the model in <strong class="emphasis bold">External mode</strong> and monitor the temperature. The Raspberry Pi user LED, marked ACT on the board, will indicate when the TMP102 reading exceeds a specified temperature threshold.</p><p><strong class="emphasis bold">1.</strong> Change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar of the model to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">2.</strong> Click the <strong class="emphasis bold">Run</strong> button on the toolbar of the model to run it in External mode.</p><p><strong class="emphasis bold">3.</strong> Notice that the <strong class="emphasis bold">Display</strong> block in the model shows the TMP102 sensor temperature reading in degree Celsius.</p><p><strong class="emphasis bold">4.</strong> Observe the Raspberry Pi onboard ACT LED glow when the Display block in the model shows a temperature above 27 degree Celsius.</p><p><strong class="emphasis bold">5.</strong> Change the threshold value in the Switch block according to your ambient temperature and click <strong class="emphasis bold">Apply</strong>. See the onboard ACT LED glow when the temperature exceeds the new threshold value.</p><p><strong class="emphasis bold">6.</strong> Click the <strong class="emphasis bold">Stop</strong> button in the Simulink model to end the External mode execution.</p><h3 class="title" id="d120e12725">Task 5 - Configure the Model to Initialize the Temperature Sensor to 13-bit Extended Mode<span id="ReadTemperatureFromATMP102SensorExample-9" class="anchor_target"></span></h3><p>This task shows you how to write to one of the registers on the TMP102 sensor to configure it to 13-bit Extended mode.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_I2C_temp_init" target="_blank">Initialize and Read temperature from I2C sensor using Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong> Notice the two subsystems in the model:</p><p>The <a href="matlab:load_system('raspberrypi_I2C_temp_init');hilite_system('raspberrypi_I2C_temp_init/One_time_initialization')" target="_blank">One_time_initialization</a> subsystem configures the TMP102 sensor to run in 13-bit Extended mode.</p><p>The <a href="matlab:load_system('raspberrypi_I2C_temp_init');hilite_system('raspberrypi_I2C_temp_init/Execution_loop')" target="_blank">Execution_loop</a> subsystem reads the 13-bit temperature value.</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">One_time_initialization</strong> subsystem executes only once at model initialization while the <strong class="emphasis bold">Execution_loop</strong> subsystem runs at every sample time hit. This selective execution of subsystems is handled using the <strong class="emphasis bold">Unit Delay</strong> and the <strong class="emphasis bold">Enabled Subsystem</strong> blocks from the Simulink library.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The sensor is configured in Extended mode by setting the <strong class="emphasis bold">EM</strong> bit in the <strong class="emphasis bold">Configuration Register</strong> to 1 as per the <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a>. This means a value of '0x60B0' to be written to the Configuration Register located at address 1 of the TMP102 sensor.</p></li></ul></div><p><strong class="emphasis bold">3.</strong> Open the <strong class="emphasis bold">One_time_initialization</strong> subsystem.</p><p><strong class="emphasis bold">4.</strong> Configure the I2C Master Write block to write to the Configuration Register of the TMP102 sensor:</p><div class="itemizedlist"><ul><li><p>Open the I2C Write Master block. The <strong class="emphasis bold">Slave address</strong> parameter of the block is set to '0x48'.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Select the <strong class="emphasis bold">Enable register access</strong> parameter. Then the <strong class="emphasis bold">Slave register address</strong> parameter appears in the block.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Set the <strong class="emphasis bold">Slave register address</strong> parameter to 1. The address of the Configuration Register is 1 as per <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a>.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Set the <strong class="emphasis bold">Slave byte order</strong> parameter to Big Endian as data needs to be sent over the I2C bus in Big Endian byte order.</p></li></ul></div><p><strong class="emphasis bold">5.</strong> Notice the following in the <strong class="emphasis bold">One_time_initialization</strong> subsystem:</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">Constant</strong> block holds a value of '0x60B0' of uint16 data type to be written to the Configuration Register.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The I2C Master Read block connected to the Display block ensures that the correct data is written to the Configuration Register. The I2C Master Read block uses the same settings as the I2C Master Write block. The <strong class="emphasis bold">Data size (N)</strong> parameter is set to 1 and <strong class="emphasis bold">Data type</strong> is set to uint16.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The priority of the I2C Master Write block is set to 1. The priority of the I2C Master Read block is set to any value higher than 1 to ensure you read the value of the Configuration Register after it is set. To set the Priority of a block, right click on the block &gt; Properties &gt; General &gt; Priority. To know more about block priorities and their impact on block execution order, refer to <a href="matlab:helpview(fullfile(docroot,'simulink','ug','block-properties-dialog-box.html'),'-helpbrowser')" target="_blank">Set Block Properties</a>.</p></li></ul></div><p><strong class="emphasis bold">6.</strong> Open the <strong class="emphasis bold">Execution_loop</strong> subsystem and observe the following:</p><div class="itemizedlist"><ul><li><p>This subsystem resembles the <a href="matlab:raspberrypi_I2C_temp" target="_blank">Read temperature from an I2C sensor using Raspberry Pi Hardware</a> model.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">Gain</strong> block performs a division by 8 that corresponds to a right shift of 3 bits. The division right justifies the 13-bit temperature value.</p></li></ul></div><h3 class="title" id="d120e12879">Task 6 - Run the Model in External Mode<span id="ReadTemperatureFromATMP102SensorExample-10" class="anchor_target"></span></h3><p>In this task, you have to run the model in <strong class="emphasis bold">External mode</strong> to monitor the temperature.</p><p><strong class="emphasis bold">1.</strong> Change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar of the model to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">2.</strong> Click the <strong class="emphasis bold">Run</strong> button on the toolbar of the model to run it in External mode.</p><p><strong class="emphasis bold">3.</strong> Open the <strong class="emphasis bold">One_time_initialization</strong> subsystem.</p><p><strong class="emphasis bold">4.</strong> Verify that the <strong class="emphasis bold">Display</strong> block shows a value of '0x60B0' in hexadecimal corresponding to the desired Configuration Register value.</p><p><strong class="emphasis bold">5.</strong> Monitor the <strong class="emphasis bold">Display</strong> block connected to the <strong class="emphasis bold">Execution_loop</strong> subsystem to observe the TMP102 temperature reading in degree Celsius. The Raspberry Pi onboard  ACT LED glows when the Display block in the model shows a temperature above 27 degree Celsius.</p><p><strong class="emphasis bold">6.</strong> Change the threshold value in the Switch block according to your ambient temperature and click <strong class="emphasis bold">Apply</strong>. See the onboard ACT LED glow when the temperature exceeds the new threshold value.</p><p><strong class="emphasis bold">7.</strong> Click the <strong class="emphasis bold">Stop</strong> button in the Simulink model to end the External mode execution.</p><h3 class="title" id="d120e12943">Task 7 - Log the Temperature value into MAT file<span id="ReadTemperatureFromATMP102SensorExample-11" class="anchor_target"></span></h3><p>With the Simulink Support Package for Raspberry Pi hardware, you can log signals present in your Simulink model. In this task, we will log the temperature value read from the I2C sensor.</p><p><strong class="emphasis bold">1.</strong> Attach a <strong class="emphasis bold">To Workspace</strong> block to the output of the <strong class="emphasis bold">Execution_loop</strong> subsystem.</p><p><strong class="emphasis bold">2.</strong> Double click on the <strong class="emphasis bold">To Workspace</strong> block to configure it.</p><p><strong class="emphasis bold">3.</strong> Follow the steps mentioned in Task-2 of <a href="mat-file-logging-on-raspberry-pi-hardware.html" class="a">MAT-file logging on Raspberry Pi&#8482; Hardware</a> to enable MAT file logging.</p><p><strong class="emphasis bold">4.</strong> In your Simulink model, set the time for which you wish to log the signal.</p><p><strong class="emphasis bold">5.</strong> Run the model in either Normal mode or External mode.</p><p><strong class="emphasis bold">6.</strong> After the specified time has elapsed, you can import the MAT files into MATLAB for further analysis. Follow the steps mentioned in Task-4 of <a href="mat-file-logging-on-raspberry-pi-hardware.html" class="a">MAT-file logging on Raspberry Pi&#8482; Hardware</a> to import the MAT files generated on your Raspberry Pi hardware.</p><h3 class="title" id="d120e12987">Other Things to Try<span id="ReadTemperatureFromATMP102SensorExample-12" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Configure the TMP102 sensor to restore the output to 12-bit.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Change the conversion rate of the ADC in the sensor using the Configuration Register. Refer to the Continuous-Conversion Mode and the Configuration Register sections in <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a> for more details.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Refer to the <a href="http://www.ti.com.cn/cn/lit/ds/symlink/tmp102.pdf" target="_blank">TMP102 datasheet</a> and try to configure TMP102 to run in <strong class="emphasis bold">Shutdown Mode</strong> and/or <strong class="emphasis bold">Comparator Mode</strong>. Try to change the values of High-and-Low-Limit-Registers.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Follow the steps in this example to communicate with other I2C sensors such as SenseHAT.</p></li></ul></div><h3 class="title" id="d120e13019">Summary<span id="ReadTemperatureFromATMP102SensorExample-13" class="anchor_target"></span></h3><p>This example showed how to program your Raspberry Pi board to configure and read temperature from an I2C sensor. In this example, you learned how to:</p><div class="itemizedlist"><ul><li><p>Communicate with an I2C sensor.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Program the Raspberry Pi board to write data to and read data from specific registers on the I2C sensor.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Initialize the sensor with some advanced settings.</p></li></ul></div><p>You can use this example as a reference to access other I2C sensors.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

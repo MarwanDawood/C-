@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../run-on-hardware.html",
+          "name": "Run on Target Hardware"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "run-on-hardware"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware",
+          "description": "This example shows you the how to deploy a MATLAB&#174; function as a standalone executable on the Raspberry Pi&#8482; Hardware using MATLAB Support Package for Raspberry Pi Hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/code_generation_report.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.DeployAMATLABFunctionOnTheRaspberryPiHardwareExample",
+          "name": "DeployAMATLABFunctionOnTheRaspberryPiHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": ""
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "code_analyzer_errorfree.png",
+        "code_generation_report.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you the how to deploy a MATLAB&#174; function as a standalone executable on the Raspberry Pi&#8482; Hardware using MATLAB Support Package for Raspberry Pi Hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/code_generation_report.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-hardware">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=run-on-hardware">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=run-on-hardware">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../run-on-hardware.html" itemprop="url"><span itemprop="title">Run on Target Hardware</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e24969" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e24982" class="intrnllnk">Required Products</a></li><li><a href="#d120e24996" class="intrnllnk">Step 1: Create a MATLAB Function</a></li><li><a href="#d120e25020" class="intrnllnk">Step 2: Run the MATLAB Function Using Live IO from Hardware</a></li><li><a href="#d120e25050" class="intrnllnk">Step 3: Add the Compilation Directive to the MATLAB Function</a></li><li><a href="#d120e25064" class="intrnllnk">Step 4: Check the MATLAB Function Using Code Analyzer</a></li><li><a href="#d120e25092" class="intrnllnk">Step 5: Check the MATLAB Function for Unsupported calls</a></li><li><a href="#d120e25162" class="intrnllnk">Step 6: Create a Hardware Configuration Object</a></li><li><a href="#d120e25197" class="intrnllnk">Step 7: Deploy the MATLAB Function on Hardware</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-deployment_workflow">Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex61041629"></meta><meta itemprop="exampletitle" content="Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware"></meta></div><span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you the how to deploy a MATLAB&#174; function as a standalone executable on the Raspberry Pi&#8482; Hardware using MATLAB Support Package for Raspberry Pi Hardware.</p>
+
+<p>To demonstrate the steps in the workflow, this example uses a blinking LED function. In this example, you will learn how to create the <code class="literal">blinkLED</code> MATLAB function, prepare the function for deployment, and then deploy the function as a standalone executable on the hardware. On successful deployment, the ACT LED on the hardware starts blinking every 0.5 seconds and continues to run even after you disconnect the hardware from the computer.</p>
+
+<div class="procedure"><h3 class="title" id="d120e24969">Prerequisites<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-1" class="anchor_target"></span></h3><p>Before you start with this example, we recommend you to complete these examples:</p><div class="itemizedlist"><ul><li><p><a href="getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a></p></li><li><p><a href="working-with-raspberry-pi-hardware.html" class="a">Working with Raspberry Pi Hardware</a></p></li></ul></div><h3 class="title" id="d120e24982">Required Products<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>MATLAB Coder license</p></li></ul></div><h3 class="title" id="d120e24996">Step 1: Create a MATLAB Function<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-3" class="anchor_target"></span></h3><p>1. Copy the <code class="literal">blinkLED</code> function and paste it in the MATLAB Editor. The function implements an algorithm to blink the ACT LED on the Raspberry Pi hardware every 0.5 seconds for 100 cycles.</p><p><strong class="emphasis bold">Note</strong>: MATLAB functions with input or output arguments are not supported for deployment on the hardware.</p><div class="code_responsive"><pre class="programlisting">function blinkLED()</pre></div><div class="code_responsive"><pre class="programlisting">% Create a Raspberry Pi object
+r= raspi();</pre></div><div class="code_responsive"><pre class="programlisting">% Blink the LED for 100 cycles
+for count = 1:100
+    % Turn on the LED
+    writeLED(r,"LED0", 1);
+    % Pause for 0.5 seconds
+    pause(0.5);
+    % Turn off the LED
+    writeLED(r,"LED0", 0);
+    % Pause for 0.5 seconds
+    pause(0.5);
+end
+end</pre></div><p>2. Save the function as <code class="literal">blinkLED.m</code> to a folder to which you have write access.</p><h3 class="title" id="d120e25020">Step 2: Run the MATLAB Function Using Live IO from Hardware<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-6" class="anchor_target"></span></h3><p>Before deploying the function, running the MATLAB function by using live input and output (IO) from the hardware is recommended.</p><p>Using live IO enables you to:</p><div class="itemizedlist"><ul><li><p>Verify that the MATLAB function is communicating with the hardware as expected.</p></li><li><p>Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.</p></li></ul></div><p>Run the <code class="literal">blinkLED</code> function by using the <code class="literal">run</code> command in the MATLAB Command Window. When you run the <code class="literal">blinkLED</code> function, MATLAB connects to the hardware and starts executing the function on the hardware. The ACT LED starts blinking every 0.5 seconds.</p><p>run blinkLED</p><p>Before proceeding, fix any errors you might have detected in this step.</p><h3 class="title" id="d120e25050">Step 3: Add the Compilation Directive to the MATLAB Function<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-9" class="anchor_target"></span></h3><p>Add the <code class="literal">%#codegen</code> directive (or pragma) after the <code class="literal">blinkLED</code> function signature to indicate that you intend to deploy the MATLAB function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.</p><div class="code_responsive"><pre class="programlisting">function blinkLED() %#codegen</pre></div><h3 class="title" id="d120e25064">Step 4: Check the MATLAB Function Using Code Analyzer<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-10" class="anchor_target"></span></h3><p>The Code Analyzer checks the MATLAB function for code violations at design time, minimizing compilation errors. The code analyzer continuously checks your code as you enter it. It reports problems and recommends modifications.</p><p>Check the <code class="literal">blinkLED</code> function for any errors and warnings by following the steps in <a href="../ug/check-the-matlab-function-using-code-analyzer.html" class="a">Check the MATLAB Function Using Code Analyzer</a> and fix them before proceeding to the next step.</p><p>The analyzer provides an indicator in the top right of the editor window. The color of the indicator helps you identify if the function has any errors or warnings.</p><div class="code_responsive"><pre class="programlisting">    Color of Indicator   | Description
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    Green                | Function has no errors or warnings
+    Orange               | Function has warnings
+    Red                  | Function has errors</pre></div><p>In this example, the green color of the indicator specifies that the <code class="literal">blinkLED</code> function has no errors or warnings.</p><p></p>
+<div class="informalfigure"><div id="d120e25088" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxcode_analyzer_errorfree.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e25092">Step 5: Check the MATLAB Function for Unsupported calls<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-11" class="anchor_target"></span></h3><p>Debug the <code class="literal">blinkLED</code> function and ensure if all the calls in the function are supported by code generation.</p><p>To fix the unsupported function call errors, perform one of these steps:</p><p>1. <strong class="emphasis bold">Declare the function as coder.extrinsic</strong>: When you declare a function call as an extrinsic function, the code generator does not produce code for that function. It instead dispatches them to MATLAB for execution. For more information, see <a href="../../../coder/ug/calling-matlab-functions.html#bq1h2z9-40" class="a">Declaring MATLAB Functions as Extrinsic Functions</a> (MATLAB Coder).</p><p>2. <strong class="emphasis bold">Replace with an equivalent call supported by code generation</strong>: Replace the unsupported calls with an equivalent call that is supported by code generation. Including calls supported by code generation ensures that the function will behave the same as tested in <strong class="emphasis bold">Run the Function Using Live IO from Hardware</strong> after the deployment.</p><p>Some of the calls supported by code generation are listed here:</p><div class="itemizedlist"><ul><li><p><a href="../../../coder/ug/functions-supported-for-code-generation-alphabetical-list.html" class="a">Functions and Objects Supported for C/C++ Code Generation &#8212; Alphabetical List</a> (MATLAB Coder).</p></li><li><p><a href="../../../coder/ug/matlab-language-features-supported-for-code-generation.html" class="a">MATLAB Language Features Supported for C/C++ Code Generation</a> (MATLAB Coder)</p></li><li><p><a href="../ug/functions-supported-for-deployment.html" class="a">Functions Supported for Deployment</a></p></li></ul></div><p>In this example, the <a href="../../../matlab/ref/pause.html" class="a"><code class="olink">pause</code></a> function at line number 11 and 15 is not supported by code generation. Deploying the <code class="literal">blinkLED</code> function without any modification will result in an executable that may not behave exactly the same as expected.</p><p>To fix this unsupported call error, replace <code class="literal">pause</code> with an equivalent function supported by code generation. You can replicate the functionality of the <code class="literal">pause</code> function by using the <code class="literal">system</code> function provided by the MATLAB Support Package for Raspberry Pi Hardware. Provide the Linux&#174; terminal command, <code class="literal">sleep</code>, as the input argument to the <code class="literal">system</code> function.</p><div class="code_responsive"><pre class="programlisting">function blinkLED() %#codegen</pre></div><div class="code_responsive"><pre class="programlisting">% Create a Raspberry Pi object
+r= raspi();</pre></div><div class="code_responsive"><pre class="programlisting">%Blink the LED for 100 cycles
+for count = 1:100
+    % Turn on the LED
+    writeLED(r,'LED0', 1);
+    % Pause for 0.5 seconds
+    system(r, 'sleep 0.5');
+    % Turn off the LED
+    writeLED(r,'LED0', 0);
+    % Pause for 0.5 seconds
+    system(r, 'sleep 0.5');
+end
+end</pre></div><h3 class="title" id="d120e25162">Step 6: Create a Hardware Configuration Object<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-14" class="anchor_target"></span></h3><p>1. Create a hardware configuration object by using the <code class="literal"><a href="targethardware.targethardware.html" class="a"><code class="olink">targetHardware</code></a></code> function in the MATLAB Command Window.</p><div class="code_responsive"><pre class="programlisting">board = targetHardware('Raspberry Pi')</pre></div><div class="code_responsive"><pre class="programlisting">board =</pre></div><div class="code_responsive"><pre class="programlisting">targetHardware with properties:</pre></div><div class="code_responsive"><pre class="programlisting">            Name: 'Raspberry Pi'
+   DeviceAddress: '176.93.236.232'
+        Username: 'pi'
+        Password: '*********'
+        BuildDir: '/home/pi'
+     BuildAction: 'Build, load, and run'</pre></div><p>2. Verify the <code class="literal">DeviceAddress</code>, <code class="literal">Username</code>, and <code class="literal">Password</code> properties listed in the output. If required, change the value of the properties by using dot notation syntax.</p><p>For example, to change the device address to <code class="literal">173.21.22.327</code>, enter:</p><div class="code_responsive"><pre class="programlisting">board.DeviceAddress = '173.21.22.327'</pre></div><h3 class="title" id="d120e25197">Step 7: Deploy the MATLAB Function on Hardware<span id="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample-21" class="anchor_target"></span></h3><p>Deploy the MATLAB function as a standalone executable on the hardware by using the <code class="literal"><span class="missinglink"></span></code> function.</p><div class="code_responsive"><pre class="programlisting">deploy(board,'blinkLED')</pre></div><p>Code generation successful: View report</p><p>The <code class="literal">deploy</code> function initiates code generation of the <code class="literal">blinkLED</code> function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the <code class="literal">blinkLED</code> function for any build errors and warnings in the generated code.</p><p>After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts blinking the ACT LED on the hardware every 0.5 seconds. The blinking continues for 100 cycles.</p><p></p>
+<div class="informalfigure"><div id="d120e25225" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxcode_generation_report.png" alt=""></img></p></div></div><p>
+ </p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:36 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

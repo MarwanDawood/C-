@@ -1,0 +1,9 @@
+<example>
+  <main>WorkingWithRaspberryPiCameraBoardExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524836335" component="raspberrypiio">camera_board_connection.png</file>
+  <file timestamp="1524836335" component="raspberrypiio">roi_diagram.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

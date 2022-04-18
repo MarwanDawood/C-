@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Parametric Audio Equalizer</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Parametric Audio Equalizer",
+          "description": "This example shows how to use ALSA Audio Playback block from the Raspberry Pi&#174; block library to implement a parametric audio equalizer algorithm with a Simulink&#174; model and to run the model on Raspberry Pi hardware.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxaudio_equalizer_gui.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.ParametricAudioEqualizerExample",
+          "name": "ParametricAudioEqualizerExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/ParametricAudioEqualizerExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "audio_equalizer_gui.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to use ALSA Audio Playback block from the Raspberry Pi&#174; block library to implement a parametric audio equalizer algorithm with a Simulink&#174; model and to run the model on Raspberry Pi hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxaudio_equalizer_gui.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Parametric Audio Equalizer</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e3057" class="intrnllnk">Introduction</a></li><li><a href="#d120e3067" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e3077" class="intrnllnk">Required Products</a></li><li><a href="#d120e3085" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e3102" class="intrnllnk">Task 1 - Configure and Run the Parametric Equalizer Model</a></li><li><a href="#d120e3194" class="intrnllnk">Task 2 - Change the Frequency Response of the Parametric Equalizer</a></li><li><a href="#d120e3223" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e3234" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_audioequalizer">Parametric Audio Equalizer</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/ParametricAudioEqualizerExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex59430568"></meta><meta itemprop="exampletitle" content="Parametric Audio Equalizer"></meta></div><span id="ParametricAudioEqualizerExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to use  ALSA Audio Playback block from the Raspberry Pi&#174; block library to implement a parametric audio equalizer algorithm with a Simulink&#174; model and to run the model on Raspberry Pi hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e3057">Introduction<span id="ParametricAudioEqualizerExample-1" class="anchor_target"></span></h3><p>Parametric equalizers are used to adjust the frequency response of audio systems. For example, a parametric equalizer can be used to compensate for biases with specific speakers that have peaks and dips at different frequencies.</p><p>In this example, you will implement a parametric audio equalizer with a Simulink model and then run that model on Raspberry Pi hardware. The parametric equalizer algorithm in this example provides three second-order (bi-quadratic) filters whose coefficients can be adjusted to achieve a desired frequency response. A graphical user interface (GUI) is used in simulation to dynamically adjust filter coefficients and explore behavior.</p><p>The following sections will describe how the parametric equalizer algorithm is specified,  how the performance can be assessed through simulation, and how the model is run on Raspberry Pi hardware. You will also learn how the ALSA Audio Playback block is used to output audio signals.</p><h3 class="title" id="d120e3067">Prerequisites<span id="ParametricAudioEqualizerExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e3077">Required Products<span id="ParametricAudioEqualizerExample-3" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>DSP System Toolbox&#8482;</p></li></ul></div><h3 class="title" id="d120e3085">Required Hardware<span id="ParametricAudioEqualizerExample-4" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>Headphones, speakers or a TV/Monitor with HDMI input</p></li></ul></div><div class="informalfigure"><div id="d120e3099" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/ParametricAudioEqualizerExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e3102">Task 1 - Configure and Run the Parametric Equalizer Model<span id="ParametricAudioEqualizerExample-5" class="anchor_target"></span></h3><p>In this task, you will configure and run the parametric equalizer model on Raspberry Pi hardware.</p><p><strong class="emphasis bold">1.</strong>  Connect a pair of speakers or headphones to the analog audio output connector on the Raspberry Pi hardware.</p><p><strong class="emphasis bold">2.</strong> Open the <a href="matlab:raspberrypi_audioequalizer" target="_blank">Parametric Audio Equalizer</a> model.</p><p><strong class="emphasis bold">3.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Review the parameters on the page that opens. If you performed a Firmware Update, Board information will be automatically populated with the host name, user name and password of your Raspberry Pi hardware. If you have not performed a Firmware Update or you need to change the board parameters, enter the IP address, user name and password of your Raspberry Pi hardware.</p><p><strong class="emphasis bold">4.</strong> In the model, make sure that the <strong class="emphasis bold">Simulation mode</strong> on the toolbar is set to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">5.</strong> In the Simulink model, double-click on the Signal From Workspace block. The block outputs the samples of the signal called <strong class="emphasis bold">audioSignal</strong> at a rate of 44100 samples per second. The <strong class="emphasis bold">audioSignal</strong> is read from a wave file called <strong class="emphasis bold">guitartune.wav</strong> in the model <strong class="emphasis bold">InitFcn</strong> callback. To view model callbacks click on File &gt; Model Properties &gt; Model Properties and navigate to desired callback function in the <strong class="emphasis bold">Model Properties</strong> GUI.</p><p><strong class="emphasis bold">6.</strong> In the Simulink model, double-click on the ALSA Audio Playback block. Note that this block sends the processed audio signal to the 'Default' audio device on the Raspberry Pi hardware. You can also enter the name of an audio device such as 'plughw:0,0' to send audio to a device other than the 'Default' audio device. To get a list of audio playback devices on your Raspberry Pi hardware, execute the following command on the MATLAB command line:</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi;
+a = listAudioDevices(r,'playback')</pre></div><p>The output returned by the listAudioDevices function is a structure array containing the name and the device numbers of the available audio playback devices. A typical output is:</p><div class="code_responsive"><pre class="programlisting">a(1)
+    Name: ' bcm2835 - bcm2835 ALSA...'
+  Device: '0,0'</pre></div><div class="code_responsive"><pre class="programlisting">a(2)
+    Name: ' bcm2835 - bcm2835 ALSA...'
+  Device: '0,1'</pre></div><div class="code_responsive"><pre class="programlisting">a(3)
+    Name: ' USB-Audio - USB PnP Sound Device...'
+  Device: '1,0'</pre></div><p>The output above indicates that there are three audio playback devices with ALSA audio device numbers <strong class="emphasis bold">0,0</strong>, <strong class="emphasis bold">0,1</strong> and <strong class="emphasis bold">1,0</strong>. The first two devices correspond to the analog audio output and the HDMI output of the Raspberry Pi board. The third device is a USB audio dongle. To use the playback device <strong class="emphasis bold">0,0</strong>, enter 'plughw:0,0' for the <strong class="emphasis bold">Device name</strong> parameter on the ALSA Audio Playback block.</p><p><strong class="emphasis bold">7.</strong> In the model, click the <strong class="emphasis bold">Run</strong> button on the toolbar to run the model on the Raspberry Pi hardware.</p><h3 class="title" id="d120e3194">Task 2 - Change the Frequency Response of the Parametric Equalizer<span id="ParametricAudioEqualizerExample-6" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> As the model is running on Raspberry Pi hardware, you will hear audio from the speakers/headphones connected to the Raspberry Pi hardware.</p><p><strong class="emphasis bold">2.</strong> A GUI displaying the frequency response of the audio equalizer will appear as shown in the picture below:</p><p></p>
+<div class="informalfigure"><div id="d120e3208" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxaudio_equalizer_gui.png" alt=""></img></p></div></div><p>
+ </p><p><strong class="emphasis bold">3.</strong> Click and drag the markers or lines in the Three Band Equalizer GUI to specify the desired filter response characteristics. Note the change in audio output as the frequency response of the equalizer changes.</p><p><strong class="emphasis bold">4.</strong> Press the <strong class="emphasis bold">Stop</strong> button on the model to stop model execution.</p><h3 class="title" id="d120e3223">Other Things to Try<span id="ParametricAudioEqualizerExample-7" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Change the volume of the sound sent to speakers/headphones by tuning the <strong class="emphasis bold">Gain</strong> parameter in the 'Sum left &amp; right channels and to single* subsystem in the Simulink model.</p></li></ul></div><h3 class="title" id="d120e3234">Summary<span id="ParametricAudioEqualizerExample-8" class="anchor_target"></span></h3><p>This example showed a Simulink model of a parametric audio equalizer. Using External mode, equalizer settings were changed in real-time as the model executed on Raspberry Pi hardware.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

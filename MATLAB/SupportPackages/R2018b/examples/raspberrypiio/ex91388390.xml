@@ -1,0 +1,11 @@
+<example>
+  <main>AutorotateLEDMatrixDisplayExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524825662" component="raspberrypiio">sensehat_rot0.png</file>
+  <file timestamp="1524825662" component="raspberrypiio">sensehat_rot90.png</file>
+  <file timestamp="1524825662" component="raspberrypiio">sensehat_rot180.png</file>
+  <file timestamp="1524825662" component="raspberrypiio">sensehat_rot270.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

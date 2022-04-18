@@ -1,0 +1,8 @@
+<example>
+  <main>BuildAMotionSensorCameraExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524830462" component="raspberrypiio">motion_sensor_connection_diagram.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

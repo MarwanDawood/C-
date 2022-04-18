@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/examples/raspberrypiio</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/examples/raspberrypiio_common_1546987006.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/examples/raspberrypiio_common</componentName>
+    <componentVersion>1546987006</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>82</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>4820391</size>
+    <type />
+    <uncompressedBytes>5146956</uncompressedBytes>
+  </component>
+</componentData>
+

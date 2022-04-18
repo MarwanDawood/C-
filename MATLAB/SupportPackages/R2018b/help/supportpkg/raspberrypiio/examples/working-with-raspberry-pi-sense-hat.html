@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Working with Raspberry Pi SenseHAT</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Working with Raspberry Pi SenseHAT",
+          "description": "This example shows you how to read the sensor values, read the position of joystick and control the LED Matrix on Raspberry Pi&#174; Sense HAT using MATLAB&#174; Support Package for Raspberry Pi Hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxsensehat_orientation.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.WorkingWithRaspberryPiSenseHATExample",
+          "name": "WorkingWithRaspberryPiSenseHATExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiSenseHATExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "sensehat_axisinfo.png",
+        "sensehat_connection.png",
+        "sensehat_joystick.png",
+        "sensehat_pixel.png",
+        "sensehat_orientation.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to read the sensor values, read the position of joystick and control the LED Matrix on Raspberry Pi&#174; Sense HAT using MATLAB&#174; Support Package for Raspberry Pi Hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxsensehat_orientation.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Working with Raspberry Pi SenseHAT</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e1660" class="intrnllnk">Introduction</a></li><li><a href="#d120e1682" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e1692" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e1705" class="intrnllnk">Connect Sense HAT</a></li><li><a href="#d120e1717" class="intrnllnk">Create a Sense HAT object</a></li><li><a href="#d120e1733" class="intrnllnk">Reading Environmental Sensors</a></li><li><a href="#d120e1757" class="intrnllnk">Read the IMU sensor.</a></li><li><a href="#d120e1791" class="intrnllnk">Read the state of the joystick</a></li><li><a href="#d120e1838" class="intrnllnk">Use the LED matrix</a></li><li><a href="#d120e1926" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_working_with_sensehat">Working with Raspberry Pi SenseHAT</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiSenseHATExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex79856203"></meta><meta itemprop="exampletitle" content="Working with Raspberry Pi SenseHAT"></meta></div><span id="WorkingWithRaspberryPiSenseHATExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to read the sensor values, read the position of joystick and control the LED Matrix on Raspberry Pi&#174; Sense HAT using MATLAB&#174; Support Package for Raspberry Pi Hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e1660">Introduction<span id="WorkingWithRaspberryPiSenseHATExample-1" class="anchor_target"></span></h3><p>The Raspberry Pi Sense HAT is an add-on board that includes an 8X8 RGB LED matrix, a five-position joystick and the following sensors:</p><div class="itemizedlist"><ul><li><p>Humidity sensor</p></li><li><p>Pressure sensor</p></li><li><p>IMU sensor (Accelerometer, Gyroscope, and Magnetometer).</p></li></ul></div><p>In this example you will learn how to create a <strong class="emphasis bold"><code class="literal">sensehat</code></strong> object to connect to the Raspberry Pi Sense HAT, read sensor values, read the position of the joystick and control the LED matrix.</p><h3 class="title" id="d120e1682">Prerequisites<span id="WorkingWithRaspberryPiSenseHATExample-3" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example</p></li></ul></div><h3 class="title" id="d120e1692">Required Hardware<span id="WorkingWithRaspberryPiSenseHATExample-4" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>Raspberry Pi Sense HAT</p></li></ul></div><h3 class="title" id="d120e1705">Connect Sense HAT<span id="WorkingWithRaspberryPiSenseHATExample-5" class="anchor_target"></span></h3><p>Attach the Sense HAT to the Raspberry Pi expansion header. Make sure that you power down your Raspberry Pi before attempting to attach the Sense HAT.</p><p></p>
+<div class="informalfigure"><div id="d120e1713" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsensehat_connection.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e1717">Create a Sense HAT object<span id="WorkingWithRaspberryPiSenseHATExample-6" class="anchor_target"></span></h3><p>Create a Sense HAT object by executing the following on the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e1723" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+clear <span style="color:#A020F0">mysensehat</span>
+rpi = raspi;
+mysensehat = sensehat(rpi);
+</pre></div><p><code class="literal">mysensehat</code> is a handle to a sensehat object.</p><p>Let us read the temperature from Sense HAT.</p><div class="code_responsive"><pre id="d120e1731" class="programlisting">readTemperature(mysensehat)
+</pre></div><h3 class="title" id="d120e1733">Reading Environmental Sensors<span id="WorkingWithRaspberryPiSenseHATExample-7" class="anchor_target"></span></h3><p>Sense HAT includes humidity and pressure sensors which measure the temperature, the pressure and the humidity. Let's read the value of humidity and pressure measured by these sensors.</p><div class="code_responsive"><pre id="d120e1739" class="programlisting">readHumidity(mysensehat)
+readPressure(mysensehat)
+</pre></div><p>Temperature can be read from either the humidity sensor or the pressure sensor. To read the temperature from the humidity sensor, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1743" class="programlisting">readTemperature(mysensehat,<span style="color:#A020F0">'usehumiditysensor'</span>)
+</pre></div><p>To read the temperature from the pressure sensor, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1747" class="programlisting">readTemperature(mysensehat,<span style="color:#A020F0">'usepressuresensor'</span>)
+</pre></div><p>By default, the temperature is read from the humidity sensor. Hence, <code class="literal">readTemperature(mysensehat)</code> is same as <code class="literal">readTemperature(mysensehat,'HumiditySensor')</code>.</p><h3 class="title" id="d120e1757">Read the IMU sensor.<span id="WorkingWithRaspberryPiSenseHATExample-8" class="anchor_target"></span></h3><p>Sense HAT has an IMU sensor which consists of an accelerometer, a gyroscope and a magnetometer. The IMU sensor measures acceleration, angular velocity and magnetic field along the X, Y and Z axis. To read the acceleration, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1763" class="programlisting">readAcceleration(mysensehat)
+</pre></div><p><code class="literal">readAcceleration</code> returns a 1-by-3 vector of acceleration values measured along the X, Y and Z axis.</p><p>To read the angular velocity, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1771" class="programlisting">readAngularVelocity(mysensehat)
+</pre></div><p><code class="literal">readAngularVelocity</code> returns a 1-by-3 vector of angular velocity values measured along the X, Y, and Z axis.</p><p>To read the magnetic field, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1779" class="programlisting">readMagneticField(mysensehat)
+</pre></div><p><code class="literal">readMagneticField</code> returns a 1-by-3 vector of magnetic field values measured along the X, Y, and Z axis.</p><p></p>
+<div class="informalfigure"><div id="d120e1787" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsensehat_axisinfo.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e1791">Read the state of the joystick<span id="WorkingWithRaspberryPiSenseHATExample-9" class="anchor_target"></span></h3><p>Sense HAT has a 5 position mini joystick. Let us read the position of the joystick.</p><div class="code_responsive"><pre id="d120e1797" class="programlisting">readJoystick(mysensehat)
+</pre></div><p><code class="literal">readJoystick</code> returns the a value between 0 to 5 depending on the position of the joystick.</p><div class="itemizedlist"><ul><li><p>0 - Not pressed</p></li><li><p>1 - Centre</p></li><li><p>2 - Left</p></li><li><p>3 - Up</p></li><li><p>4 - Right</p></li><li><p>5 - Down</p></li></ul></div><p>The numerical values representing joystick positions are ordered with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p></p>
+<div class="informalfigure"><div id="d120e1826" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsensehat_joystick.png" alt=""></img></p></div></div><p>
+ </p><p>You can monitor a particular joystick position by executing the following on the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">readJoystick(mysensehat,'Up')</pre></div><p><code class="literal">readJoystick(sensehatObj,position)</code> will return a logical one if the joystick is in the specified position and zero otherwise.</p><h3 class="title" id="d120e1838">Use the LED matrix<span id="WorkingWithRaspberryPiSenseHATExample-10" class="anchor_target"></span></h3><p>Sense HAT has a matrix of 8x8 RGB LEDs. You can set the color of a particular pixel, display an image or display a scrolling message on the LED matrix.  Let us set the color of the pixel in the 3rd row, 6th column to cyan.</p><div class="code_responsive"><pre id="d120e1844" class="programlisting">writePixel(mysensehat,[6 3],<span style="color:#A020F0">'cyan'</span>)
+</pre></div><p>Observe that the pixel in the specified location is now cyan in color.</p><p>The rows and columns are numbered 1 to 8. Pixel at location [1 1] is at the top left corner of the LED Matrix. The location is with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p></p>
+<div class="informalfigure"><div id="d120e1852" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsensehat_pixel.png" alt=""></img></p></div></div><p>
+ </p><p>Color of a pixel can be specified by name. The supported colors are:</p><div class="itemizedlist"><ul><li><p>Red</p></li><li><p>Blue</p></li><li><p>Green</p></li><li><p>Cyan</p></li><li><p>Magenta</p></li><li><p>Yellow</p></li><li><p>White</p></li></ul></div><p>You can also specify any other color by using a 1x3 array of R, G, B values. For example, setting the pixel to [255 192 203], would set it to pink. Now, let us display an image on the LED matrix.</p><div class="code_responsive"><pre id="d120e1882" class="programlisting">image = imread(<span style="color:#A020F0">'senseHAT_demo.png'</span>);
+displayImage(mysensehat,image)
+</pre></div><p>The image must be an NxMx3 array of uint8 values. You can change the orientation of the displayed image by executing the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1887" class="programlisting">image = imread(<span style="color:#A020F0">'sensehat_demo.png'</span>);
+displayImage(mysensehat,image,90)
+</pre></div><p>The Orientation of the image can be set to 0, 90, 180 or 270 degrees. These are defined with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p></p>
+<div class="informalfigure"><div id="d120e1893" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsensehat_orientation.png" alt=""></img></p></div></div><p>
+ </p><p>LED Matrix can be used to display messages in the form of a scrolling text. The text scrolls from left to right. You can change the orientation of scroll by setting the 'Orientation' property of LEDMatrix. Let us display 'Hello World' on the LED Matrix.</p><div class="code_responsive"><pre id="d120e1899" class="programlisting">displayMessage(mysensehat,<span style="color:#A020F0">'Hello World'</span>);
+</pre></div><p>By default, the text scrolls with a scrolling speed of 0.1 second and the color of the text is red. To increase the scrolling speed to 0.05 second, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1903" class="programlisting">displayMessage(mysensehat,<span style="color:#A020F0">'Hello World'</span>,<span style="color:#A020F0">'ScrollingSpeed'</span>,0.05);
+</pre></div><p>In order to set the text color to yellow, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1907" class="programlisting">displayMessage(mysensehat,<span style="color:#A020F0">'Hello World'</span>,<span style="color:#A020F0">'textcolor'</span>,<span style="color:#A020F0">'y'</span>);
+</pre></div><p>Similarly, in order to set the background color to white, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre id="d120e1911" class="programlisting">displayMessage(mysensehat,<span style="color:#A020F0">'Hello World'</span>,<span style="color:#A020F0">'textColor'</span>,<span style="color:#A020F0">'y'</span>,<span style="color:#A020F0">'backgroundColor'</span>,<span style="color:#A020F0">'w'</span>);
+</pre></div><p>You can rotate the text by specifying the orientation for the display. Let us specify orientation as 90 and display the text message.</p><div class="code_responsive"><pre id="d120e1916" class="programlisting">displayMessage(mysensehat,<span style="color:#A020F0">'Hello World'</span>,<span style="color:#A020F0">'orientation'</span>,90);
+</pre></div><p>Now, let us try to display a numeric value on the LED matrix. Read the value of temperature and display it on the LED matrix.</p><div class="code_responsive"><pre id="d120e1920" class="programlisting">displayMessage(mysensehat,readTemperature(mysensehat));
+</pre></div><p>To clear the LED matrix, execute the following on the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e1924" class="programlisting">clearLEDMatrix(mysensehat);
+</pre></div><h3 class="title" id="d120e1926">Summary<span id="WorkingWithRaspberryPiSenseHATExample-11" class="anchor_target"></span></h3><p>This example introduced the workflow for using MATLAB Support Package for Raspberry Pi Sense HAT.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:04 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

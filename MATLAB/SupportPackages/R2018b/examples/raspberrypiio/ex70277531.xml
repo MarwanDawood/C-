@@ -1,0 +1,12 @@
+<example>
+  <main>DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <noButton/>
+  <file component="raspberrypiio" timestamp="1533034752">static_image_capture.png</file>
+  <file component="raspberrypiio" timestamp="1532929113">code_analyzer_edge_errorfree.png</file>
+  <file component="raspberrypiio" timestamp="1532929113">live_image_capture.png</file>
+  <file component="raspberrypiio" timestamp="1532934657">edge_detection.png</file>
+  <file component="raspberrypiio" timestamp="1533723655">code_generation_report_edgeDetection.png</file>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

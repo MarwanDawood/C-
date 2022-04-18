@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/rttlinux</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/rttlinux_common_1534873367.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/rttlinux_common</componentName>
+    <componentVersion>1534873367</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>134</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>942865</size>
+    <type />
+    <uncompressedBytes>1158000</uncompressedBytes>
+  </component>
+</componentData>
+

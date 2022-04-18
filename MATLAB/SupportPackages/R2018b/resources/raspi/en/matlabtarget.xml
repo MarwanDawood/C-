@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="raspi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="FileNotfound">File {0} not found.</entry>
+        <entry key="InputAgrs">MATLAB function {0} must not have any input arguments.</entry>
+        <entry key="OutputAgrs">MATLAB function {0} must not have any output arguments.</entry>
+        <entry key="FileIsScript">{0} must be a MATLAB function.</entry>
+        <entry key="InValidHWOBJ">Argument {0} must be a targetHardware object.</entry>
+        <entry key="FcnNotFound">Function {0} not found.</entry>
+        <entry key="FolderAccessDenied">Error creating folder {0}. Access denied.</entry>
+        <entry key="CodeGenNotSupported">Function ''{0}'' is not supported for code generation. Consider adding coder.extrinsic(''{0}'') at the top of the function to bypass code generation.</entry>
+    </message>
+</rsccat>

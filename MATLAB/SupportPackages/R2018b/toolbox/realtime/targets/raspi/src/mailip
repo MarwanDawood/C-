@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+
+RECIPIENTNAME="Raspberry Pi User"
+RECIPIENTADDR=username@domain.com
+SENDER="Raspberry Pi <`hostname`@gmail.com>"
+
+TMPFILE=`mktemp`
+echo "To: $RECIPIENTADDR" > $TMPFILE
+echo "From: $SENDER" >> $TMPFILE
+echo "Subject: New IP address on eth0 - `hostname -I`" >> $TMPFILE
+echo "" >> $TMPFILE
+echo "Network interface information (ifconfig):" >> $TMPFILE
+echo "" >> $TMPFILE
+echo "`ifconfig`" >> $TMPFILE
+cat $TMPFILE  | ssmtp $RECIPIENTADDR
+rm $TMPFILE

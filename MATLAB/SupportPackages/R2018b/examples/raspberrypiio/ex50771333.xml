@@ -1,0 +1,9 @@
+<example>
+  <main>BuildADigitalVoltmeterExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524826966" component="raspberrypiio">segment_display_circuit.png</file>
+  <file component="raspberrypiio" timestamp="1524824419">mcp3008_circuit.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

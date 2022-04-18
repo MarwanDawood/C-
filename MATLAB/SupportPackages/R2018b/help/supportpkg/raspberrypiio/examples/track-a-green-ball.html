@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Tracking a Green Ball</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Tracking a Green Ball",
+          "description": "This example shows you how to use MATLAB to process images captured from a Raspberry Pi Camera Board module to track a green ball.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/TrackingAGreenBallExample_03.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.TrackingAGreenBallExample",
+          "name": "TrackingAGreenBallExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/TrackingAGreenBallExample')"
+
+        }</script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to use MATLAB to process images captured from a Raspberry Pi Camera Board module to track a green ball."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/TrackingAGreenBallExample_03.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Tracking a Green Ball</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e2139" class="intrnllnk">Introduction</a></li><li><a href="#d120e2145" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e2155" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e2171" class="intrnllnk">Create a Camera Board object</a></li><li><a href="#d120e2183" class="intrnllnk">Extract color components</a></li><li><a href="#d120e2195" class="intrnllnk">Calculate green</a></li><li><a href="#d120e2203" class="intrnllnk">Threshold the green image</a></li><li><a href="#d120e2215" class="intrnllnk">Find center</a></li><li><a href="#d120e2227" class="intrnllnk">Run detection algorithm on live data</a></li><li><a href="#d120e2239" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_track_a_green_ball">Tracking a Green Ball</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/TrackingAGreenBallExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex77409575"></meta><meta itemprop="exampletitle" content="Tracking a Green Ball"></meta></div><span id="TrackingAGreenBallExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to use MATLAB to process images captured from a Raspberry Pi Camera Board module to track a green ball.</p>
+
+<div class="procedure"><h3 class="title" id="d120e2139">Introduction<span id="TrackingAGreenBallExample-1" class="anchor_target"></span></h3><p>The Raspberry Pi Camera Board is a custom designed add-on module for Raspberry Pi hardware. The MATLAB Support Package for Raspberry Pi Hardware allows you to capture images from the Raspberry Pi Camera Board and bring those right into MATLAB for processing. Using this capability we will develop an ball tracking algorithm.</p><h3 class="title" id="d120e2145">Prerequisites<span id="TrackingAGreenBallExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="working-with-raspberry-pi-camera-board.html" class="a">Working with Raspberry Pi Camera Board</a> example.</p></li></ul></div><h3 class="title" id="d120e2155">Required Hardware<span id="TrackingAGreenBallExample-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>A Camera Board</p></li></ul></div><h3 class="title" id="d120e2171">Create a Camera Board object<span id="TrackingAGreenBallExample-4" class="anchor_target"></span></h3><p>Create a camera board object by executing the following on the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e2177" class="programlisting">clear <span style="color:#A020F0">cam</span>
+clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+cam = cameraboard(rpi, <span style="color:#A020F0">'Resolution'</span>, <span style="color:#A020F0">'640x480'</span>);
+</pre></div><p>The cam is a handle to a cameraboard object. Let's display the images captured from Raspberry Pi Camera Board in MATLAB.</p><div class="code_responsive"><pre id="d120e2181" class="programlisting"><span style="color:#0000FF">for</span> i = 1:100
+    img = snapshot(cam);
+    image(img);
+    drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e2183">Extract color components<span id="TrackingAGreenBallExample-5" class="anchor_target"></span></h3><p>We will extract three 2D matrices from the 3D image data corresponding to the red, green, and blue components of the image. Before proceeding with the rest of the example, we will load a saved image. We will make sure our algorithm works on the test image before moving on to live data.</p><div class="code_responsive"><pre id="d120e2189" class="programlisting">img = imread(<span style="color:#A020F0">'tennis_ball.jpg'</span>);
+image(img);
+r = img(:,:,1);
+g = img(:,:,2);
+b = img(:,:,3);
+</pre></div><div class="informalfigure"><div id="d120e2192" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/TrackingAGreenBallExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e2195">Calculate green<span id="TrackingAGreenBallExample-6" class="anchor_target"></span></h3><p>Next we approximate the intensity of the green component</p><div class="code_responsive"><pre class="programlisting">justGreen = g - r/2 - b/2;</pre></div><h3 class="title" id="d120e2203">Threshold the green image<span id="TrackingAGreenBallExample-7" class="anchor_target"></span></h3><p>We threshold the image to find the regions of image that we consider to be green enough.</p><div class="code_responsive"><pre id="d120e2209" class="programlisting">bw = justGreen &gt; 40;
+image(bw);
+</pre></div><div class="informalfigure"><div id="d120e2212" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/TrackingAGreenBallExample_02.png" alt=""></img></p></div></div><h3 class="title" id="d120e2215">Find center<span id="TrackingAGreenBallExample-8" class="anchor_target"></span></h3><p>Find the center of the image and mark it with a red dot.</p><div class="code_responsive"><pre id="d120e2221" class="programlisting">[x, y] = find(bw);
+<span style="color:#0000FF">if</span> ~isempty(x) &amp;&amp; ~isempty(y)
+    xm = round(mean(x));
+    ym = round(mean(y));
+    xx = max(1, xm-5):min(xm+5, size(bw, 1));
+    yy = max(1, ym-5):min(ym+5, size(bw, 2));
+    bwbw = zeros(size(bw), <span style="color:#A020F0">'uint8'</span>);
+    bwbw(xx, yy) = 255;
+<span style="color:#0000FF">end</span>
+image(justGreen + bwbw);
+</pre></div><div class="informalfigure"><div id="d120e2224" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/TrackingAGreenBallExample_03.png" alt=""></img></p></div></div><h3 class="title" id="d120e2227">Run detection algorithm on live data<span id="TrackingAGreenBallExample-9" class="anchor_target"></span></h3><p>We can create a MATLAB function, trackball.m, out of the MATLAB code we developed in the previous sections of this example. View the MATLAB function in the editor.</p><div class="code_responsive"><pre id="d120e2233" class="programlisting">edit(<span style="color:#A020F0">'trackball.m'</span>);
+</pre></div><p>The function trackball() takes an image and a threshold for green detection and returns the results of green detection algorithm. We will call this function on the images captured in a loop. Before running the MATLAB code snippet below, get hold of a tennis ball and place it in the view of the Raspberry Pi Camera Board. While the MATLAB code is running, move the ball around.</p><div class="code_responsive"><pre id="d120e2237" class="programlisting">figure(1);
+<span style="color:#0000FF">for</span> i = 1:200
+    [img, bw] = trackball(snapshot(cam), 40);
+    subplot(211);
+    image(img);
+    subplot(212);
+    image(bw);
+    drawnow;
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e2239">Summary<span id="TrackingAGreenBallExample-10" class="anchor_target"></span></h3><p>This example introduced the an application example where images coming from Raspberry Pi Camera Board are processed with a simple green detection algorithm. This algorithm has subsequently been used to track a tennis ball.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:04 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

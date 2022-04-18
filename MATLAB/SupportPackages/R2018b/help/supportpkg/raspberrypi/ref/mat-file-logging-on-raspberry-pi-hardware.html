@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>MAT-file logging on Raspberry Pi&#8482; Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "MAT-file logging on Raspberry Pi&#8482; Hardware",
+          "description": "This example shows you how to log signals from a Simulink&#174; model on Raspberry Pi&#8482; hardware in the MAT-file format.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/MATfileLoggingOnRaspberryPiTMHardwareExample_01.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.MATfileLoggingOnRaspberryPiTMHardwareExample",
+          "name": "MATfileLoggingOnRaspberryPiTMHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/MATfileLoggingOnRaspberryPiTMHardwareExample')"
+
+        }</script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to log signals from a Simulink&#174; model on Raspberry Pi&#8482; hardware in the MAT-file format."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/MATfileLoggingOnRaspberryPiTMHardwareExample_01.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">MAT-file logging on Raspberry Pi&#8482; Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e15629" class="intrnllnk">Introduction</a></li><li><a href="#d120e15635" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e15643" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e15649" class="intrnllnk">Task 1: Open a Simulink Model Template</a></li><li><a href="#d120e15707" class="intrnllnk">Task 2: Enable MAT-file Logging</a></li><li><a href="#d120e15781" class="intrnllnk">Task 3: Configure and Deploy the Model on Raspberry Pi&#8482; hardware.</a></li><li><a href="#d120e15808" class="intrnllnk">Task 4: Import the MAT-files from Raspberry Pi&#8482; Hardware</a></li><li><a href="#d120e15858" class="intrnllnk">Other things to try</a></li><li><a href="#d120e15875" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_mat_file_logging">MAT-file logging on Raspberry Pi&#8482; Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/MATfileLoggingOnRaspberryPiTMHardwareExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex32452334"></meta><meta itemprop="exampletitle" content="MATfile logging on Raspberry Pi&#8482; Hardware"></meta></div><span id="MATfileLoggingOnRaspberryPiTMHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to log signals from a Simulink&#174; model on Raspberry Pi&#8482; hardware in the MAT-file format.</p>
+
+<div class="procedure"><h3 class="title" id="d120e15629">Introduction<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-1" class="anchor_target"></span></h3><p>The Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware supports logging of signals from your Simulink&#174; model on Raspberry Pi&#8482; hardware in the MAT-file format. Signal logging enables you to monitor the behavior of the signal and perform analysis of historical data. To use the MAT-file logging feature with the Simulink&#174; Support Package for Raspberry Pi&#8482; hardware, you must have a Simulink Coder&#8482; license.</p><h3 class="title" id="d120e15635">Prerequisites<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-2" class="anchor_target"></span></h3><p>Before you start with this example, we recommend you to complete the <a href="getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p><h3 class="title" id="d120e15643">Required Hardware<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-3" class="anchor_target"></span></h3><p>To run this example, you must have a Raspberry Pi&#8482; board.</p><h3 class="title" id="d120e15649">Task 1: Open a Simulink Model Template<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-4" class="anchor_target"></span></h3><p>The Simulink Support Package for Raspberry Pi&#8482; Hardware provides different Simulink model templates. The models in these templates are pre-configured for you to use with Raspberry Pi&#8482; hardware. You can use these models as a starting point to understand how the MAT-file logging works on Raspberry Pi&#8482; hardware.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:simulink" target="_blank">Simulink Start Page</a>.</p><p><strong class="emphasis bold">2.</strong> Scroll down and click the <strong class="emphasis bold">Simulink Support Package for Raspberry Pi&#8482; Hardware</strong> template. From the expanded list, click <strong class="emphasis bold">Basic Model</strong> to create a new model. This model consists of a <code class="literal">Sine Wave</code> source block, a <code class="literal">Scope</code> block, and a <code class="literal">GPIO</code> block from the Raspberry Pi Simulink library. The <code class="literal">Sine Wave</code> block is connected to the <code class="literal">Scope</code> block and the <code class="literal">GPIO</code> block.</p><p>In this example, the signal driving the <code class="literal">GPIO</code> block is logged by the <code class="literal">Scope</code> block.</p><div class="informalfigure"><div id="d120e15700" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/MATfileLoggingOnRaspberryPiTMHardwareExample_01.png" alt=""></img></p></div></div><p><strong class="emphasis bold">3.</strong> Save the model.</p><h3 class="title" id="d120e15707">Task 2: Enable MAT-file Logging<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-7" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> To open the <strong class="emphasis bold">Model Configuration Parameters</strong> dialog box, click the gear icon on the Simulink model toolbar.</p><p><strong class="emphasis bold">2.</strong> Browse to <strong class="emphasis bold">Code Generation &gt; Interface &gt; Advanced Parameters</strong>, or type <code class="literal">MAT-file logging</code> in the search box.</p><p><strong class="emphasis bold">3.</strong> Select the <strong class="emphasis bold">MAT-file logging</strong> option and click <strong class="emphasis bold">Apply</strong> to save the changes.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">OK</strong> to close the dialog box.</p><p><strong class="emphasis bold">5.</strong> In the Simulink model, double-click the <code class="literal">Scope</code> block, and click the gear icon to open the <strong class="emphasis bold">Configuration Properties</strong> dialog box.</p><p><strong class="emphasis bold">6.</strong> In the <strong class="emphasis bold">Logging</strong> tab, select the <strong class="emphasis bold">Log data to workspace</strong> option, and click <strong class="emphasis bold">Apply</strong> to save the changes.</p><p><strong class="emphasis bold">7.</strong> On the Simulink model toolbar, set the <strong class="emphasis bold">Simulation stop time</strong> parameter. This parameter specifies the duration for which the signals are logged.    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run.    For example, if the <strong class="emphasis bold">Simulation stop time</strong> parameter is specified as <code class="literal">10.0</code> seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time.</p><h3 class="title" id="d120e15781">Task 3: Configure and Deploy the Model on Raspberry Pi&#8482; hardware.<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-8" class="anchor_target"></span></h3><p>In this task, you will configure the model to be deployed on the Raspberry Pi&#8482; hardware. As we started with a Raspberry Pi&#8482; template model, the model is already configured.</p><p><strong class="emphasis bold">1.</strong> Open the pre-configured model that you saved in Task 1.</p><p><strong class="emphasis bold">2.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Verify the parameter values in the <strong class="emphasis bold">Hardware Implementation</strong> pane.</p><p><strong class="emphasis bold">3.</strong> On the Simulink model toolbar, click the <strong class="emphasis bold">Deploy To Hardware</strong> button. This action builds, downloads, and runs the model on the Raspberry Pi&#8482; hardware.</p><h3 class="title" id="d120e15808">Task 4: Import the MAT-files from Raspberry Pi&#8482; Hardware<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-9" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> In the MATLAB&#174; command window, use the following command to create a raspberrypi object. The parameters specified in this command should match the board parameters specified in <strong class="emphasis bold">Simulation&gt; Model Configuration Parameters&gt; Target hardware resources&gt; Board Parameters</strong>.</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi(&lt;IP address&gt;, &lt;username&gt;, &lt;password&gt;);</pre></div><p><strong class="emphasis bold">2.</strong> Use the <code class="literal">getFile</code> function to copy the MAT-files from the Raspberry Pi&#8482; board to your computer.</p><div class="code_responsive"><pre id="d120e15828" class="programlisting">getFile(r,&lt;filename&gt;)
+</pre></div><p>Here, <code class="literal">r</code> specifies the raspberrypi object and <code class="literal">filename</code> specifies the path and name of the file created.</p><p>The model running on Raspberry Pi&#8482; creates multiple MAT-files depending on the duration for which the signals are logged. The files are named as <strong class="emphasis bold">'&lt;modelname&gt;_&lt;runindex&gt;_&lt;fileindex&gt;.mat'</strong>. '&lt;modelname&gt;' is the name with which the Simulink&#174; model is saved. '&lt;runindex&gt;' starts with 1 and is incremented by one during successive runs.&lt;fileindex&gt; starts with 1 and is incremented by 1 every time a new MAT file is created in the same run.</p><p>To import multiple MAT-files from Raspberry Pi into MATLAB&#174;, use the following function in the MATLAB command window:</p><div class="code_responsive"><pre id="d120e15845" class="programlisting">getFile(r,&lt;modelname&gt;*.mat)
+</pre></div><p>The '*' character is used to copy all the files having names starting with '&lt;modelname&gt;' and ending with '.mat'.</p><p>After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB&#174;.</p><p>Since the model running on the hardware creates multiple MAT-files, the logged data points are distributed across the generated MAT-files.</p><p>You can create a stitcher function to combine these MAT-files into a single MAT-file that contains all the logged data points. An example of the MAT-file stitcher is provided. In the MATLAB&#174; command window, enter the following command and refer the file to know more about its usage.</p><div class="code_responsive"><pre id="d120e15856" class="programlisting">edit(<span style="color:#A020F0">'Raspberrypi_MAT_stitcher.m'</span>);
+</pre></div><h3 class="title" id="d120e15858">Other things to try<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-10" class="anchor_target"></span></h3><p>In this example, a <code class="literal">Scope</code> block is used to log signals. The signals can also be logged using the <code class="literal">To Workspace</code> block or the <code class="literal">Output port</code> block.</p><p>Try logging signals using these two blocks.</p><h3 class="title" id="d120e15875">Summary<span id="MATfileLoggingOnRaspberryPiTMHardwareExample-11" class="anchor_target"></span></h3><p>This example demonstrated how to configure the Simulink model to log signals on Raspberry Pi&#8482; in the MAT-file format.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

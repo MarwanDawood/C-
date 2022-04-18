@@ -1,0 +1,301 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Motion Sensor</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-24"><meta name="DC.source" content="MotionSensorExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/MotionSensorExample')">Open this Example</a></div><div class="content"><h1>Motion Sensor</h1><!--introduction--><p>This example shows how to use Raspberry Pi&reg; hardware to interface to a motion sensor and control an external LED.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 - Connect the Motion Sensor and the LED to Raspberry Pi Hardware</a></li><li><a href="#5">Task 2 - Turn on LED when Motion is Detected</a></li><li><a href="#6">Task 3 - Say "Motion Detected" when Sensor Output is High</a></li><li><a href="#7">Task 4 - Build a Motion Sensor Camera</a></li><li><a href="#8">Other Things to Try</a></li><li><a href="#9">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>In this example you will learn how to create a Simulink&reg; model that reads the output of a motion sensor and performs a series of actions based on the detected motion activity. For this example, we will be using a Passive Infra-Red (PIR) motion sensor from Parallax&reg; Inc. The PIR Sensor is a pyroelectric device that measures changes in infrared heat levels emitted by surrounding objects. When an object, such as a person, passes in front of the PIR sensor, outputs a logic HIGH on its output pin. If no motion is detected, the sensor sets the output pin to logic LOW.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi&reg; Hardware</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi board</li><li>PIR motion sensor from Parallax</li><li>1.8mm Red LED</li><li>270 Ohm resistor</li><li>Breadboard wires (recommended)</li><li>Small breadboard (recommended)</li><li>Speakers or headphones (Task 3)</li><li>A USB web camera (Task 4)</li></ul></div><img vspace="5" hspace="5" src="MotionSensorExample_01.png" alt=""> <h2 id="4">Task 1 - Connect the Motion Sensor and the LED to Raspberry Pi Hardware</h2><p>In this task, you will connect the PIR motion sensor and a red LED to the Raspberry Pi hardware.  The sensor has three pins: VCC, GND, and OUT. The VCC pin will be connected to +3.3 Volt voltage rail and the GND pin is connected to the ground. The OUT pin is the logic signal indicating motion. This pin will be connected to a GPIO pin on the Raspberry Pi hardware as shown in the following schematic:</p><p><img vspace="5" hspace="5" src="../motion_sensor.png" alt=""> </p><p>In the circuit schematic above, an LED has been connected to a GPIO pin. This LED will turn on whenever motion is detected. Note that the forward voltage of the LED used must be smaller than 3.3 Volts. We recommend using a 1.8mm red LED.</p><p><b>1.</b> Interface the PIR motion sensor to the Raspberry Pi hardware as shown in the circuit diagram above.</p><p><b>2.</b> Connect a red LED to the indicated GPIO pin of the Raspberry Pi hardware as shown in the circuit diagram above.</p><p><b>NOTE</b> If you do not have the PIR motion sensor available, you can substitute a simple push button, as shown in the simplified circuit diagram below.</p><p><img vspace="5" hspace="5" src="../push_button.png" alt=""> </p><h2 id="5">Task 2 - Turn on LED when Motion is Detected</h2><p>In this task you will turn on the LED connected to the board when motion is detected by the PIR sensor.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_motion_sensor_led">Motion Sensor (Turn on LED)</a> model.</p><p><b>2.</b> Notice the <b>GPIO Read</b> and the <b>GPIO Write</b> blocks. The <b>GPIO Read</b> block reads the output of the motion sensor every 0.1 second. The value read from the motion sensor is written back to the GPIO pin supplying power to the LED.</p><p><b>3.</b> In your Simulink model, make sure that the <b>Simulation mode</b> on the toolbar is set to <b>External</b>. Then, click the <b>Run</b> button on the toolbar to run the model on the Raspberry Pi hardware.</p><p><b>4.</b> When the model starts running on the Raspberry Pi hardware, double click on the <b>Motion Sensor Output</b> block. This block is a Simulink scope that shows output of the motion sensor.</p><p><b>5.</b> Click <b>Stop</b> button to stop the model.</p><h2 id="6">Task 3 - Say "Motion Detected" when Sensor Output is High</h2><p>The firmware available for Raspberry Pi hardware includes eSpeak text to speech synthesizer. In this task you will use the eSpeak Linux package to output "Motion Detected" when sensor OUT pin goes high.</p><p><b>1.</b> If you are using the analog audio output of the Raspberry Pi board, Connect a pair of headphones or speakers to the analog audio output jack. If you connected your Raspberry Pi to an HDMI monitor or TV, you will hear the audio from the speakers of your display device.</p><p><b>2.</b> Open the <a href="matlab:raspberrypi_motion_sensor_texttospeech">Motion Sensor (Text to Speech)</a> model.</p><p><b>3.</b> In your Simulink model, make sure that the <b>Simulation mode</b> on the toolbar is set to <b>External</b>. Then, click the <b>Run</b> button on the toolbar to run the model on the Raspberry Pi hardware.</p><p><b>4.</b> When the model starts running you will hear your Raspberry Pi hardware speak "Motion Detected" whenever the PIR sensor detects motion.</p><p><b>5.</b> Click <b>Stop</b> button to stop the model.</p><h2 id="7">Task 4 - Build a Motion Sensor Camera</h2><p>In this task you will create a Simulink model that captures a picture and saves it on board when motion is detected.</p><p><b>1.</b> Connect a <a href="matlab:web('https://elinux.org/RPi_VerifiedPeripherals#USB_Webcams','-browser')">compatible USB camera</a> to the Raspberry Pi hardware.</p><p><b>2.</b> Open the <a href="matlab:raspberrypi_motion_sensor_camera">Motion Sensor Camera</a> model.</p><p><b>3.</b> In your Simulink model, make sure that the <b>Simulation mode</b> on the toolbar is set to <b>External</b>. Then, click the <b>Run</b> button on the toolbar to run the model on the Raspberry Pi hardware.</p><p><b>4.</b> A gray scale image will be captured and saved on the Raspberry Pi hardware every time the sensor motion pin goes from low to high. The captured frame is displayed on the host computer while the model is running in external mode. The captured image data is saved to a file in the user's home directory on the board. To retrieve the first captured image, execute the following on the MATLAB&reg; command line:</p><pre>r = raspberrypi;
+getFile(r,'/img0.dat')
+img = load('img0.dat');
+imagesc(reshape(img,120,160)), colormap(gray)</pre><p><b>5.</b> Click <b>Stop</b> button to stop the model.</p><p><b>6.</b> You can deploy a stand-alone version of this Simulink model by clicking the <b>Deploy To Hardware</b> button on the model toolbar. When you run the model in this way, the Simulink model running on the Raspberry Pi hardware will record images to the SD card. You should stop the model after it runs for some period of time and retrieve the recorder images later as shown in Step 4 above. To stop the model running detached from Simulink, execute the following on the MATLAB command line:</p><pre>r = raspberrypi;
+stopModel(r,'raspberrypi_motion_sensor_camera')</pre><h2 id="8">Other Things to Try</h2><p>Experiment with other blocks in the Raspberry Pi and Simulink block library. For example:</p><div><ul><li>Use <b>LED</b> block to turn on an on-board LED when motion is detected.</li><li>Use <b>Counter Limited</b> block from Simulink library instead of <b>Counter Free-Running</b> to limit the number of image files to 255, for example.</li></ul></div><h2 id="9">Summary</h2><p>This example showed you how to use the Raspberry Pi target to connect an external motion sensor and an LED to the board. In this example you learned that:</p><div><ul><li><b>GPIO Read</b> block lets you read digital logic levels output by an external device.</li><li><b>GPIO Write</b> block lets you output logic high or low values to control external devices.</li><li><b>LED</b> block lets you to turn an on-board LED on or off.</li><li><b>eSpeak Text to Speech</b> block lets you synthesize speech.</li></ul></div><p class="footer">Copyright 2012-2015 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Motion Sensor
+%
+% This example shows how to use Raspberry Pi(R) hardware to interface to
+% a motion sensor and control an external LED.
+ 
+% Copyright 2012-2015 The MathWorks, Inc.
+ 
+
+%% Introduction
+% 
+% In this example you will learn how to create a Simulink(R) model that reads
+% the output of a motion sensor and performs a series of actions based on
+% the detected motion activity. For this example, we will be using a
+% Passive Infra-Red (PIR) motion sensor from Parallax(R) Inc. The PIR
+% Sensor is a pyroelectric device that measures changes in infrared heat
+% levels emitted by surrounding objects. When an object, such as a person,
+% passes in front of the PIR sensor, outputs a logic HIGH on its output
+% pin. If no motion is detected, the sensor sets the output pin to logic
+% LOW.
+
+%% Prerequisites
+%
+% * We recommend completing
+% <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started with Raspberry Pi(R) Hardware> example. 
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi board
+% * PIR motion sensor from Parallax 
+% * 1.8mm Red LED
+% * 270 Ohm resistor
+% * Breadboard wires (recommended)
+% * Small breadboard (recommended)
+% * Speakers or headphones (Task 3)
+% * A USB web camera (Task 4)
+
+open_system('raspberrypi_motion_sensor_led');
+ 
+%% Task 1 - Connect the Motion Sensor and the LED to Raspberry Pi Hardware
+%
+% In this task, you will connect the PIR motion sensor and a red LED to the
+% Raspberry Pi hardware.  The sensor has three pins: VCC, GND, and OUT. The
+% VCC pin will be connected to +3.3 Volt voltage rail and the GND pin is
+% connected to the ground. The OUT pin is the logic signal indicating
+% motion. This pin will be connected to a GPIO pin on the Raspberry Pi
+% hardware as shown in the following schematic:
+% 
+% <<../motion_sensor.png>>
+%
+% In the circuit schematic above, an LED has been connected to a GPIO pin.
+% This LED will turn on whenever motion is detected. Note that the forward
+% voltage of the LED used must be smaller than 3.3 Volts. We recommend
+% using a 1.8mm red LED.
+%
+% *1.* Interface the PIR motion sensor to the Raspberry Pi hardware
+% as shown in the circuit diagram above.
+%
+% *2.* Connect a red LED to the indicated GPIO pin of the Raspberry Pi
+% hardware as shown in the circuit diagram above.
+%
+% *NOTE* If you do not have the PIR motion sensor available, you can
+% substitute a simple push button, as shown in the simplified circuit
+% diagram below.
+%
+% <<../push_button.png>>
+
+
+%% Task 2 - Turn on LED when Motion is Detected 
+%
+% In this task you will turn on the LED connected to the board when motion is
+% detected by the PIR sensor.
+%
+% *1.* Open the <matlab:raspberrypi_motion_sensor_led Motion Sensor (Turn on LED)>
+% model.
+%
+% *2.* Notice the *GPIO Read* and the *GPIO Write* blocks. The *GPIO Read*
+% block reads the output of the motion sensor every 0.1 second. The value
+% read from the motion sensor is written back to the GPIO pin supplying
+% power to the LED.
+%
+% *3.* In your Simulink model, make sure that the *Simulation mode* on the
+% toolbar is set to *External*. Then, click the *Run* button on the toolbar
+% to run the model on the Raspberry Pi hardware.
+%
+% *4.* When the model starts running on the Raspberry Pi hardware,
+% double click on the *Motion Sensor Output* block. This block is a
+% Simulink scope that shows output of the motion sensor. 
+%
+% *5.* Click *Stop* button to stop the model.
+
+
+
+%% Task 3 - Say "Motion Detected" when Sensor Output is High
+%
+% The firmware available for Raspberry Pi hardware includes eSpeak text to
+% speech synthesizer. In this task you will use the eSpeak Linux package to
+% output "Motion Detected" when sensor OUT pin goes high. 
+%
+% *1.* If you are using the analog audio output of the Raspberry Pi board,
+% Connect a pair of headphones or speakers to the analog audio output jack.
+% If you connected your Raspberry Pi to an HDMI monitor or TV, you will
+% hear the audio from the speakers of your display device.
+%
+% *2.* Open the <matlab:raspberrypi_motion_sensor_texttospeech Motion Sensor (Text to Speech)>
+% model.
+%
+% *3.* In your Simulink model, make sure that the *Simulation mode* on the
+% toolbar is set to *External*. Then, click the *Run* button on the toolbar
+% to run the model on the Raspberry Pi hardware.
+%
+% *4.* When the model starts running you will hear your Raspberry Pi
+% hardware speak "Motion Detected" whenever the PIR sensor detects motion.
+%
+% *5.* Click *Stop* button to stop the model.
+
+
+%% Task 4 - Build a Motion Sensor Camera
+%
+% In this task you will create a Simulink model that captures a picture and
+% saves it on board when motion is detected.
+%
+% *1.* Connect a <matlab:web('https://elinux.org/RPi_VerifiedPeripherals#USB_Webcams','-browser') compatible USB camera> 
+% to the Raspberry Pi hardware. 
+%
+% *2.* Open the <matlab:raspberrypi_motion_sensor_camera Motion Sensor Camera>
+% model.
+%
+% *3.* In your Simulink model, make sure that the *Simulation mode* on the
+% toolbar is set to *External*. Then, click the *Run* button on the toolbar
+% to run the model on the Raspberry Pi hardware.
+%
+% *4.* A gray scale image will be captured and saved on the Raspberry Pi
+% hardware every time the sensor motion pin goes from low to high. The
+% captured frame is displayed on the host computer while the model is
+% running in external mode. The captured image data is saved to a file in
+% the user's home directory on the board. To retrieve the first captured
+% image, execute the following on the MATLAB(R) command line:
+%
+%  r = raspberrypi;
+%  getFile(r,'/img0.dat')
+%  img = load('img0.dat');
+%  imagesc(reshape(img,120,160)), colormap(gray)
+%
+% *5.* Click *Stop* button to stop the model. 
+%
+% *6.* You can deploy a stand-alone version of this Simulink model by
+% clicking the *Deploy To Hardware* button on the model toolbar. When you
+% run the model in this way, the Simulink model running on the Raspberry Pi
+% hardware will record images to the SD card. You should stop the model
+% after it runs for some period of time and retrieve the recorder images
+% later as shown in Step 4 above. To stop the model running detached from
+% Simulink, execute the following on the MATLAB command line:
+%
+%  r = raspberrypi;
+%  stopModel(r,'raspberrypi_motion_sensor_camera')
+
+
+%% Other Things to Try
+% 
+% Experiment with other blocks in the Raspberry Pi and Simulink block
+% library. For example:
+%
+% * Use *LED* block to turn on an on-board LED when motion is detected.
+% * Use *Counter Limited* block from Simulink library instead of *Counter
+% Free-Running* to limit the number of image files to 255, for example.
+
+
+%% Summary
+% 
+% This example showed you how to use the Raspberry Pi target to connect an
+% external motion sensor and an LED to the board. In this example you
+% learned that:
+%
+% * *GPIO Read* block lets you read digital logic levels output by an
+% external device.
+% * *GPIO Write* block lets you output logic high or low values to control
+% external devices.
+% * *LED* block lets you to turn an on-board LED on or off.
+% * *eSpeak Text to Speech* block lets you synthesize speech.
+
+close_system('raspberrypi_motion_sensor_led', 0); 
+
+% LocalWords:  realtime Raspberry Pi GND VCC OUT LED GPIO pyroelectric
+
+##### SOURCE END #####
+--></body></html>

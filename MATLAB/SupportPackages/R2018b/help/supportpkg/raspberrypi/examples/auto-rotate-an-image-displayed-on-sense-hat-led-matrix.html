@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Auto-rotate an image displayed on Sense HAT LED matrix</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Auto-rotate an image displayed on Sense HAT LED matrix",
+          "description": "This example shows you how to develop a Simulink model to implement an algorithm to read the Accelerometer On-board Sense HAT and control the rotation of the image displayed on the LED matrix.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_autorotate_staeflow.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample",
+          "name": "AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_sensehat_rot0.png",
+        "raspberrypi_sensehat_rot90.png",
+        "raspberrypi_sensehat_rot180.png",
+        "raspberrypi_sensehat_rot270.png",
+        "raspberrypi_autorotate_staeflow.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to develop a Simulink model to implement an algorithm to read the Accelerometer On-board Sense HAT and control the rotation of the image displayed on the LED matrix."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_autorotate_staeflow.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Auto-rotate an image displayed on Sense HAT LED matrix</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e4121" class="intrnllnk">Introduction</a></li><li><a href="#d120e4139" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e4149" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e4166" class="intrnllnk">Introduction to Auto-rotation algorithm</a></li><li><a href="#d120e4174" class="intrnllnk">Auto-rotation algorithm</a></li><li><a href="#d120e4247" class="intrnllnk">Task 1 - Implement the auto-rotation algorithm in Simulink</a></li><li><a href="#d120e4291" class="intrnllnk">Task 2 - Add hardware specific blocks</a></li><li><a href="#d120e4326" class="intrnllnk">Task 3 - Configure and Run the Auto-rotation Model in External Mode</a></li><li><a href="#d120e4378" class="intrnllnk">Task 4 - (Optional) Configure and Run the Auto-rotation Model as a Standalone Application</a></li><li><a href="#d120e4409" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_sensehat_autorotate">Auto-rotate an image displayed on Sense HAT LED matrix</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex09269382"></meta><meta itemprop="exampletitle" content="Autorotate an image displayed on Sense HAT LED matrix"></meta></div><span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to develop a Simulink model to implement an algorithm to read the Accelerometer On-board Sense HAT and control the rotation of the image displayed on the LED matrix.</p>
+
+<div class="procedure"><h3 class="title" id="d120e4121">Introduction<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-1" class="anchor_target"></span></h3><p>The Raspberry Pi Sense HAT is an add-on board for Raspberry Pi hardware. It has an 8X8 RGB LED Matrix, a five-position joystick and includes the following sensors:</p><div class="itemizedlist"><ul><li><p>Humidity sensor</p></li><li><p>Pressure sensor</p></li><li><p>IMU sensor (Accelerometer, Gyroscope, and Magnetometer)</p></li></ul></div><p>In this example, you will develop a Simulink model to auto-rotate an image displayed on LED matrix according to the orientation of Sense HAT. The Accelerometer data is used to determine the orientation of Sense HAT.</p><h3 class="title" id="d120e4139">Prerequisites<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-3" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e4149">Required Hardware<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-4" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>Raspberry Pi Sense HAT</p></li></ul></div><div class="informalfigure"><div id="d120e4163" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e4166">Introduction to Auto-rotation algorithm<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-5" class="anchor_target"></span></h3><p>Auto-rotation of the Image refers to the technique used widely in most of the modern smart phones and tablets to rotate the display of the device according to the position in which the device is held. These devices use the on-board Accelerometer to determine the position. By reading the Accelerometer data, we identify the principal axis along which force of gravity is acting.</p><p>In this example, we will read Accelerometer available on Sense HAT. Depending on the value of acceleration, we can determine the principal axis along which force of gravity is acting. This information will then be used to set the orientation for the image displayed on the LED matrix of Sense HAT.</p><h3 class="title" id="d120e4174">Auto-rotation algorithm<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-6" class="anchor_target"></span></h3><p>In this section, we will discuss about the auto-rotation algorithm.</p><p>When Raspberry Pi is held vertical (this refers to the position in which the HDMI port of the Raspberry Pi is pointing downwards), the force of gravity acts only on either X or Y axis of the accelerometer.</p><p>Depending on the axis along which the force of gravity is acting, we can decide on the orientation for displaying the image.</p><div class="itemizedlist"><ul><li><p>If the board is rotated to point upwards, then force of gravity acts along negative y axis.</p></li></ul></div><p></p>
+<div class="informalfigure"><div id="d120e4190" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_rot0.png" alt=""></img></p></div></div><p>
+ </p><div class="itemizedlist"><ul><li><p>If the board is rotated to point downwards, then force of gravity acts along positive y axis.</p></li></ul></div><p></p>
+<div class="informalfigure"><div id="d120e4200" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_rot180.png" alt=""></img></p></div></div><p>
+ </p><div class="itemizedlist"><ul><li><p>If the board is rotated to left, then force of gravity acts along positive X axis.</p></li></ul></div><p></p>
+<div class="informalfigure"><div id="d120e4210" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_rot90.png" alt=""></img></p></div></div><p>
+ </p><div class="itemizedlist"><ul><li><p>If the board is rotated to right, then force of gravity acts along negative X axis.</p></li></ul></div><p></p>
+<div class="informalfigure"><div id="d120e4221" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_sensehat_rot270.png" alt=""></img></p></div></div><p>
+ </p><p>We will heuristically detect orientation of the Sense HAT board by comparing the acceleration value along X and Y axis to a threshold of 0.75g. If the acceleration along one of these axis exceed 0.75g, we will deem that the board is roughly oriented along that axis.</p><p>As in conventional design for auto-rotation algorithm, we will not consider the acceleration along the Z axis to decide on the value of orientation.</p><p>After determining the principal axis, we can now map the value of orientation to each of the positions.</p><div class="itemizedlist"><ul><li><p>If the board is rotated to point upwards, then force of gravity acts along negative y axis. In this case Orientation = 0.</p></li></ul></div><div class="itemizedlist"><ul><li><p>If the board is rotated to point downwards, then force of gravity acts along positive y axis. In this case Orientation = 180.</p></li></ul></div><div class="itemizedlist"><ul><li><p>If the board is rotated to left, then force of gravity acts along positive X axis. In this case Orientation = 90.</p></li></ul></div><div class="itemizedlist"><ul><li><p>If the board is rotated to right, then force of gravity acts along negative X axis. In this case Orientation = 270.</p></li></ul></div><h3 class="title" id="d120e4247">Task 1 - Implement the auto-rotation algorithm in Simulink<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-7" class="anchor_target"></span></h3><p>In this section, we shall implement the auto-rotation algorithm in Simulink using a Stateflow chart.</p><p><strong class="emphasis bold">1,</strong> Create a new <a href="matlab:simulink" target="_blank">Simulink</a> model.</p><p><strong class="emphasis bold">2.</strong> From the <a href="matlab:slLibraryBrowser" target="_blank">Simulink library browser</a>, add a Stateflow chart to your model. This can be found under the Stateflow library.</p><p><strong class="emphasis bold">3.</strong> In the Stateflow chart, create four states corresponding to four positions of Sense HAT.</p><p><strong class="emphasis bold">4.</strong> Draw transitions lines between these four states. Each transition corresponds to different value of the acceleration along the X and Y axis.</p><p><strong class="emphasis bold">5.</strong> In each state, assign the value of orientation to the output. The value of orientation to be assigned is described in the 'Auto-rotation algorithm' section above.</p><p><strong class="emphasis bold">6.</strong> Add the 'default transition' to the state where the orientation for the image is 0.</p><p>The complete algorithm realized using Stateflow chart would look similar to the implementation shown below:</p><p></p>
+<div class="informalfigure"><div id="d120e4287" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_autorotate_staeflow.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e4291">Task 2 - Add hardware specific blocks<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-8" class="anchor_target"></span></h3><p>In this section, we will add Raspberry Pi Sense HAT specific blocks to the Simulink model we have developed in Task 1.</p><p><strong class="emphasis bold">1.</strong> In the Simulink library browser, navigate to the <a href="matlab:raspberrypilib" target="_blank">Simulink support package for Raspberry Pi</a> library. Under this, double click on the Sense HAT group. This will open the <a href="matlab:sensehatlib" target="_blank">Simulink Sense HAT library</a>.</p><p><strong class="emphasis bold">2.</strong> Add the IMU sensor block from the Sense HAT library into your Simulink model. Configure this block to read acceleration by setting the 'Active sensor' parameter to 'Accelerometer'. Connect the output of this block to the input of Stateflow chart.</p><p><strong class="emphasis bold">3.</strong> Add the LED matrix block from the Sense HAT library into your model. In order to configure it to display an image, set the 'Mode' parameter to 'Display Image' and set the 'Orientation Source' as 'Input port'.</p><p><strong class="emphasis bold">4.</strong> The LED matrix block displays an 8x8x3 RGB image. Add a constant block to the model and set its value as 'imread('senseHAT_demo.png')'. <a href="matlab:imshow(imread('senseHAT_demo.png'))" target="_blank">senseHAT_demo.png</a> is a sample image shipped as part of this example.</p><p><strong class="emphasis bold">5.</strong> The orientation for the image to be displayed is determined by the Stateflow chart. Connect the output of the Stateflow chart to the 'Orientation' port of LED matrix block.</p><h3 class="title" id="d120e4326">Task 3 - Configure and Run the Auto-rotation Model in External Mode<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-9" class="anchor_target"></span></h3><p>When you run the auto-rotation model in External mode, the image displayed on the LED matrix will be oriented according to the position in which the Sense HAT is held.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_sensehat_autorotate" target="_blank">Auto-rotate image on LED matrix</a> model.</p><p><strong class="emphasis bold">2.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><strong class="emphasis bold">3.</strong> In the model, change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">4.</strong> In the model, click the <strong class="emphasis bold">Run</strong> button on the toolbar to run the model on Raspberry Pi hardware.</p><p><strong class="emphasis bold">5.</strong> Observe the image auto-rotate when you change the position in which the Sense HAT is held.</p><p><strong class="emphasis bold">6.</strong> While the model is running, double click on the Stateflow chart and observe the state transitions when you rotate the Sense HAT. The current state is highlighted with a blue boundary.</p><p><strong class="emphasis bold">7.</strong> Press the <strong class="emphasis bold">Stop</strong> button on the model to stop model execution.</p><h3 class="title" id="d120e4378">Task 4 - (Optional) Configure and Run the Auto-rotation Model as a Standalone Application<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-10" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_sensehat_autorotate" target="_blank">Auto-rotation image on LED matrix</a> model.</p><p><strong class="emphasis bold">2.</strong> Select <strong class="emphasis bold">Tools &gt; Run on Target Hardware &gt; Options...</strong>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><strong class="emphasis bold">3.</strong> In the model, click the <strong class="emphasis bold">Deploy To Hardware</strong> button on the toolbar to run the model on the Raspberry Pi hardware.</p><p><strong class="emphasis bold">4.</strong> Stop the model running on the Raspberry Pi hardware by executing the following on the MATLAB&#174; command line</p><div class="code_responsive"><pre class="programlisting">stopModel(r,'raspberrypi_sensehat_autorotate');</pre></div><h3 class="title" id="d120e4409">Summary<span id="AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample-11" class="anchor_target"></span></h3><p>This example showed a Simulink model implementing an auto-rotation algorithm.</p><p>IMU sensor and the LED Matrix block from the Raspberry Pi Sense HAT library were used to Implement this algorithm.</p><p>The example showed how the model may be run in External mode and alternatively, how it can also be deployed as a standalone application on Raspberry Pi hardware.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/svd</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/svd_glnxa64_1532490609.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/svd_glnxa64</componentName>
+    <componentVersion>1532490609</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>4</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>69320</size>
+    <type />
+    <uncompressedBytes>186328</uncompressedBytes>
+  </component>
+</componentData>
+

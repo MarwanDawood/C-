@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>External Mode</title>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="other"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Overview of the operation of external with attached hardware boards."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150939" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150939" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150939" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150939" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150939" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">External Mode</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#bu9m9u8" class="intrnllnk">How External Mode Works</a></li><li><a href="#bu9re8q" class="intrnllnk">Foreground Task</a></li><li><a href="#bu9re9t" class="intrnllnk">Background Task</a></li><li><a href="#bu9m_1v" class="intrnllnk">Enable External Mode</a></li><li><a href="#d120e2688" class="intrnllnk">See Also</a></li><li><a href="#d120e2693" class="intrnllnk">Related Topics</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-topic">
+<section itemprop="content"><h2 class="title r2018b" itemprop="title content" id="bu9m6e2">External Mode</h2><p>External mode enables Simulink<sup>&#x00AE;</sup> on your host
+        computer to communicate with the deployed model on your hardware board during
+        runtime.</p><p>The external mode operation described here applies to the following hardware support
+        packages:</p><div class="itemizedlist"><ul><li><p>
+                <a href="../../../supportpkg/armcortexa/index.html" class="a">Embedded Coder Support Package for ARM Cortex-A Processors</a>
+            </p></li><li><p>
+                <a href="../../../supportpkg/beaglebone/index.html" class="a">Embedded Coder Support Package for BeagleBone Black Hardware</a>
+            </p></li><li><p>
+                <a href="../../../supportpkg/freescalefrdmk64fboard/index.html" class="a">Simulink Coder Support Package for NXP FRDM-K64F Board</a>
+            </p></li><li><p>
+                <a href="../../../supportpkg/alterasocembeddedcoder/index.html" class="a">Embedded Coder Support Package for Intel SoC Devices</a>
+            </p></li><li><p>
+                <a href="../../../supportpkg/xilinxzynq7000ec/index.html" class="a">Embedded Coder Support Package for Xilinx Zynq Platform</a>
+            </p></li><li><p>
+                <a href="../index.html" class="a">Simulink Support Package for Raspberry Pi Hardware</a>
+            </p></li><li><p>
+                <a href="../../../supportpkg/arduino/index.html" class="a">Simulink Support Package for Arduino Hardware</a>
+            </p></li></ul></div><p>For all other hardware support packages, refer to <a href="../../../rtw/ug/set-up-and-use-hosttarget-communication-channel.html" class="a">Host-Target Communication with External Mode Simulation</a> (Simulink Coder).</p><section itemprop="content"><h3 class="title" id="bu9m9u8">How External Mode Works</h3><p>External mode creates a communication service on the host computer and hardware board.
+            The two services establish a communication channel between the Simulink engine and generated code deployed on the
+            hardware board. The communication service isolates the model process on the hardware
+            board from the code and from the transport layer that formats, transmits, and receives
+            the data packets. The communication service on the host computer receives the data
+            packets through the transport layer and updates the Simulink model display. The diagram shows the connection that the
+            external mode communication service creates between Simulink on the host computer and the deployed code on the hardware
+            board.</p><div class="informalfigure"><div id="d120e2560" class="mediaobject"><p><img src="external_mode_diagram.png" alt="" height="502" width="1142"></img></p></div></div><p>The communication service used in external mode can be a <a href="external-mode.html#bu9re8q" class="intrnllnk">Foreground Task</a> within the model thread or exist in a <a href="external-mode.html#bu9re9t" class="intrnllnk">Background Task</a>. </p><p>The task descriptions that follow assume <a href="../../../rtw/ug/modeling-for-single-tasking-execution.html" class="a">Modeling for Single-Tasking Execution</a> (Simulink Coder). They
+            can also be applied to <a href="../../../rtw/ug/modeling-for-multitasking-execution.html" class="a">Modeling for Multitasking Execution</a> (Simulink Coder), where the background task containing the external
+            mode executes with the lowest priority.</p></section><section itemprop="content"><h3 class="title" id="bu9re8q">Foreground Task</h3><p>As a foreground task called after each execution step model, the external mode
+            collects data at the base rate of the model. </p><p>This diagram shows the typical execution of the external mode relative to the model
+            code.</p><div class="informalfigure"><div id="d120e2583" class="mediaobject"><p><img src="external_mode_execution_diagram_1.png" alt="" height="514" width="1109"></img></p></div></div><p>Executing after each model time step maintains the integrity of the data logged by the
+            external mode from the hardware board.</p><p>When model code consumes most of the execution time for each time step, the external
+            mode execution overruns into the next time step. This delays the start of the next model
+            execution step and degrades the real-time behavior of the deployed model. The following
+            diagram shows an overrun of the external mode into the next time step due to model code
+            execution time.</p><div class="informalfigure"><div id="d120e2591" class="mediaobject"><p><img src="external_mode_execution_diagram_2.png" alt="" height="393" width="1112"></img></p></div></div><p>As a result of this overrun, in deployed models where data logging takes priority over
+            real-time execution, configure external mode to operate as a foreground task.</p></section><section itemprop="content"><h3 class="title" id="bu9re9t">Background Task</h3><p>External mode can be configured to operate as a background task on your hardware. As a
+            background task, external mode uses the execution time between the model code completing
+            in one time step and starting in the next time step. By not blocking the model step,
+            external mode can be used in systems that require real-time execution. This external
+            mode configuration enables direct observation of the deployed model on the hardware
+            board as it would behave in standalone operation.</p><p>The following diagram shows the execution of the model and background task.</p><div class="informalfigure"><div id="d120e2604" class="mediaobject"><p><img src="external_mode_execution_diagram_3.png" alt="" height="394" width="1107"></img></p></div></div><p>When model code consumes most of the execution time for each time step, the external
+            mode in the background task gets starved for execution time. Without sufficient time to
+            collect and transmit data from the hardware board to the host computer, data packets get
+            dropped by the external mode, resulting in gaps in the data logging.</p><p>As a result of these potential gaps, in deployed models where real-time execution
+            takes priority over data logging, configure external mode to operate as a background
+            task.</p></section><section itemprop="content"><h3 class="title" id="bu9m_1v">Enable External Mode</h3><div class="orderedlist"><ol style="list-style: decimal;"><li><p>From the Simulink Editor toolbar, select <code class="guidropdown">External</code>.</p><div class="informalfigure"><div id="d120e2625" class="mediaobject"><p class="listimage"><img src="toolbar_ext_mode_10_sec.png" alt="" height="49" width="431"></img></p></div></div><p>This selection turns on generation of code to support external mode
+                    communication between Simulink and
+                    target systems.</p></li><li><p>In the Simulink Editor, select <strong class="guimenuitem">Simulation</strong> &gt; <strong class="guimenuitem">Model Configuration Parameters</strong>.</p><div class="informalfigure"><div id="d120e2646" class="mediaobject"><p class="listimage"><img src="select_model_config_parameters_pane.png" alt="" height="147" width="393"></img></p></div></div></li><li><p>In the Configuration Parameters dialog box, click <strong class="guimenuitem">Hardware
+                        Implementation</strong> and select your <strong class="guilabel">Hardware
+                        board</strong>.</p><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>This step overwrites the Model Configuration Parameters. To preserve the
+                        configuration of an existing model, select <strong class="guimenuitem">File</strong> &gt; <strong class="guimenuitem">Save As</strong> to create a working copy of the model that you can
+                        configure.</p></div></li><li><p>(Optional) Under <strong class="guilabel">Target Hardware Resources</strong>, click
+                        <strong class="guimenuitem">External mode</strong> to view the commonly used
+                    parameters.</p><div class="informalfigure"><div id="d120e2677" class="mediaobject"><p class="listimage"><img src="external_mode_background.png" alt="" height="237" width="559"></img></p></div></div></li><li><p>(Optional) Select <strong class="guilabel">Run external mode in a background task</strong>
+                    to force the external mode task to operate as a background task.</p></li></ol></div></section>
+        <h2 id="d120e2688">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="../../../simulink/ug/viewing-output-trajectories.html"><span itemprop="name">Decide How to Visualize Simulation Data</span></a></span></p>
+        <h2 id="d120e2693">Related Topics</h2><ul><li><a href="../../../rtw/ug/modeling-for-single-tasking-execution.html" class="a">Modeling for Single-Tasking Execution</a> (Simulink Coder)</li><li><a href="../../../rtw/ug/modeling-for-multitasking-execution.html" class="a">Modeling for Multitasking Execution</a> (Simulink Coder)</li></ul>
+    </section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:39:54 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>
