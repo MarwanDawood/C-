@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>ThingSpeak Read</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="block:ThingSpeak Read"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/block"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="The ThingSpeak Read block reads data from the ThingSpeak channel on ThingSpeak.com website."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">ThingSpeak Read</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-1" class="intrnllnk">Description</a></li><li><a href="#mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-2" class="intrnllnk">Ports</a><ul class="nav"><li><a href="#mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fkr-2" class="intrnllnk">Output</a><ul class="nav"><li><a href="#bvuzt3u-Data" class="intrnllnk">Field1</a></li><li><a href="#bvuzt3u-Status" class="intrnllnk">Status</a></li></ul></li></ul></li><li><a href="#mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-3" class="intrnllnk">Parameters</a><ul class="nav"><li><a href="#bvuzt3u-Connectionmode" class="intrnllnk">Channel ID</a></li><li><a href="#bvuzt3u-LocalIPport" class="intrnllnk">Channel Access</a></li><li><a href="#bvuzt3u-RemoteIPaddress" class="intrnllnk">Read API Key</a></li></ul><ul class="nav"><li><a href="#bvuzt3u-RemoteIPport" class="intrnllnk">Field Number</a></li><li><a href="#bvuzt3u-Datatype" class="intrnllnk">Print diagnostic messages</a></li><li><a href="#bvuzt3u-DatasizeN" class="intrnllnk">Sample time</a></li></ul></li><li><a href="#mw_238a7559-0d8f-4a47-95fc-1fcb547996cb_seealso" class="intrnllnk">See Also</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref"><div class="block_ref"><span id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb" class="anchor_target"></span><span id="libthingspeakread" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">ThingSpeak Read</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Read data stored in ThingSpeak channel</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage">expand all in page</a></div></div></div><div itemprop="content" class="ref_sect"><div class="row"><div class="col-xs-12 col-sm-9 col-md-10"><ul class="list-unstyled library_path_container"><li><strong>Library:</strong></li><li><p class="library_path">
+        Simulink Support Package for RaspberryPi Hardware
+      </p></li></ul></div><div class="col-xs-12 col-sm-3 col-md-2"><p class="text-right text_center_xs"><span class="guiicon"><span class="inlinemediaobject"><img src="thingspeak_read.png" alt="" height="76" width="139"></img></span></span></p></div></div></div><h2 id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-1">Description</h2><p>The <span class="block">ThingSpeak Read</span> block reads data from the ThingSpeak&#x2122; channel on <a href="https://thingspeak.com" target="_blank">ThingSpeak.com</a>
+      website.</p><p>ThingSpeak is an open Internet of Things (IoT) platform with MATLAB<sup>&#x00AE;</sup> analytics that allows you to collect and store sensor data in the cloud and develop
+   IoT applications. The ThingSpeak IoT platform provides applications that allow you to analyze and visualize your
+   data in MATLAB and then act on the data.</p><div class="ref_sect"><h2 id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-2">Ports</h2></div><div class="ref_sect"><h3 id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fkr-2">Output</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fkr-2_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-Data" data-target="#expand_panel_body_bvuzt3u-Data" aria-controls="expand_panel_body_bvuzt3u-Data" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="bvuzt3u-Data"><code class="name">Field1</code> &#8212; Data read from specified field of ThingSpeak channel<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-Data" aria-labelledby="expand_panel_heading_bvuzt3u-Data" class="panel-collapse collapse"><div class="panel-body">
+      <p>At each time step, the port outputs the data read from the field specified in the
+        <strong class="guilabel">Field Number</strong> parameter.</p>
+     <p class="datatypelist"><strong>Data Types: </strong><code>single</code></p></div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-Status" data-target="#expand_panel_body_bvuzt3u-Status" aria-controls="expand_panel_body_bvuzt3u-Status" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="bvuzt3u-Status"><code class="name">Status</code> &#8212; ThingSpeak server response for each read request<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-Status" aria-labelledby="expand_panel_heading_bvuzt3u-Status" class="panel-collapse collapse"><div class="panel-body">
+      <p>The port outputs the ThingSpeak server response for the read request at each time step. The response is
+       received as an HTTP status code. An HTTP status code of <code class="literal">200</code> indicates that
+       the read request is successfully completed. For more information on HTTP status codes, see
+        <a href="../../../matlab/ref/matlab.net.http.statuscode-class.html" class="a"><code class="olink">matlab.net.http.StatusCode</code></a>.</p>
+     <p class="datatypelist"><strong>Data Types: </strong><code>single</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-3">Parameters</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb.bvk8fim-3_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-Connectionmode" data-target="#expand_panel_body_bvuzt3u-Connectionmode" aria-controls="expand_panel_body_bvuzt3u-Connectionmode" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_ChannelID" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-Connectionmode"><code class="name">Channel ID</code> &#8212; Channel ID from which block reads data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">12345</code> (default) | any positive integer</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-Connectionmode" aria-labelledby="expand_panel_heading_bvuzt3u-Connectionmode" class="panel-collapse collapse"><div class="panel-body">
+     <p>Specify the channel ID from which the block reads data. </p>
+     <p>If you do not know the channel ID of your channel: </p>
+     <div class="orderedlist"><ol style="list-style: decimal;"><li><p><a href="https://thingspeak.com/users/sign_in" target="_blank">Sign In</a> to ThingSpeak using your MathWorks<sup>&#x00AE;</sup> Account.</p></li><li><p>Select <strong class="guimenuitem">Channels</strong> &gt; <strong class="guimenuitem">My Channels</strong>.</p></li><li><p>Select the channel from which to read data.</p></li><li><p>Click the <strong class="guilabel">Channel Settings</strong> tab.</p></li><li><p>Copy the channel ID from the <strong class="guilabel">Channel ID</strong> parameter.</p><div class="informalfigure"><div id="d120e1411" class="mediaobject"><p class="listimage"><img src="channel_settings.png" alt="" height="248" width="390"></img></p></div></div></li><li><p>Open the <span class="block">ThingSpeak Read</span> block in your model and paste the copied ID to
+        the <strong class="guilabel">Channel ID</strong> parameter.</p></li></ol></div>
+    </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-LocalIPport" data-target="#expand_panel_body_bvuzt3u-LocalIPport" aria-controls="expand_panel_body_bvuzt3u-LocalIPport" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_ChannelAccess" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-LocalIPport"><code class="name">Channel Access</code> &#8212; Sharing settings of channel<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="guidropdown">Public</code> (default) | <code class="guidropdown">Private</code></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-LocalIPport" aria-labelledby="expand_panel_heading_bvuzt3u-LocalIPport" class="panel-collapse collapse"><div class="panel-body">
+     <p>Specify if your channel is private or public.</p>
+     <p>If you do not know the sharing settings of your channel: </p>
+     <div class="orderedlist"><ol style="list-style: decimal;"><li><p><a href="https://thingspeak.com/users/sign_in" target="_blank">Sign In</a> to ThingSpeak using your MathWorks Account.</p></li><li><p>Select <strong class="guimenuitem">Channels</strong> &gt; <strong class="guimenuitem">My Channels</strong>.</p></li><li><p>Select the channel to get the sharing status.</p></li><li><p>Click the <strong class="guilabel">Sharing</strong> tab. Use the option selected in the tab to set
+         <strong class="guilabel">Channel Access</strong>.</p><div class="itemizedlist"><ul><li><p><strong class="guilabel">Keep channel view private</strong>: Set <strong class="guilabel">Channel
+           Access</strong> to <code class="guidropdown">Private</code>. Only you can view the channel
+          data.</p></li><li><p><strong class="guilabel">Share channel view with everyone</strong>: Set <strong class="guilabel">Channel
+           Access</strong> to <code class="guidropdown">Public</code>. Anyone browsing the ThingSpeak
+          website can view the channel data.</p></li><li><p><strong class="guilabel">Share channel view only with the following users</strong>: Set
+           <strong class="guilabel">Channel Access</strong> to <code class="guidropdown">Private</code>. Users who have
+          access to shared channels can see only the private view of a channel; they cannot add
+          channels, see alerts, or see license information.</p></li></ul></div><div class="informalfigure"><div id="d120e1521" class="mediaobject"><p class="listimage"><img src="sharing_settings.png" alt="" height="184" width="389"></img></p></div></div></li></ol></div>
+    </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-RemoteIPaddress" data-target="#expand_panel_body_bvuzt3u-RemoteIPaddress" aria-controls="expand_panel_body_bvuzt3u-RemoteIPaddress" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_ReadAPIKey" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-RemoteIPaddress"><code class="name">Read API Key</code> &#8212; Key to read data from a private or shared channel<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">ABCDEFGHIJK</code> (default) | any valid Read API Key</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-RemoteIPaddress" aria-labelledby="expand_panel_heading_bvuzt3u-RemoteIPaddress" class="panel-collapse collapse"><div class="panel-body">
+     <p>When you read data from your channel using the ThingSpeak API or MATLAB code, you need an appropriate read permission. The 16-digit API key allows you
+      to read data from a private or a shared channel. You do not need an API key to read from a
+      public ThingSpeak channel.</p>
+     <p>If you do not know the read API key of your channel:</p>
+     <div class="orderedlist"><ol style="list-style: decimal;"><li><p><a href="https://thingspeak.com/users/sign_in" target="_blank">Sign In</a> to ThingSpeak using your The
+            MathWorks<sup>&#x00AE;</sup> Account.</p></li><li><p>Select <strong class="guimenuitem">Channels</strong> &gt; <strong class="guimenuitem">My Channels</strong>.</p></li><li><p>Select the channel to get the read API key.</p></li><li><p>Click the <strong class="guilabel">API Keys</strong> tab.</p></li><li><p>Copy the key from the <strong class="guilabel">Read API Keys</strong> parameter.</p><div class="informalfigure"><div id="d120e1599" class="mediaobject"><p class="listimage"><img src="read_api_key.png" alt="" height="345" width="386"></img></p></div></div></li><li><p>Open the <span class="block">ThingSpeak Read</span> block in your model and paste the copied API
+        key into the <strong class="guilabel">Read API Key</strong> parameter.</p></li></ol></div>
+     
+      <h4 class="descriptionsect">Dependencies</h4>
+      <p>The <strong class="guilabel">Read API Key</strong> parameter appears only when you set the
+        <strong class="guilabel">Channel Access</strong> parameter to <code class="guidropdown">Private</code>.</p>
+     
+    </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-RemoteIPport" data-target="#expand_panel_body_bvuzt3u-RemoteIPport" aria-controls="expand_panel_body_bvuzt3u-RemoteIPport" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_FieldNumber" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-RemoteIPport"><code class="name">Field Number</code> &#8212; Field from which block reads data<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="guidropdown">1</code> (default) | any integer between 1 and 8</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-RemoteIPport" aria-labelledby="expand_panel_heading_bvuzt3u-RemoteIPport" class="panel-collapse collapse"><div class="panel-body">
+     <p>Select a field of the ThingSpeak channel from which the block reads data.</p>
+    </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-Datatype" data-target="#expand_panel_body_bvuzt3u-Datatype" aria-controls="expand_panel_body_bvuzt3u-Datatype" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Printdiagnosticmessages" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-Datatype"><code class="name">Print diagnostic messages</code> &#8212; Save ThingSpeak server response to log file<br/> <span class="add_font_color_general remove_bold"><span class="example_desc">off (default)</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-Datatype" aria-labelledby="expand_panel_heading_bvuzt3u-Datatype" class="panel-collapse collapse"><div class="panel-body">
+     <p>Select this option to save the response from the ThingSpeak server to a log file for each read request. The name of the log file is the
+      model name followed by <code class="literal">.log</code>.</p>
+    </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_bvuzt3u-DatasizeN" data-target="#expand_panel_body_bvuzt3u-DatasizeN" aria-controls="expand_panel_body_bvuzt3u-DatasizeN" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Sampletime" class="anchor_target"></span><h3 class="panel-title" id="bvuzt3u-DatasizeN"><code class="name">Sample time</code> &#8212; Interval at which block reads data from ThingSpeak channel<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">60</code> (default) | <code class="literal remove_text_wrapping">-1</code> | any nonnegative value</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_bvuzt3u-DatasizeN" aria-labelledby="expand_panel_heading_bvuzt3u-DatasizeN" class="panel-collapse collapse"><div class="panel-body">
+     <p>Specify how often this block reads data from the ThingSpeak channel.</p>
+     <p>When you set this parameter to <code class="literal remove_text_wrapping">-1</code>, Simulink<sup>&#x00AE;</sup> determines the best sample time for the block based on the block
+      context within the model.</p>
+    </div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_238a7559-0d8f-4a47-95fc-1fcb547996cb_seealso">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="../ug/_mw_a274eeb4-f58f-4feb-998a-4d451c223f8c.html"><span itemprop="name">Publish or Retrieve Data to Internet of Things Using ThingSpeak</span></a></span></p><div class="examples_container"><h3 class="remove_border">External Websites</h3><div itemprop="content"><ul class="list-unstyled"><li><a href="https://thingspeak.com/" target="_blank">https://thingspeak.com/</a></li></ul></div></div></div><div class="release_introduced"><h4>Introduced in R2018a</h4></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

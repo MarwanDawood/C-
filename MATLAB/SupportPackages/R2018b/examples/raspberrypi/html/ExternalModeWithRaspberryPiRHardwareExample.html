@@ -1,0 +1,260 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Communicating with Raspberry Pi&reg; Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-07"><meta name="DC.source" content="ExternalModeWithRaspberryPiRHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/ExternalModeWithRaspberryPiRHardwareExample')">Open this Example</a></div><div class="content"><h1>Communicating with Raspberry Pi&reg; Hardware</h1><!--introduction--><p>This example shows how to tune the parameters and monitor the signals of an algorithm running on Raspberry Pi board.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 - Configure the Model for Raspberry Pi Hardware</a></li><li><a href="#5">Task 2 - Simulate the Model</a></li><li><a href="#6">Task 3 - Run the Model in External Mode</a></li><li><a href="#7">Task 4 - Communicate with the Model</a></li><li><a href="#8">Other Things to Try</a></li><li><a href="#9">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Simulink Support Package for Raspberry Pi hardware enables you to monitor and tune algorithms running on Raspberry Pi board from the same Simulink&reg; models from which you developed the algorithms.</p><p>In this example you will learn how to tune and monitor the algorithm in real time as it is executing. When you are developing algorithms, it is often necessary to determine appropriate values of critical algorithm parameters in an iterative fashion. For example, a surveillance algorithm that measures motion energy in a room may use a threshold to determine an intruder in the presence of ambient noise. If the threshold value is set too low, the algorithm may erroneously interpret any movement as an intruder. If the threshold value is set too high, the algorithm may not be able to detect any movement at all. In such cases, the right threshold value may be obtained by trying different values until the desired algorithm performance is reached. This iterative process is called parameter tuning.</p><p>Simulink's External mode feature enables you to accelerate the process of parameter tuning by letting you change certain parameter values while the model is running on target hardware, without stopping the model. When you change parameter values from within Simulink, the modified parameter values are communicated to the target hardware immediately. The effects of the parameters tuning activity may be monitored by viewing algorithm signals on scopes or displays in Simulink.</p><p>This example introduces the Simulink <b>External mode</b> feature by showing you how to:</p><div><ul><li>Set up communication between Simulink and Raspberry Pi board.</li><li>Use a Simulink model to tune the parameters of an algorithm that is running on Raspberry Pi board.</li><li>Use Simulink scopes to monitor the state of an algorithm running on Raspberry Pi board.</li></ul></div><h2 id="2">Prerequisites</h2><p>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Simulink Support Package for RaspberryPi Hardware</a> example.</p><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi board</li></ul></div><img vspace="5" hspace="5" src="ExternalModeWithRaspberryPiRHardwareExample_01.png" alt=""> <h2 id="4">Task 1 - Configure the Model for Raspberry Pi Hardware</h2><p>In this task, you will configure the model for the supported Raspberry Pi board.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_external_mode">Communicating with Raspberry Pi Hardware</a> model.</p><p><b>2.</b>  In your Simulink model, click <b>Simulation &gt; Model Configuration Parameters</b> to open <b>Configuration Parameters</b> dialog.</p><p><b>3.</b> Select the <b>Hardware Implementation</b> pane and select Raspberry Pi hardware from the <b>Hardware board</b> parameter list. Do not change any other settings.</p><p><b>4.</b> Click <b>OK</b>.</p><h2 id="5">Task 2 - Simulate the Model</h2><p>To simulate the model, follow these steps:</p><p><b>1.</b> Observe that the model plays the motion energy recorded in a room and compares it with a threshold to detect intrusion.</p><p><b>2.</b> In the model, change the <b>Simulation mode</b> on the toolbar to <b>Normal</b>. This tells Simulink to run the model on the host computer. See Task 4 below to run the model on the Raspberry Pi hardware.</p><p><b>3.</b> In the model, click the <b>Run</b> button in the Simulink toolbar.</p><p><b>4.</b> Double click the <b>Scope</b> block. Observe that the algorithm detects multiple intrusions.</p><p><b>5.</b> Click <b>Stop</b> button in the Simulink model.</p><h2 id="6">Task 3 - Run the Model in External Mode</h2><p><b>1.</b> In the model, change the <b>Simulation mode</b> on the toolbar to <b>External</b>.</p><p><b>2.</b> In the model, click the <b>Run</b> button on the toolbar.</p><h2 id="7">Task 4 - Communicate with the Model</h2><p>At this point, your model is running on Raspberry Pi board. As the model runs on hardware, it communicates with Simulink model in External mode using TCP/IP.</p><p><b>1.</b> Notice that the user LED is glowing almost constantly. This means that the selected threshold is too low and that the algorithm misinterprets even a minor motion energy change as an intrusion. You need to find a more optimal value of the threshold.</p><p><b>2.</b> Double-click the <b>Threshold</b> block in the model, increase its value, and click <b>OK</b> or <b>Apply</b>. This changes the threshold value in the model running on the board.</p><p><b>3.</b> Check whether the glowing pattern of the LED has changed. The LED should light up every 10 and 11.5 seconds in a correctly tuned algorithm.</p><p><b>4.</b> If there is no change in LED light pattern, repeat the Steps 2 and 3 until you find the right value of the threshold.</p><p><b>5.</b> Click <b>Stop</b> button in the Simulink model.</p><h2 id="8">Other Things to Try</h2><div><ul><li>Monitor other signals in the model. For example, add another scope to monitor the value of the recorded motion energy.</li><li>Improve the detection algorithm to filter out any motion energy changes that are shorter than 0.2 seconds.</li></ul></div><h2 id="9">Summary</h2><p>This example showed a workflow for tuning and monitoring an algorithm running on Raspberry Pi board. In this example you learned:</p><div><ul><li>How to tune an algorithm parameter on Raspberry Pi board using the External mode feature.</li><li>How to monitor the outputs of an algorithm running on Raspberry Pi board in real-time</li></ul></div><p class="footer">Copyright 2015-2017 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Communicating with Raspberry Pi(R) Hardware
+%
+% This example shows how to tune the parameters and monitor the signals of
+% an algorithm running on Raspberry Pi board.
+ 
+% Copyright 2015-2017 The MathWorks, Inc.
+
+
+%% Introduction
+%
+% Simulink Support Package for Raspberry Pi hardware enables you to monitor
+% and tune algorithms running on Raspberry Pi board from the same
+% Simulink(R) models from which you developed the algorithms.
+%
+% In this example you will learn how to tune and monitor the algorithm in
+% real time as it is executing. When you are developing algorithms, it is
+% often necessary to determine appropriate values of critical algorithm
+% parameters in an iterative fashion. For example, a surveillance algorithm
+% that measures motion energy in a room may use a threshold to determine an
+% intruder in the presence of ambient noise. If the threshold value is set
+% too low, the algorithm may erroneously interpret any movement as an
+% intruder. If the threshold value is set too high, the algorithm may not
+% be able to detect any movement at all. In such cases, the right threshold
+% value may be obtained by trying different values until the desired
+% algorithm performance is reached. This iterative process is called
+% parameter tuning.
+% 
+% Simulink's External mode feature enables you to accelerate the process of
+% parameter tuning by letting you change certain parameter values while the
+% model is running on target hardware, without stopping the model. When you
+% change parameter values from within Simulink, the modified parameter
+% values are communicated to the target hardware immediately. The effects
+% of the parameters tuning activity may be monitored by viewing algorithm
+% signals on scopes or displays in Simulink.
+%
+% This example introduces the Simulink *External mode* feature by showing
+% you how to:
+%
+% * Set up communication between Simulink and Raspberry Pi board.
+% * Use a Simulink model to tune the parameters of an algorithm that is
+% running on Raspberry Pi board.
+% * Use Simulink scopes to monitor the state of an algorithm running on
+% Raspberry Pi board.
+
+
+%% Prerequisites
+%
+% We recommend completing
+% <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started with Simulink Support Package for RaspberryPi Hardware> example.
+ 
+%% Required Hardware
+%
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi board
+%
+
+open_system('raspberrypi_external_mode');
+
+%% Task 1 - Configure the Model for Raspberry Pi Hardware
+%
+% In this task, you will configure the model for the supported Raspberry Pi
+% board.
+%
+% *1.* Open the <matlab:raspberrypi_external_mode Communicating with
+% Raspberry Pi Hardware> model.
+%
+% *2.*  In your Simulink model, click *Simulation > Model Configuration
+% Parameters* to open *Configuration Parameters* dialog.
+%
+% *3.* Select the *Hardware Implementation* pane and select Raspberry Pi
+% hardware from the *Hardware board* parameter list. Do not change any
+% other settings.
+%
+% *4.* Click *OK*.
+%
+
+%% Task 2 - Simulate the Model
+%
+% To simulate the model, follow these steps:
+%
+% *1.* Observe that the model plays the motion energy recorded in a room
+% and compares it with a threshold to detect intrusion.
+%
+% *2.* In the model, change the *Simulation mode* on the toolbar to
+% *Normal*. This tells Simulink to run the model on the host computer. See
+% Task 4 below to run the model on the Raspberry Pi hardware.
+%
+% *3.* In the model, click the *Run* button in the Simulink toolbar.
+%
+% *4.* Double click the *Scope* block. Observe that the algorithm detects
+% multiple intrusions.
+%
+% *5.* Click *Stop* button in the Simulink model.
+%
+
+%% Task 3 - Run the Model in External Mode
+%
+% *1.* In the model, change the *Simulation mode* on the toolbar to
+% *External*.
+%
+% *2.* In the model, click the *Run* button on the toolbar.
+%
+
+%% Task 4 - Communicate with the Model
+%
+% At this point, your model is running on Raspberry Pi board. As the model
+% runs on hardware, it communicates with Simulink model in External mode
+% using TCP/IP.
+%
+% *1.* Notice that the user LED is glowing almost constantly. This means
+% that the selected threshold is too low and that the algorithm
+% misinterprets even a minor motion energy change as an intrusion. You need
+% to find a more optimal value of the threshold.
+%
+% *2.* Double-click the *Threshold* block in the model, increase its value,
+% and click *OK* or *Apply*. This changes the threshold value in the model
+% running on the board.
+% 
+% *3.* Check whether the glowing pattern of the LED has changed. The LED
+% should light up every 10 and 11.5 seconds in a correctly tuned algorithm.
+%
+% *4.* If there is no change in LED light pattern, repeat the Steps 2 and 3
+% until you find the right value of the threshold.
+%
+% *5.* Click *Stop* button in the Simulink model.
+%
+
+%% Other Things to Try
+% 
+% * Monitor other signals in the model. For example, add another scope to
+% monitor the value of the recorded motion energy.
+% * Improve the detection algorithm to filter out any motion energy changes
+% that are shorter than 0.2 seconds.
+%
+
+%% Summary
+%
+% This example showed a workflow for tuning and monitoring an algorithm
+% running on Raspberry Pi board. In this example you learned:
+%
+% * How to tune an algorithm parameter on Raspberry Pi board using the
+% External mode feature.
+% * How to monitor the outputs of an algorithm running on Raspberry Pi board
+% in real-time
+
+close_system('raspberrypi_external_mode', 0);  
+% LocalWords: raspberry gettingstarted
+
+
+##### SOURCE END #####
+--></body></html>

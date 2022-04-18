@@ -1,0 +1,8 @@
+<example>
+  <main>LEDControlFromAndroidTMDeviceExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypiandroidgettingstarted');</callback>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

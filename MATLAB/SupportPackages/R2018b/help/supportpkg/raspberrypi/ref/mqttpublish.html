@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>MQTT Publish</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+            ,
+          {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../referencelist.html?type=block",
+          "name": "Block Libraries"
+}
+
+          }]
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="block:MQTT Publish"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/block"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="The MQTT Publish block publishes messages from your hardware (publisher) to the Message Queuing Telemetry Transport (MQTT) broker on the specified topic."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">MQTT Publish</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_cb7227f6-b83c-4c87-98f6-379c200d24e7" class="intrnllnk">Description</a></li><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_a8fa7560-4b71-4db3-8e0e-07ab7330c48d" class="intrnllnk">Ports</a><ul class="nav"><li><a href="#mw_f6c369ee-be19-4a75-ba90-ffa8ccddacbf" class="intrnllnk">Input</a><ul class="nav"><li><a href="#msgPort_publish" class="intrnllnk">Message</a></li></ul></li></ul><ul class="nav"><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_53abda2b-4837-44aa-a344-b3cea0f01c12" class="intrnllnk">Output</a><ul class="nav"><li><a href="#statusPort_publish" class="intrnllnk">Status</a></li></ul></li></ul></li><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_7185148c-60a8-49af-bb4a-b329015f732a" class="intrnllnk">Parameters</a><ul class="nav"><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" class="intrnllnk">Topic</a></li><li><a href="#mw_04297aaf-85f7-4891-83b6-520b990c9eb2" class="intrnllnk">QoS</a></li><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" class="intrnllnk">Retain message</a></li></ul></li><li><a href="#examples" class="intrnllnk">Model Examples</a></li><li><a href="#mw_595ee79e-2b05-4ae7-85c9-f595eee34793_seealso" class="intrnllnk">See Also</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref"><div class="block_ref"><span id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793" class="anchor_target"></span><span id="liblinuxmqttpublish" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">MQTT Publish</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Publish messages to MQTT broker on specified topic</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage">expand all in page</a></div></div></div><div itemprop="content" class="ref_sect"><div class="row"><div class="col-xs-12 col-sm-9 col-md-10"><ul class="list-unstyled library_path_container"><li><strong>Library:</strong></li><li><p class="library_path">
+        Simulink Support Package for Raspberry Pi Hardware
+      </p></li></ul></div><div class="col-xs-12 col-sm-3 col-md-2"><p class="text-right text_center_xs"><span class="guiicon"><span class="inlinemediaobject"><img src="mqtt_publish.png" alt="" height="103" width="169"></img></span></span></p></div></div></div><h2 id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_cb7227f6-b83c-4c87-98f6-379c200d24e7">Description</h2><p>The <span class="block">MQTT Publish</span> block publishes messages from your hardware (publisher) to
+      the Message Queuing Telemetry Transport (MQTT) broker on the specified topic.</p><p>The block has a <strong class="guilabel"><a href="#msgPort_publish" target="_blank" class="intrnllnk">Message</a></strong>
+      input port and a <strong class="guilabel"><a href="#statusPort_publish" target="_blank" class="intrnllnk">Status</a></strong>
+      output port. The <strong class="guilabel">Message</strong> port accepts the message to be published to the
+      broker. The <strong class="guilabel">Status</strong> port outputs the status of the publish request. The
+      string <strong class="guilabel">topic/level</strong> on the block icon is specified by the
+        <strong class="guibutton">Topic</strong> parameter.</p><p>For more information on MQTT, see <a href="publish-and-subscribe-to-mqtt-messages.html" class="a">Publish and Subscribe to MQTT
+        Messages</a>.</p><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>The <span class="block">MQTT Publish</span> block supports MQTT only over TCP/IP sockets.</p></div><div class="ref_sect"><h2 id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_a8fa7560-4b71-4db3-8e0e-07ab7330c48d">Ports</h2></div><div class="ref_sect"><h3 id="mw_f6c369ee-be19-4a75-ba90-ffa8ccddacbf">Input</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_f6c369ee-be19-4a75-ba90-ffa8ccddacbf_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_msgPort_publish" data-target="#expand_panel_body_msgPort_publish" aria-controls="expand_panel_body_msgPort_publish" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="msgPort_publish"><code class="name">Message</code> &#8212; Message to be published<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">vector</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_msgPort_publish" aria-labelledby="expand_panel_heading_msgPort_publish" class="panel-collapse collapse"><div class="panel-body">
+            <p>The message to be published to the MQTT broker, specified as a vector.</p>
+            <p class="description_valueexample"><strong>Example: </strong><code class="literal">[0,3]</code>
+            </p>
+          <p class="datatypelist"><strong>Data Types: </strong><code>single</code> | <code>double</code> | <code>int8</code> | <code>int16</code> | <code>int32</code> | <code>uint8</code> | <code>uint16</code> | <code>uint32</code> | <code>Boolean</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h3 id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_53abda2b-4837-44aa-a344-b3cea0f01c12">Output</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_53abda2b-4837-44aa-a344-b3cea0f01c12_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_statusPort_publish" data-target="#expand_panel_body_statusPort_publish" aria-controls="expand_panel_body_statusPort_publish" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="statusPort_publish"><code class="name">Status</code> &#8212; Status code from MQTT broker<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc">scalar</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_statusPort_publish" aria-labelledby="expand_panel_heading_statusPort_publish" class="panel-collapse collapse"><div class="panel-body">
+            <p>The status code issued by the MQTT broker in response to the publish request. If
+              the broker accepts the message for publishing, the port outputs <code class="literal">0</code>.
+              Any nonzero output indicates that the broker has rejected the message. A message can
+              be rejected for various reasons, such as an incorrect user name or password or an
+              unacceptable protocol version. For more information on status codes from MQTT brokers,
+              see <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTAsync/html/_m_q_t_t_async_8h.html#afe0cffcce8efe25186f79c51ac44e16f" target="_blank">MQTT Status Codes</a>.</p>
+          <p class="datatypelist"><strong>Data Types: </strong><code>int8</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_7185148c-60a8-49af-bb4a-b329015f732a">Parameters</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793.mw_7185148c-60a8-49af-bb4a-b329015f732a_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" data-target="#expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" aria-controls="expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Topic" class="anchor_target"></span><h3 class="panel-title" id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c"><code class="name">Topic</code> &#8212; Topic of the message<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">topic/level</code> (default) | any valid topic name</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" aria-labelledby="expand_panel_heading_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_e38465e7-617e-4065-aa4b-c3e518d3617c" class="panel-collapse collapse"><div class="panel-body">
+          <p>Specify a topic on which the message is to be published. A topic can have a maximum
+            of 128 characters. For information on topics and its structure, see <a href="publish-and-subscribe-to-mqtt-messages.html#mw_243ee45c-251b-4673-ba68-97cd11e601f9" class="a">Topics in MQTT</a>.</p>
+        </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_mw_04297aaf-85f7-4891-83b6-520b990c9eb2" data-target="#expand_panel_body_mw_04297aaf-85f7-4891-83b6-520b990c9eb2" aria-controls="expand_panel_body_mw_04297aaf-85f7-4891-83b6-520b990c9eb2" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_QoS" class="anchor_target"></span><h3 class="panel-title" id="mw_04297aaf-85f7-4891-83b6-520b990c9eb2"><code class="name">QoS</code> &#8212; Levels of QoS<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="guidropdown">0</code> (default) | <code class="guidropdown">1</code> | <code class="guidropdown">2</code></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_mw_04297aaf-85f7-4891-83b6-520b990c9eb2" aria-labelledby="expand_panel_heading_mw_04297aaf-85f7-4891-83b6-520b990c9eb2" class="panel-collapse collapse"><div class="panel-body">
+          <p>Quality of Service (QoS) defines the reliability of the message delivery process in
+            MQTT. MQTT provides three QoS levels for message delivery: QoS 0, QoS 1, and QoS 2. The
+            MQTT broker that you are using might not support all three levels of QoS. For example,
+              ThingSpeak&#x2122; MQTT supports only QoS 0.</p>
+          <p>Select a QoS level from the list:</p>
+<div class="itemizedlist"><ul><li><p><code class="guidropdown">0</code>: The publisher sends the message to the MQTT
+                  broker once. The broker does not send an acknowledgment of the receipt.</p></li><li><p><code class="guidropdown">1</code>: The publisher sends the message to the MQTT
+                  broker at least once. The publisher resends the message if it does not receive an
+                  acknowledgment from the broker.</p></li><li><p><code class="guidropdown">2</code>: The publisher sends the message to the MQTT
+                  broker exactly once. The publisher and broker exchange acknowledgments to ensure
+                  that the message is received only once.</p></li></ul></div><p>
+</p>
+          <p>For more information on QoS levels, see <a href="publish-and-subscribe-to-mqtt-messages.html#mw_df791c04-eb74-4604-9df2-d0c55517a3d2" class="a">QoS Level for Publish</a>.</p>
+        </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" data-target="#expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" aria-controls="expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Retainmessage" class="anchor_target"></span><h3 class="panel-title" id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f"><code class="name">Retain message</code> &#8212; Option to send message to new subscribers<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">off</code> (default) | <code class="literal">on</code></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" aria-labelledby="expand_panel_heading_mw_595ee79e-2b05-4ae7-85c9-f595eee34793_sep_mw_ad37ad8c-8b08-46e4-82fa-71b7172e277f" class="panel-collapse collapse"><div class="panel-body">
+          <p>The <strong class="guilabel">Retain message</strong> parameter controls how new subscriptions are
+            handled: </p>
+<div class="itemizedlist"><ul><li><p><code class="literal">on</code> &#8211;&#8211; When a new subscription is made to a topic, the
+                  broker identifies the message in its database with the matching topic name and
+                  sends the message immediately.</p>
+<div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>The MQTT broker retains only the last known message published on a
+                      topic.</p></div><p>
+</p></li><li><p><code class="literal">off</code> &#8211;&#8211; When a new subscription is made to a topic, the
+                  subscriber must wait until the publisher sends the next message.</p></li></ul></div><p>
+</p>
+        </div></div></div></div></div></div></div><div class="ref_sect"><h2 id="examples">Model Examples</h2><section class="example_short_list"><div class="card_container explorer_view add_long_title" data-ui-component="card"><a href="publish-and-subscribe-to-messages-using-mqtt-blocks.html"><div class="card_media" style="background-image:url(../../../examples/raspberrypi/win64/mqtt_communication.png);"><img alt="Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks" src="../../../examples/raspberrypi/win64/mqtt_communication.png"></img></div><div class="card_body"><div class="panel panel_color_transparent panel_color_fill"><div class="panel-heading"><h3>Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks</h3></div><div class="panel-body" style="overflow:hidden;"><description>This example shows you how to publish and subscribe to messages from a ThingSpeak broker using MQTT blocks provided by the Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware.</description></div></div></div></a><div class="card_footer"><div class="row"><div class="col-xs-12"><div class="card_action_primary"><a href="matlab:openExample('raspberrypi/PublishAndSubscribeToMessagesUsingMQTTBlocksExample')">Open Example</a></div></div></div><div class="card_source"><div class="card_type" data-toggle="tooltip" data-placement="top" title="MathWorks"><span class="icon-membrane" aria-hidden="true"></span></div></div></div></div></section></div><div class="clearfix"></div><div class="ref_sect"><h2 id="mw_595ee79e-2b05-4ae7-85c9-f595eee34793_seealso">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="mqttsubscribe.html"><span itemprop="name">MQTT Subscribe</span></a></span></p></div><div class="release_introduced"><h4>Introduced in R2018b</h4></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<productinfo version="2.0">
+    <name>Raspberry Pi</name>
+    <deviceid>ARM</deviceid>
+    <subfamily>ARM</subfamily>
+    <numofcores>4</numofcores>
+    <productionhwdevicetype>ARM Compatible-&gt;ARM Cortex</productionhwdevicetype>
+    <toolchain name="GNU GCC Raspberry Pi" IsLoadCommandMATLABFcn="true"> 
+        <loadcommand>codertarget.raspi.internal.loadCommand</loadcommand>  
+        <loadcommandargs>codertarget.raspi.internal.getLoadCommandArgs</loadcommandargs>
+    </toolchain>
+    <parameterinfo>$(TARGET_ROOT)/registry/parameters/raspberrypi_ParameterInfo.xml</parameterinfo>
+    <attributeinfo>$(TARGET_ROOT)/registry/attributes/raspberrypi_AttributeInfo.xml</attributeinfo>
+    <rtosinfo>$(MATLAB_ROOT)/toolbox/target/codertarget/rtos/registry/linux.xml</rtosinfo> 
+    <matlabpilinfo GetPropsFcn="codertarget.raspi.internal.getMATLABPILProps"></matlabpilinfo>
+    <esbcompatible>0</esbcompatible>
+</productinfo>

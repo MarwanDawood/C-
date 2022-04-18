@@ -1,0 +1,277 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-09"><meta name="DC.source" content="DeployAMATLABFunctionOnTheRaspberryPiHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware</h1><!--introduction--><p>This example shows you the how to deploy a MATLAB&reg; function as a standalone executable on the Raspberry Pi&#8482; Hardware using MATLAB Support Package for Raspberry Pi Hardware.</p><p>To demonstrate the steps in the workflow, this example uses a blinking LED function. In this example, you will learn how to create the <tt>blinkLED</tt> MATLAB function, prepare the function for deployment, and then deploy the function as a standalone executable on the hardware. On successful deployment, the ACT LED on the hardware starts blinking every 0.5 seconds and continues to run even after you disconnect the hardware from the computer.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Prerequisites</a></li><li><a href="#2">Required Products</a></li><li><a href="#3">Step 1: Create a MATLAB Function</a></li><li><a href="#6">Step 2: Run the MATLAB Function Using Live IO from Hardware</a></li><li><a href="#9">Step 3: Add the Compilation Directive to the MATLAB Function</a></li><li><a href="#10">Step 4: Check the MATLAB Function Using Code Analyzer</a></li><li><a href="#11">Step 5: Check the MATLAB Function for Unsupported calls</a></li><li><a href="#14">Step 6: Create a Hardware Configuration Object</a></li><li><a href="#21">Step 7: Deploy the MATLAB Function on Hardware</a></li></ul></div><h2 id="1">Prerequisites</h2><p>Before you start with this example, we recommend you to complete these examples:</p><div><ul><li><a href="docid:raspberrypiio_ref.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a></li><li><a href="docid:raspberrypiio_ref.example-raspi_gettingstarted_with_hardware">Working with Raspberry Pi Hardware</a></li></ul></div><h2 id="2">Required Products</h2><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>MATLAB Coder license</li></ul></div><h2 id="3">Step 1: Create a MATLAB Function</h2><p>1. Copy the <tt>blinkLED</tt> function and paste it in the MATLAB Editor. The function implements an algorithm to blink the ACT LED on the Raspberry Pi hardware every 0.5 seconds for 100 cycles.</p><p><b>Note</b>: MATLAB functions with input or output arguments are not supported for deployment on the hardware.</p><pre>function blinkLED()</pre><pre>% Create a Raspberry Pi object
+r= raspi();</pre><pre>% Blink the LED for 100 cycles
+for count = 1:100
+    % Turn on the LED
+    writeLED(r,"LED0", 1);
+    % Pause for 0.5 seconds
+    pause(0.5);
+    % Turn off the LED
+    writeLED(r,"LED0", 0);
+    % Pause for 0.5 seconds
+    pause(0.5);
+end
+end</pre><p>2. Save the function as <tt>blinkLED.m</tt> to a folder to which you have write access.</p><h2 id="6">Step 2: Run the MATLAB Function Using Live IO from Hardware</h2><p>Before deploying the function, running the MATLAB function by using live input and output (IO) from the hardware is recommended.</p><p>Using live IO enables you to:</p><div><ul><li>Verify that the MATLAB function is communicating with the hardware as expected.</li><li>Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.</li></ul></div><p>Run the <tt>blinkLED</tt> function by using the <tt>run</tt> command in the MATLAB Command Window. When you run the <tt>blinkLED</tt> function, MATLAB connects to the hardware and starts executing the function on the hardware. The ACT LED starts blinking every 0.5 seconds.</p><p>run blinkLED</p><p>Before proceeding, fix any errors you might have detected in this step.</p><h2 id="9">Step 3: Add the Compilation Directive to the MATLAB Function</h2><p>Add the <tt>%#codegen</tt> directive (or pragma) after the <tt>blinkLED</tt> function signature to indicate that you intend to deploy the MATLAB function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.</p><pre>function blinkLED() %#codegen</pre><h2 id="10">Step 4: Check the MATLAB Function Using Code Analyzer</h2><p>The Code Analyzer checks the MATLAB function for code violations at design time, minimizing compilation errors. The code analyzer continuously checks your code as you enter it. It reports problems and recommends modifications.</p><p>Check the <tt>blinkLED</tt> function for any errors and warnings by following the steps in <a href="docid:raspberrypiio_ug.mw_c1e35b00-a28c-4e0a-9761-5f5935961dcb">Check Code with Code Analyzer</a> and fix them before proceeding to the next step.</p><p>The analyzer provides an indicator in the top right of the editor window. The color of the indicator helps you identify if the function has any errors or warnings.</p><pre>    Color of Indicator   | Description
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    Green                | Function has no errors or warnings
+    Orange               | Function has warnings
+    Red                  | Function has errors</pre><p>In this example, the green color of the indicator specifies that the <tt>blinkLED</tt> function has no errors or warnings.</p><p><img vspace="5" hspace="5" src="../code_analyzer_errorfree.png" alt=""> </p><h2 id="11">Step 5: Check the MATLAB Function for Unsupported calls</h2><p>Debug the <tt>blinkLED</tt> function and ensure if all the calls in the function are supported by code generation.</p><p>To fix the unsupported function call errors, perform one of these steps:</p><p>1. <b>Declare the function as coder.extrinsic</b>: When you declare a function call as an extrinsic function, the code generator does not produce code for that function. It instead dispatches them to MATLAB for execution. For more information, see <a href="docid:coder_ug.bq1h2z9-40">Declaring MATLAB Functions as Extrinsic Functions</a>.</p><p>2. <b>Replace with an equivalent call supported by code generation</b>: Replace the unsupported calls with an equivalent call that is supported by code generation. Including calls supported by code generation ensures that the function will behave the same as tested in <b>Run the Function Using Live IO from Hardware</b> after the deployment.</p><p>Some of the calls supported by code generation are listed here:</p><div><ul><li><a href="docid:coder_ug.bq1h2z7-11">Functions and Objects Supported for C/C++ Code Generation &#8212; Alphabetical List Extrinsic Functions</a>.</li><li><a href="docid:coder_ug.bq37cl7">MATLAB Language Features Supported for C/C++ Code Generation</a></li><li><a href="docid:raspberrypiio_ug.mw_a2a99c79-55e2-4b2e-b64a-53ddde063d3c">Raspberry Pi Peripheral Functions Supported For C Code Generation</a></li></ul></div><p>In this example, the <a href="docid:matlab_ref.f76-920820">pause</a> function at line number 11 and 15 is not supported by code generation. Deploying the <tt>blinkLED</tt> function without any modification will result in an executable that may not behave exactly the same as expected.</p><p>To fix this unsupported call error, replace <tt>pause</tt> with an equivalent function supported by code generation. You can replicate the functionality of the <tt>pause</tt> function by using the <tt>system</tt> function provided by the MATLAB Support Package for Raspberry Pi Hardware. Provide the Linux&reg; terminal command, <tt>sleep</tt>, as the input argument to the <tt>system</tt> function.</p><pre>function blinkLED() %#codegen</pre><pre>% Create a Raspberry Pi object
+r= raspi();</pre><pre>%Blink the LED for 100 cycles
+for count = 1:100
+    % Turn on the LED
+    writeLED(r,'LED0', 1);
+    % Pause for 0.5 seconds
+    system(r, 'sleep 0.5');
+    % Turn off the LED
+    writeLED(r,'LED0', 0);
+    % Pause for 0.5 seconds
+    system(r, 'sleep 0.5');
+end
+end</pre><h2 id="14">Step 6: Create a Hardware Configuration Object</h2><p>1. Create a hardware configuration object by using the <tt><a href="docid:raspberrypiio_ref.mw_0826d141-e828-41a5-b465-cdf6268cb39a">targetHardware</a></tt> function in the MATLAB Command Window.</p><pre>board = targetHardware('Raspberry Pi')</pre><pre>board =</pre><pre>targetHardware with properties:</pre><pre>            Name: 'Raspberry Pi'
+   DeviceAddress: '176.93.236.232'
+        Username: 'pi'
+        Password: '*********'
+        BuildDir: '/home/pi'
+     BuildAction: 'Build, load, and run'</pre><p>2. Verify the <tt>DeviceAddress</tt>, <tt>Username</tt>, and <tt>Password</tt> properties listed in the output. If required, change the value of the properties by using dot notation syntax.</p><p>For example, to change the device address to <tt>173.21.22.327</tt>, enter:</p><pre>board.DeviceAddress = '173.21.22.327'</pre><h2 id="21">Step 7: Deploy the MATLAB Function on Hardware</h2><p>Deploy the MATLAB function as a standalone executable on the hardware by using the <tt><a href="docid:raspberrypiio_ref.mw_a0a7a3d1-17af-452f-af42-8cc2ae09c58d">deploy</a></tt> function.</p><pre>deploy(board,'blinkLED')</pre><p>Code generation successful: View report</p><p>The <tt>deploy</tt> function initiates code generation of the <tt>blinkLED</tt> function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the <tt>blinkLED</tt> function for any build errors and warnings in the generated code.</p><p>After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts blinking the ACT LED on the hardware every 0.5 seconds. The blinking continues for 100 cycles.</p><p><img vspace="5" hspace="5" src="../code_generation_report.png" alt=""> </p><p class="footer">Copyright 2018 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Getting Started with Deploying a MATLAB Function on the Raspberry Pi Hardware
+% This example shows you the how to deploy a MATLAB(R) function as a standalone executable 
+% on the Raspberry Pi(TM) Hardware using MATLAB Support Package
+% for Raspberry Pi Hardware.
+%
+% To demonstrate the steps in the workflow, this example uses
+% a blinking LED function. In this example, you will learn how to create the |blinkLED| MATLAB function, prepare the function for deployment, and then deploy the function as a standalone executable on the hardware.
+% On successful deployment, the ACT LED on the hardware starts blinking every 0.5 seconds and continues to run even after you disconnect the hardware
+% from the computer.
+
+% Copyright 2018 The MathWorks, Inc.
+
+%% Prerequisites
+% Before you start with this example, we recommend you to complete these examples:
+%
+% * <docid:raspberrypiio_ref.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware>
+% * <docid:raspberrypiio_ref.example-raspi_gettingstarted_with_hardware Working with Raspberry Pi Hardware>
+%% Required Products
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output 
+% * MATLAB Coder license
+%% Step 1: Create a MATLAB Function
+% 1. Copy the |blinkLED| function and paste it in the MATLAB Editor. The
+% function implements an algorithm to blink the ACT LED on the Raspberry Pi
+% hardware every 0.5 seconds for 100 cycles.
+%
+% *Note*: MATLAB functions with input or output arguments are not supported for deployment on the hardware.
+%%
+%  function blinkLED() 
+% 
+%  % Create a Raspberry Pi object 
+%  r= raspi(); 
+% 
+%  % Blink the LED for 100 cycles 
+%  for count = 1:100 
+%      % Turn on the LED 
+%      writeLED(r,"LED0", 1); 
+%      % Pause for 0.5 seconds 
+%      pause(0.5); 
+%      % Turn off the LED 
+%      writeLED(r,"LED0", 0); 
+%      % Pause for 0.5 seconds 
+%      pause(0.5); 
+%  end 
+%  end 
+%%
+% 2. Save the function as |blinkLED.m| to a folder to which you have write access.
+%
+%% Step 2: Run the MATLAB Function Using Live IO from Hardware
+% Before deploying the function, running the MATLAB
+% function by using live input and output (IO) from the hardware is recommended.
+%
+% Using live IO enables you to:
+%
+% * Verify that the MATLAB function is communicating with
+% the hardware as expected.
+% * Detect run-time errors, such as peripheral conflicts, that are much harder to diagnose during deployment.
+% 
+% Run the |blinkLED| function by using the |run| command in the MATLAB Command Window. When you run the |blinkLED| function, MATLAB connects to the hardware and starts executing the function on the hardware. 
+% The ACT LED starts blinking every 0.5 seconds.
+%% 
+% run blinkLED
+%%
+% 
+% Before proceeding, fix any errors you might have detected in this step.
+%% Step 3: Add the Compilation Directive to the MATLAB Function
+% Add the |%#codegen| directive (or pragma) after the |blinkLED| function signature to indicate that you intend to deploy the MATLAB function on the hardware. Adding this directive instructs the MATLAB Code Analyzer to help you diagnose and fix violations that would result in errors during deployment.
+%
+%  function blinkLED() %#codegen
+%
+%% Step 4: Check the MATLAB Function Using Code Analyzer
+% The Code Analyzer checks the MATLAB function for code violations at design time, minimizing compilation errors. The code analyzer continuously checks your code as you enter it. It reports problems and recommends modifications.
+%
+% Check the |blinkLED| function for any errors and warnings by following the steps in
+% <docid:raspberrypiio_ug.mw_c1e35b00-a28c-4e0a-9761-5f5935961dcb Check
+% Code with Code Analyzer> and fix them before proceeding to the next step.
+%
+% The analyzer provides an indicator in the top right of the editor window. The color of the indicator helps you identify if the function has any errors or warnings.
+%
+%      Color of Indicator   | Description
+%    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+%      Green                | Function has no errors or warnings 
+%      Orange               | Function has warnings
+%      Red                  | Function has errors 
+% 
+% In this example, the green color of the indicator specifies that the |blinkLED| function has no errors or warnings.
+%
+% <<../code_analyzer_errorfree.png>>
+%% Step 5: Check the MATLAB Function for Unsupported calls
+% Debug the |blinkLED| function and ensure if all the calls in the function are supported by code generation.
+%
+% To fix the unsupported function call errors, perform one of these steps:
+%
+% 1. *Declare the function as coder.extrinsic*: When you declare a function
+% call as an extrinsic function, the code generator does not produce code
+% for that function. It instead dispatches them to MATLAB for execution. For more
+% information, see <docid:coder_ug.bq1h2z9-40 Declaring MATLAB Functions as
+% Extrinsic Functions>.
+%
+% 2. *Replace with an equivalent call supported by code generation*:
+% Replace the unsupported calls with an equivalent call that is
+% supported by code generation. Including calls supported by code generation ensures that the function will behave the same as tested in *Run the Function Using Live IO from Hardware* after the deployment.
+% 
+% Some of the calls supported by code generation are listed here:
+%
+% * <docid:coder_ug.bq1h2z7-11 Functions and Objects Supported for C/C++ Code Generation &mdash; Alphabetical List
+% Extrinsic Functions>.
+% * <docid:coder_ug.bq37cl7 MATLAB Language Features Supported for C/C++ Code Generation>
+% * <docid:raspberrypiio_ug.mw_a2a99c79-55e2-4b2e-b64a-53ddde063d3c Raspberry Pi Peripheral Functions Supported For C Code Generation>
+%
+% In this example, the <docid:matlab_ref.f76-920820 pause> function at line number 11 and 15 is not supported by code generation. Deploying the |blinkLED| function without any modification will result in an executable that may not behave exactly the same as expected. 
+% 
+% To fix this unsupported call error, replace |pause| with an equivalent function supported by code generation. You can replicate the functionality of the |pause| function by using the |system| function provided by the 
+% MATLAB Support Package for Raspberry Pi Hardware. Provide the Linux(R) terminal command, |sleep|, as the input argument to the |system| function.  
+%%
+%  function blinkLED() %#codegen
+% 
+%  % Create a Raspberry Pi object 
+%  r= raspi();
+% 
+%  %Blink the LED for 100 cycles 
+%  for count = 1:100 
+%      % Turn on the LED 
+%      writeLED(r,'LED0', 1); 
+%      % Pause for 0.5 seconds 
+%      system(r, 'sleep 0.5'); 
+%      % Turn off the LED 
+%      writeLED(r,'LED0', 0); 
+%      % Pause for 0.5 seconds 
+%      system(r, 'sleep 0.5'); 
+%  end 
+%  end 
+%%
+%% Step 6: Create a Hardware Configuration Object
+% 1. Create a hardware configuration object by using the |<docid:raspberrypiio_ref.mw_0826d141-e828-41a5-b465-cdf6268cb39a targetHardware>| function in the MATLAB Command Window.
+%%
+%  board = targetHardware('Raspberry Pi')
+%%
+%%
+%  board = 
+% 
+%  targetHardware with properties:
+% 
+%              Name: 'Raspberry Pi'
+%     DeviceAddress: '176.93.236.232'
+%          Username: 'pi'
+%          Password: '*********'
+%          BuildDir: '/home/pi'
+%       BuildAction: 'Build, load, and run'
+%%
+%
+% 2. Verify the |DeviceAddress|, |Username|, and |Password| properties listed in the output. If required, change the value of the properties by using dot notation syntax.
+%
+% For example, to change the device address to |173.21.22.327|, enter:
+%%
+%  board.DeviceAddress = '173.21.22.327'
+%%
+%% Step 7: Deploy the MATLAB Function on Hardware
+% Deploy the MATLAB function as a standalone executable on the hardware by using the |<docid:raspberrypiio_ref.mw_a0a7a3d1-17af-452f-af42-8cc2ae09c58d deploy>| function.
+%%
+%  deploy(board,'blinkLED')
+%%
+%%
+% Code generation successful: View report
+%%
+% The |deploy| function initiates code generation of the |blinkLED| function. At the end of code generation, MATLAB generates a code generation report. Use this report to debug the |blinkLED| function for any build errors and warnings in the generated code.
+%
+% After successfully generating the code, the support package loads and runs the code as a standalone executable on the hardware. The executable starts blinking the ACT LED on the hardware every 0.5 seconds. The blinking continues for 100 cycles.  
+%
+% <<../code_generation_report.png>>
+%
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015 The MathWorks, Inc. -->
+<productinfo>
+    <name>Raspberry Pi - Robot Operating System (ROS)</name>   
+    <parametergroup>
+        <name>Package Information</name>
+        <parameter Alignment="0" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Maintainer name:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Packaging.MaintainerName" Tag="MaintainerName" Type="edit" Value="ROS User" Visible="1"/>
+        <parameter Alignment="0" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Maintainer E-mail:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Packaging.MaintainerEmail" Tag="MaintainerEmail" Type="edit" Value="rosuser@test.com" Visible="1"/>
+        <parameter Alignment="0" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="License:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Packaging.License" Tag="License" Type="edit" Value="BSD" Visible="1"/>
+        <parameter Alignment="0" Callback="robotics.codertarget.internal.onVersionChange" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Entries="" Name="Version:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Packaging.Version" Tag="Version" Type="edit" Value="1.0.0" Visible="1"/>
+    </parametergroup>
+    <parametergroup>
+        <name>Board Parameters</name>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onDeviceAddressChange" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Device Address:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.DeviceAddress" Tag="DeviceAddress" Type="edit" Value="codertarget.raspi.getDeviceAddress" ValueType="callback" Visible="1"/>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onUsernameChange" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Username:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.Username" Tag="Username" Type="edit" Value="codertarget.raspi.getUsername" ValueType="callback" Visible="1"/>
+        <parameter Alignment="1" Callback="codertarget.raspi.internal.onPasswordChange" ColSpan="[1,2]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Password:" RowSpan="[0,0]" SaveValueAsString="true" Storage="BoardParameters.Password" Tag="Password" Type="edit" Value="codertarget.raspi.getPassword" ValueType="callback" Visible="1" EchoMode="password"/>
+    </parametergroup>
+    <parametergroup>
+        <name>Build options</name>
+        <parameter Alignment="1" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="Build and load; Build and run" Name="Build action:" RowSpan="[0,0]" SaveValueAsString="true" Storage="Runtime.BuildAction" Tag="Build_action" Type="combobox" Value="Build and run" Visible="1"/>
+        <parameter Alignment="0" Callback="widgetChangedCallback" ColSpan="[1,3]" Data="" DialogRefresh="0" DoNotStore="false" Enabled="1" Entries="" Name="Catkin workspace:" RowSpan="[0,0]" SaveValueAsString="true" Storage="ROS.CatkinWS" Tag="ROSCatkinWS" Type="edit" Value="~/catkin_ws" Visible="1"/>
+    </parametergroup>
+</productinfo>

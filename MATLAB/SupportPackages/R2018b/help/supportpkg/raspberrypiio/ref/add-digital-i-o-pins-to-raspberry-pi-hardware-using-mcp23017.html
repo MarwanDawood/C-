@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "MATLAB Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../i2c-interface.html",
+          "name": "I2C Interface"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "i2c-interface"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017",
+          "description": "This example shows you how to increase the number of digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi&#174; hardware.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxmcp23017_led_circuit.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example",
+          "name": "AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "mcp23017.png",
+        "mcp23017_circuit.png",
+        "mcp23017_led_circuit.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to increase the number of digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi&#174; hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxmcp23017_led_circuit.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=i2c-interface">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=i2c-interface">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=i2c-interface">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=i2c-interface">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../i2c-interface.html" itemprop="url"><span itemprop="title">I2C Interface</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e24594" class="intrnllnk">Introduction</a></li><li><a href="#d120e24600" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e24621" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e24646" class="intrnllnk">Overview of MCP23017 I/O Expander</a></li><li><a href="#d120e24660" class="intrnllnk">Connect MCP23017</a></li><li><a href="#d120e24676" class="intrnllnk">Test MCP23017</a></li><li><a href="#d120e24686" class="intrnllnk">Connect an LED</a></li><li><a href="#d120e24698" class="intrnllnk">Blink the LED</a></li><li><a href="#d120e24714" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_add_gpio_pins">Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex27000843"></meta><meta itemprop="exampletitle" content="Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017"></meta></div><span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to increase the number of digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi&#174; hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e24594">Introduction<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-1" class="anchor_target"></span></h3><p>Raspberry Pi hardware has a limited number of digital I/O pins. You can add 16 digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi hardware. Then, using I2C, you can use the additional pins as digital inputs or outputs.</p><h3 class="title" id="d120e24600">Prerequisites<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-2" class="anchor_target"></span></h3><p>It is helpful to complete the following examples</p><div class="itemizedlist"><ul><li><p><a href="../examples/getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><div class="itemizedlist"><ul><li><p><a href="../examples/working-with-raspberry-pi-hardware.html" class="a">Working with Raspberry Pi Hardware</a> example.</p></li></ul></div><div class="itemizedlist"><ul><li><p><a href="../examples/controlling-a-4-digit-7-segment-display-using-i2c.html" class="a">Controlling a 4-Digit 7-Segment Display Using I2C</a> example.</p></li></ul></div><h3 class="title" id="d120e24621">Required Hardware<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-3" class="anchor_target"></span></h3><p>To run this example you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>Breadboard and jumper cables</p></li><li><p>A MCP23017 I/O expander</p></li><li><p>A red LED</p></li><li><p>330 Ohm resistor.</p></li></ul></div><h3 class="title" id="d120e24646">Overview of MCP23017 I/O Expander<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-4" class="anchor_target"></span></h3><p>MCP23017 is a 16-port digital I/O expander with an I2C interface.</p><p></p>
+<div class="informalfigure"><div id="d120e24654" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxmcp23017.png" alt=""></img></p></div></div><p>
+ </p><p>MCP23017 uses just two pins to communicate with a master controller providing you 16 digital I/O pins in exchange. These digital I/O pins can be configured as either inputs or outputs and operate similarly to the built-in digital I/O ports on the Raspberry Pi hardware.</p><h3 class="title" id="d120e24660">Connect MCP23017<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-5" class="anchor_target"></span></h3><p>Connect the MCP23017 I/O expander as shown in the following circuit diagram.</p><p></p>
+<div class="informalfigure"><div id="d120e24668" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxmcp23017_circuit.png" alt=""></img></p></div></div><p>
+ </p><p>To power the MCP23017, connect the VDD pin to +5V voltage rail, and the VSS pin to the ground rail. Connect the SCL and SDA pins on the MCP23017 to the I2C pins on the Raspberry Pi hardware. Set the I2C device address of the MCP23017 to '0x20' by grounding the A0, A1, A2 pins. Connect the RESET pin to the +5V voltage rail.</p><p>Since MCP23017 is powered by +5V, the output pins show +5V when they are set to logic high. The +5V voltage rail on the Raspberry Pi expansion header is not subject to a 50 mA limit as is the case for +3.3V voltage rail, providing more latitude for power consumption. It is safe to connect the SDA and SCL pins directly to the Raspberry Pi hardware because there are resistors on the Raspberry Pi hardware that pull these two signal lines to +3.3V. Make sure that you do not connect any of the MCP23017 output pins directly to the Raspberry Pi hardware.</p><h3 class="title" id="d120e24676">Test MCP23017<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-6" class="anchor_target"></span></h3><p>After connecting the MCP23017 to the Raspberry Pi hardware, scan the I2C bus for its device address.</p><div class="code_responsive"><pre id="d120e24682" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+<span style="color:#0000FF">for</span> i = 1:length(rpi.AvailableI2CBuses)
+    address = scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+<span style="color:#0000FF">end</span>
+</pre></div><p>The scanI2CBus() method scans the given I2C bus and returns a cell array of device addresses on the bus. If you connected the MCP23017 correctly, the output should include an I2C device address of '0x20'.</p><h3 class="title" id="d120e24686">Connect an LED<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-7" class="anchor_target"></span></h3><p>To test the operation of the MCP23017 I/O expander, connect a red LED to GPA7 pin with a 330 Ohm resistor. Connect the long leg of the LED directly to the GPA7 pin of the MCP23017 and the short leg of the LED to one of the terminals of the 330 Ohm resistor. Connect the other terminal of the resistor to the ground rail.</p><p></p>
+<div class="informalfigure"><div id="d120e24694" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxmcp23017_led_circuit.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e24698">Blink the LED<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-8" class="anchor_target"></span></h3><p>We created an example MATLAB class for MCP23017 I/O expander. You can control the digital I/O pins of the MCP23017 by creating an object and using the readDigitalPin(), writeDigitalPin() and configurePin() methods. This example class does not implement all available features of the MCP23017.</p><p>Create a MCP23017 object by executing the following commands at the MATLAB prompt.</p><div class="code_responsive"><pre id="d120e24706" class="programlisting">clear <span style="color:#A020F0">mcp</span>
+mcp = raspi.internal.mcp23017(rpi, &lt;I2C Bus&gt;, <span style="color:#A020F0">'0x20'</span>)
+</pre></div><p>The parameter '&lt;I2C Bus&gt;' is the bus MCP23017 is attached to and is either 'i2c-0' or 'i2c-1', depending on the revision of your Raspberry Pi hardware. Blink the LED by executing the following MATLAB commands.</p><div class="code_responsive"><pre id="d120e24710" class="programlisting"><span style="color:#0000FF">for</span> i = 1:10
+    writeDigitalPin(mcp, 7, 1);
+    pause(0.5);
+    writeDigitalPin(mcp, 7, 0);
+    pause(0.5);
+<span style="color:#0000FF">end</span>
+</pre></div><p>The pins of the MCP23017 I/O expander are assigned a numeric value from 0 to 15 with 0 to 7 corresponding to GPA0 through GPA7, and 8 to 15 corresponding to GPB0 through GPB7.</p><h3 class="title" id="d120e24714">Summary<span id="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example-9" class="anchor_target"></span></h3><p>This example showed how use a MCP23017 I/O expander chip to add digital I/O pins to Raspberry Pi&#174; hardware.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:36 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

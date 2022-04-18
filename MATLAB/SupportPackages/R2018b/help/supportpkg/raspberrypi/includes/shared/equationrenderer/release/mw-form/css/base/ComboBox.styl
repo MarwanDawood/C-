@@ -1,0 +1,43 @@
+@import "variables";
+
+
+.mwWidget.mwComboBox .mwComboBoxInnerContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mwWidget.mwComboBox .mwTextFieldContainerNode,
+.mwWidget.mwComboBox .mwArrowContainerNode {
+  display: flex;
+  align-items: center;
+}
+
+.mwWidget.mwComboBox .mwArrowContainerNode {
+  width: 22px;
+  cursor: default;
+  height: 100%;
+}
+
+.mwWidget.mwComboBox .mwArrowContainerNode .mwArrowNode {
+  border-left: 4px solid transparent;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  margin: 8px auto;
+  width: 0;
+}
+
+.mwWidget.mwComboBox .mwTextField .mwInputNode {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.mwWidget.mwComboBoxPopup .mwSharedMenuItem {
+    padding: 4px;
+    cursor: default;
+}
+
+.mwWidget.mwComboBoxPopup .mwMenuSeparator {
+  border-bottom: 1px solid $color-mediumgray1;
+}

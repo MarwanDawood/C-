@@ -1,0 +1,7 @@
+<example>
+  <main>RunningLinuxRShellCommandsExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

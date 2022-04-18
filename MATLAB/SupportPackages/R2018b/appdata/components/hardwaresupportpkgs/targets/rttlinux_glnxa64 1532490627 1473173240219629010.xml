@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/rttlinux</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/rttlinux_glnxa64_1532490627.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/rttlinux_glnxa64</componentName>
+    <componentVersion>1532490627</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>4</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>81808</size>
+    <type />
+    <uncompressedBytes>212808</uncompressedBytes>
+  </component>
+</componentData>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015-2018 The MathWorks, Inc.
+-->
+<rsccat version="1.0" locale="en_US" product="svd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+  <message>
+    <entry key="TestMessage">Test message with argument {0}.</entry>
+    <entry key="PinNotFound">Pin {0} is invalid for {1} on your device. Please select a valid pin number for your hardware.</entry>
+    <entry key="PortNotFound">Port {0} is invalid for {1} on your device. Please select a valid port for your hardware.</entry>
+    <entry key="GPIOPinMultipleUsage">The {0} is already used by another block.</entry> 
+    <entry key="MultiChannelAnalogInNumel">Number of channels and conversion time in AnalogIn group {0} should be of same dimensions.</entry>
+    <entry key="ModuleNotFound">{0} module {1} is not available on the hardware. Please select a valid {0} module.</entry>
+    <entry key="MaximumAllowedI2CSlaves">The slave address has to be between 0 and {0}. Please select an address in the range.</entry>
+    <entry key="AllowedI2CAddressingModes">The addressing mode has to be set to 7 or 10 bits. Please select a valid addressing mode in your hardware configuration file.</entry>
+    <entry key="AllowedI2CBusSpeed">The desired I2C bus speed is above the maximum allowed {0} Hz. Please select a valid desired I2C bus speed.</entry>
+    <entry key="RegisterOpNotAllowedFromSlave">{0} Register {1} operations are not supported in Slave mode.</entry>
+    <entry key="AllowedBusSpeed">The desired {0} bus speed is above the maximum allowed {1} Hz. Please select a valid desired {0} bus speed.</entry>
+    <entry key="GenViewPinMapButtonIdxError">Function 'generateViewPinMapButton' expects an array index number of parameters group when 'addMethod' is '-inherit' to add 'View Pin Map' button.</entry>
+    <entry key="GenViewPinMapButtonNameError">Function 'generateViewPinMapButton' expects parameters group name when 'addMethod' is '-append' to add 'View Pin Map' button.</entry>
+    <entry key="GenViewPinMapButtonInvalidArg">Function 'generateViewPinMapButton' expects '-inherit' or '-append' string values for "addMethod" argument.</entry>
+    <!-- Sample time validation errors -->
+    <entry key="SampleTimeNonTunable">Sample time is a nontunable property. You cannot change the sample time value while the model is running.</entry>
+    <entry key="InvalidSampleTimeNeedScalar">Invalid sample time. Sample time must be a real scalar value or an array of two real values.</entry>
+    <entry key="InvalidSampleTimeNeedPositive">Invalid sample time. Sample time must be non-negative or -1 (for inherited).</entry>
+    <entry key="InvalidSampleTimeNeedSmallerOffset">Invalid sample time. Sample time offset must be smaller than the sample time period.</entry>
+    <entry key="InvalidSampleTimeNeedZeroOffset">Invalid sample time. When the period is -1, offset must be 0.</entry>
+    <entry key="InvalidSampleTimeNeedOffsetOne">Invalid sample time. When the period is 0, offset must be 1.</entry>     
+
+    <!-- TCPIP Messages -->
+    <entry key="NotAServer">Port is not configured for server.</entry>
+    <entry key="NotAClient">Port is not configured for client.</entry>
+    <entry key="PortAlreadyOpened">Port is already opened.</entry>
+    <entry key="ZeroPortNumber">Port number cannot be zero.</entry>
+    <entry key="InvalidPort">Invalid port number {0} for {1} in {2}.</entry>
+    <entry key="DataTypeMismatch">### The specified data type set for playback ''{0}'' doesn't match with the recorded data type ''{1}''.</entry>
+    <entry key="PortsMismatch">### The specified number of ports set for playback ''{0}'' doesn't match with the recorded number of ports ''{1}''.</entry>
+    <entry key="FileFormatMismatch">### The specified FileFormat set for playback ''{0}'' doesn't match with the recorded FileFormat ''{1}''.</entry>
+</message>
+</rsccat>
+
+<!-- LocalWords:  nontunable
+-->

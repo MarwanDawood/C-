@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<demos>
+  <demoitem>
+    <source>WorkingWithRaspberryPiHardwareExample</source>
+    <type>M-file</type>
+    <metadata>ex20977462</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524832806" component="raspberrypiio">led_circuit_diagram.png</file>
+    <file timestamp="1524832806" component="raspberrypiio">led_breadboard_diagram.png</file>
+    <file timestamp="1524832806" component="raspberrypiio">pushbutton_circuit_diagram.png</file>
+  </demoitem>
+  <demoitem>
+    <source>AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example</source>
+    <type>M-file</type>
+    <metadata>ex27000843</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524823690" component="raspberrypiio">mcp23017.png</file>
+    <file timestamp="1524823690" component="raspberrypiio">mcp23017_circuit.png</file>
+    <file timestamp="1524823690" component="raspberrypiio">mcp23017_led_circuit.png</file>
+  </demoitem>
+  <demoitem>
+    <source>ControllingA4Digit7SegmentDisplayUsingI2CExample</source>
+    <type>M-file</type>
+    <metadata>ex27381530</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524833506" component="raspberrypiio">i2c_diagram.png</file>
+    <file timestamp="1524833506" component="raspberrypiio">segment_display.png</file>
+    <file component="raspberrypiio" timestamp="1524826966">segment_display_circuit.png</file>
+  </demoitem>
+  <demoitem>
+    <source>WorkingWithRaspberryPiCameraBoardExample</source>
+    <type>M-file</type>
+    <metadata>ex28497393</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524836335" component="raspberrypiio">camera_board_connection.png</file>
+    <file timestamp="1524836335" component="raspberrypiio">roi_diagram.png</file>
+  </demoitem>
+  <demoitem>
+    <source>AnalogInputUsingSPIExample</source>
+    <type>M-file</type>
+    <metadata>ex33221361</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524824419" component="raspberrypiio">mcp3008.png</file>
+    <file timestamp="1524824419" component="raspberrypiio">mcp3008_circuit.png</file>
+    <file timestamp="1524824419" component="raspberrypiio">spi_diagram.png</file>
+  </demoitem>
+  <demoitem>
+    <source>BuildADigitalVoltmeterExample</source>
+    <type>M-file</type>
+    <metadata>ex50771333</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524826966" component="raspberrypiio">segment_display_circuit.png</file>
+    <file component="raspberrypiio" timestamp="1524824419">mcp3008_circuit.png</file>
+  </demoitem>
+  <demoitem>
+    <source>ControllingA4Digit7SegmentDisplayUsingSerialPortExample</source>
+    <type>M-file</type>
+    <metadata>ex58469708</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524834272" component="raspberrypiio">segment_display_circuit_serial.png</file>
+    <file component="raspberrypiio" timestamp="1524833506">segment_display.png</file>
+  </demoitem>
+  <demoitem>
+    <source>DeployAMATLABFunctionOnTheRaspberryPiHardwareExample</source>
+    <type>M-file</type>
+    <metadata>ex61041629</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <thumbnail>code_generation_report.png</thumbnail>
+    <file component="raspberrypiio" timestamp="1532671059">code_analyzer_errorfree.png</file>
+    <file component="raspberrypiio" timestamp="1532671202">code_generation_report.png</file>
+    <noButton/>
+  </demoitem>
+  <demoitem>
+    <source>GettingStartedWithMATLABSPKGRaspberryPiHardwareExample</source>
+    <type>M-file</type>
+    <metadata>ex61519211</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+  </demoitem>
+  <demoitem>
+    <source>DeployAnEdgeDetectionAlgorithmOnTheRaspberryPiHardwareExample</source>
+    <type>M-file</type>
+    <metadata>ex70277531</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file component="raspberrypiio" timestamp="1533034752">static_image_capture.png</file>
+    <file component="raspberrypiio" timestamp="1532929113">code_analyzer_edge_errorfree.png</file>
+    <file component="raspberrypiio" timestamp="1532929113">live_image_capture.png</file>
+    <file component="raspberrypiio" timestamp="1532934657">edge_detection.png</file>
+    <file component="raspberrypiio" timestamp="1533723655">code_generation_report_edgeDetection.png</file>
+    <noButton/>
+  </demoitem>
+  <demoitem>
+    <source>BuildAMotionSensorCameraExample</source>
+    <type>M-file</type>
+    <metadata>ex73955357</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524830462" component="raspberrypiio">motion_sensor_connection_diagram.png</file>
+  </demoitem>
+  <demoitem>
+    <source>TrackingAGreenBallExample</source>
+    <type>M-file</type>
+    <metadata>ex77409575</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+  </demoitem>
+  <demoitem>
+    <source>WorkingWithRaspberryPiSenseHATExample</source>
+    <type>M-file</type>
+    <metadata>ex79856203</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524848889" component="raspberrypiio">sensehat_axisinfo.png</file>
+    <file timestamp="1524848889" component="raspberrypiio">sensehat_connection.png</file>
+    <file timestamp="1524848889" component="raspberrypiio">sensehat_joystick.png</file>
+    <file timestamp="1524848889" component="raspberrypiio">sensehat_pixel.png</file>
+    <file timestamp="1524848889" component="raspberrypiio">sensehat_orientation.png</file>
+  </demoitem>
+  <demoitem>
+    <source>AutorotateLEDMatrixDisplayExample</source>
+    <type>M-file</type>
+    <metadata>ex91388390</metadata>
+    <sandboxPublished reasons="other" other="Board support package example"/>
+    <hideCode/>
+    <product>matlab</product>
+    <product>raspberrypiio</product>
+    <file timestamp="1524825662" component="raspberrypiio">sensehat_rot0.png</file>
+    <file timestamp="1524825662" component="raspberrypiio">sensehat_rot90.png</file>
+    <file timestamp="1524825662" component="raspberrypiio">sensehat_rot180.png</file>
+    <file timestamp="1524825662" component="raspberrypiio">sensehat_rot270.png</file>
+  </demoitem>
+</demos>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="raspi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <!-- setRaspiOnlineSetting -->
+        <entry key="FailedSettings">Fail to set Raspberry Pi MATLAB Online settings. Please contact MathWorks technical support to report this error.</entry>
+        
+        <!-- raspilist -->
+        <entry key="NoRaspiFound">Raspberry Pi hardware board not detected. See &lt;a href=&quot;matlab:helpview(raspi.internal.getDocMap, ''raspi_online_setup'')&quot;&gt;Set Up Raspberry Pi Hardware for MATLAB Online&lt;/a&gt;.</entry>
+        <entry key="NoRaspiConnectable">Unable to connect to a Raspberry Pi hardware board. Device status must be ''Ready to connect'' in raspilist output.</entry>
+        <entry key="StatusReady">Ready to connect</entry>
+        <entry key="StatusConnected">Connected</entry>
+        <entry key="StatusUpgrade">Upgrade required</entry>
+        <entry key="StatusLogin">Authentication required</entry>
+        <entry key="StatusUpgradeLink">&lt;a href=&quot;matlab:helpview(raspi.internal.getDocMap, ''raspi_online_upgrade'')&quot;&gt;Upgrade required&lt;/a&gt;</entry>
+        <entry key="StatusLoginLink">&lt;a href=&quot;matlab:helpview(raspi.internal.getDocMap, ''raspi_online_authenticate'')&quot;&gt;Authentication required&lt;/a&gt;</entry>
+        
+        <!-- raspi -->
+        <entry key="InvalidRaspiParams">Too many input arguments.</entry>
+        <entry key="InvalidAddrParams">Argument must be a Raspberry Pi name or serial number specified as scalar string or character array. Use raspilist to find available names and serial numbers.</entry>
+        <entry key="AmbiguousPiName">The provided name ''{0}'' matched following Raspberry Pi boards with serial numbers ''{1}''. Specify the serial number to raspi.</entry>
+        <entry key="LastPiUnavailable">Unable to connect to last successfully used Raspberry Pi hardware board. Specify the name or serial number of a Raspberry Pi with device status ''Ready to connect''.</entry>
+        <entry key="InvalidAddress">Unable to connect to Raspberry Pi hardware board ({0}). To see list of available devices and statuses, run ''raspilist''.</entry>
+        <entry key="InvalidStatus">Unable to connect to Raspberry Pi hardware board ({0}) because device status is ''{1}''. To see list of available devices and statuses, run ''raspilist''.</entry>
+        <entry key="FailedConnect">Failed to connect to IO server on Raspberry Pi hardware board. Try running raspi again.</entry>
+           
+        <!-- system -->
+        <entry key="FailedSSH">Unable to execute command ''{0}''. Raspberry Pi hardware board returned the following error message:\n{1}</entry>
+        <entry key="NoSudoSSH">Executing command as root is not supported.</entry>
+        <entry key="UnsupportedSSH">Command is not supported. Linux commands must be {0}.</entry>
+        
+        <!-- getFile -->
+        <entry key="FailedGetFile">Failed to get file from Raspberry Pi hardware board\n{0}</entry>
+        <entry key="GetFileRetry">Try running ''getFile'' again.</entry>
+        <entry key="InvalidDestination">Destination folder must be under ''/MATLAB Drive''.</entry>
+        <entry key="PiFileNotFound">Unable to find file ''{0}''.</entry>
+        <entry key="FailedGDSLogin">Failed to log into MATLAB Drive on Raspberry Pi hardware board.</entry>
+        <entry key="FolderNotExist">Destination folder does not exist in MATLAB Drive. Create folder then run getFile again.</entry>
+        <entry key="GetFileNoResponse">Failed to receive a response from hardware. File may still be transferring or check network connection on Raspberry Pi.</entry>
+        <entry key="GetFileUnrecoverable">Unable to get file from Raspberry Pi hardware board due to unrecoverable exception. Please contact Technical Support to report this error.</entry>
+        
+        <!-- deleteFile -->
+        <entry key="InvalidDeleteFilePermission">No permission to delete file ''{0}'' on Raspberry Pi hardware board.</entry>
+        
+        <!-- AsyncIO -->
+        <entry key="FailedDeviceInit">Failed to connect to pubsub server. Please contact Technical Support to report this error.</entry>
+        <entry key="UnknownExecuteCommand">Internal error - Unknown execute command ''{0}''.</entry>
+        <entry key="APSOnErrorOccurred">Something unexpected occurred. Run ''clear all'' and then recreate raspi connections if any.</entry>
+                
+        <!-- others -->
+        <entry key="UnsupportedInterface">Function is not supported in MATLAB Online. Access Linux command shell on Raspberry Pi hardware board via SSH.</entry>     
+        <entry key="CannotEnableSPI">Cannot enable SPI peripheral. Try executing shell command ''sudo matlab-rpi-setup --spi enable'' on Raspberry Pi hardware board.</entry>
+        <entry key="InvalidResponse">Failed to receive a response from hardware. Check network connection on Raspberry Pi hardware board.</entry>
+        <entry key="FailedRead">Failed to read requested number of bytes.</entry>
+        <entry key="FullPathUnsupported">Full file path not supported as input argument. Specify video file name only.</entry>
+    </message>
+</rsccat>
+<!-- Copyright 2018 The MathWorks, Inc. -->

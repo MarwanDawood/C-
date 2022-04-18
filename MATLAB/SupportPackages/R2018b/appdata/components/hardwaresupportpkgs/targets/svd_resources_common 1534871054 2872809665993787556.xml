@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>hardwaresupportpkgs/targets/svd_resources</componentBaseName>
+    <componentFileName>hardwaresupportpkgs/targets/svd_resources_common_1534871054.zip</componentFileName>
+    <componentName>hardwaresupportpkgs/targets/svd_resources_common</componentName>
+    <componentVersion>1534871054</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>1</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+      <platform>maci64</platform>
+      <platform>win64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>1486</size>
+    <type />
+    <uncompressedBytes>3966</uncompressedBytes>
+  </component>
+</componentData>
+

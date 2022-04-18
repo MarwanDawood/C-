@@ -1,0 +1,296 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Tracking a Green Ball</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-27"><meta name="DC.source" content="TrackingAGreenBallExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/TrackingAGreenBallExample')">Open this Example</a></div><div class="content"><h1>Tracking a Green Ball</h1><!--introduction--><p>This example shows you how to use MATLAB to process images captured from a Raspberry Pi Camera Board module to track a green ball.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Create a Camera Board object</a></li><li><a href="#5">Extract color components</a></li><li><a href="#6">Calculate green</a></li><li><a href="#7">Threshold the green image</a></li><li><a href="#8">Find center</a></li><li><a href="#9">Run detection algorithm on live data</a></li><li><a href="#10">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Raspberry Pi Camera Board is a custom designed add-on module for Raspberry Pi hardware. The MATLAB Support Package for Raspberry Pi Hardware allows you to capture images from the Raspberry Pi Camera Board and bring those right into MATLAB for processing. Using this capability we will develop an ball tracking algorithm.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypiio_examples.example-raspi_working_with_camera_board">Working with Raspberry Pi Camera Board</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>A Camera Board</li></ul></div><h2 id="4">Create a Camera Board object</h2><p>Create a camera board object by executing the following on the MATLAB prompt.</p><pre class="language-matlab">clear <span class="string">cam</span>
+clear <span class="string">rpi</span>
+rpi = raspi();
+cam = cameraboard(rpi, <span class="string">'Resolution'</span>, <span class="string">'640x480'</span>);
+</pre><p>The cam is a handle to a cameraboard object. Let's display the images captured from Raspberry Pi Camera Board in MATLAB.</p><pre class="language-matlab"><span class="keyword">for</span> i = 1:100
+    img = snapshot(cam);
+    image(img);
+    drawnow;
+<span class="keyword">end</span>
+</pre><h2 id="5">Extract color components</h2><p>We will extract three 2D matrices from the 3D image data corresponding to the red, green, and blue components of the image. Before proceeding with the rest of the example, we will load a saved image. We will make sure our algorithm works on the test image before moving on to live data.</p><pre class="language-matlab">img = imread(<span class="string">'tennis_ball.jpg'</span>);
+image(img);
+r = img(:,:,1);
+g = img(:,:,2);
+b = img(:,:,3);
+</pre><img vspace="5" hspace="5" src="TrackingAGreenBallExample_01.png" alt=""> <h2 id="6">Calculate green</h2><p>Next we approximate the intensity of the green component</p><pre>justGreen = g - r/2 - b/2;</pre><h2 id="7">Threshold the green image</h2><p>We threshold the image to find the regions of image that we consider to be green enough.</p><pre class="language-matlab">bw = justGreen &gt; 40;
+image(bw);
+</pre><img vspace="5" hspace="5" src="TrackingAGreenBallExample_02.png" alt=""> <h2 id="8">Find center</h2><p>Find the center of the image and mark it with a red dot.</p><pre class="language-matlab">[x, y] = find(bw);
+<span class="keyword">if</span> ~isempty(x) &amp;&amp; ~isempty(y)
+    xm = round(mean(x));
+    ym = round(mean(y));
+    xx = max(1, xm-5):min(xm+5, size(bw, 1));
+    yy = max(1, ym-5):min(ym+5, size(bw, 2));
+    bwbw = zeros(size(bw), <span class="string">'uint8'</span>);
+    bwbw(xx, yy) = 255;
+<span class="keyword">end</span>
+image(justGreen + bwbw);
+</pre><img vspace="5" hspace="5" src="TrackingAGreenBallExample_03.png" alt=""> <h2 id="9">Run detection algorithm on live data</h2><p>We can create a MATLAB function, trackball.m, out of the MATLAB code we developed in the previous sections of this example. View the MATLAB function in the editor.</p><pre class="language-matlab">edit(<span class="string">'trackball.m'</span>);
+</pre><p>The function trackball() takes an image and a threshold for green detection and returns the results of green detection algorithm. We will call this function on the images captured in a loop. Before running the MATLAB code snippet below, get hold of a tennis ball and place it in the view of the Raspberry Pi Camera Board. While the MATLAB code is running, move the ball around.</p><pre class="language-matlab">figure(1);
+<span class="keyword">for</span> i = 1:200
+    [img, bw] = trackball(snapshot(cam), 40);
+    subplot(211);
+    image(img);
+    subplot(212);
+    image(bw);
+    drawnow;
+<span class="keyword">end</span>
+</pre><h2 id="10">Summary</h2><p>This example introduced the an application example where images coming from Raspberry Pi Camera Board are processed with a simple green detection algorithm. This algorithm has subsequently been used to track a tennis ball.</p><p class="footer">Copyright 2013 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Tracking a Green Ball
+%
+% This example shows you how to use MATLAB to process images captured from
+% a Raspberry Pi Camera Board module to track a green ball.
+ 
+% Copyright 2013 The MathWorks, Inc.
+ 
+
+%% Introduction
+%
+% The Raspberry Pi Camera Board is a custom designed add-on module for
+% Raspberry Pi hardware. The MATLAB Support Package for Raspberry Pi
+% Hardware allows you to capture images from the Raspberry Pi Camera Board
+% and bring those right into MATLAB for processing. Using this capability
+% we will develop an ball tracking algorithm.
+
+
+%% Prerequisites
+%
+% * We recommend completing
+% <docid:raspberrypiio_examples.example-raspi_working_with_camera_board Working with Raspberry Pi Camera Board> example.
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output
+% * A Camera Board
+
+%% Create a Camera Board object
+%
+% Create a camera board object by executing the following on the MATLAB
+% prompt.
+%
+%   clear cam
+%   clear rpi
+%   rpi = raspi();
+%   cam = cameraboard(rpi, 'Resolution', '640x480');
+%
+% The cam is a handle to a cameraboard object. Let's display the images
+% captured from Raspberry Pi Camera Board in MATLAB.
+% 
+%   for i = 1:100
+%       img = snapshot(cam);
+%       image(img);
+%       drawnow;
+%   end
+%
+
+
+%% Extract color components
+%
+% We will extract three 2D matrices from the 3D image data corresponding to
+% the red, green, and blue components of the image. Before proceeding with
+% the rest of the example, we will load a saved image. We will make sure our
+% algorithm works on the test image before moving on to live data. 
+%
+%   img = imread('tennis_ball.jpg');
+%   image(img);
+%   r = img(:,:,1);
+%   g = img(:,:,2);
+%   b = img(:,:,3);
+img = imread('tennis_ball.jpg');
+image(img);
+r = img(:,:,1);
+g = img(:,:,2);
+b = img(:,:,3);
+
+
+%% Calculate green
+%
+% Next we approximate the intensity of the green component 
+%
+%  justGreen = g - r/2 - b/2;
+justGreen = g - r/2 - b/2;
+
+
+%% Threshold the green image
+%
+% We threshold the image to find the regions of image that we consider to
+% be green enough.
+%
+%   bw = justGreen > 40;
+%   image(bw);
+bw = justGreen > 40;
+image(bw);
+
+%% Find center 
+%
+% Find the center of the image and mark it with a red dot.
+%
+%   [x, y] = find(bw);
+%   if ~isempty(x) && ~isempty(y)
+%       xm = round(mean(x));
+%       ym = round(mean(y));
+%       xx = max(1, xm-5):min(xm+5, size(bw, 1));
+%       yy = max(1, ym-5):min(ym+5, size(bw, 2));
+%       bwbw = zeros(size(bw), 'uint8');
+%       bwbw(xx, yy) = 255;
+%   end
+%   image(justGreen + bwbw);
+[x, y] = find(bw);
+if ~isempty(x) && ~isempty(y)
+    xm = round(mean(x));
+    ym = round(mean(y));
+    xx = max(1, xm-5):min(xm+5, size(bw, 1));
+    yy = max(1, ym-5):min(ym+5, size(bw, 2));
+    bwbw = zeros(size(bw), 'uint8');
+    bwbw(xx, yy) = 255;
+end
+image(justGreen + bwbw);
+
+
+%% Run detection algorithm on live data 
+% 
+% We can create a MATLAB function, trackball.m, out of the MATLAB code we
+% developed in the previous sections of this example. View the MATLAB
+% function in the editor.
+%
+%   edit('trackball.m');
+%
+% The function trackball() takes an image and a threshold for green
+% detection and returns the results of green detection algorithm. We will
+% call this function on the images captured in a loop. Before running the
+% MATLAB code snippet below, get hold of a tennis ball and place it in the
+% view of the Raspberry Pi Camera Board. While the MATLAB code is running,
+% move the ball around.
+%
+%   figure(1);
+%   for i = 1:200
+%       [img, bw] = trackball(snapshot(cam), 40); 
+%       subplot(211);
+%       image(img);
+%       subplot(212);
+%       image(bw);
+%       drawnow;
+%   end
+%
+
+
+%% Summary
+%
+% This example introduced the an application example where images coming
+% from Raspberry Pi Camera Board are processed with a simple green
+% detection algorithm. This algorithm has subsequently been used to track a
+% tennis ball.
+
+% LocalWords: rpi bw cameraboard
+##### SOURCE END #####
+--></body></html>

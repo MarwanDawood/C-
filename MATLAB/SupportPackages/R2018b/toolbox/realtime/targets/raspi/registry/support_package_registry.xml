@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--Copyright 2012-2019 The MathWorks, Inc. -->
+<!--Support Package Repository -->
+<RTTPackageRepository>
+    <SupportPackage 
+        name="Raspberry Pi I/O" 
+        fullname="MATLAB Support Package for Raspberry Pi Hardware"
+        displayname="Raspberry Pi"
+	fwupdatedisplayname = "Raspberry Pi"
+        firmwareupdate="matlab.hwmgr.internal.hwsetup.register.RaspberryPiWorkflow"
+        version = "18.2.2"
+        infotext="Acquire sensor and image data from your Raspberry Pi."
+        basecode="RASPPIIO" 
+        platform="PCWIN64,MACI64,GLNXA64"
+        visible="1"
+        enable="1"
+        baseproduct="MATLAB"
+        url="http://www.mathworks.com" 
+        downloadurl="http://sharepoint/dev/spc/verdeploy/senthilteam/HardwareInterface/Documents/Research" 
+        licenseurl="http://www.mathworks.com/matlabcentral/fileexchange/view_license?file_info_id=32374"
+        folder="raspi" 
+        urlcatalog="urlcatalog_raspi.xml"
+        demoxml="raspi_examples/demos.xml">
+        <Path name="$(INSTALLDIR)/raspi"></Path>
+        <Path name="$(INSTALLDIR)/raspi/raspi_examples"></Path>
+    </SupportPackage>
+</RTTPackageRepository>

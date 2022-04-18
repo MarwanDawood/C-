@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2016 The MathWorks, Inc. -->
+<rsccat version="1.0" locale="en_US" product="raspberrypi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+  <message>
+        <entry key="AudioFileReadMaskTitle">Audio File Read</entry>
+        <entry key="AudioFileReadMaskDescription">Read audio frames from an audio file. \nThe block outputs audio data as [NxC] int16 array, where N is the samples per audio channel and C is the number of channels supported by the audio file.\nSelect the audio file from the host PC and specify the number of samples (N) to be read from the audio file per channel. Sample time of the block will be derived from sampling frequency used in the audio file and the N specified by the user.</entry>
+  </message>
+</rsccat>

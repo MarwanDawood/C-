@@ -1,0 +1,9 @@
+<example>
+  <main>SurveillanceCameraWithAppleIOSDeviceExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypiioscamera');</callback>
+  <file component="raspberrypi" timestamp="1524305497">raspberrypi_mobile_camera.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

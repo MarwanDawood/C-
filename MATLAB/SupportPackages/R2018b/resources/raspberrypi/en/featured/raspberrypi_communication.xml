@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Copyright 2015 The MathWorks, Inc. -->
+<!-- Content extracted from http://www.mathworks.com/help/releases/R2015b/supportpkg/raspberrypi/examples/communicating-with-raspberry-pi-hardware.html -->
+<rsccat version="1.0" locale="en_US" product="raspberrypi">
+  <message>
+    <entry key="Title">Communicating with Raspberry Pi® Hardware</entry>
+    <entry key="Description">This example shows you how to send data using the UDP Ethernet protocol from a Simulink® model running on Raspberry Pi® hardware to another model running on the host computer</entry>
+    <!-- Untranslated metadata for featured example -->
+    <entry key="DisplayOrder" translate="false">1</entry>
+    <entry key="ThumbnailFile" translate="false">toolbox/realtime/targets/raspberrypi/raspberrypidemos/raspberrypi_communication.png</entry>
+    <entry key="HelpAction" translate="false">web(fullfile(docroot,'supportpkg/raspberrypi/examples/communicating-with-raspberry-pi-hardware.html'))</entry>
+    <entry key="OpenAction" translate="false">raspberrypi_communication</entry>
+   </message>
+</rsccat>

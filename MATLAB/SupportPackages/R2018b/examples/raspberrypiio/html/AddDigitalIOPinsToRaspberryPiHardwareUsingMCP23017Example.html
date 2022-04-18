@@ -1,0 +1,257 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-27"><meta name="DC.source" content="AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example')">Open this Example</a></div><div class="content"><h1>Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017</h1><!--introduction--><p>This example shows you how to increase the number of digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi&reg; hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Overview of MCP23017 I/O Expander</a></li><li><a href="#5">Connect MCP23017</a></li><li><a href="#6">Test MCP23017</a></li><li><a href="#7">Connect an LED</a></li><li><a href="#8">Blink the LED</a></li><li><a href="#9">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Raspberry Pi hardware has a limited number of digital I/O pins. You can add 16 digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi hardware. Then, using I2C, you can use the additional pins as digital inputs or outputs.</p><h2 id="2">Prerequisites</h2><p>It is helpful to complete the following examples</p><div><ul><li><a href="docid:raspberrypiio_examples.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</li></ul></div><div><ul><li><a href="docid:raspberrypiio_examples.example-raspi_gettingstarted_with_hardware">Getting Started with Raspberry Pi Hardware</a> example.</li></ul></div><div><ul><li><a href="docid:raspberrypiio_examples.example-raspi_segmented_display_using_i2c">Controlling a 4-digit 7-Segment Display Using I2C</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>Breadboard and jumper cables</li><li>A MCP23017 I/O expander</li><li>A red LED</li><li>330 Ohm resistor.</li></ul></div><h2 id="4">Overview of MCP23017 I/O Expander</h2><p>MCP23017 is a 16-port digital I/O expander with an I2C interface.</p><p><img vspace="5" hspace="5" src="../mcp23017.png" alt=""> </p><p>MCP23017 uses just two pins to communicate with a master controller providing you 16 digital I/O pins in exchange. These digital I/O pins can be configured as either inputs or outputs and operate similarly to the built-in digital I/O ports on the Raspberry Pi hardware.</p><h2 id="5">Connect MCP23017</h2><p>Connect the MCP23017 I/O expander as shown in the following circuit diagram.</p><p><img vspace="5" hspace="5" src="../mcp23017_circuit.png" alt=""> </p><p>To power the MCP23017, connect the VDD pin to +5V voltage rail, and the VSS pin to the ground rail. Connect the SCL and SDA pins on the MCP23017 to the I2C pins on the Raspberry Pi hardware. Set the I2C device address of the MCP23017 to '0x20' by grounding the A0, A1, A2 pins. Connect the RESET pin to the +5V voltage rail.</p><p>Since MCP23017 is powered by +5V, the output pins show +5V when they are set to logic high. The +5V voltage rail on the Raspberry Pi expansion header is not subject to a 50 mA limit as is the case for +3.3V voltage rail, providing more latitude for power consumption. It is safe to connect the SDA and SCL pins directly to the Raspberry Pi hardware because there are resistors on the Raspberry Pi hardware that pull these two signal lines to +3.3V. Make sure that you do not connect any of the MCP23017 output pins directly to the Raspberry Pi hardware.</p><h2 id="6">Test MCP23017</h2><p>After connecting the MCP23017 to the Raspberry Pi hardware, scan the I2C bus for its device address.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+rpi = raspi();
+<span class="keyword">for</span> i = 1:length(rpi.AvailableI2CBuses)
+    address = scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+<span class="keyword">end</span>
+</pre><p>The scanI2CBus() method scans the given I2C bus and returns a cell array of device addresses on the bus. If you connected the MCP23017 correctly, the output should include an I2C device address of '0x20'.</p><h2 id="7">Connect an LED</h2><p>To test the operation of the MCP23017 I/O expander, connect a red LED to GPA7 pin with a 330 Ohm resistor. Connect the long leg of the LED directly to the GPA7 pin of the MCP23017 and the short leg of the LED to one of the terminals of the 330 Ohm resistor. Connect the other terminal of the resistor to the ground rail.</p><p><img vspace="5" hspace="5" src="../mcp23017_led_circuit.png" alt=""> </p><h2 id="8">Blink the LED</h2><p>We created an example MATLAB class for MCP23017 I/O expander. You can control the digital I/O pins of the MCP23017 by creating an object and using the readDigitalPin(), writeDigitalPin() and configurePin() methods. This example class does not implement all available features of the MCP23017.</p><p>Create a MCP23017 object by executing the following commands at the MATLAB prompt.</p><pre class="language-matlab">clear <span class="string">mcp</span>
+mcp = raspi.internal.mcp23017(rpi, &lt;I2C Bus&gt;, <span class="string">'0x20'</span>)
+</pre><p>The parameter '&lt;I2C Bus&gt;' is the bus MCP23017 is attached to and is either 'i2c-0' or 'i2c-1', depending on the revision of your Raspberry Pi hardware. Blink the LED by executing the following MATLAB commands.</p><pre class="language-matlab"><span class="keyword">for</span> i = 1:10
+    writeDigitalPin(mcp, 7, 1);
+    pause(0.5);
+    writeDigitalPin(mcp, 7, 0);
+    pause(0.5);
+<span class="keyword">end</span>
+</pre><p>The pins of the MCP23017 I/O expander are assigned a numeric value from 0 to 15 with 0 to 7 corresponding to GPA0 through GPA7, and 8 to 15 corresponding to GPB0 through GPB7.</p><h2 id="9">Summary</h2><p>This example showed how use a MCP23017 I/O expander chip to add digital I/O pins to Raspberry Pi&reg; hardware.</p><p class="footer">Copyright 2013 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017
+%
+% This example shows you how to increase the number of digital I/O pins by
+% connecting a MCP23017 I/O expander chip to the Raspberry Pi(R) hardware.
+ 
+% Copyright 2013 The MathWorks, Inc.
+ 
+
+%% Introduction
+%
+% Raspberry Pi hardware has a limited number of digital I/O pins. You can
+% add 16 digital I/O pins by connecting a MCP23017 I/O expander chip to the
+% Raspberry Pi hardware. Then, using I2C, you can use the additional pins
+% as digital inputs or outputs.
+
+
+%% Prerequisites
+%
+% It is helpful to complete the following examples
+% 
+% * <docid:raspberrypiio_examples.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware> example.
+% 
+% * <docid:raspberrypiio_examples.example-raspi_gettingstarted_with_hardware Getting Started with Raspberry Pi Hardware> example.
+%
+% * <docid:raspberrypiio_examples.example-raspi_segmented_display_using_i2c Controlling a 4-digit 7-Segment Display Using I2C> example.
+
+
+%% Required Hardware
+% 
+% To run this example you need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output
+% * Breadboard and jumper cables
+% * A MCP23017 I/O expander
+% * A red LED
+% * 330 Ohm resistor.
+
+%% Overview of MCP23017 I/O Expander
+%
+% MCP23017 is a 16-port digital I/O expander with an I2C interface. 
+%
+% <<../mcp23017.png>>
+%
+% MCP23017 uses just two pins to communicate with a master controller
+% providing you 16 digital I/O pins in exchange. These digital I/O pins
+% can be configured as either inputs or outputs and operate similarly
+% to the built-in digital I/O ports on the Raspberry Pi hardware.
+
+%% Connect MCP23017
+% 
+% Connect the MCP23017 I/O expander as shown in the following circuit
+% diagram.
+% 
+% <<../mcp23017_circuit.png>>
+%
+% To power the MCP23017, connect the VDD pin to +5V voltage rail, and the
+% VSS pin to the ground rail. Connect the SCL and SDA pins on the MCP23017
+% to the I2C pins on the Raspberry Pi hardware. Set the I2C device address
+% of the MCP23017 to '0x20' by grounding the A0, A1, A2 pins. Connect
+% the RESET pin to the +5V voltage rail.
+%
+% Since MCP23017 is powered by +5V, the output pins show +5V when they are
+% set to logic high. The +5V voltage rail on the Raspberry Pi expansion
+% header is not subject to a 50 mA limit as is the case for +3.3V voltage
+% rail, providing more latitude for power consumption. It is safe to
+% connect the SDA and SCL pins directly to the Raspberry Pi hardware
+% because there are resistors on the Raspberry Pi hardware that pull these
+% two signal lines to +3.3V. Make sure that you do not connect any of the
+% MCP23017 output pins directly to the Raspberry Pi hardware.
+
+%% Test MCP23017
+% 
+% After connecting the MCP23017 to the Raspberry Pi hardware, scan the I2C 
+% bus for its device address.
+%
+%   clear rpi
+%   rpi = raspi();
+%   for i = 1:length(rpi.AvailableI2CBuses)
+%       address = scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+%   end
+%
+% The scanI2CBus() method scans the given I2C bus and returns a cell array
+% of device addresses on the bus. If you connected the MCP23017 correctly,
+% the output should include an I2C device address of '0x20'.
+
+
+%% Connect an LED
+% 
+% To test the operation of the MCP23017 I/O expander, connect a red LED to
+% GPA7 pin with a 330 Ohm resistor. Connect the long leg of the LED
+% directly to the GPA7 pin of the MCP23017 and the short leg of the LED to
+% one of the terminals of the 330 Ohm resistor. Connect the other terminal
+% of the resistor to the ground rail.
+%
+% <<../mcp23017_led_circuit.png>>
+
+
+%% Blink the LED
+%
+% We created an example MATLAB class for MCP23017 I/O expander. You can
+% control the digital I/O pins of the MCP23017 by creating an object and
+% using the readDigitalPin(), writeDigitalPin() and configurePin()
+% methods. This example class does not implement all available features of
+% the MCP23017.
+%
+% Create a MCP23017 object by executing the following commands at the
+% MATLAB prompt.
+%
+%   clear mcp
+%   mcp = raspi.internal.mcp23017(rpi, <I2C Bus>, '0x20')
+%
+% The parameter '<I2C Bus>' is the bus MCP23017 is attached to and is
+% either 'i2c-0' or 'i2c-1', depending on the revision of your Raspberry Pi
+% hardware. Blink the LED by executing the following MATLAB commands.
+%
+%   for i = 1:10
+%       writeDigitalPin(mcp, 7, 1);
+%       pause(0.5);
+%       writeDigitalPin(mcp, 7, 0);
+%       pause(0.5);
+%   end
+%
+% The pins of the MCP23017 I/O expander are assigned a numeric value from 0
+% to 15 with 0 to 7 corresponding to GPA0 through GPA7, and 8 to 15
+% corresponding to GPB0 through GPB7.
+
+
+
+%% Summary
+%
+% This example showed how use a MCP23017 I/O expander chip to add
+% digital I/O pins to Raspberry Pi(R) hardware.
+
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2012-2018 The MathWorks, Inc.-->
+<rsccat version="1.0" locale="en_US" product="raspberrypi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="ConnectFailed">Could not connect to the board at {0}. Please check:\n1: IP address, User name and Password are valid.\n2: The board is powered up and connected to the network\n\nDetails:\n{1}</entry>      
+        <entry key="ExternalModePortInUse">
+            Another process (PID: {0}) is using the TCP/IP port {1} selected for External mode communication. 
+            Either choose a different port number by opening Hardware Implementation > Target Hardware Resources > 
+            External mode pane or kill the process with PID {2}.
+        </entry>
+        <entry key="AutosarBuildNotSupported">The model is configured for Raspberry Pi hardware, which does not support the building of AUTOSAR code.</entry>
+        <entry key="TooManySDLVideoDisplayBlocks">Only one SDL Video Display is allowed in a model.</entry>
+        <entry key="InvalidBuildDir">Build directory contains an invalid character. BuildDir property must be set to a valid Linux directory with only letters, numbers, and underscores separated by forward slashes.</entry>
+        <entry key="AssumingRelativeToHome">Full build directory path not specified. Assuming BuildDir is relative to $HOME.</entry>
+        <entry key="Error">{0}</entry>
+    </message>
+</rsccat>
+

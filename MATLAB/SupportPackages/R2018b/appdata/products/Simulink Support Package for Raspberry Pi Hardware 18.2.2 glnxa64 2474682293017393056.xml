@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productAdditionalComps>
+  <dependsOn>
+    <component>
+      <name>hardwaresupportpkgs/targets/asyncioplugins_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1534886167</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/raspberrypi_fe_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546991608</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/rttlinux_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1532490627</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/targets/svd_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1532490609</version>
+    </component>
+    <component>
+      <name>hardwaresupportpkgs/examples/raspberrypi_glnxa64</name>
+      <instrset>0</instrset>
+      <locale />
+      <platformList>
+        <platform>glnxa64</platform>
+      </platformList>
+      <version>1546991714</version>
+    </component>
+  </dependsOn>
+  <isControllingProduct>false</isControllingProduct>
+  <licenseAgreementType>ASLA</licenseAgreementType>
+  <platform>glnxa64</platform>
+  <productBaseCode>RASPPI</productBaseCode>
+  <productName>Simulink Support Package for Raspberry Pi Hardware</productName>
+  <productNumber>2017</productNumber>
+  <productVersion>18.2.2</productVersion>
+  <releaseDescription>R2018b</releaseDescription>
+  <releaseFamily>R2018b</releaseFamily>
+</productAdditionalComps>
+

@@ -1,0 +1,185 @@
+
+        [
+        
+    {
+    "title": "Getting Started with MATLAB Support Package for Raspberry Pi Hardware",
+    "description": "This example shows you how to use the MATLAB® Support Package for Raspberry Pi® Hardware to perform basic operations on the hardware such as executing shell commands, turning an on-board LED on or off and manipulating files.",
+    "thumbnail_url": "includes/product/images/doc_center/DefaultImage.png",
+    "url": "ref/getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/GettingStartedWithMATLABSPKGRaspberryPiHardwareExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.GettingStartedWithMATLABSPKGRaspberryPiHardwareExample",
+    "example_name": "GettingStartedWithMATLABSPKGRaspberryPiHardwareExample",
+    "example_order": "1"                 
+    }
+    ,
+    {
+    "title": "Working with Raspberry Pi Hardware",
+    "description": "This example shows you basics of working with Raspberry Pi® Hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxpushbutton_circuit_diagram.png",
+    "url": "ref/working-with-raspberry-pi-hardware.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiHardwareExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.WorkingWithRaspberryPiHardwareExample",
+    "example_name": "WorkingWithRaspberryPiHardwareExample",
+    "example_order": "2"                 
+    }
+    ,
+    {
+    "title": "Analog Input Using SPI",
+    "description": "This example shows you how to use the SPI peripheral on Raspberry Pi® hardware to connect to an MCP3008 10-bit 8-channel ADC.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxmcp3008_circuit.png",
+    "url": "ref/analog-input-using-spi.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/AnalogInputUsingSPIExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.AnalogInputUsingSPIExample",
+    "example_name": "AnalogInputUsingSPIExample",
+    "example_order": "3"                 
+    }
+    ,
+    {
+    "title": "Controlling a 4-Digit 7-Segment Display Using I2C",
+    "description": "This example shows you how to use the I2C peripheral on Raspberry Pi® hardware to control a 4-digit 7-segment display.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxsegment_display_circuit.png",
+    "url": "ref/controlling-a-4-digit-7-segment-display-using-i2c.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/ControllingA4Digit7SegmentDisplayUsingI2CExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.ControllingA4Digit7SegmentDisplayUsingI2CExample",
+    "example_name": "ControllingA4Digit7SegmentDisplayUsingI2CExample",
+    "example_order": "4"                 
+    }
+    ,
+    {
+    "title": "Controlling a 4-Digit 7-Segment Display Using Serial Port",
+    "description": "This example shows you how to use the serial UART on Raspberry Pi hardware to control a 4-digit 7-segment display.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxsegment_display_circuit_serial.png",
+    "url": "ref/controlling-a-4-digit-7-segment-display-using-serial-port.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/ControllingA4Digit7SegmentDisplayUsingSerialPortExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.ControllingA4Digit7SegmentDisplayUsingSerialPortExample",
+    "example_name": "ControllingA4Digit7SegmentDisplayUsingSerialPortExample",
+    "example_order": "5"                 
+    }
+    ,
+    {
+    "title": "Working with Raspberry Pi Camera Board",
+    "description": "This example shows you how to capture and process images from Raspberry Pi® Camera Board module using the MATLAB® Support Package for Raspberry Pi Hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxroi_diagram.png",
+    "url": "ref/working-with-raspberry-pi-camera-board.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiCameraBoardExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.WorkingWithRaspberryPiCameraBoardExample",
+    "example_name": "WorkingWithRaspberryPiCameraBoardExample",
+    "example_order": "6"                 
+    }
+    ,
+    {
+    "title": "Working with Raspberry Pi SenseHAT",
+    "description": "This example shows you how to read the sensor values, read the position of joystick and control the LED Matrix on Raspberry Pi® Sense HAT using MATLAB® Support Package for Raspberry Pi Hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxsensehat_orientation.png",
+    "url": "ref/working-with-raspberry-pi-sense-hat.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/WorkingWithRaspberryPiSenseHATExample')",
+    "examplecat_id": "d0e29", 
+    "examplecat_title": "Tutorials",
+    "examplecat_order": "1",
+    "example_id": "raspberrypiio.WorkingWithRaspberryPiSenseHATExample",
+    "example_name": "WorkingWithRaspberryPiSenseHATExample",
+    "example_order": "7"                 
+    }
+    ,
+    {
+    "title": "Build a Digital Voltmeter",
+    "description": "This example shows you how to build a digital voltmeter using MATLAB® Support Package for Raspberry Pi® Hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxsegment_display_circuit.png",
+    "url": "ref/build-a-digital-voltmeter.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/BuildADigitalVoltmeterExample')",
+    "examplecat_id": "d0e140", 
+    "examplecat_title": "Application Examples",
+    "examplecat_order": "2",
+    "example_id": "raspberrypiio.BuildADigitalVoltmeterExample",
+    "example_name": "BuildADigitalVoltmeterExample",
+    "example_order": "1"                 
+    }
+    ,
+    {
+    "title": "Tracking a Green Ball",
+    "description": "This example shows you how to use MATLAB to process images captured from a Raspberry Pi Camera Board module to track a green ball.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/TrackingAGreenBallExample_03.png",
+    "url": "ref/track-a-green-ball.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/TrackingAGreenBallExample')",
+    "examplecat_id": "d0e140", 
+    "examplecat_title": "Application Examples",
+    "examplecat_order": "2",
+    "example_id": "raspberrypiio.TrackingAGreenBallExample",
+    "example_name": "TrackingAGreenBallExample",
+    "example_order": "2"                 
+    }
+    ,
+    {
+    "title": "Build a Motion Sensor Camera",
+    "description": "This example shows you how to build a motion sensor camera using MATLAB® Support Package for Raspberry Pi® Hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxmotion_sensor_connection_diagram.png",
+    "url": "ref/build-a-motion-sensor-camera.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/BuildAMotionSensorCameraExample')",
+    "examplecat_id": "d0e140", 
+    "examplecat_title": "Application Examples",
+    "examplecat_order": "2",
+    "example_id": "raspberrypiio.BuildAMotionSensorCameraExample",
+    "example_name": "BuildAMotionSensorCameraExample",
+    "example_order": "3"                 
+    }
+    ,
+    {
+    "title": "Add Digital I/O Pins to Raspberry Pi Hardware Using MCP23017",
+    "description": "This example shows you how to increase the number of digital I/O pins by connecting a MCP23017 I/O expander chip to the Raspberry Pi® hardware.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxmcp23017_led_circuit.png",
+    "url": "ref/add-digital-i-o-pins-to-raspberry-pi-hardware-using-mcp23017.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example')",
+    "examplecat_id": "d0e140", 
+    "examplecat_title": "Application Examples",
+    "examplecat_order": "2",
+    "example_id": "raspberrypiio.AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example",
+    "example_name": "AddDigitalIOPinsToRaspberryPiHardwareUsingMCP23017Example",
+    "example_order": "4"                 
+    }
+    ,
+    {
+    "title": "Auto-rotate LED Matrix Display",
+    "description": "This example shows you how to use MATLAB® to read the accelerometer on the Raspberry Pi Sense HAT and control the rotation of the image displayed on the LED matrix.",
+    "thumbnail_url": "../../examples/raspberrypiio/win64/xxsensehat_rot270.png",
+    "url": "ref/auto-rotate-the-image-displayed-on-the-sense-hat-led-matrix.html",
+    "type": "Script",
+    "open_command": "matlab:openExample('raspberrypiio/AutorotateLEDMatrixDisplayExample')",
+    "examplecat_id": "d0e140", 
+    "examplecat_title": "Application Examples",
+    "examplecat_order": "2",
+    "example_id": "raspberrypiio.AutorotateLEDMatrixDisplayExample",
+    "example_name": "AutorotateLEDMatrixDisplayExample",
+    "example_order": "5"                 
+    }
+    
+        ]
+      

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2015 The MathWorks, Inc.-->
+<rsccat version="1.0" locale="en_US" product="raspberrypi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="FileOpenError">Cannot open file ''{0}'' for reading.</entry>
+        <entry key="LaunchPILAppMessage">### Launching application {0}...</entry>
+        <entry key="PILApplicationDidNotStart">PIL Application did not start within allotted time.</entry>
+        <entry key="ExternalModeDidNotStart">
+            A run-time error is encountered when running External mode simulation on the Raspberry Pi hardware.  
+            This usually occurs when a hardware resource, such as a web camera or an audio card, is not available or configured incorrectly.
+            The log file, {0}, storing model diagnostic information on the Raspberry Pi hardware has the following content: {1}
+        </entry>
+        <entry key="ROSNodeDidNotStart">
+            ROS node did not start. This usually occurs when a hardware resource, such as a web camera or an audio card, 
+            is not available or configured incorrectly.
+            The log file, {0}, storing model diagnostic information on the Raspberry Pi hardware has the following content: {1}
+        </entry>
+        <entry key="UnabletoDetermineROSMasterIP">
+            Unable to determine the IP address of the ROS master.
+            The host computer has multiple network interfaces, none of which can ping the Raspberry Pi board at {0}.
+            Picking {1} as the IP address of the ROS master. 
+            You should explicitly start a ROS master using &lt;a href="matlab:help('rosinit')">rosinit('NodeHost','&lt;IP address&gt;')&lt;/a&gt; command 
+            with an IP address that can communicate with the Raspberry Pi board.
+        </entry>
+        <entry key="DiagnosticInformation">Diagnostic information:\n</entry>
+        <entry key="TcpPortInUse">
+            Another process (PID: {0}) is using the TCP/IP port 17725 required for PIL communication. 
+            In order to run the PIL simulation, execute the following 
+            &lt;a href="matlab:disp(''### Killing process...'');clear('mex');r=raspberrypi;killProcess(r,''{1}'');disp(''### Done...'')">clear('mex');r=raspberrypi;killProcess(r,''{2}'')&lt;/a&gt; to kill
+            the process using the TCP/IP port 17725.
+        </entry>
+        <entry key="ModelNotAvailable">The model {0} is not found on the Raspberry Pi hardware. Compile and run the Simulink model before you use the runModel method.</entry> 
+        <entry key="InvalidDeviceAddress">There is no saved value for device address. Specify the hostname or the IP address of your board to connect to it.</entry>
+        <entry key="InvalidUsername">There is no saved value for username. Specify a valid username to connect to your board.</entry>
+        <entry key="InvalidPassword">There is no saved value for username. Specify a valid password to connect to your board.</entry>
+        <entry key="ExeNotAvailable">The executable {0} is not found on the Raspberry Pi hardware.</entry> 
+        <entry key="CannotLocateModelExecutable">Cannot locate executable corresponding to the model {0}. Change current working directory to where you built the model.</entry>
+        <entry key="ExecutableDoesNotExist">The executable {0} does not exist.</entry>
+        <entry key="InvalidProcessId">Expected a vector array of numeric PID values or a character array representing PID numbers.</entry>
+        <entry key="UnknownBuildAction">Undefined build action.</entry>
+        <entry key="FileCopyError">Cannot copy the file {0} to host {1}.</entry>
+        <entry key="HelpMissing">Help directory for the support package is missing. Reinstall the support package or contact MathWorks Technical support.</entry>
+        <entry key="DeprecatedMethod">The {0} method of the raspberrypi object will be removed in a future release. Use the {1} method instead.</entry>
+        <entry key="ConnectDeprecated">The connect method of the raspberrypi object will be removed in a future release. You do not need to call the connect method anymore.</entry>
+        <entry key="InavlidPXLColor">Incorrect number of pixel color values. Pixel color values should be equal to the number of pixel locations or should be a single triad(e.g., [255 0 255]).</entry>
+        <entry key="HTS221ModuleAlreadyUsed">Multiple HTS221 Humidity Sensor blocks are not allowed in the model.</entry>    
+        <entry key="LPS25hModuleAlreadyUsed">Multiple LPS25H Pressure Sensor blocks are not allowed in the model.</entry>    
+        <entry key="LSM9ds1ModuleAlreadyUsed">Multiple LSM9DS1 9-DoF IMU Sensor blocks are not allowed in the model.</entry>    
+        <entry key="SerialConflict">There is a mismatch in {0} for Serial blocks with Port {1}. Change {0} value in the corresponding block to resolve this conflict.</entry>
+        <entry key="locationDimension">Number of elements provided for 'Location' exceeds the actual number of pixels on the LED matrix. The maximum supported size for 'Location' is [64x2].</entry>
+        <entry key="InvalidModelName">Cannot find the model in Raspberry Pi</entry>  
+        <entry key="InvalidInput">Invalid directory or file name {0} on the specified path. </entry>
+        <entry key="NotMATFile">The file {0} is not a MAT-file.</entry>
+        <entry key="NoMATFile">MAT-files not found in the current directory.\n</entry>
+    </message>
+</rsccat>

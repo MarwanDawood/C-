@@ -1,0 +1,12 @@
+<example>
+  <main>CountingStepsUsingRaspberryPiSenseHATExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_countstep');</callback>
+  <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig1.png</file>
+  <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig2.png</file>
+  <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig3.png</file>
+  <file timestamp="1524242093" component="raspberrypi">raspberrypi_countstep_fig4.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

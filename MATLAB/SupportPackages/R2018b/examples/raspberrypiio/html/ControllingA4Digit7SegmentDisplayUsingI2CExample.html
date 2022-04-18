@@ -1,0 +1,615 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Controlling a 4-Digit 7-Segment Display Using I2C</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-06"><meta name="DC.source" content="ControllingA4Digit7SegmentDisplayUsingI2CExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/ControllingA4Digit7SegmentDisplayUsingI2CExample')">Open this Example</a></div><div class="content"><h1>Controlling a 4-Digit 7-Segment Display Using I2C</h1><!--introduction--><p>This example shows you how to use the I2C peripheral on Raspberry Pi&reg; hardware to control a 4-digit 7-segment display.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Overview of I2C</a></li><li><a href="#5">View available I2C buses</a></li><li><a href="#6">Overview of 4-digit 7-segment display</a></li><li><a href="#7">Connect the display</a></li><li><a href="#8">Scan I2C bus</a></li><li><a href="#9">Display a number</a></li><li><a href="#10">Clear display screen</a></li><li><a href="#11">Set cursor position</a></li><li><a href="#12">Advanced: Create a MATLAB class for segment display</a></li><li><a href="#13">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Raspberry Pi hardware includes an I2C peripheral. The I2C peripheral enables you to connect devices supporting I2C protocol directly to Raspberry Pi hardware. There is a wide variety of sensors, displays, ADC's, DAC's, etc. supporting I2C communications. By using these devices you can add new capabilities to your Raspberry Pi projects.</p><p>In this example, we will concentrate on controlling a 4-digit 7-segment display via I2C. We will start by providing an overview of I2C communications in general and then focus on the display and specifics of I2C commands it supports. We will learn about MATLAB command interface for I2C devices and finally finish the example by displaying numbers and simple characters.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypiio_ref.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>A power supply with at least 1A output</li><li>Breadboard and jumper cables</li><li>A 4-digit, 7-segment display with I2C interface from SparkFun</li></ul></div><h2 id="4">Overview of I2C</h2><p>Inter-Integrated Circuit (I2C) is a multi-master serial single-ended communication protocol used for attaching low-speed peripherals to an embedded system.</p><p><img vspace="5" hspace="5" src="../i2c_diagram.png" alt=""> </p><p>I2C uses two bidirectional lines, serial data line (SDA) and serial clock (SCL). Both of these lines are pulled up with resistors. Each slave device on the I2C bus is assigned a 7-bit or 10-bit address. I2C devices with 10-bit addresses are rare and not supported by the Raspberry Pi hardware. With a 7-bit address space, up to 128 devices can be connected to an I2C bus. I2C bus speeds can range from 100 Kbits/s for slow mode to 400 Kbits/s for high speed mode.</p><p>Raspberry Pi hardware has two I2C buses. Depending on the model and revision of your board, one of the I2C buses may not be available. The I2C pins on the 2x13 expansion pins are pulled up with 1.8 KOhm resistors.</p><h2 id="5">View available I2C buses</h2><p>In the default Raspbian Linux image, the I2C peripheral is enabled. You can find out available I2C buses on the Raspberry Pi hardware by inspecting the AvailableI2CBuses property of the raspi object.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+rpi = raspi();
+rpi.AvailableI2CBuses
+</pre><p>Inspecting the AvailableI2CBuses property of the rpi should yield at least one I2C bus being listed on the MATLAB command prompt.</p><h2 id="6">Overview of 4-digit 7-segment display</h2><p>The 4-digit 7-segment display from SparkFun is a 4-digit alpha-numeric display with TTL serial, SPI or I2C interface.</p><p><img vspace="5" hspace="5" src="../segment_display.png" alt=""> </p><p>This device can display numbers, most letters and a few special characters. Decimal points, apostrophes and colons are supported. Brightness of the display can be adjusted. The display has a simple control interface where the master device, Raspberry Pi hardware in this case, issues commands with parameters to the display device over I2C bus. For example, to clear the display master sends a command byte of '0x76'. To set the cursor to a particular position, master sends a command byte of '0x79' followed by a byte indicating cursor position (0 to 3). A comprehensive list of commands is shown in the table below.</p><p>
+<table align="center" border="1" cellpadding="5">
+    <tbody>
+        <tr>
+            <td style="text-align: center;">
+                <strong>Command</strong></td>
+            <td style="text-align: center;">
+                <strong>Command byte</strong></td>
+            <td style="text-align: center;">
+                <strong>Data byte range</strong></td>
+            <td style="text-align: center;">
+                <strong>Data byte description</strong></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Clear display</td>
+            <td style="text-align: center;">
+                0x76</td>
+            <td style="text-align: center;">
+                None</td>
+            <td style="text-align: center;">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Decimal control</td>
+            <td style="text-align: center;">
+                0x77</td>
+            <td style="text-align: center;">
+                0-63</td>
+            <td style="text-align: center;">
+                1-bit per decimal</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Cursor control</td>
+            <td style="text-align: center;">
+                0x79</td>
+            <td style="text-align: center;">
+                0-3</td>
+            <td style="text-align: center;">
+                0=left-most, 3=right-most</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Brightness control</td>
+            <td style="text-align: center;">
+                0x7A</td>
+            <td style="text-align: center;">
+                0-255</td>
+            <td style="text-align: center;">
+                0=dimmest, 255=brightest</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Digit 1 control</td>
+            <td style="text-align: center;">
+                0x7B</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Digit 2 control</td>
+            <td style="text-align: center;">
+                0x7C</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Digit 3 control</td>
+            <td style="text-align: center;">
+                0x7D</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Digit 4 control</td>
+            <td style="text-align: center;">
+                0x7E</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Baud rate config</td>
+            <td style="text-align: center;">
+                0x7F</td>
+            <td style="text-align: center;">
+                0-11</td>
+            <td style="text-align: center;">
+                See baud rate command in datasheet</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                I2C Address configuration</td>
+            <td style="text-align: center;">
+                0x80</td>
+            <td style="text-align: center;">
+                1-126</td>
+            <td style="text-align: center;">
+                New I<sup>2</sup>C address</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                Factory reset</td>
+            <td style="text-align: center;">
+                0x81</td>
+            <td style="text-align: center;">
+                None</td>
+            <td style="text-align: center;">
+                &nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</p><h2 id="7">Connect the display</h2><p>To interface the display to Raspberry Pi hardware you need to do some light soldering. Since we are using the I2C interface of the display in this example, solder jumper wires to the SDA, SCL, GND and VCC pins of the display. You may also choose to solder some straight male headers to be able to mount the display on a breadboard for prototyping. Before going any further, you may also want to follow manufacturer's hardware assembly guide.</p><p>Follow the circuit diagram shown below to connect the display to Raspberry Pi hardware.</p><p><img vspace="5" hspace="5" src="../segment_display_circuit.png" alt=""> </p><h2 id="8">Scan I2C bus</h2><p>Once you connected the display to the Raspberry Pi hardware, you are ready to test if Raspberry Pi hardware sees it on the I2C bus.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+rpi = raspi();
+<span class="keyword">for</span> i = 1:length(rpi.AvailableI2CBuses)
+    scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+<span class="keyword">end</span>
+</pre><p>The scanI2CBus() method scans the given I2C bus and returns a cell array of device addresses on the bus. If you connected the display to Raspberry Pi hardware correctly, the snippet of MATLAB code above should return a device address of '0x71'. This is the factory default address of the display.</p><h2 id="9">Display a number</h2><p>Let's start by creating an i2cdev object that will allow us to talk to the display using I2C.</p><pre class="language-matlab">segmentDisp = i2cdev(rpi, <span class="string">'&lt;I2C bus&gt;'</span>, <span class="string">'0x71'</span>);
+</pre><p>Where '&lt;I2C bus&gt;' is the name of the I2C bus the display is detected. Remember that depending on the version of your Raspberry Pi hardware, the bus name may change. So make sure that you supply the correct I2C bus when constructing the segmentDisp object.</p><p>According to the command table for the display, sending a byte in the range 0 - 0xf results in a hexadecimal number represented by the byte to be displayed. The cursor is initially at position 0, which is the left most digit, and advances one position each time a character is displayed.</p><pre class="language-matlab">write(segmentDisp, 0);
+</pre><p>This should display a '0' on the left most digit of the display. Let's display a couple of more characters.</p><pre class="language-matlab">write(segmentDisp, 7);
+write(segmentDisp, hex2dec(<span class="string">'a'</span>));
+write(segmentDisp, hex2dec(<span class="string">'b'</span>));
+</pre><p>After executing the commands above, you should see '07ab' displayed on the segmented display.</p><h2 id="10">Clear display screen</h2><p>To clear the display screen we will follow the datasheet and send '0x76' to the display.</p><pre class="language-matlab">write(segmentDisp, hex2dec(<span class="string">'76'</span>));
+</pre><h2 id="11">Set cursor position</h2><p>To display a particular character at a particular cursor position, you may want to set the cursor position.</p><pre class="language-matlab">write(segmentDisp, [hex2dec(<span class="string">'79'</span>), 2]);
+write(segmentDisp, 9);
+</pre><p>The commands above will display a '9' at the second digit position of the display.</p><h2 id="12">Advanced: Create a MATLAB class for segment display</h2><p>You can put all the things we learned about the segment display together and create a MATLAB class for it. This MATLAB class has methods for setting the cursor position, clearing the display screen, printing numbers, etc. As an example, we created such a class. Here is an example of how you would use this class.</p><pre class="language-matlab">clear <span class="string">segmentDisp</span>
+sd = raspi.internal.segmentdisplay(rpi, &lt;I2C bus&gt;, &lt;I2C address&gt;)
+clr(sd);  <span class="comment">% Clear screen</span>
+print(sd, <span class="string">'112'</span>);
+print(sd, <span class="string">'dead'</span>);
+print(sd, <span class="string">'beef'</span>);
+</pre><p>Note that before creating the class, we cleared the original i2cdev object called segmentDisp. You are allowed to create a single object per I2C device. The segmentdisplay class internally creates an i2cdev object. Hence you need to clear any i2cdev objects connected to the display from MATLAB workspace before instantiating the segmentdisplay.</p><p>The segmentdisplay class tries to reduce flickering caused by clearing / re-displaying numbers. It does so by caching the displayed characters and updating only those that are different. Not all features supported by the segmented display are implemented. You can use the MATLAB class we created as a starting point for your own implementation. Here is a MATLAB code snippet implementing an up counter:</p><pre class="language-matlab">N = 1000;
+delay = 0.01;
+clr(sd);
+<span class="keyword">for</span> i = 1:N
+    print(sd,num2str(i));
+    pause(delay);
+<span class="keyword">end</span>
+</pre><h2 id="13">Summary</h2><p>This example introduced the workflow for working with I2C interface. You learned how to control a 4-digit 7-segment display to display hexadecimal numbers.</p><p class="footer">Copyright 2013-2014 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Controlling a 4-Digit 7-Segment Display Using I2C
+%
+% This example shows you how to use the I2C peripheral on Raspberry Pi(R)
+% hardware to control a 4-digit 7-segment display.
+ 
+% Copyright 2013-2014 The MathWorks, Inc.
+ 
+
+%% Introduction
+% 
+% Raspberry Pi hardware includes an I2C peripheral. The I2C peripheral
+% enables you to connect devices supporting I2C protocol directly to
+% Raspberry Pi hardware. There is a wide variety of sensors, displays,
+% ADC's, DAC's, etc. supporting I2C communications. By using these devices
+% you can add new capabilities to your Raspberry Pi projects. 
+%
+% In this example, we will concentrate on controlling a 4-digit 7-segment
+% display via I2C. We will start by providing an overview of I2C
+% communications in general and then focus on the display and specifics of
+% I2C commands it supports. We will learn about MATLAB command interface
+% for I2C devices and finally finish the example by displaying numbers and
+% simple characters.
+
+
+%% Prerequisites
+%
+% * We recommend completing
+% <docid:raspberrypiio_ref.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware> example. 
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * A power supply with at least 1A output
+% * Breadboard and jumper cables
+% * A 4-digit, 7-segment display with I2C interface from SparkFun
+
+ 
+%% Overview of I2C 
+%
+% Inter-Integrated Circuit (I2C) is a multi-master serial single-ended
+% communication protocol used for attaching low-speed peripherals to
+% an embedded system. 
+%
+% <<../i2c_diagram.png>>
+%
+% I2C uses two bidirectional lines, serial data line (SDA) and serial clock
+% (SCL). Both of these lines are pulled up with resistors. Each slave
+% device on the I2C bus is assigned a 7-bit or 10-bit address. I2C devices
+% with 10-bit addresses are rare and not supported by the Raspberry Pi
+% hardware. With a 7-bit address space, up to 128 devices can be connected
+% to an I2C bus. I2C bus speeds can range from 100 Kbits/s for slow mode to
+% 400 Kbits/s for high speed mode.
+%
+% Raspberry Pi hardware has two I2C buses. Depending on the model and
+% revision of your board, one of the I2C buses may not be available.
+% The I2C pins on the 2x13 expansion pins are pulled up with 1.8 KOhm
+% resistors. 
+
+
+%% View available I2C buses
+%
+% In the default Raspbian Linux image, the I2C peripheral is
+% enabled. You can find out available I2C buses on the Raspberry Pi
+% hardware by inspecting the AvailableI2CBuses property of the raspi
+% object.
+%
+%   clear rpi
+%   rpi = raspi();
+%   rpi.AvailableI2CBuses
+%
+% Inspecting the AvailableI2CBuses property of the rpi should yield at
+% least one I2C bus being listed on the MATLAB command prompt.
+
+
+%% Overview of 4-digit 7-segment display
+%
+% The 4-digit 7-segment display from SparkFun is a 4-digit alpha-numeric
+% display with TTL serial, SPI or I2C interface. 
+%
+% <<../segment_display.png>>
+%
+% This device can display numbers, most letters and a few special
+% characters. Decimal points, apostrophes and colons are supported.
+% Brightness of the display can be adjusted. The display has a simple
+% control interface where the master device, Raspberry Pi hardware in this
+% case, issues commands with parameters to the display device over I2C bus.
+% For example, to clear the display master sends a command byte of '0x76'.
+% To set the cursor to a particular position, master sends a command byte
+% of '0x79' followed by a byte indicating cursor position (0 to 3). A
+% comprehensive list of commands is shown in the table below.
+%
+% <html>
+% <table align="center" border="1" cellpadding="5">
+%     <tbody>
+%         <tr>
+%             <td style="text-align: center;">
+%                 <strong>Command</strong></td>
+%             <td style="text-align: center;">
+%                 <strong>Command byte</strong></td>
+%             <td style="text-align: center;">
+%                 <strong>Data byte range</strong></td>
+%             <td style="text-align: center;">
+%                 <strong>Data byte description</strong></td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Clear display</td>
+%             <td style="text-align: center;">
+%                 0x76</td>
+%             <td style="text-align: center;">
+%                 None</td>
+%             <td style="text-align: center;">
+%                 &nbsp;</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Decimal control</td>
+%             <td style="text-align: center;">
+%                 0x77</td>
+%             <td style="text-align: center;">
+%                 0-63</td>
+%             <td style="text-align: center;">
+%                 1-bit per decimal</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Cursor control</td>
+%             <td style="text-align: center;">
+%                 0x79</td>
+%             <td style="text-align: center;">
+%                 0-3</td>
+%             <td style="text-align: center;">
+%                 0=left-most, 3=right-most</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Brightness control</td>
+%             <td style="text-align: center;">
+%                 0x7A</td>
+%             <td style="text-align: center;">
+%                 0-255</td>
+%             <td style="text-align: center;">
+%                 0=dimmest, 255=brightest</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Digit 1 control</td>
+%             <td style="text-align: center;">
+%                 0x7B</td>
+%             <td style="text-align: center;">
+%                 0-127</td>
+%             <td style="text-align: center;">
+%                 1-bit per segment</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Digit 2 control</td>
+%             <td style="text-align: center;">
+%                 0x7C</td>
+%             <td style="text-align: center;">
+%                 0-127</td>
+%             <td style="text-align: center;">
+%                 1-bit per segment</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Digit 3 control</td>
+%             <td style="text-align: center;">
+%                 0x7D</td>
+%             <td style="text-align: center;">
+%                 0-127</td>
+%             <td style="text-align: center;">
+%                 1-bit per segment</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Digit 4 control</td>
+%             <td style="text-align: center;">
+%                 0x7E</td>
+%             <td style="text-align: center;">
+%                 0-127</td>
+%             <td style="text-align: center;">
+%                 1-bit per segment</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Baud rate config</td>
+%             <td style="text-align: center;">
+%                 0x7F</td>
+%             <td style="text-align: center;">
+%                 0-11</td>
+%             <td style="text-align: center;">
+%                 See baud rate command in datasheet</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 I2C Address configuration</td>
+%             <td style="text-align: center;">
+%                 0x80</td>
+%             <td style="text-align: center;">
+%                 1-126</td>
+%             <td style="text-align: center;">
+%                 New I<sup>2</sup>C address</td>
+%         </tr>
+%         <tr>
+%             <td style="text-align: center;">
+%                 Factory reset</td>
+%             <td style="text-align: center;">
+%                 0x81</td>
+%             <td style="text-align: center;">
+%                 None</td>
+%             <td style="text-align: center;">
+%                 &nbsp;</td>
+%         </tr>
+%     </tbody>
+% </table>
+% </html>
+
+
+
+%% Connect the display 
+% 
+% To interface the display to Raspberry Pi hardware you need to do some
+% light soldering. Since we are using the I2C interface of the display in
+% this example, solder jumper wires to the SDA, SCL, GND and VCC pins of
+% the display. You may also choose to solder some straight male headers to
+% be able to mount the display on a breadboard for prototyping. Before
+% going any further, you may also want to follow manufacturer's hardware
+% assembly guide.
+%
+% Follow the circuit diagram shown below to connect the display to
+% Raspberry Pi hardware.
+%
+% <<../segment_display_circuit.png>>
+%
+
+
+%% Scan I2C bus
+% 
+% Once you connected the display to the Raspberry Pi hardware, you are
+% ready to test if Raspberry Pi hardware sees it on the I2C bus.
+%
+%   clear rpi
+%   rpi = raspi();
+%   for i = 1:length(rpi.AvailableI2CBuses)
+%       scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+%   end
+%
+% The scanI2CBus() method scans the given I2C bus and returns a cell array
+% of device addresses on the bus. If you connected the display to Raspberry
+% Pi hardware correctly, the snippet of MATLAB code above should return a
+% device address of '0x71'. This is the factory default address of the
+% display. 
+
+
+%% Display a number
+% 
+% Let's start by creating an i2cdev object that will allow us to talk to
+% the display using I2C.
+%
+%   segmentDisp = i2cdev(rpi, '<I2C bus>', '0x71');
+%
+% Where '<I2C bus>' is the name of the I2C bus the display is detected.
+% Remember that depending on the version of your Raspberry Pi hardware, the
+% bus name may change. So make sure that you supply the correct I2C bus
+% when constructing the segmentDisp object.
+%
+% According to the command table for the display, sending a byte in the
+% range 0 - 0xf results in a hexadecimal number represented by the byte to
+% be displayed. The cursor is initially at position 0, which is the left
+% most digit, and advances one position each time a character is displayed.
+%
+%   write(segmentDisp, 0);
+%
+% This should display a '0' on the left most digit of the display. Let's
+% display a couple of more characters.
+%
+%   write(segmentDisp, 7);
+%   write(segmentDisp, hex2dec('a'));
+%   write(segmentDisp, hex2dec('b'));
+%
+% After executing the commands above, you should see '07ab' displayed on
+% the segmented display.
+
+%% Clear display screen
+%
+% To clear the display screen we will follow the datasheet and send '0x76'
+% to the display.
+%
+%   write(segmentDisp, hex2dec('76'));
+%
+
+%% Set cursor position
+%
+% To display a particular character at a particular cursor position, you
+% may want to set the cursor position.
+%
+%   write(segmentDisp, [hex2dec('79'), 2]);
+%   write(segmentDisp, 9);
+%
+% The commands above will display a '9' at the second digit position of the
+% display.
+
+
+%% Advanced: Create a MATLAB class for segment display
+%
+% You can put all the things we learned about the segment display together
+% and create a MATLAB class for it. This MATLAB class has methods for
+% setting the cursor position, clearing the display screen, printing
+% numbers, etc. As an example, we created such a class. Here is an example
+% of how you would use this class.
+%
+%   clear segmentDisp
+%   sd = raspi.internal.segmentdisplay(rpi, <I2C bus>, <I2C address>)
+%   clr(sd);  % Clear screen
+%   print(sd, '112');
+%   print(sd, 'dead');
+%   print(sd, 'beef');
+%
+% Note that before creating the class, we cleared the original i2cdev
+% object called segmentDisp. You are allowed to create a single object per
+% I2C device. The segmentdisplay class internally creates an i2cdev object.
+% Hence you need to clear any i2cdev objects connected to the display from
+% MATLAB workspace before instantiating the segmentdisplay. 
+%
+% The segmentdisplay class tries to reduce flickering caused by clearing /
+% re-displaying numbers. It does so by caching the displayed characters and
+% updating only those that are different. Not all features supported by the
+% segmented display are implemented. You can use the MATLAB class we
+% created as a starting point for your own implementation. Here is a MATLAB
+% code snippet implementing an up counter:
+%
+%   N = 1000;
+%   delay = 0.01;
+%   clr(sd);
+%   for i = 1:N
+%       print(sd,num2str(i));
+%       pause(delay);
+%   end
+%  
+
+
+%% Summary
+% 
+% This example introduced the workflow for working with I2C interface. You
+% learned how to control a 4-digit 7-segment display to display hexadecimal
+% numbers.
+
+##### SOURCE END #####
+--></body></html>

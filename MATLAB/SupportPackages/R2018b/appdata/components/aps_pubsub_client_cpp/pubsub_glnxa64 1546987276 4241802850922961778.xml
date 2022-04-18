@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentData>
+  <component>
+    <componentBaseName>aps_pubsub_client_cpp/pubsub</componentBaseName>
+    <componentFileName>aps_pubsub_client_cpp/pubsub_glnxa64_1546987276.zip</componentFileName>
+    <componentName>aps_pubsub_client_cpp/pubsub_glnxa64</componentName>
+    <componentVersion>1546987276</componentVersion>
+    <instrset>0</instrset>
+    <locale />
+    <locationId>1</locationId>
+    <numFiles>1</numFiles>
+    <platformList>
+      <platform>glnxa64</platform>
+    </platformList>
+    <releaseFamily>R2018b</releaseFamily>
+    <size>278663</size>
+    <type />
+    <uncompressedBytes>810096</uncompressedBytes>
+  </component>
+</componentData>
+

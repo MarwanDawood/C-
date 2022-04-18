@@ -1,0 +1,9 @@
+<example>
+  <main>ParametricAudioEqualizerExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_audioequalizer');</callback>
+  <file timestamp="1524239941" component="raspberrypi">audio_equalizer_gui.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

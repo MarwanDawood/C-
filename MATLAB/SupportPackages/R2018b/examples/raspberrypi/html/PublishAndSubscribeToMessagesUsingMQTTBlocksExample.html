@@ -1,0 +1,282 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-09"><meta name="DC.source" content="PublishAndSubscribeToMessagesUsingMQTTBlocksExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/PublishAndSubscribeToMessagesUsingMQTTBlocksExample')">Open this Example</a></div><div class="content"><h1>Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Introduction</a></li><li><a href="#3">Prerequisites</a></li><li><a href="#4">Required Hardware</a></li><li><a href="#5">Step 1: Connect Raspberry Pi to the Computer</a></li><li><a href="#6">Step 2: Open the Simulink Model to Publish the Message</a></li><li><a href="#9">Step 3: Open the Simulink Model to Subscribe to the Message</a></li><li><a href="#12">Step 4: Configure the Publish and Subscribe Model</a></li><li><a href="#13">Step 5: Run the Publish Model in Normal Mode</a></li><li><a href="#14">Step 6: Run the Subscribe Model in External Mode</a></li><li><a href="#15">See Also</a></li></ul></div><p>This example shows you how to publish and subscribe to messages from a ThingSpeak broker using MQTT blocks provided by the Simulink&reg; Support Package for Raspberry Pi&#8482; Hardware.</p><h2 id="2">Introduction</h2><p>Message Queuing Telemetry Transport (MQTT) is a publish-subscribe architecture developed primarily to connect bandwidth and power-constrained devices over networks. MQTT has two components: an MQTT broker and an MQTT client.</p><p>An MQTT broker is a central point of communication and dispatches all messages between the clients. An MQTT client is a device (for example, a computer or mobile phone) that connects to the broker. A client that sends messages to the broker is a <i>publisher</i>. A client that receives messages from the broker is a <i>subscriber</i>. For more information on MQTT, see <a href="docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233">Publish and Subscribe to MQTT messages</a>.</p><p>In this example, ThingSpeak is the MQTT broker, and Raspberry Pi&#8482; is the MQTT client (publisher and subscriber).</p><p>This example has two Simulink&reg; models, <tt><a href="matlab:raspberrypi_MQTT_publish">Publish_MQTT_messages</a></tt> and <tt><a href="matlab:raspberrypi_MQTT_subscribe">Subscribe_MQTT_messages</a></tt>. In this example, you will learn how to publish a message from Raspberry Pi&#8482; to the specified topic in the ThingSpeak MQTT broker. Also, you will learn how to subscribe to the specified topic, and then receive the published message from the ThingSpeak MQTT broker to the same Raspberry Pi&#8482; hardware. This is a loopback message transfer.</p><p><img vspace="5" hspace="5" src="../mqtt_communication.png" alt=""> </p><h2 id="3">Prerequisites</h2><p>Before you start with this example, we recommend you complete:</p><div><ul><li><a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started With Raspberry Pi Hardware</a> example</li></ul></div><div><ul><li><a href="docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233">Publish and Subscribe to MQTT messages</a></li></ul></div><h2 id="4">Required Hardware</h2><div><ul><li>Raspberry Pi&#8482; hardware</li><li>Micro USB cable</li></ul></div><h2 id="5">Step 1: Connect Raspberry Pi to the Computer</h2><p><b>1.</b> Connect the micro USB cable into the micro USB port of the Raspberry Pi&#8482; hardware.</p><p><b>2.</b> Connect the other end of the cable to your computer. Wait for the power LED on Raspberry Pi&#8482; to stay solid.</p><p><b>3.</b> Connect the Ethernet port of Raspberry Pi&#8482; to a LAN having an Internet access.</p><h2 id="6">Step 2: Open the Simulink Model to Publish the Message</h2><p><b>1.</b> Open the <tt><a href="matlab:raspberrypi_MQTT_publish">Publish_MQTT_messages</a></tt> model.</p><p>In this model, the <a href="docid:raspberrypi_ref.mw_595ee79e-2b05-4ae7-85c9-f595eee34793">MQTT Publish</a> block accepts a message of <tt>uint8</tt> data type to be published to the broker.</p><img vspace="5" hspace="5" src="PublishAndSubscribeToMessagesUsingMQTTBlocksExample_01.png" alt=""> <p><b>2.</b> Double-click the <tt>MQTT Publish</tt> block. The parameter values are specified as:</p><pre>     Parameter   | Value                                           | Description
+  ---------------------------------------------------------------------------------------------------------------------------------------------
+      Topic      | channels/12345/publish/fields/field1/XXXXXXXXXX | The topic to which Raspberry Pi publishes the message.
+                 |                                                 | The topic must follow the format:
+                 |                                                 | channels/&lt;channelID&gt;/publish/fields/field&lt;fieldNumber&gt;/&lt;writeAPIKey&gt;
+                 |                                                 | In this example,
+                 |                                                 | * channelID is specified as 12345.
+                 |                                                 | * fieldNumber is specified as 1. You can specify any number from 1 to 8.
+                 |                                                 | * writeAPIKey is specified as XXXXXXXXXX.
+      QoS        | 0                                               | The ThingSpeak MQTT broker supports only QoS 0.
+      Retain Msg | off                                             | The ThingSpeak MQTT broker does not support retain message flag.</pre><p>For information on how to find <b>Channel ID</b> and <b>Write API Key</b> of your channel, see <a href="docid:raspberrypi_ref.bvpvot_-53">ThingSpeak Parameters</a>.</p><p><b>3.</b> Click <b>OK</b>.</p><h2 id="9">Step 3: Open the Simulink Model to Subscribe to the Message</h2><p><b>1.</b> Open the <tt><a href="matlab:raspberrypi_MQTT_subscribe">Subscribe_MQTT_messages</a></tt> model.</p><img vspace="5" hspace="5" src="PublishAndSubscribeToMessagesUsingMQTTBlocksExample_02.png" alt=""> <p><b>2.</b> Double-click the <a href="docid:raspberrypi_ref.mw_3d379609-4a45-4d43-8c94-55db12ea25c2">MQTT Subscribe</a> block. The parameter values are specified as:</p><pre>     Parameter           | Value                                             | Description
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Topic              | channels/12345/subscribe/fields/field1/YYYYYYYYYY | The topic to which Raspberry Pi subscribes.
+                         |                                                   | The topic must follow the format:
+                         |                                                   | channels/&lt;channelID&gt;/subscribe/fields/field&lt;fieldNumber&gt;/&lt;readAPIKey&gt;
+                         |                                                   | In this example,
+                         |                                                   | * channelID is specified as 12345.
+                         |                                                   | * fieldNumber is specified as 1. You can specify any number from 1 to 8.
+                         |                                                   | * readAPIKey is specified as YYYYYYYYYY.
+      QoS                | 0                                                 | The ThingSpeak MQTT broker supports only QoS 0.
+      Message length (N) | 1                                                 | The length of the message to be received.
+      Sample time        | 1                                                 | Raspberry Pi(TM) receives the message from the ThingSpeak MQTT broker every one second.</pre><p>For information on how to find <b>Channel ID</b> and <b>Read API Key</b> of your channel, see <a href="docid:raspberrypi_ref.bvk8fim-3">ThingSpeak Parameters</a>.</p><p><b>3.</b> Click <b>OK</b>.</p><h2 id="12">Step 4: Configure the Publish and Subscribe Model</h2><p><b>1.</b> Open the <tt><a href="matlab:raspberrypi_MQTT_publish">Publish_MQTT_messages</a></tt> model.</p><p><b>2.</b> In your Simulink&reg; model, click <b>Simulation</b> &gt; <b>Model Configuration Parameters</b>.</p><p><b>3.</b> In the Configuration Parameters dialog box, select <b>Hardware Implementation</b>.</p><p><b>4.</b> Set the <b>Hardware board</b> parameter to <tt>Raspberry Pi</tt>. This selection automatically populates the parameters in the <b>Hardware board</b> settings with the default values for Raspberry Pi&#8482;.</p><p><b>5.</b> From the <b>Groups</b> list under <b>Target hardware resources</b>, select <b>MQTT</b> and verify these settings:</p><div><ul><li><b>Broker Address</b>: Specify the address of the ThingSpeak MQTT broker, <tt>mqtt.thingspeak.com</tt>.</li><li><b>Username</b>: For ThingSpeak broker, <b>Username</b> is not required.</li><li><b>Password</b>: Specify the <b>MQTT API Key</b> of your ThingSpeak account. If you do not know the <b>MQTT API Key</b>, sign in to ThingSpeak and go to <b>Account</b> &gt; <b>My Profile</b>.</li><li><b>Client ID</b>: <b>Client ID</b> is optional.</li></ul></div><p><b>6.</b> Click <b>Apply</b> to save your changes, and click <b>OK</b>.</p><p><b>7.</b> Open the <tt><a href="matlab:raspberrypi_MQTT_subscribe">Subscribe_MQTT_messages</a></tt> model and repeat all the steps as described in this section.</p><h2 id="13">Step 5: Run the Publish Model in Normal Mode</h2><p><b>1.</b> In your Simulink&reg; model, click the Deploy to Hardware button. The lower left corner of the model window displays the status while Simulink&reg; prepares, downloads, and runs the model on Raspberry Pi&#8482;. The model is deployed as a standalone application on Raspberry Pi&#8482;. After the model is successfully deployed, Raspberry Pi&#8482; publishes the message to the <b>Field 1</b> of the ThingSpeak MQTT broker.</p><p><b>2.</b> To view the published message on the broker, select to <b>Channels</b> &gt; <b>My Channels</b>, and then click the channel on which the message is published.</p><p><img vspace="5" hspace="5" src="../mqtt_publish.png" alt=""> </p><h2 id="14">Step 6: Run the Subscribe Model in External Mode</h2><p><b>1.</b> In your Simulink&reg; model, set Simulation mode to <tt>External</tt>. The Simulation stop time is specified as <tt>inf</tt>.</p><p><b>2.</b> Click the Run button. The lower left corner of the model window displays status while Simulink&reg; prepares, downloads, and runs the model on Raspberry Pi&#8482;. After the model successfully starts running, Raspberry Pi&#8482; subscribes to the messages in the <b>Field 1</b> of the ThingSpeak MQTT broker and receives the message. The <tt>Display_Message</tt> block displays the received message.</p><h2 id="15">See Also</h2><p><a href="docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233">Publish and Subscribe to MQTT messages</a></p><p class="footer">Copyright 2018 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Publish and Subscribe to Messages on ThingSpeak Using MQTT Blocks
+%%
+% This example shows you how to publish and subscribe to messages from a ThingSpeak broker using MQTT blocks provided by the Simulink(R) Support Package for Raspberry Pi(TM) Hardware. 
+%
+% Copyright 2018 The MathWorks, Inc.
+%
+%% Introduction
+%
+% Message Queuing Telemetry Transport (MQTT) is a publish-subscribe architecture developed primarily to
+% connect bandwidth and power-constrained devices over networks.
+% MQTT has two components: an MQTT broker and an MQTT client.
+%
+% An MQTT broker is a central point of communication and dispatches all messages between the clients. 
+% An MQTT client is a device (for example, a computer or mobile phone) that connects to the broker. A client that sends messages to the broker is a _publisher_. A client that receives messages from the broker is a _subscriber_. 
+% For more information on MQTT, see <docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233 Publish and Subscribe to MQTT messages>.
+%
+% In this example, ThingSpeak is the MQTT broker, and Raspberry Pi(TM) is the MQTT client (publisher and subscriber).
+%
+% This example has two Simulink(R) models, |<matlab:raspberrypi_MQTT_publish
+% Publish_MQTT_messages>| and |<matlab:raspberrypi_MQTT_subscribe
+% Subscribe_MQTT_messages>|.
+% In this example, you will learn how to publish a message from Raspberry Pi(TM) to the specified topic in the ThingSpeak MQTT broker. 
+% Also, you will learn how to subscribe to the specified topic, and then receive the published message from the ThingSpeak MQTT broker to the same Raspberry Pi(TM) hardware. 
+% This is a loopback message transfer.
+%
+% <<../mqtt_communication.png>>
+%
+%% Prerequisites
+%
+% Before you start with this example, we recommend you complete:
+%
+% * <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started With Raspberry Pi Hardware> example
+%
+% * <docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233 Publish and Subscribe to MQTT messages>
+%
+%% Required Hardware
+%
+% * Raspberry Pi(TM) hardware
+% * Micro USB cable
+%
+%% Step 1: Connect Raspberry Pi to the Computer
+%
+% *1.* Connect the micro USB cable into the micro USB port of the Raspberry Pi(TM) hardware.
+%
+% *2.* Connect the other end of the cable to your computer. Wait for the power LED on Raspberry Pi(TM) to stay solid.
+% 
+% *3.* Connect the Ethernet port of Raspberry Pi(TM) to a LAN having an Internet
+% access.
+%
+%% Step 2: Open the Simulink Model to Publish the Message
+%
+% *1.* Open the |<matlab:raspberrypi_MQTT_publish Publish_MQTT_messages>| model.
+%
+% In this model, the <docid:raspberrypi_ref.mw_595ee79e-2b05-4ae7-85c9-f595eee34793 MQTT Publish> block accepts a message of |uint8| data type to be published to the broker. 
+%
+%%
+open_system('raspberrypi_MQTT_publish')
+%%
+% *2.* Double-click the |MQTT Publish| block. The parameter values are specified as:
+%
+%       Parameter   | Value                                           | Description
+%    REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%        Topic      | channels/12345/publish/fields/field1/XXXXXXXXXX | The topic to which Raspberry Pi publishes the message.
+%                   |                                                 | The topic must follow the format: 
+%                   |                                                 | channels/<channelID>/publish/fields/field<fieldNumber>/<writeAPIKey>
+%                   |                                                 | In this example, 
+%                   |                                                 | * channelID is specified as 12345.
+%                   |                                                 | * fieldNumber is specified as 1. You can specify any number from 1 to 8. 
+%                   |                                                 | * writeAPIKey is specified as XXXXXXXXXX.            
+%        QoS        | 0                                               | The ThingSpeak MQTT broker supports only QoS 0.  
+%        Retain Msg | off                                             | The ThingSpeak MQTT broker does not support retain message flag.
+%
+% For information on how to find *Channel ID* and *Write API Key* of your
+% channel, see <docid:raspberrypi_ref.bvpvot_-53 ThingSpeak Parameters>.
+%
+% *3.* Click *OK*.
+%
+%% Step 3: Open the Simulink Model to Subscribe to the Message
+%
+% *1.* Open the |<matlab:raspberrypi_MQTT_subscribe Subscribe_MQTT_messages>| model.
+%
+%%
+open_system('raspberrypi_MQTT_subscribe')
+%%
+% *2.* Double-click the <docid:raspberrypi_ref.mw_3d379609-4a45-4d43-8c94-55db12ea25c2 MQTT Subscribe> block. The parameter values are specified as: 
+%
+%       Parameter           | Value                                             | Description
+%    REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+%        Topic              | channels/12345/subscribe/fields/field1/YYYYYYYYYY | The topic to which Raspberry Pi subscribes.
+%                           |                                                   | The topic must follow the format: 
+%                           |                                                   | channels/<channelID>/subscribe/fields/field<fieldNumber>/<readAPIKey>
+%                           |                                                   | In this example, 
+%                           |                                                   | * channelID is specified as 12345.
+%                           |                                                   | * fieldNumber is specified as 1. You can specify any number from 1 to 8. 
+%                           |                                                   | * readAPIKey is specified as YYYYYYYYYY.
+%        QoS                | 0                                                 | The ThingSpeak MQTT broker supports only QoS 0.
+%        Message length (N) | 1                                                 | The length of the message to be received. 
+%        Sample time        | 1                                                 | Raspberry Pi(TM) receives the message from the ThingSpeak MQTT broker every one second.
+%
+% For information on how to find *Channel ID* and *Read API Key* of your
+% channel, see <docid:raspberrypi_ref.bvk8fim-3 ThingSpeak Parameters>.
+%
+% *3.* Click *OK*.
+%
+%% Step 4: Configure the Publish and Subscribe Model
+%
+% *1.* Open the |<matlab:raspberrypi_MQTT_publish Publish_MQTT_messages>| model.
+%
+% *2.* In your Simulink(R) model, click *Simulation* > *Model Configuration Parameters*.
+%
+% *3.* In the Configuration Parameters dialog box, select *Hardware Implementation*.
+%
+% *4.* Set the *Hardware board* parameter to |Raspberry Pi|. This selection automatically populates the parameters in the *Hardware board* settings with the default values for Raspberry Pi(TM).
+%
+% *5.* From the *Groups* list under *Target hardware resources*, select
+% *MQTT* and verify these settings:
+% 
+% * *Broker Address*: Specify the address of the ThingSpeak MQTT broker, |mqtt.thingspeak.com|. 
+% * *Username*: For ThingSpeak broker, *Username* is not required. 
+% * *Password*: Specify the *MQTT API Key* of your ThingSpeak account. If you do not know the *MQTT API Key*, sign in to ThingSpeak and go to *Account* > *My Profile*.
+% * *Client ID*: *Client ID* is optional.
+%
+% *6.* Click *Apply* to save your changes, and click *OK*.
+%
+% *7.* Open the |<matlab:raspberrypi_MQTT_subscribe Subscribe_MQTT_messages>| model and repeat all the steps as described in this section.
+%
+%% Step 5: Run the Publish Model in Normal Mode
+%
+% *1.* In your Simulink(R) model, click the Deploy to Hardware button. The lower left corner of the
+% model window displays the status while Simulink(R) prepares, downloads, and
+% runs the model on Raspberry Pi(TM). The model is deployed as a standalone
+% application on Raspberry Pi(TM). After the model is successfully deployed, Raspberry Pi(TM) publishes the message to the *Field 1* of the ThingSpeak MQTT broker. 
+%
+% *2.* To view the published message on the broker, select to *Channels* >
+% *My Channels*, and then click the channel on which the message is published. 
+%
+% <<../mqtt_publish.png>>
+%
+%% Step 6: Run the Subscribe Model in External Mode
+%
+% *1.* In your Simulink(R) model, set Simulation mode to |External|. The Simulation stop time is specified as |inf|.
+%
+% *2.* Click the Run button. The lower left corner of the model window
+% displays status while Simulink(R) prepares, downloads, and runs the model on
+% Raspberry Pi(TM). After the model successfully starts running, Raspberry Pi(TM) subscribes to the messages in the *Field 1* of the ThingSpeak MQTT broker and receives the message.
+% The |Display_Message| block displays the received message. 
+%
+%% See Also
+%
+% <docid:raspberrypi_ref.mw_3e495e85-a91e-4a40-98fe-b481bae03233 Publish and Subscribe to MQTT messages>
+%
+##### SOURCE END #####
+--></body></html>

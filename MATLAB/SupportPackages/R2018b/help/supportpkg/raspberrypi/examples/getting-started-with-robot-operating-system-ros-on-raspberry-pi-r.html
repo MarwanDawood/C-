@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Getting Started with Robot Operating System (ROS) on Raspberry Pi&#174;</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Getting Started with Robot Operating System (ROS) on Raspberry Pi&#174;",
+          "description": "This example shows you how to generate and build a standalone ROS node from a Simulink model on the Raspberry Pi hardware.",
+          "thumbnailURL": "../../../examples/raspberrypi_product/win64/rosberrypi_ros_master.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi_product.raspberrypi_gettingstarted_with_ros",
+          "name": "raspberrypi_gettingstarted_with_ros"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": ""
+
+        }</script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to generate and build a standalone ROS node from a Simulink model on the Raspberry Pi hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi_product/win64/rosberrypi_ros_master.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Getting Started with Robot Operating System (ROS) on Raspberry Pi&#174;</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e697" class="intrnllnk">Introduction</a></li><li><a href="#d120e732" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e754" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e770" class="intrnllnk">Task 1 - Get Started</a></li><li><a href="#d120e862" class="intrnllnk">Task 2 - Configure a Model to Generate a ROS Node</a></li><li><a href="#d120e920" class="intrnllnk">Task 3 - Run and Verify the ROS Node</a></li><li><a href="#d120e979" class="intrnllnk">Advanced Topics and Troubleshooting</a></li><li><a href="#d120e1084" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_gettingstarted_with_ros">Getting Started with Robot Operating System (ROS) on Raspberry Pi&#174;</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi_product-raspberrypi_gettingstarted_with_ros"></meta><meta itemprop="exampletitle" content="Getting Started with Robot Operating System (ROS) on Raspberry Pi&#174;"></meta></div><span id="raspberrypi_gettingstarted_with_ros" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to generate and build a standalone ROS node from a Simulink model on the Raspberry Pi hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e697">Introduction<span id="raspberrypi_gettingstarted_with_ros-1" class="anchor_target"></span></h3><p>In this example, you will configure a model to generate C++ code for a standalone ROS node that runs on the Raspberry Pi board. You will use Raspberry Pi Simulink blocks together with a ROS Subscribe block to blink the Raspberry Pi user LED. If you are new to ROS, we strongly recommend reviewing <a href="matlab:doc('robotics')" target="_blank">Robotics System Toolbox documentation</a>.</p><p>ROS is a communication layer that allows different components of a robot system to exchange information in the form of <span class="emphasis"><em>messages</em></span>. A component sends a message by <span class="emphasis"><em>publishing</em></span> it to a particular <span class="emphasis"><em>topic</em></span>, such as "/odometry". Other components receive the message by <span class="emphasis"><em>subscribing</em></span> to that topic. The Robotics system toolbox provides an interface between MATLAB and Simulink and the Robot Operating System (ROS) that enables you to test and verify applications on ROS-enabled hardware such as Raspberry Pi. It supports C++ code generation, enabling you to generate a ROS node from a Simulink model and deploy it to a ROS network.</p><p>In this example, you will learn how to:</p><div class="itemizedlist"><ul><li><p>Set up the ROS environment on the Raspberry Pi board</p></li><li><p>Create and run a Simulink model on the Raspberry Pi board to send and receive ROS messages</p></li><li><p>Work with data in ROS messages</p></li></ul></div><h3 class="title" id="d120e732">Prerequisites<span id="raspberrypi_gettingstarted_with_ros-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>This example requires Robotics Toolbox&#8482;.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Review the <a href="https://www.mathworks.com/help/robotics/examples/get-started-with-ros.html" target="_blank">Get Started with ROS</a> example</p></li></ul></div><div class="itemizedlist"><ul><li><p>Review the <a href="https://www.mathworks.com/help/robotics/examples/get-started-with-ros-in-simulink.html" target="_blank">Get Started with ROS in Simulink&#174;</a> example.</p></li></ul></div><h3 class="title" id="d120e754">Required Hardware<span id="raspberrypi_gettingstarted_with_ros-3" class="anchor_target"></span></h3><p>To run this example you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li></ul></div><p>We strongly recommend a Raspberry Pi 2 board when working with ROS.</p><div class="informalfigure"><div id="d120e767" class="mediaobject"><p><img src="../../../examples/raspberrypi_product/win64/raspberrypi_gettingstarted_with_ros_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e770">Task 1 - Get Started<span id="raspberrypi_gettingstarted_with_ros-4" class="anchor_target"></span></h3><p>The Raspbian Linux image provided by the Simulink Support Package for Raspberry Pi hardware includes a ROS Indigo installation. In this task, you will start a ROS master on the host computer and send messages to Raspberry Pi hardware using ROS communication interface.</p><p><strong class="emphasis bold">1.</strong> First, start a ROS master on the host computer:</p><div class="code_responsive"><pre class="programlisting">rosinit('NodeHost',&lt;IP address of your computer&gt;)</pre></div><p>For example, if the IP address of your host computer is 10.10.10.2, use the following command:</p><div class="code_responsive"><pre class="programlisting">rosinit('NodeHost','10.10.10.2')</pre></div><p><strong class="emphasis bold">2.</strong> Use <code class="literal">rosnode list</code> to see all nodes in the ROS network. Note that the only available node is the global MATLAB node created by <code class="literal">rosinit</code>.</p><div class="code_responsive"><pre class="programlisting">rosnode list</pre></div><p>Next, list the available ROS topics:</p><div class="code_responsive"><pre class="programlisting">rostopic list</pre></div><p>The output should just list <code class="literal">/rosout</code> topic used for console log messages.</p><p><strong class="emphasis bold">3.</strong> Create an interactive Linux shell terminal to communicate with your Raspberry Pi board:</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi
+openShell(r)</pre></div><p>The commands above will log you in with your username and password. Note that in the rest of this example, we assume that you logged in with the default username for the Raspbian Linux, <strong class="emphasis bold">pi</strong>.</p><p><strong class="emphasis bold">4.</strong> On the interactive Linux command shell, initialize ROS environment and set the ROS master to the IP address of the host computer and monitor messages coming from the host computer using:</p><div class="code_responsive"><pre class="programlisting">pi@raspberrypi:~ $ source ~/catkin_ws/devel/setup.bash
+pi@raspberrypi:~ $ export ROS_MASTER_URI=http://&lt;Enter your host computer's IP address&gt;:11311
+pi@raspberrypi:~ $ rostopic echo /rosout</pre></div><p>The last command does not return and waits for a new message published to the <code class="literal">/rosout</code> topic. On the MATLAB command line, execute the following commands to see that your Raspberry Pi has subscribed to the <code class="literal">/rosout</code> topic:</p><div class="code_responsive"><pre class="programlisting">rostopic info /rosout</pre></div><p>The IP address of your Raspberry Pi board should show up in the subscriber list.</p><p><strong class="emphasis bold">5.</strong> To publish a log message to the <code class="literal">/rosout</code> topic from the host computer, execute the following commands on the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">b = rospublisher('/rosout');
+msg = rosmessage(b);
+msg.Msg = 'Hello Raspberry Pi!'
+send(b,msg);</pre></div><p>When the <code class="literal">send(b,msg)</code> is executed, you should see that the contents of the message you sent from your host computer is printed on the Raspberry Pi Linux shell.</p><p><strong class="emphasis bold">6.</strong> Execute a <strong class="emphasis bold">Ctrl+C</strong> On the Raspberry Pi Linux command shell to stop listening messages published to <code class="literal">/rosout</code> topic.</p><h3 class="title" id="d120e862">Task 2 - Configure a Model to Generate a ROS Node<span id="raspberrypi_gettingstarted_with_ros-5" class="anchor_target"></span></h3><p>In this task, you will configure a model to generate C++ code for a standalone ROS node that runs on your Raspberry Pi board.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:rosberrypi_getting_started" target="_blank">Raspberry Pi Getting Started with ROS</a> model.</p><p><strong class="emphasis bold">2.</strong> Click on <span class="emphasis"><em>Simulation &gt; Model Configuration Parameters</em></span> and follow the steps illustrated in the diagram below to configure the model to generate a ROS node for Raspberry Pi:</p><p></p>
+<div class="informalfigure"><div id="d120e884" class="mediaobject"><p><img src="../../../examples/raspberrypi_product/win64/rosberrypi_workflow.png" alt=""></img></p></div></div><p>
+ </p><p>Review the settings in the <strong class="emphasis bold">Hardware Implementation</strong> pane of the Configuration Parameters dialog, The <strong class="emphasis bold">Hardware board settings</strong> section contains settings specific to the generated ROS package, such as information to be included in the <code class="literal">package.xml</code> file, ROS Catkin workspace being used for model build, etc. In</p><p><strong class="emphasis bold">3.</strong> The model is configured to generate a ROS node in the ROS Catkin workspace, <code class="literal">~/catkin_ws</code>, and automatically deploy to the Raspberry Pi board. Click on <strong class="emphasis bold">Build Model</strong> button to start deployment process.</p><p></p>
+<div class="informalfigure"><div id="d120e911" class="mediaobject"><p><img src="../../../examples/raspberrypi_product/win64/rosberrypi_build_model.png" alt=""></img></p></div></div><p>
+ </p><p>Click on the <strong class="emphasis bold">View Diagnostics</strong> link at the bottom of the model toolbar to see the output of the build process.</p><h3 class="title" id="d120e920">Task 3 - Run and Verify the ROS Node<span id="raspberrypi_gettingstarted_with_ros-6" class="anchor_target"></span></h3><p>In this task, you will run the newly-built ROS node and verify its behavior using a MATLAB command line interface for ROS.</p><p><strong class="emphasis bold">1.</strong> <a href="matlab:rosberrypi_getting_started" target="_blank">Raspberry Pi Getting Started with ROS</a> model receives messages published on the <code class="literal">/led</code> topic and sets the state of the Raspberry Pi user LED based on the contents of this message. First, verify that a new topic called <code class="literal">/led</code> has been generated:</p><div class="code_responsive"><pre class="programlisting">rostopic info /led</pre></div><p>You should see the IP address of your Raspberry Pi in the subscribers list.</p><p><strong class="emphasis bold">2.</strong> Create a ROS publisher for the <code class="literal">/led</code> topic:</p><div class="code_responsive"><pre class="programlisting">b = rospublisher('/led')</pre></div><p>The publisher <code class="literal">b</code> uses <code class="literal">std_msgs/Bool</code> message type to represent the on / off state of the LED.</p><p><strong class="emphasis bold">3.</strong> Send messages to Raspberry Pi board to blink the user LED for 10 seconds with a period of 0.5 second:</p><div class="code_responsive"><pre class="programlisting">msg = rosmessage(b);
+for k = 1:10
+    msg.Data = 1;
+    send(b,msg);
+    pause(0.5);
+    msg.Data = 0;
+    send(b,msg);
+    pause(0.5);
+end</pre></div><p><strong class="emphasis bold">4.</strong> Once you are done verifying the ROS node, stop it by executing the following on the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">stopROSNode(r,'rosberrypi_getting_started')</pre></div><p>You can re-start the ROS node at any time by executing the following command on the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">runROSNode(r,'rosberrypi_getting_started','~/catkin_ws')</pre></div><p>The second argument specifies the Catkin workspace used to build the ROS node.</p><h3 class="title" id="d120e979">Advanced Topics and Troubleshooting<span id="raspberrypi_gettingstarted_with_ros-7" class="anchor_target"></span></h3><p><strong class="emphasis bold">Raspberry Pi ROS Indigo Installation</strong> The Raspbian Linux image provided by the Simulink Support Package for Raspberry Pi Hardware includes a ROS Indigo installation. A the time of writing, there were no binary packages available for ROS Indigo. Hence ROS Indigo was installed from sources following the instructions provided <a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi" target="_blank">here</a>. To keep the ROS Indigo installation small, only <code class="literal">roscomm</code>, <code class="literal">std_msgs</code>, <code class="literal">geometry_msgs</code> and <code class="literal">sensor_msgs</code> ROS packages have been installed. An installation <a href="matlab:edit(fullfile(codertarget.raspi.internal.getSpPkgRootDir,'src','install_ros_indigo.sh'))" target="_blank">script</a> has been provided to document the steps taken for installation. A ROS Catkin workspace has been created for installation in the home directory of the default user <strong class="emphasis bold">pi</strong>. This workspace is called <code class="literal">ros_catkin_ws</code>. A second workspace has been created to build Simulink models, <code class="literal">catkin_ws</code>. You should use the <code class="literal">catkin_ws</code> as your default Simulink model workspace to reduce compilation time. Use <code class="literal">ros_catkin_ws</code> only to add new packages to the existing ROS distribution (see below).</p><p><strong class="emphasis bold">Adding New Packages to ROS</strong> A <a href="matlab:edit(fullfile(codertarget.raspi.internal.getSpPkgRootDir,'src','install_ros_package.sh'))" target="_blank">script</a> called <code class="literal">install_ros_package.sh</code> has been provided to help adding new ROS packages to the existing installation. To use this script to add <code class="literal">nav_msgs</code> package, for example, follow the procedure below:</p><p>On the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi;
+installScript = fullfile(codertarget.raspi.internal.getSpPkgRootDir,'src','install_ros_package.sh');
+putFile(r,installScript);
+system(r,['chmod u+x ' installScript]);
+openShell(r)</pre></div><p>On the Linux shell:</p><div class="code_responsive"><pre class="programlisting">./install_ros_package.sh nav_msgs</pre></div><p>Note that this command may take several minutes. Some ROS packages may require additional dependencies in the form of Linux packages such as <code class="literal">collada-dom</code>. You may need to manually install the required Linux packages. For example, to install <code class="literal">collada-dom</code> follow the procedure below on a Linux shell:</p><div class="code_responsive"><pre class="programlisting">mkdir ~/ros_catkin_ws/external_src
+sudo apt-get -y install checkinstall cmake
+sudo sh -c 'echo "deb-src http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi" &gt;&gt; /etc/apt/sources.list'
+sudo apt-get update
+cd ~/ros_catkin_ws/external_src
+sudo apt-get -y install libboost-filesystem-dev libxml2-dev
+wget http://downloads.sourceforge.net/project/collada-dom/Collada%20DOM/Collada%20DOM%202.4/collada-dom-2.4.0.tgz
+tar -xzf collada-dom-2.4.0.tgz
+cd collada-dom-2.4.0
+cmake .
+sudo checkinstall -y make install</pre></div><p><strong class="emphasis bold">Starting a ROS Master on Raspberry Pi</strong> The <code class="literal">raspberrypi</code> object provides two methods to start and stop a ROS master on the Raspberry Pi board:</p><div class="code_responsive"><pre class="programlisting">startroscore
+stoproscore</pre></div><p>To start a ROS master on the Raspberry Pi, execute the following on the MATLAB prompt:</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi;
+startroscore(r);</pre></div><p>To stop the <code class="literal">roscore</code> application running on the Raspberry Pi:</p><div class="code_responsive"><pre class="programlisting">stoproscore(r);</pre></div><p>When using a ROS master running on your Raspberry Pi, set <strong class="emphasis bold">ROS Master</strong> network address for simulation accordingly:</p><p></p>
+<div class="informalfigure"><div id="d120e1080" class="mediaobject"><p><img src="../../../examples/raspberrypi_product/win64/rosberrypi_ros_master.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e1084">Summary<span id="raspberrypi_gettingstarted_with_ros-8" class="anchor_target"></span></h3><p>This example showed you how to configure a Simulink model to generate C++ code for a standalone ROS node that runs on Raspberry Pi hardware. It also showed how to with the ROS node running on the Raspberry Pi hardware using MATLAB command line interface for ROS.</p><div class="code_responsive"><div class="programlisting"><div class="codeoutput"><pre>Warning: Error evaluating 'ModelCloseFcn' callback of ROS Subscribe block
+(mask) 'robotlib/Subscribe'.
+Callback string is
+'robotics.slros.internal.block.SubscribeBlockMask.dispatch('modelCloseFcn',
+gcb);
+' 
+Warning: Undefined variable "robotics" or class
+"robotics.slcore.internal.util.evalinGlobalScope". 
+Warning: Error evaluating 'ModelCloseFcn' callback of ROS Subscribe block
+(mask) 'rosberrypi_getting_started/Subscribe'.
+Callback string is
+'robotics.slros.internal.block.SubscribeBlockMask.dispatch('modelCloseFcn',
+gcb);
+' 
+Warning: Undefined variable "robotics" or class
+"robotics.slcore.internal.util.evalinGlobalScope". 
+</pre></div></div></div></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

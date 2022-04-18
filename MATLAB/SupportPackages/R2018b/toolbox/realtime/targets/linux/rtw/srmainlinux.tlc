@@ -1,0 +1,605 @@
+%% Main code-generation for Linux targets
+%%
+%%   Copyright 2011-2012 The MathWorks, Inc.
+%%
+
+%include "commonthreadlib.tlc"
+
+
+%%=========================================================================
+%function ERTStopCheck() Output
+    %if RTMStopReqAccessed()
+        %assign stopCheck = "(%<RTMGetErrStat()> == %<SLibGetNullDefinitionFromTfl()>) && !%<RTMGetStopRequested()>"
+    %else
+        %assign stopCheck = "%<RTMGetErrStat()> == %<SLibGetNullDefinitionFromTfl()>"
+    %endif  
+    %return stopCheck
+%endfunction
+
+
+%%=========================================================================
+%% OS function for single rate tasking
+%function FcnMultiRateSingletaskingWithoutOS() void
+    %assign INARG = []
+    %assign tgtData = FEVAL("get_param", CompiledModel.Name, "TargetExtensionData")
+    %assign isDetectOverrun = tgtData.Enable_overrun_detection
+
+    %openfile tmpFcnBuf
+    void baseRateTask(void *arg)
+    {
+        baseRateInfo_t info = *((baseRateInfo_t *)arg);
+        %<SLibGetVarDeclrSingleTasking()>
+        MW_setTaskPeriod(info.period, info.signo);
+        while ( %<ERTStopCheck()> ) 
+        {
+            /* Wait for the next timer interrupt */
+            %if (isDetectOverrun==0)
+                MW_sigWait(&info.sigMask);
+            %else
+                if (MW_sigWaitWithOverrunDetection(&info.sigMask) == 1) 
+                {
+                    %assign msg = "Overrun - rate for base rate task too fast."
+                    printf("%<msg>\n");
+                    fflush(stdout);
+                }
+            %endif
+            %<SLibCallMdlStepSingleTasking(1)>
+            %if (isExtModeEnabled)
+                rtExtModeCheckEndTrigger();
+            %endif
+
+        } /* while */
+        sem_post(&stopSem);  
+    }
+    %closefile tmpFcnBuf
+    %return tmpFcnBuf
+%endfunction
+
+
+%% ==========================================================================
+%function FcnSingleRateWithoutOS() void
+    %%
+    %% We generate exactly the same code for Multi Rate - Single tasking
+    %% and Single Rate - Single tasking cases. The only difference is
+    %% the argument passed to the model step function. In Single Rate models
+    %% model step function must be called with and argument of "0" for ERT. 
+    %% This is already handled within SLibCallMdlStepSingleTasking() 
+    %% so there is no need for a seperate function to generate Single Rate - 
+    %% single tasking code. We merely call Multi Rate - Single Tasking
+    %% scheduler here (a code generation software restriction).
+    %% 
+    %assign tmpFcnBuf = FcnMultiRateSingletaskingWithoutOS()  
+    %return tmpFcnBuf
+%endfunction 
+
+
+%%=============================================================
+%% OS function for multi-tasking
+%function FcnMultiRateMultitaskingWithoutOS() void
+    %assign INARG = []
+    %assign tgtData = FEVAL("get_param", CompiledModel.Name, "TargetExtensionData")
+    %assign isDetectOverrun = tgtData.Enable_overrun_detection
+
+    %openfile buff
+    %<SLibRtwDefinesMultiTasking()>
+    %closefile buff
+    %<SLibCacheCodeToFile("mainSrc_defines", buff)>
+
+    %%Create an array of semaphores
+    %assign tid01Eq = FixedStepOpts.TID01EQ
+    %assign numSubrateTasks = FcnNumST() - 1
+
+    %openfile tmpFcnBuf
+    %if (ExportFunctionsMode)
+        #define rtmGetStopRequested(rtm) ((void*) 0)
+        void %<CompiledModel.Name>_step()
+        {
+        }
+    %endif
+    void subrateTask(void *arg)
+    {
+        int tid = *((int *) arg);
+        int subRateId;
+
+        subRateId = tid + 1;
+
+        while( %<ERTStopCheck()> )
+        {          
+            MW_sem_wait(&subrateTaskSem[tid]);
+
+            %if (isDetectOverrun==1)
+                pthread_mutex_lock(&subrateTaskMutex[tid]);
+            %endif
+            %<SLibCallMdlStepMultiTaskingSubRate("subRateId")>
+            %if !(LibIsDeploymentDiagram() && RootSystemIsSingleRate)  
+               %<SLibUpdateTimingCountersSubrate("subRateId")>       
+            %endif
+            %if (isDetectOverrun==1)
+                pthread_mutex_unlock(&subrateTaskMutex[tid]);
+            %endif
+        }
+        pthread_exit((void*)0);
+    } /* subrateTask */
+
+    void baseRateTask(void *arg)
+    {
+        baseRateInfo_t info = *((baseRateInfo_t *)arg);
+
+        %if (numSubrateTasks > 1)
+            %assign indexVar = "i"
+        %else 
+            %assign indexVar = ""
+        %endif
+        %<SLibGetVarDeclrMultiTasking("", indexVar, numSubrateTasks)>
+
+        MW_setTaskPeriod(info.period, info.signo);
+        while ( %<ERTStopCheck()> )  
+        {
+            /* Wait for the next timer interrupt */
+
+            %if (isDetectOverrun==0)
+                MW_sigWait(&info.sigMask);
+            %else
+                if (MW_sigWaitWithOverrunDetection(&info.sigMask) == 1) 
+                {
+                    %assign msg = "Overrun - rate for base rate task too fast."
+                    printf("%<msg>\n");
+                    fflush(stdout);
+                }
+            %endif
+
+            %if !(LibIsDeploymentDiagram() && RootSystemIsSingleRate)
+                %<SLibUpdateTimingCountersBaseRate()>
+            %endif
+
+            %if (numSubrateTasks > 1)  
+                for (i = %<SLibGetTid(1)>; i <= %<numSubrateTasks>; i++) 
+                {
+                    if (%<SLibTidRunsThisStep("i")>) 
+                    {
+                        sem_post(&subrateTaskSem[%<SLibGetTid("i - 1")>]); 
+
+                        %if (isDetectOverrun==1)
+                            if ( pthread_mutex_trylock(&subrateTaskMutex[%<SLibGetTid("i - 1")>]) == 0 ) 
+                            {
+                                pthread_mutex_unlock(&subrateTaskMutex[%<SLibGetTid("i - 1")>]);
+                            }
+                            else
+                            {
+                                %assign msg = "Overrun - rate for subrate task %d is too fast."
+                                printf("%<msg>\n", i);
+                                fflush(stdout);
+                            }
+                        %endif
+                    }
+                }
+            %else
+                if (%<SLibTidRunsThisStep("1")>) 
+                {
+                    sem_post(&subrateTaskSem[0]);
+                    %if (isDetectOverrun==1) 
+                        if ( pthread_mutex_trylock(&subrateTaskMutex[0]) == 0 ) 
+                        {
+                            pthread_mutex_unlock(&subrateTaskMutex[0]);
+                        }
+                        else
+                        {
+                            %assign msg = "Overrun - rate for subrate task 1 is too fast."
+                            printf("%<msg>\n"); 
+                            fflush(stdout);
+                        }
+                    %endif
+                }
+            %endif
+
+            %<SLibCallMdlStepMultiTaskingBaseRate(1)> 
+
+            %if (isExtModeEnabled)
+                rtExtModeCheckEndTrigger();
+            %endif
+
+        } /* while */
+        sem_post(&stopSem);
+        pthread_exit((void*)0); 
+     } /* baseRateTask */
+
+     %closefile tmpFcnBuf
+     %return tmpFcnBuf
+%endfunction
+
+ 
+%%=========================================================================
+%% This tlc function overrides the one in ertmainlib.tlc
+%function FcnGenProcessInit() void
+
+    %assign rootSystem = System[NumSystems-1]
+    %assign reqInsts = LibGetSystemField(rootSystem, "ReqRootPrmHdrDataInsts")
+    %if !reqInsts.SimStructInst && !EmptyRealTimeObject
+        %assign simstructArg = tSimStruct
+    %else
+        %assign simstructArg = ""
+    %endif
+
+    %assign numSubrateTasks = FcnNumST() - 1
+ 
+    %assign INARG = []
+    %assign baseRatePriority = 40 
+    %assign isSingleTasking  = RootSystemIsSingleRate || SLibSingleTasking()
+    %assign tgtData = FEVAL("get_param", CompiledModel.Name, "TargetExtensionData")
+    %assign isDetectOverrun = tgtData.Enable_overrun_detection
+    %assign systemStackSize = 64000
+  
+    %openfile tmpFcnBuf
+    #define CHECK_STATUS(status, fcn) if (status != 0) {printf("Call to %s returned error status (%d).\n", fcn, status); perror(fcn); fflush(stdout); exit(EXIT_FAILURE);}
+    /* Semaphore(s) used for thread synchronization */
+    sem_t stopSem;	 
+    %if (!isSingleTasking)
+        sem_t subrateTaskSem[%<numSubrateTasks>];
+        int taskId[%<numSubrateTasks>];
+        %if (isDetectOverrun==1)
+            pthread_mutex_t subrateTaskMutex[%<numSubrateTasks>];
+        %endif
+    %endif
+
+    %closefile tmpFcnBuf
+    %<SLibCacheCodeToFile("mainSrc_data_defn", tmpFcnBuf)>
+
+    %openfile tmpFcnBuf
+
+    typedef struct {
+        int signo;
+        sigset_t sigMask;
+        double period;
+    } baseRateInfo_t;
+
+    void MW_blockSignal(int sigNo, sigset_t *sigMask);
+    void MW_setTaskPeriod(double periodInSeconds, int sigNo);
+    void MW_sigWait(sigset_t *sigMask);
+    void MW_exitHandler(int sig);     
+    %if (isDetectOverrun==1)
+        int MW_sigWaitWithOverrunDetection(sigset_t *sigMask);
+    %endif
+
+    void MW_sem_wait(sem_t *sem);
+
+    %closefile tmpFcnBuf
+
+    %<SLibCacheCodeToFile("mainSrc_userTop", tmpFcnBuf)>
+
+    %openfile tmpFcnBuf
+
+    void MW_sem_wait(sem_t *sem)
+    {
+        int status;
+        while (((status = sem_wait(sem)) == -1) && (errno == EINTR)) {
+          /* Restart if interrupted by a signal */
+          continue;
+        }
+        CHECK_STATUS(status, "sem_wait");
+    }
+
+    void MW_exitHandler(int sig)
+    {
+        %<RTMSetErrStat("\"stopping the model\"")>;
+        sem_post(&stopSem);
+    }      
+
+    void MW_blockSignal(int sigNo, sigset_t *sigMask)
+    {
+        int ret;
+
+        sigaddset(sigMask, sigNo);
+        ret = pthread_sigmask(SIG_BLOCK, sigMask, NULL);
+        CHECK_STATUS(ret, "pthread_sigmask");
+    }
+
+    void MW_setTaskPeriod(double periodInSeconds, int sigNo)
+    {
+        timer_t timerId;
+        struct sigevent sev;
+        struct itimerspec its;
+        int ret;
+
+        /* Create a timer */
+        sev.sigev_notify = SIGEV_SIGNAL;
+        sev.sigev_signo = sigNo;
+        sev.sigev_value.sival_ptr = &timerId;
+        ret = timer_create(CLOCK_REALTIME, &sev, &timerId);
+        CHECK_STATUS(ret, "timer_create");
+
+ 
+        /* Arm real-time scheduling timer */
+        its.it_value.tv_sec = (time_t)periodInSeconds;
+        its.it_value.tv_nsec = (periodInSeconds - (time_t)periodInSeconds) * 1000000000;
+        its.it_interval.tv_sec = its.it_value.tv_sec;
+        its.it_interval.tv_nsec = its.it_value.tv_nsec;
+        ret = timer_settime(timerId, 0, &its, NULL);
+        CHECK_STATUS(ret, "timer_settime");
+    }
+
+
+    void MW_sigWait(sigset_t *sigMask)
+    {
+        int ret;
+        while (((ret = sigwaitinfo(sigMask, NULL)) == -1) && (errno == EINTR)) {
+            /* Restart if interrupted by a signal other than the one we 
+               are waiting on */
+            continue;
+        }
+    }
+
+    %if (isDetectOverrun==1)
+        int MW_sigWaitWithOverrunDetection(sigset_t *sigMask)
+        {
+            struct timespec timeout;
+            int ret, overrun = 0;
+
+            timeout.tv_sec  = 0;
+            timeout.tv_nsec = 0;
+            ret = sigtimedwait(sigMask, NULL, &timeout);
+            if (ret == -1) 
+            {
+                if (errno == EAGAIN) 
+                {
+                    MW_sigWait(sigMask);
+                }
+                else 
+                {
+                    printf("Call to sigwaitinfo returned error.\n");
+                    perror("sigtimedwait");
+                    fflush(stdout);
+                    exit(EXIT_FAILURE);
+                }
+            }
+            else
+            {
+                overrun = 1;
+            }
+            return overrun;
+        }
+    %endif
+
+    %if (!ExportFunctionsMode)
+        int main(int argc, char **argv)
+        {
+            %<SLibRtwMainDeclarations("status")>
+            %if (!isSingleTasking) 
+                int i;
+                pthread_t subRateThread[%<numSubrateTasks>];
+                uid_t euid;
+                struct sched_param sp;
+            %endif 
+            int ret;
+            baseRateInfo_t info;
+            pthread_attr_t attr;
+            pthread_t baseRateThread;
+            void * threadJoinStatus;
+            size_t stackSize;
+            %if ISEQUAL(CompiledModel.ConcurrentTasks, "no")
+                unsigned long cpuMask = 0x1;
+                unsigned int len = sizeof(cpuMask);
+            %endif
+
+            printf("**starting the model**\n");	  
+            fflush(stdout);
+            %<RTMSetErrStat(0)>;
+
+            %if (isExtModeEnabled)
+              rtExtModeParseArgs(argc, (const char_T **)argv, NULL);
+            %else
+              /* Unused arguments */
+              (void)(argc);
+              (void)(argv);
+            %endif
+            %if MatFileLogging && SeparateRegistrationFcn      
+              /* Matfile logging */
+              %<SLibGenLoggingStart()>      
+            %endif
+
+            %if ISEQUAL(CompiledModel.ConcurrentTasks, "no")
+                /* All threads created by this process must run on a single CPU */
+                ret = sched_setaffinity(0, len, (cpu_set_t *) &cpuMask);
+                CHECK_STATUS(ret, "sched_setaffinity");
+            %endif
+
+            %if (!isSingleTasking)
+                #if !defined (_POSIX_THREAD_PRIORITY_SCHEDULING)
+                printf("Priority scheduling is NOT supported by your system.\n");
+                printf("The generated code will not run correctly because your\n");
+                printf("model contains multiple rates and uses multi-tasking\n");
+                printf("code generation mode. You can only run the generated code\n");
+                printf("in single-tasking mode in your system. Open\n");
+                printf("Simulation -> Configuration Parameters -> Solver dialog\n");
+                printf("and set \"Tasking mode for periodic sample times\" parameter to SingleTasking.\n");
+                printf("Re-build the Simulink model with the new settings and try executing the generated code again.\n");
+                fflush(stdout);
+                exit(EXIT_FAILURE);
+                #endif
+
+                /* Need root privileges for real-time scheduling */
+                euid = geteuid();
+                if (euid != 0)
+                {
+                    printf("You must have root privileges to run the generated code because\n");
+                    printf("generated code requires SCHED_FIFO scheduling class to run correctly.\n");
+                    printf("Try running the executable with the following command: sudo ./<executable name>\n");
+                    fflush(stdout);
+                    exit(EXIT_FAILURE);
+                }
+
+                /* Set scheduling policy of the main thread to SCHED_FIFO */
+                sp.sched_priority = sched_get_priority_max(SCHED_FIFO);
+                ret = sched_setscheduler(0, SCHED_FIFO, &sp);
+                CHECK_STATUS(ret, "sched_setscheduler");
+            %endif
+
+            /* Initialize semaphore used for thread synchronization */	 
+            ret = sem_init(&stopSem, 0, 0);
+            CHECK_STATUS(ret, "sem_init:stopSem");
+
+            /* Create threads executing the Simulink model */
+            pthread_attr_init(&attr);
+            ret = pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
+            CHECK_STATUS(ret, "pthread_attr_setinheritsched");
+            %if (!isSingleTasking)
+                ret = pthread_attr_setschedpolicy(&attr, SCHED_FIFO);
+                CHECK_STATUS(ret, "pthread_attr_setschedpolicy");
+            %endif
+            ret = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+            CHECK_STATUS(ret, "pthread_attr_setdetachstate");
+            /* PTHREAD_STACK_MIN is the minimum stack size required to start a thread */
+            stackSize = %<systemStackSize> + PTHREAD_STACK_MIN;
+            ret = pthread_attr_setstacksize(&attr, stackSize);
+            CHECK_STATUS(ret, "pthread_attr_setstacksize");
+
+            /* Block signal used for timer notification */
+            info.period = %<FcnGetPeriodFromTID(0)>;
+            info.signo  = SIGRTMIN;
+            sigemptyset(&info.sigMask);
+            MW_blockSignal(info.signo, &info.sigMask);
+
+            signal(SIGTERM, MW_exitHandler); /* kill */
+            signal(SIGHUP, MW_exitHandler);  /* kill -HUP */
+            signal(SIGINT, MW_exitHandler);  /* Interrupt from keyboard */
+            signal(SIGQUIT, MW_exitHandler); /* Quit from keyboard */
+
+            %<SLibRtwModelInitialize("status", 1)>
+            %if (!isSingleTasking)
+                %if (NumSynchronousSampleTimes > baseRatePriority)
+                    %exit "Base rate priority must be greater than or equal to %<NumSynchronousSampleTimes>."
+                %endif
+
+                for (i = 0; i < (%<numSubrateTasks>); i++)
+                {
+                    taskId[i] = i;
+                    ret = sem_init(&subrateTaskSem[i], 0, 0);
+                    CHECK_STATUS(ret, "sem_init");
+                    %if (isDetectOverrun==1)
+                        ret = pthread_mutex_init(&subrateTaskMutex[i], NULL);
+                        CHECK_STATUS(ret, "pthread_mutex_init");
+                    %endif
+
+                    sp.sched_priority = %<CAST("Number", baseRatePriority)> - 1;
+
+                    ret = pthread_attr_setschedparam(&attr, &sp);
+                    CHECK_STATUS(ret, "pthread_attr_setschedparam");
+                    ret = pthread_create(&subRateThread[i], &attr, (void *) subrateTask, (void *) &taskId[i]);
+                    CHECK_STATUS(ret,"pthread_create");
+                }
+            %endif
+
+            /* Create base rate task */
+            %if (!isSingleTasking)
+                sp.sched_priority = %<CAST("Number", baseRatePriority)>;
+                ret = pthread_attr_setschedparam(&attr, &sp);
+                CHECK_STATUS(ret, "pthread_attr_setschedparam");
+            %endif
+            ret = pthread_create(&baseRateThread, &attr, (void *) baseRateTask, (void *) &info);
+
+            CHECK_STATUS(ret, "pthread_create");
+            pthread_attr_destroy(&attr);
+
+            /* Wait for a stopping condition. */
+            MW_sem_wait(&stopSem);
+
+            /* Received stop signal */
+            printf("**stopping the model**\n");
+            if (%<RTMGetErrStat()> != NULL)
+            {
+                printf("\n**%s**\n", %<RTMGetErrStat()>);
+            }
+            %if (!isSingleTasking) || (LibIsDeploymentDiagram())
+            /* Signal all periodic tasks to complete */
+            for (i=0;i<%<numSubrateTasks>;i++)
+            {
+                CHECK_STATUS(sem_post(&subrateTaskSem[i]),"sem_post");
+                CHECK_STATUS(sem_destroy(&subrateTaskSem[i]),"sem_destroy");
+            }
+            /* Wait for all periodic tasks to complete */
+            for (i=0;i<%<numSubrateTasks>;i++)
+            {
+                ret = pthread_join(subRateThread[i], &threadJoinStatus);
+                CHECK_STATUS(ret, "pthread_join");
+            }
+            %endif
+            /* Wait for baseRate task to complete */
+            ret = pthread_join(baseRateThread, &threadJoinStatus);
+            CHECK_STATUS(ret, "pthread_join");       
+            %<SLibRtwModelTerminate(1)>
+
+            return 0;
+        }
+    %endif
+    %closefile tmpFcnBuf
+    %<SLibCacheCodeToFile("mainSrc_fcn_defn", tmpFcnBuf)>
+%endfunction
+
+
+
+%%=========================================================================
+%%   This is the entry point for generating main.c 
+%%=========================================================================
+%function SLibCreateMain(fName) void
+
+    %<SLibSetModelFileName("mainSrc", fName)>
+    %<SLibSetModelFileName("mainHdr", fName)>
+    %openfile tmpFcnBuf
+    %<SLibDeclareModelFcnArgs(TLC_TRUE)>\
+    %<SLibRtwDeclarations()>
+    %<SLibDeclareFcnProtoCtlGlobalVariables()>
+    %closefile tmpFcnBuf
+    %<SLibCacheCodeToFile("mainSrc_data_defn", tmpFcnBuf)>
+    %openfile tmpFcnBuf
+    /*
+    * Code generation for Simulink model "%<FcnMdlName()>"
+    *
+    * File version               : %<Version>
+    * File generated on          : %<GeneratedOn>
+    * C source code generated on : %<TLC_TIME>
+    *
+    * Description:
+    %<FcnGenerateMainFunctions(1)>\
+    *
+        * Compiler specified defines:
+        *   RT
+        *   MODEL           = %<CompiledModel.Name>
+        *   NUMST           = %<CompiledModel.NumSampleTimes> (Number of sample times)
+        *   NCSTATES        = %<CompiledModel.NumContStates> (Number of continuous states)
+        *   TID01EQ         = %<CompiledModel.FixedStepOpts.TID01EQ> 
+        *                     (Set to 1 if sample time task id's 0 and 1 have equal rates)
+        *
+    * For more information:
+    *   o Simulink Coder User's Guide
+    *   o Embedded Coder User's Guide
+    */  
+    %closefile tmpFcnBuf
+    %<SLibCacheCodeToFile("mainSrc_ban", tmpFcnBuf)>
+    %<SLibCacheCodeToFile("mainSrc_fcn_defn", FcnGenerateMainFunctions(0))>
+    %<FcnGenProcessInit()>
+    %<LibAddToCommonIncludes("%<fName>.h")>
+    %openfile tmpFcnBuf
+    #define _GNU_SOURCE
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <sys/types.h> %% Required by setuid
+    #include <unistd.h>  %%_POSIX_THREAD_PRIORITY_SCHEDULING is defined here
+    #include <pthread.h>
+    #include <sched.h>
+    #include <semaphore.h>
+    #include <errno.h>
+    #include <limits.h>
+    #include <signal.h>
+    #include <time.h>
+    #include "%<FcnGetPublicModelHeaderFile()>"
+    %<SLibIncludePrivateHeader()>
+    %<SLibRtwIncludes()>
+    %closefile tmpFcnBuf
+    %<SLibCacheCodeToFile("mainSrc_incl", tmpFcnBuf)>
+    %if MatFileLogging
+    #include "rt_logging.h"
+    %if ::CompiledModel.RTWStatesLogging==1
+      #include "rt_logging_mmi.h"
+    %endif
+    %endif
+
+%endfunction

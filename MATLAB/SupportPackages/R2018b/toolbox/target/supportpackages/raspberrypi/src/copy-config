@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Copy interfaces file from boot partition if exists
+BOOT_INTERFACES=/boot/interfaces
+ETC_INTERFACES=/etc/network/interfaces
+if [ -f $BOOT_INTERFACES ]; then
+  echo "Found interfaces file in boot partition" > /var/log/interfaces.log
+  mv -f $ETC_INTERFACES $ETC_INTERFACES.original
+  mv -f $BOOT_INTERFACES $ETC_INTERFACES
+fi

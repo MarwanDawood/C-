@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    -->
+<!-- Copyright 2016 The MathWorks, Inc. -->
+<demos>
+    <name>Simulink Support Package for Raspberry Pi Hardware</name>
+    <type>simulink</type>
+    <icon>HelpIcon.DEMOS</icon>
+    <description isCdata="no">
+        <p>Simulink&#174; lets you design and run models on Raspberry Pi&#174; hardware. With this capability, you can assess and optimize algorithms in the classroom or lab as they execute in real-time on Raspberry Pi hardware with physical I/O.</p>
+    </description>
+    <website>
+        <a href="http://www.mathworks.com/pl_simulink">Product page at mathworks.com&#032;</a>
+        <a href="http://www.mathworks.com/pl_simulink"><img src="html/demo_arrow.png" border="none" alt="arrow" align="middle"></img></a>
+    </website> 
+    <demosection>
+        <label>Tutorials</label>
+        <demoitem>
+            <label>Getting Started with Raspberry Pi Hardware</label>
+            <type>model</type>
+            <source>raspberrypi_gettingstarted</source>
+            <file>html/raspberrypi_gettingstarted.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Communicating with Raspberry Pi Hardware</label>
+            <type>model</type>
+            <source>raspberrypi_external_mode</source>
+            <file>html/raspberrypi_external_mode.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Running Linux(R) Shell Commands</label>
+            <type>M-file</type>
+            <source>raspberrypi_running_remote_commands</source>
+            <file>html/raspberrypi_running_remote_commands.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Getting Started with Robot Operating System (ROS) on Raspberry Pi(R)</label>
+            <type>M-file</type>
+            <source>rosberrypi_getting_started</source>
+            <file>html/raspberrypi_gettingstarted_with_ros.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Communicating with an EEPROM</label>
+            <type>model</type>
+            <source>raspberrypi_SPI_EEPROM</source>
+            <file>html/raspberrypi_SPI_EEPROM.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Read temperature from a TMP102 sensor</label>
+            <type>model</type>
+            <source>raspberrypi_I2C_temp</source>
+            <file>html/raspberrypi_I2C_temp.html</file>
+        </demoitem>
+        <demoitem>
+            <label>MAT file logging on Raspberry Pi Hardware</label>
+            <type>model</type>
+            <source>raspberrypi_matfilelogging</source>
+            <file>html/raspberrypi_matfilelogging.html</file>
+        </demoitem>
+    </demosection>
+    <demosection>
+        <label>Communicating with Smartphones and Tablets</label>
+        <demoitem>
+            <label>LED Control from Android(R) Device</label>
+            <type>model</type>
+            <source>raspberrypiandroidgettingstarted</source>
+            <file>html/raspberrypiandroidgettingstarted.html</file>
+        </demoitem>
+        <demoitem>
+            <label>LED Control from Apple(R) iOS(R) Device</label>
+            <type>model</type>
+            <source>raspberrypiiosgettingstarted</source>
+            <file>html/raspberrypiiosgettingstarted.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Surveillance Camera with Android(R) Device</label>
+            <type>model</type>
+            <source>raspberrypiandroidcamera</source>
+            <file>html/raspberrypiandroidcamera.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Surveillance Camera with Apple(R) iOS(R) Device</label>
+            <type>model</type>
+            <source>raspberrypiioscamera</source>
+            <file>html/raspberrypiioscamera.html</file>
+        </demoitem>
+    </demosection>
+    <demosection>
+        <label>Applications</label>
+        <demoitem>
+            <label>Parametric Audio Equalizer</label>
+            <type>model</type>
+            <source>raspberrypi_audioequalizer</source>
+            <file>html/raspberrypi_audioequalizer.html</file>
+            <dependency>DSP System Toolbox</dependency>
+        </demoitem>
+        <demoitem>
+            <label>Audio Visualizer</label>
+            <type>model</type>
+            <source>raspberrypi_audioVisualizer</source>
+            <file>html/raspberrypi_audioVisualizer.html</file>
+            <dependency>DSP System Toolbox</dependency>
+        </demoitem>
+        <demoitem>
+            <label>Image Inversion</label>
+            <type>model</type>
+            <source>raspberrypi_inversion</source>
+            <file>html/raspberrypi_inversion.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Motion Sensor</label>
+            <type>model</type>
+            <source>raspberrypi_motion_sensor_led</source>
+            <file>html/raspberrypi_motion_sensor.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Stream Images from Raspberry Pi using Robot Operating System (ROS)</label>
+            <type>model</type>
+            <source>rosberrypi_publish_camera</source>
+            <file>html/raspberrypi_stream_images_ros.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Auto-rotate an image displayed on Sense HAT LED matrix</label>
+            <dependency>Stateflow</dependency>
+            <type>model</type>
+            <source>raspberrypi_sensehat_autorotate</source>
+            <file>html/raspberrypi_sensehat_autorotate.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Controlling LEGO MINDSTORMS EV3 robot using Raspberry Pi Sense HAT</label>
+            <dependency>Stateflow</dependency>
+            <dependency>LEGOEV3</dependency>
+            <type>model</type>
+            <source>raspberrypi_sensehat_ev3robot</source>
+            <file>html/raspberrypi_sensehat_ev3robot.html</file>
+        </demoitem>
+        <demoitem>
+            <label>Counting Steps using Raspberry Pi SenseHAT</label>
+            <dependency>simulinkcoder</dependency>
+            <dependency>signal</dependency>
+            <type>model</type>
+            <source>raspberrypi_countstep</source>
+            <file>html/raspberrypi_countstep.html</file>
+        </demoitem>        
+    </demosection>
+</demos>
+
+<!-- LocalWords:  raspberrypi ROS gettingstarted audioequalizer
+-->

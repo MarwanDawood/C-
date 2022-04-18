@@ -1,0 +1,276 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Image Inversion</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-24"><meta name="DC.source" content="ImageInversionExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/ImageInversionExample')">Open this Example</a></div><div class="content"><h1>Image Inversion</h1><!--introduction--><p>This example shows how to use the V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi&reg; block library to implement an image inversion algorithm with a Simulink&reg; model, and to run the model on Raspberry Pi hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 - Connect Camera</a></li><li><a href="#5">Task 2 - Configure and Run the Image Inversion Model in External Mode</a></li><li><a href="#6">Task 3 - (Optional) Configure and Run the Image Inversion Model as a Standalone Application</a></li><li><a href="#7">Other Things to Try</a></li><li><a href="#8">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Black and white image inversion refers to an image processing technique where light areas are mapped to dark, and dark areas are mapped to light. In other words, after image inversion black becomes white and white becomes black. An inverted black and white image can be thought of as a digital negative of the original image.</p><p>In this example, the inversion algorithm will be applied to the red (R), green (G) and blue (B) components of an image captured from a USB camera creating a color digital negative effect. The R, G and B components of the image are represented as uint8 values. That is, the range of the values that any of the color components can take is from 0 to 255. Assuming that the intensity value at position <img src="ImageInversionExample_eq10772030214071199617.png" alt="$(x, y)$" style="width:32px;height:15px;"> of the image is <img src="ImageInversionExample_eq03744512032217266162.png" alt="$I(x,y)$" style="width:40px;height:15px;">, the inversion mapping is defined by <img src="ImageInversionExample_eq06858848706035486229.png" alt="$I_{inverted}(x,y) = 255-I(x,y)$" style="width:179px;height:15px;">.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypi_ref.example-raspberrypi_gettingstarted">Getting Started with Raspberry Pi&reg; Hardware</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li><a href="matlab:web('http://elinux.org/RPi_USB_Webcams','-browser')">A compatible USB camera</a> or <a href="matlab:web('https://www.raspberrypi.org/products/camera-module/','-browser')">Raspberry Pi camera module</a></li></ul></div><p>(Optional) To display the output video on an external monitor you will need the following:</p><div><ul><li>HDMI or composite television, or a monitor with DVI or HDMI input, and appropriate cables</li><li>USB mouse and keyboard</li></ul></div><img vspace="5" hspace="5" src="ImageInversionExample_01.png" alt=""> <h2 id="4">Task 1 - Connect Camera</h2><p>In this task, you will connect a USB camera or a Raspberry Pi camera module to your Raspberry Pi hardware and check if the camera was detected properly by the Linux kernel.</p><p><b>1.</b> If you have a USB camera:</p><div><ul><li>Connect the USB camera to one of the USB ports on your Raspberry Pi board. Note that some cameras may draw too much power and may require a powered USB hub for proper operation.</li></ul></div><p>If you have a Raspberry Pi camera module:</p><div><ul><li>Connect the camera module to the Raspberry Pi board using a CSI cable by following the manufacturer's instructions.</li><li>Activate the Raspberry Pi camera module V4L2 kernel driver by executing the following commands on the MATLAB prompt:</li></ul></div><pre>r = raspberrypi;
+system(r,'/sbin/modprobe bcm2835_v4l2')</pre><p><b>2.</b> Check if the camera is recognized by the Linux kernel by executing the following command on the MATLAB prompt:</p><p>system(r,'ls -al /dev/video*')</p><p>Typical output will be:</p><pre>crw-rw---T+ 1 root video 81, 0 Dec 16 14:43 /dev/video0</pre><p>Make sure that the video device file name displayed above matches to the 'Device name' parameter specified on the V4L2 Video Capture block mask. In this example, the 'Device name' should be set to '/dev/video0'.</p><h2 id="5">Task 2 - Configure and Run the Image Inversion Model in External Mode</h2><p>When you run the image inversion model in External mode, the image is captured from the USB camera connected to the Raspberry Pi hardware and the results of the image inversion is sent back to the host computer to be displayed by the on SDL Video Display block.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_inversion">Image Inversion</a> model.</p><p><b>2.</b> Select <b>Tools &gt; Run on Target Hardware &gt; Options...</b>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><b>3.</b> In the model, change the <b>Simulation mode</b> on the toolbar to <b>External</b>.</p><p><b>4.</b> In the model, click the <b>Run</b> button on the toolbar to run the model on Raspberry Pi hardware.</p><p><b>5.</b> Observe the display of inverted images on the host computer.</p><p><b>6.</b> While the model is running, double click on the <b>Constant</b> block and change the <b>Constant value</b> from 255 to 120, for example. Observe the resulting image effect.</p><p><b>7.</b> Press the <b>Stop</b> button on the model to stop model execution.</p><h2 id="6">Task 3 - (Optional) Configure and Run the Image Inversion Model as a Standalone Application</h2><p>In this task, you will connect a monitor to Raspberry Pi hardware. The video captured from the USB camera will be inverted by the model running on Raspberry Pi hardware and displayed on the monitor connected to Raspberry Pi hardware.</p><p><b>1.</b> Using appropriate cables, connect a monitor or television to the Raspberry Pi hardware. The monitor, once connected, will display the Linux desktop.</p><p><b>2.</b> Connect a USB mouse and a keyboard to the Raspberry Pi hardware's USB ports. Once connected, login to Linux desktop as you would to any Linux&reg; computer.</p><p><b>3.</b> Open the <a href="matlab:raspberrypi_inversion">Image Inversion</a> model.</p><p><b>4.</b> Select <b>Tools &gt; Run on Target Hardware &gt; Options...</b>. Review the parameters on the page that opens and make sure that the connection parameters for your Raspberry Pi board are correct.</p><p><b>5.</b> In the model, click the <b>Deploy To Hardware</b> button on the toolbar to run the model on the Raspberry Pi hardware. On the monitor connected to Raspberry Pi hardware, you will see a window displaying inverted images.</p><p><b>6.</b> Stop the model running on the Raspberry Pi hardware by executing the following on the MATLAB&reg; command line</p><pre>stopModel(r,'raspberrypi_inversion');</pre><h2 id="7">Other Things to Try</h2><div><ul><li>Change the model to use a different constant value for each color component. Then, independently change the value of each of the constants to get a wider range of imaging effects.</li></ul></div><h2 id="8">Summary</h2><p>This example showed a Simulink model implementing an image inversion algorithm. V4L2 Video Capture and the SDL Video Display blocks from the Raspberry Pi library were used to capture and display video data. The example showed how the model may be run in External mode, and as a standalone application on Raspberry Pi hardware.</p><p class="footer">Copyright 2012-2014 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Image Inversion
+%
+% This example shows how to use the V4L2 Video Capture and the SDL Video
+% Display blocks from the Raspberry Pi(R) block library to implement an
+% image inversion algorithm with a Simulink(R) model, and to run the model
+% on Raspberry Pi hardware.
+ 
+% Copyright 2012-2014 The MathWorks, Inc.
+ 
+%% Introduction
+%
+% Black and white image inversion refers to an image processing technique
+% where light areas are mapped to dark, and dark areas are mapped to light.
+% In other words, after image inversion black becomes white and white
+% becomes black. An inverted black and white image can be thought of as a
+% digital negative of the original image.
+%
+% In this example, the inversion algorithm will be applied to the red (R),
+% green (G) and blue (B) components of an image captured from a USB camera
+% creating a color digital negative effect. The R, G and B components of
+% the image are represented as uint8 values. That is, the range of the
+% values that any of the color components can take is from 0 to 255.
+% Assuming that the intensity value at position $(x, y)$ of the image is
+% $I(x,y)$, the inversion mapping is defined by $I_{inverted}(x,y) =
+% 255-I(x,y)$.
+
+
+%% Prerequisites
+%
+% * We recommend completing
+% <docid:raspberrypi_ref.example-raspberrypi_gettingstarted Getting Started with Raspberry Pi(R) Hardware> example. 
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * <matlab:web('http://elinux.org/RPi_USB_Webcams','-browser') A
+% compatible USB camera> or
+% <matlab:web('https://www.raspberrypi.org/products/camera-module/','-browser')
+% Raspberry Pi camera module>
+%
+% (Optional) To display the output video on an external monitor you will
+% need the following:
+% 
+% * HDMI or composite television, or a monitor with DVI or HDMI input, and
+% appropriate cables
+% * USB mouse and keyboard 
+
+open_system('raspberrypi_inversion');
+
+%% Task 1 - Connect Camera
+%
+% In this task, you will connect a USB camera or a Raspberry Pi camera module 
+% to your Raspberry Pi hardware and check if the camera was detected properly by the Linux kernel.
+% 
+% *1.* If you have a USB camera:
+%
+% * Connect the USB camera to one of the USB ports on your Raspberry Pi
+% board. Note that some cameras may draw too much power and may require a
+% powered USB hub for proper operation. 
+%
+% If you have a Raspberry Pi camera module:
+%
+% * Connect the camera module to the Raspberry Pi board using a CSI
+% cable by following the manufacturer's instructions.
+% * Activate the Raspberry Pi camera module V4L2 kernel driver by executing
+% the following commands on the MATLAB prompt:
+%
+%  r = raspberrypi;
+%  system(r,'/sbin/modprobe bcm2835_v4l2')
+%
+% *2.* Check if the camera is recognized by the Linux kernel by executing
+% the following command on the MATLAB prompt:
+%
+% system(r,'ls -al /dev/video*')
+%
+% Typical output will be:
+%
+%  crw-rwREPLACE_WITH_DASH_DASH-T+ 1 root video 81, 0 Dec 16 14:43 /dev/video0
+%
+% Make sure that the video device file name displayed above matches to the
+% 'Device name' parameter specified on the V4L2 Video Capture block mask.
+% In this example, the 'Device name' should be set to '/dev/video0'.
+%
+
+
+%% Task 2 - Configure and Run the Image Inversion Model in External Mode
+%
+% When you run the image inversion model in External mode, the image is
+% captured from the USB camera connected to the Raspberry Pi hardware and
+% the results of the image inversion is sent back to the host computer to
+% be displayed by the on SDL Video Display block.
+%
+% *1.* Open the <matlab:raspberrypi_inversion Image Inversion> model.
+%
+% *2.* Select *Tools > Run on Target Hardware > Options...*. Review the
+% parameters on the page that opens and make sure that the connection
+% parameters for your Raspberry Pi board are correct.
+% 
+% *3.* In the model, change the *Simulation mode* on the toolbar to
+% *External*.
+%
+% *4.* In the model, click the *Run* button on the toolbar to run the model
+% on Raspberry Pi hardware.
+%
+% *5.* Observe the display of inverted images on the host computer.
+%
+% *6.* While the model is running, double click on the *Constant* block and
+% change the *Constant value* from 255 to 120, for example. Observe the
+% resulting image effect.
+%
+% *7.* Press the *Stop* button on the model to stop model execution.
+
+
+%% Task 3 - (Optional) Configure and Run the Image Inversion Model as a Standalone Application
+%
+% In this task, you will connect a monitor to Raspberry Pi hardware. The
+% video captured from the USB camera will be inverted by the model running
+% on Raspberry Pi hardware and displayed on the monitor connected to
+% Raspberry Pi hardware.
+% 
+% *1.* Using appropriate cables, connect a monitor or television to the
+% Raspberry Pi hardware. The monitor, once connected, will display the
+% Linux desktop.
+%
+% *2.* Connect a USB mouse and a keyboard to the Raspberry Pi hardware's
+% USB ports. Once connected, login to Linux desktop as you would to any
+% Linux(R) computer.
+%
+% *3.* Open the <matlab:raspberrypi_inversion Image Inversion> model.
+%
+% *4.* Select *Tools > Run on Target Hardware > Options...*. Review the
+% parameters on the page that opens and make sure that the connection
+% parameters for your Raspberry Pi board are correct.
+%
+% *5.* In the model, click the *Deploy To Hardware* button on the toolbar
+% to run the model on the Raspberry Pi hardware. On the monitor connected
+% to Raspberry Pi hardware, you will see a window displaying inverted
+% images.
+%
+% *6.* Stop the model running on the Raspberry Pi hardware by executing the
+% following on the MATLAB(R) command line
+% 
+%  stopModel(r,'raspberrypi_inversion');
+
+
+%% Other Things to Try
+%
+% * Change the model to use a different constant value for each color
+% component. Then, independently change the value of each of the constants
+% to get a wider range of imaging effects.
+
+
+
+%% Summary
+%
+% This example showed a Simulink model implementing an image inversion
+% algorithm. V4L2 Video Capture and the SDL Video Display blocks from the
+% Raspberry Pi library were used to capture and display video data. The
+% example showed how the model may be run in External mode, and as a
+% standalone application on Raspberry Pi hardware.
+  
+close_system('raspberrypi_inversion', 0); 
+
+##### SOURCE END #####
+--></body></html>

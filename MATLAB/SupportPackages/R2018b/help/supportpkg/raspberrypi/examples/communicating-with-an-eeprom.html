@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Communicating with an EEPROM</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Communicating with an EEPROM",
+          "description": "This example shows how to use Simulink&#174; Support Package for Raspberry Pi Hardware to read from and write to an SPI EEPROM.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.CommunicatingWithAnEEPROMExample",
+          "name": "CommunicatingWithAnEEPROMExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/CommunicatingWithAnEEPROMExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_3_modelb_gpio_pinmap.jpg"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows how to use Simulink&#174; Support Package for Raspberry Pi Hardware to read from and write to an SPI EEPROM."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Communicating with an EEPROM</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e1130" class="intrnllnk">Introduction</a></li><li><a href="#d120e1139" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e1158" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e1180" class="intrnllnk">Model</a></li><li><a href="#d120e1190" class="intrnllnk">Configure the SPI Interface on the Raspberry Pi Hardware</a></li><li><a href="#d120e1220" class="intrnllnk">Task 1 - Connect the EEPROM to the Raspberry Pi Hardware</a></li><li><a href="#d120e1248" class="intrnllnk">Task 2 - Configure the Model for Supported Raspberry Pi Hardware</a></li><li><a href="#d120e1291" class="intrnllnk">Task 3 - Configure the SPI properties of the Model</a></li><li><a href="#d120e1324" class="intrnllnk">Task 4 - Configure the Model to Write and Read Data using the SPI Blocks</a></li><li><a href="#d120e1473" class="intrnllnk">Task 5 - Run the Model in External Mode</a></li><li><a href="#d120e1516" class="intrnllnk">Other Things to Try</a></li><li><a href="#d120e1529" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_SPI_EEPROM">Communicating with an EEPROM</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/CommunicatingWithAnEEPROMExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex78698343"></meta><meta itemprop="exampletitle" content="Communicating with an EEPROM"></meta></div><span id="CommunicatingWithAnEEPROMExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows how to use Simulink&#174; Support Package for Raspberry Pi Hardware to read from and write to an SPI EEPROM.</p>
+
+<div class="procedure"><h3 class="title" id="d120e1130">Introduction<span id="CommunicatingWithAnEEPROMExample-1" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi Hardware enables you to use the SPI interface to communicate with SPI based devices. In this example, you will learn how to communicate with an EEPROM connected to the Raspberry Pi board via SPI. The example uses the 256kB "ON Semiconductor EEPROM CAT25256". This device uses a standard SPI protocol that is common to many other EEPROMs provided by different vendors. For more details about the device, refer to the <a href="http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF" target="_blank">CAT25256 datasheet</a>.</p><h3 class="title" id="d120e1139">Prerequisites<span id="CommunicatingWithAnEEPROMExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> example and completing the <a href="../ref/communicating-with-raspberry-pi-hardware.html" class="a">Communicating with Raspberry Pi&#174; Hardware</a> example to learn about External mode.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Refer to <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ug','about-spi-interface-on-the-raspberry-pi-hardware.html'),'-helpbrowser')" target="_blank">The Raspberry Pi SPI Interface</a> to learn more about the SPI interface on Raspberry Pi.</p></li></ul></div><h3 class="title" id="d120e1158">Required Hardware<span id="CommunicatingWithAnEEPROMExample-3" class="anchor_target"></span></h3><p>To run this example, you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li><li><p>CAT25256 256kB SPI EEPROM Memory</p></li><li><p>USB cable</p></li><li><p>Breadboard wires</p></li><li><p>A breadboard (recommended)</p></li></ul></div><h3 class="title" id="d120e1180">Model<span id="CommunicatingWithAnEEPROMExample-4" class="anchor_target"></span></h3><p>The following figure shows the example model:</p><div class="informalfigure"><div id="d120e1187" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/CommunicatingWithAnEEPROMExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e1190">Configure the SPI Interface on the Raspberry Pi Hardware<span id="CommunicatingWithAnEEPROMExample-5" class="anchor_target"></span></h3><p>The SPI interface is disabled by default in Raspberry Pi. To enable the SPI interface use the <strong class="emphasis bold">raspi-config</strong> utility that comes with the Raspbian Linux image. You can open an interactive shell to your Raspberry Pi board and execute the following command:</p><div class="code_responsive"><pre class="programlisting">     $ sudo raspi-config</pre></div><p>To enable or disable the SPI interface, use up and down arrow keys to select the Advanced Options &gt; SPI menu item which brings up a <strong class="emphasis bold">Yes</strong> or <strong class="emphasis bold">No</strong> question.</p><p>Go back to the main menu using left and right arrow keys and select <strong class="emphasis bold">Finish</strong>. If the raspi-config utility asks you to reboot, accept it. After your board reboots, the SPI interface is enabled on channels <strong class="emphasis bold">CE0</strong> and <strong class="emphasis bold">CE1</strong>.</p><h3 class="title" id="d120e1220">Task 1 - Connect the EEPROM to the Raspberry Pi Hardware<span id="CommunicatingWithAnEEPROMExample-6" class="anchor_target"></span></h3><p>In this task, you connect the EEPROM to the Raspberry Pi board.</p><p><strong class="emphasis bold">1.</strong> Refer to the following pin-out diagram of Raspberry Pi 3 Model B for connections.</p><p></p>
+<div class="informalfigure"><div id="d120e1232" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_3_modelb_gpio_pinmap.jpg" alt=""></img></p></div></div><p>
+ </p><p>Attach the EEPROM to the Raspberry Pi board using the following connections:</p><div class="code_responsive"><pre class="programlisting">   SPI EEPROM pin   | Raspberry Pi pin
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+      /CS   (pin 1) |  GPIO 8 (CE0)
+      SO    (pin 2) |  GPIO 9 (SPI0_MISO)
+      /WP   (pin 3) |  5 V
+      VSS   (pin 4) |  GND
+      SI    (pin 5) |  GPIO 10 (SPI0_MOSI)
+      SCK   (pin 6) |  GPIO 11 (SPI0_SCLK)
+      /HOLD (pin 7) |  5 V
+      VCC   (pin 8) |  5 V
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</pre></div><p>You can also connect /CS pin of EEPROM to GPIO 7 (CE1) of Raspberry Pi. This example shows Raspberry Pi 3 Model B connected to EEPROM. However, you can connect any Raspberry Pi board supported by Simulink Support Package for Raspberry Pi Hardware. Use <a href="matlab:helpview(fullfile(codertarget.internal.raspberrypi.getioDocRoot,'ref','showpins.html'),'-helpbrowser')" target="_blank">showPins</a> method of the <strong class="emphasis bold">raspi</strong> object to check the pin-out diagram of your Raspberry Pi board.</p><h3 class="title" id="d120e1248">Task 2 - Configure the Model for Supported Raspberry Pi Hardware<span id="CommunicatingWithAnEEPROMExample-7" class="anchor_target"></span></h3><p>In this task, you configure the model for Raspberry Pi hardware.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_SPI_EEPROM" target="_blank">Communicating with an SPI based EEPROM using Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong>  In your Simulink model, click <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters</strong> to open <strong class="emphasis bold">Configuration Parameters</strong> dialog.</p><p><strong class="emphasis bold">3.</strong> Select the <strong class="emphasis bold">Hardware Implementation</strong> pane and select <strong class="emphasis bold">Raspberry Pi</strong> from the <strong class="emphasis bold">Hardware board</strong> parameter list. Do not change any other settings.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">Apply</strong>.</p><h3 class="title" id="d120e1291">Task 3 - Configure the SPI properties of the Model<span id="CommunicatingWithAnEEPROMExample-8" class="anchor_target"></span></h3><p>In this task, you configure the SPI properties of the model according to the SPI settings supported by the EEPROM.</p><p><strong class="emphasis bold">1.</strong> Click <strong class="emphasis bold">Target Hardware Resources</strong> &gt; <strong class="emphasis bold">SPI</strong>.</p><p><strong class="emphasis bold">2.</strong> Set the <strong class="emphasis bold">SPI0 CE0 BusSpeed(kHz)</strong> parameter in the SPI group to one of the values in dropdown, say, 8000. As per the <a href="http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF" target="_blank">CAT25256 datasheet</a>, the EEPROM supports a maximum SPI clock frequency of 20 MHz.</p><p><strong class="emphasis bold">3.</strong> Click <strong class="emphasis bold">OK</strong>.</p><h3 class="title" id="d120e1324">Task 4 - Configure the Model to Write and Read Data using the SPI Blocks<span id="CommunicatingWithAnEEPROMExample-9" class="anchor_target"></span></h3><p>In this task, you have to configure the model to read data from the EEPROM using the SPI WriteRead, SPI Register Write, and SPI Register Read blocks. You will run the model in <strong class="emphasis bold">External mode</strong> to view the data read from the EEPROM.</p><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_SPI_EEPROM" target="_blank">Communicating with an SPI based EEPROM using Raspberry Pi Hardware</a> model.</p><p><strong class="emphasis bold">2.</strong>  Notice the following subsystems in the model:</p><p>The <a href="matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/One_time_initialization')" target="_blank">One_time_initialization</a> subsystem enables the EEPROM and writes data to it.</p><p>The <a href="matlab:load_system('raspberrypi_SPI_EEPROM');hilite_system('raspberrypi_SPI_EEPROM/Execution_loop')" target="_blank">Execution_loop</a> subsystem reads data from the EEPROM.</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">One_time_initialization</strong> subsystem runs at model initialization while the <strong class="emphasis bold">Execution_loop</strong> subsystem runs every sample hit. This selective execution of subsystems is handled using the <strong class="emphasis bold">Unit Delay</strong> and the <strong class="emphasis bold">Enabled Subsystem</strong> blocks from the Simulink library.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The EEPROM uses the following opcodes for enable, write, and read operations as per the <a href="http://www.onsemi.com/pub_link/Collateral/CAT25256-D.PDF" target="_blank">CAT25256 datasheet</a>:</p></li></ul></div><div class="code_responsive"><pre class="programlisting">       Command  | Opcode | Operation
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+        WREN    | 6      | Enable Write Operations
+        WRITE   | 2      | Write Data to Memory
+        READ    | 3      | Read Data from Memory
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</pre></div><p><strong class="emphasis bold">3.</strong> Open the <strong class="emphasis bold">One_time_initialization</strong> subsystem and note the following:</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">Slave select pin</strong> parameter of the SPI WriteRead block is set to SPI0_CE0.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Before writing to the EEPROM memory, you need to enable the write operations on the device. The <strong class="emphasis bold">Write Enable</strong> constant block outputs WREN command (numeric value 6) to the EEPROM.</p></li></ul></div><div class="itemizedlist"><ul><li><p>After the <strong class="emphasis bold">WRITE</strong> command is sent, the 16-bit EEPROM memory location followed by the data bytes are sent to the EEPROM.</p></li></ul></div><p>The <strong class="emphasis bold">Register address</strong> parameter in the SPI Register Write block contains [2 0 10] which sends the WRITE command followed by the 16-bit memory location 10 (0x000A) on the EEPROM.  The <strong class="emphasis bold">Data to Write</strong> constant block with the value of [101 -19 35 -87 4] writes 5 int8 values to the EEPROM.</p><div class="itemizedlist"><ul><li><p>The <strong class="emphasis bold">delay</strong> subsystems provide the delay required for the successful completion of the Write Enable before sending data values.</p></li></ul></div><div class="itemizedlist"><ul><li><p>The priority of the <strong class="emphasis bold">delay</strong> subsystem (corresponding to the WREN command) is set to 1. The priority of the <strong class="emphasis bold">SPI Register Write</strong> block (corresponding to the WRITE command) is set to any value higher than 1. This ensures that the EEPROM is write enabled before sending the data bytes to be written.</p></li></ul></div><p>To set the Priority of a block, right click on the block &gt; Properties &gt; General &gt; Priority. To know more about block priorities and their impact on block execution order, refer to <a href="matlab:helpview(fullfile(docroot,'simulink','ug','block-properties-dialog-box.html'),'-helpbrowser')" target="_blank">Set Block Properties</a>.</p><p><strong class="emphasis bold">4.</strong> Open the <strong class="emphasis bold">Execution_loop</strong> subsystem and observe the following:</p><div class="itemizedlist"><ul><li><p>After the <strong class="emphasis bold">READ</strong> command, the 16-bit EEPROM memory location is sent.</p></li></ul></div><p>The <strong class="emphasis bold">Register address</strong> parameter in the SPI Register Read block with the value of [3 0 10] sends the READ command followed by the 16-bit memory location 10 on the EEPROM. The <strong class="emphasis bold">Output data type</strong> parameter is set to <strong class="emphasis bold">int8</strong> and <strong class="emphasis bold">Output data length</strong> parameter is set to 5 corresponding to the data type and number of values written to the EEPROM.</p><p><strong class="emphasis bold">5.</strong> The EEPROM latches the input data on the rising edge of the SCK clock and shifts out data on the falling edge of the SCK clock. This behavior corresponds to SPI mode 0 (Clock Polarity 0, Clock Phase 0) of the Raspberry Pi. Notice the <strong class="emphasis bold">Mode (Clock polarity and phase)</strong> parameter on SPI WriteRead, SPI Register Write, and SPI Register Read blocks are set to 0.</p><h3 class="title" id="d120e1473">Task 5 - Run the Model in External Mode<span id="CommunicatingWithAnEEPROMExample-10" class="anchor_target"></span></h3><p>In this task, you will run the model in <strong class="emphasis bold">External mode</strong> to monitor the data read from the EEPROM.</p><p><strong class="emphasis bold">1.</strong> Change the <strong class="emphasis bold">Simulation mode</strong> on the toolbar of the model to <strong class="emphasis bold">External</strong>.</p><p><strong class="emphasis bold">2.</strong> Click the <strong class="emphasis bold">Run</strong> button on the toolbar of the model to run it in External mode.</p><p><strong class="emphasis bold">3.</strong> In the <strong class="emphasis bold">Execution_loop</strong> subsystem, monitor the <strong class="emphasis bold">Display</strong> block to observe the data read from the EEPROM.</p><p><strong class="emphasis bold">4.</strong> Click the <strong class="emphasis bold">Stop</strong> button in the Simulink model to end the External mode execution.</p><h3 class="title" id="d120e1516">Other Things to Try<span id="CommunicatingWithAnEEPROMExample-11" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>Change the SPI clock frequency to a different value supported by the EEPROM.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Follow the steps in this example to communicate to other SPI devices.</p></li></ul></div><h3 class="title" id="d120e1529">Summary<span id="CommunicatingWithAnEEPROMExample-12" class="anchor_target"></span></h3><p>This example showed how to program your Raspberry Pi board to write to and read from an SPI based EEPROM. In this example you learned how to:</p><div class="itemizedlist"><ul><li><p>Communicate with an SPI device.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Initialize an EEPROM for a write operation.</p></li></ul></div><div class="itemizedlist"><ul><li><p>Program the Raspberry Pi board to write and read multiple bytes of data from the SPI EEPROM.</p></li></ul></div><p>You can use this example as a reference to access other SPI devices.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

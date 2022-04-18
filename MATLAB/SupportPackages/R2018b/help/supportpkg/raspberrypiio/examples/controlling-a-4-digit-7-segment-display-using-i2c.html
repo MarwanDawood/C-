@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Controlling a 4-Digit 7-Segment Display Using I2C</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Controlling a 4-Digit 7-Segment Display Using I2C",
+          "description": "This example shows you how to use the I2C peripheral on Raspberry Pi&#174; hardware to control a 4-digit 7-segment display.",
+          "thumbnailURL": "../../../examples/raspberrypiio/win64/xxsegment_display_circuit.png",
+          "genre": "Script",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "MATLAB"
+
+        },
+          "identifier": "raspberrypiio.ControllingA4Digit7SegmentDisplayUsingI2CExample",
+          "name": "ControllingA4Digit7SegmentDisplayUsingI2CExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypiio/ControllingA4Digit7SegmentDisplayUsingI2CExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "i2c_diagram.png",
+        "segment_display.png",
+        "segment_display_circuit.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to use the I2C peripheral on Raspberry Pi&#174; hardware to control a 4-digit 7-segment display."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypiio/win64/xxsegment_display_circuit.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">MATLAB Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Controlling a 4-Digit 7-Segment Display Using I2C</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e693" class="intrnllnk">Introduction</a></li><li><a href="#d120e701" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e711" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e730" class="intrnllnk">Overview of I2C</a></li><li><a href="#d120e746" class="intrnllnk">View available I2C buses</a></li><li><a href="#d120e756" class="intrnllnk">Overview of 4-digit 7-segment display</a></li><li><a href="#d120e955" class="intrnllnk">Connect the display</a></li><li><a href="#d120e969" class="intrnllnk">Scan I2C bus</a></li><li><a href="#d120e979" class="intrnllnk">Display a number</a></li><li><a href="#d120e999" class="intrnllnk">Clear display screen</a></li><li><a href="#d120e1007" class="intrnllnk">Set cursor position</a></li><li><a href="#d120e1018" class="intrnllnk">Advanced: Create a MATLAB class for segment display</a></li><li><a href="#d120e1032" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspi_segmented_display_using_i2c">Controlling a 4-Digit 7-Segment Display Using I2C</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypiio/ControllingA4Digit7SegmentDisplayUsingI2CExample')">Open Script</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypiio-ex27381530"></meta><meta itemprop="exampletitle" content="Controlling a 4Digit 7Segment Display Using I2C"></meta></div><span id="ControllingA4Digit7SegmentDisplayUsingI2CExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to use the I2C peripheral on Raspberry Pi&#174; hardware to control a 4-digit 7-segment display.</p>
+
+<div class="procedure"><h3 class="title" id="d120e693">Introduction<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-1" class="anchor_target"></span></h3><p>Raspberry Pi hardware includes an I2C peripheral. The I2C peripheral enables you to connect devices supporting I2C protocol directly to Raspberry Pi hardware. There is a wide variety of sensors, displays, ADC's, DAC's, etc. supporting I2C communications. By using these devices you can add new capabilities to your Raspberry Pi projects.</p><p>In this example, we will concentrate on controlling a 4-digit 7-segment display via I2C. We will start by providing an overview of I2C communications in general and then focus on the display and specifics of I2C commands it supports. We will learn about MATLAB command interface for I2C devices and finally finish the example by displaying numbers and simple characters.</p><h3 class="title" id="d120e701">Prerequisites<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-2" class="anchor_target"></span></h3><div class="itemizedlist"><ul><li><p>We recommend completing <a href="../ref/getting-started-with-matlab-support-package-for-raspberry-pi-hardware.html" class="a">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example.</p></li></ul></div><h3 class="title" id="d120e711">Required Hardware<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-3" class="anchor_target"></span></h3><p>To run this example you will need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi hardware</p></li><li><p>A power supply with at least 1A output</p></li><li><p>Breadboard and jumper cables</p></li><li><p>A 4-digit, 7-segment display with I2C interface from SparkFun</p></li></ul></div><h3 class="title" id="d120e730">Overview of I2C<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-4" class="anchor_target"></span></h3><p>Inter-Integrated Circuit (I2C) is a multi-master serial single-ended communication protocol used for attaching low-speed peripherals to an embedded system.</p><p></p>
+<div class="informalfigure"><div id="d120e738" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxi2c_diagram.png" alt=""></img></p></div></div><p>
+ </p><p>I2C uses two bidirectional lines, serial data line (SDA) and serial clock (SCL). Both of these lines are pulled up with resistors. Each slave device on the I2C bus is assigned a 7-bit or 10-bit address. I2C devices with 10-bit addresses are rare and not supported by the Raspberry Pi hardware. With a 7-bit address space, up to 128 devices can be connected to an I2C bus. I2C bus speeds can range from 100 Kbits/s for slow mode to 400 Kbits/s for high speed mode.</p><p>Raspberry Pi hardware has two I2C buses. Depending on the model and revision of your board, one of the I2C buses may not be available. The I2C pins on the 2x13 expansion pins are pulled up with 1.8 KOhm resistors.</p><h3 class="title" id="d120e746">View available I2C buses<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-5" class="anchor_target"></span></h3><p>In the default Raspbian Linux image, the I2C peripheral is enabled. You can find out available I2C buses on the Raspberry Pi hardware by inspecting the AvailableI2CBuses property of the raspi object.</p><div class="code_responsive"><pre id="d120e752" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+rpi.AvailableI2CBuses
+</pre></div><p>Inspecting the AvailableI2CBuses property of the rpi should yield at least one I2C bus being listed on the MATLAB command prompt.</p><h3 class="title" id="d120e756">Overview of 4-digit 7-segment display<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-6" class="anchor_target"></span></h3><p>The 4-digit 7-segment display from SparkFun is a 4-digit alpha-numeric display with TTL serial, SPI or I2C interface.</p><p></p>
+<div class="informalfigure"><div id="d120e764" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsegment_display.png" alt=""></img></p></div></div><p>
+ </p><p>This device can display numbers, most letters and a few special characters. Decimal points, apostrophes and colons are supported. Brightness of the display can be adjusted. The display has a simple control interface where the master device, Raspberry Pi hardware in this case, issues commands with parameters to the display device over I2C bus. For example, to clear the display master sends a command byte of '0x76'. To set the cursor to a particular position, master sends a command byte of '0x79' followed by a byte indicating cursor position (0 to 3). A comprehensive list of commands is shown in the table below.</p><p>
+</p>
+<div itemprop="content" id="d120e772" class="table_class"><table align="center" border="1" cellpadding="5"><tbody><tr>
+            <td style="text-align: center;">
+                <div class="strong"><font color="red">&lt;strong&gt;</font>Command<font color="red">&lt;/strong&gt;</font></div></td>
+            <td style="text-align: center;">
+                <div class="strong"><font color="red">&lt;strong&gt;</font>Command byte<font color="red">&lt;/strong&gt;</font></div></td>
+            <td style="text-align: center;">
+                <div class="strong"><font color="red">&lt;strong&gt;</font>Data byte range<font color="red">&lt;/strong&gt;</font></div></td>
+            <td style="text-align: center;">
+                <div class="strong"><font color="red">&lt;strong&gt;</font>Data byte description<font color="red">&lt;/strong&gt;</font></div></td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Clear display</td>
+            <td style="text-align: center;">
+                0x76</td>
+            <td style="text-align: center;">
+                None</td>
+            <td style="text-align: center;">
+                &nbsp;</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Decimal control</td>
+            <td style="text-align: center;">
+                0x77</td>
+            <td style="text-align: center;">
+                0-63</td>
+            <td style="text-align: center;">
+                1-bit per decimal</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Cursor control</td>
+            <td style="text-align: center;">
+                0x79</td>
+            <td style="text-align: center;">
+                0-3</td>
+            <td style="text-align: center;">
+                0=left-most, 3=right-most</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Brightness control</td>
+            <td style="text-align: center;">
+                0x7A</td>
+            <td style="text-align: center;">
+                0-255</td>
+            <td style="text-align: center;">
+                0=dimmest, 255=brightest</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Digit 1 control</td>
+            <td style="text-align: center;">
+                0x7B</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Digit 2 control</td>
+            <td style="text-align: center;">
+                0x7C</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Digit 3 control</td>
+            <td style="text-align: center;">
+                0x7D</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Digit 4 control</td>
+            <td style="text-align: center;">
+                0x7E</td>
+            <td style="text-align: center;">
+                0-127</td>
+            <td style="text-align: center;">
+                1-bit per segment</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Baud rate config</td>
+            <td style="text-align: center;">
+                0x7F</td>
+            <td style="text-align: center;">
+                0-11</td>
+            <td style="text-align: center;">
+                See baud rate command in datasheet</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                I2C Address configuration</td>
+            <td style="text-align: center;">
+                0x80</td>
+            <td style="text-align: center;">
+                1-126</td>
+            <td style="text-align: center;">
+                New I<div class="sup"><font color="red">&lt;sup&gt;</font>2<font color="red">&lt;/sup&gt;</font></div>C address</td>
+        </tr><tr>
+            <td style="text-align: center;">
+                Factory reset</td>
+            <td style="text-align: center;">
+                0x81</td>
+            <td style="text-align: center;">
+                None</td>
+            <td style="text-align: center;">
+                &nbsp;</td>
+        </tr></tbody></table></div><p>
+
+</p><h3 class="title" id="d120e955">Connect the display<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-7" class="anchor_target"></span></h3><p>To interface the display to Raspberry Pi hardware you need to do some light soldering. Since we are using the I2C interface of the display in this example, solder jumper wires to the SDA, SCL, GND and VCC pins of the display. You may also choose to solder some straight male headers to be able to mount the display on a breadboard for prototyping. Before going any further, you may also want to follow manufacturer's hardware assembly guide.</p><p>Follow the circuit diagram shown below to connect the display to Raspberry Pi hardware.</p><p></p>
+<div class="informalfigure"><div id="d120e965" class="mediaobject"><p><img src="../../../examples/raspberrypiio/win64/xxsegment_display_circuit.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e969">Scan I2C bus<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-8" class="anchor_target"></span></h3><p>Once you connected the display to the Raspberry Pi hardware, you are ready to test if Raspberry Pi hardware sees it on the I2C bus.</p><div class="code_responsive"><pre id="d120e975" class="programlisting">clear <span style="color:#A020F0">rpi</span>
+rpi = raspi();
+<span style="color:#0000FF">for</span> i = 1:length(rpi.AvailableI2CBuses)
+    scanI2CBus(rpi, rpi.AvailableI2CBuses{i})
+<span style="color:#0000FF">end</span>
+</pre></div><p>The scanI2CBus() method scans the given I2C bus and returns a cell array of device addresses on the bus. If you connected the display to Raspberry Pi hardware correctly, the snippet of MATLAB code above should return a device address of '0x71'. This is the factory default address of the display.</p><h3 class="title" id="d120e979">Display a number<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-9" class="anchor_target"></span></h3><p>Let's start by creating an i2cdev object that will allow us to talk to the display using I2C.</p><div class="code_responsive"><pre id="d120e985" class="programlisting">segmentDisp = i2cdev(rpi, <span style="color:#A020F0">'&lt;I2C bus&gt;'</span>, <span style="color:#A020F0">'0x71'</span>);
+</pre></div><p>Where '&lt;I2C bus&gt;' is the name of the I2C bus the display is detected. Remember that depending on the version of your Raspberry Pi hardware, the bus name may change. So make sure that you supply the correct I2C bus when constructing the segmentDisp object.</p><p>According to the command table for the display, sending a byte in the range 0 - 0xf results in a hexadecimal number represented by the byte to be displayed. The cursor is initially at position 0, which is the left most digit, and advances one position each time a character is displayed.</p><div class="code_responsive"><pre id="d120e991" class="programlisting">write(segmentDisp, 0);
+</pre></div><p>This should display a '0' on the left most digit of the display. Let's display a couple of more characters.</p><div class="code_responsive"><pre id="d120e995" class="programlisting">write(segmentDisp, 7);
+write(segmentDisp, hex2dec(<span style="color:#A020F0">'a'</span>));
+write(segmentDisp, hex2dec(<span style="color:#A020F0">'b'</span>));
+</pre></div><p>After executing the commands above, you should see '07ab' displayed on the segmented display.</p><h3 class="title" id="d120e999">Clear display screen<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-10" class="anchor_target"></span></h3><p>To clear the display screen we will follow the datasheet and send '0x76' to the display.</p><div class="code_responsive"><pre id="d120e1005" class="programlisting">write(segmentDisp, hex2dec(<span style="color:#A020F0">'76'</span>));
+</pre></div><h3 class="title" id="d120e1007">Set cursor position<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-11" class="anchor_target"></span></h3><p>To display a particular character at a particular cursor position, you may want to set the cursor position.</p><div class="code_responsive"><pre id="d120e1013" class="programlisting">write(segmentDisp, [hex2dec(<span style="color:#A020F0">'79'</span>), 2]);
+write(segmentDisp, 9);
+</pre></div><p>The commands above will display a '9' at the second digit position of the display.</p><h3 class="title" id="d120e1018">Advanced: Create a MATLAB class for segment display<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-12" class="anchor_target"></span></h3><p>You can put all the things we learned about the segment display together and create a MATLAB class for it. This MATLAB class has methods for setting the cursor position, clearing the display screen, printing numbers, etc. As an example, we created such a class. Here is an example of how you would use this class.</p><div class="code_responsive"><pre id="d120e1024" class="programlisting">clear <span style="color:#A020F0">segmentDisp</span>
+sd = raspi.internal.segmentdisplay(rpi, &lt;I2C bus&gt;, &lt;I2C address&gt;)
+clr(sd);  <span style="color:#228B22">% Clear screen</span>
+print(sd, <span style="color:#A020F0">'112'</span>);
+print(sd, <span style="color:#A020F0">'dead'</span>);
+print(sd, <span style="color:#A020F0">'beef'</span>);
+</pre></div><p>Note that before creating the class, we cleared the original i2cdev object called segmentDisp. You are allowed to create a single object per I2C device. The segmentdisplay class internally creates an i2cdev object. Hence you need to clear any i2cdev objects connected to the display from MATLAB workspace before instantiating the segmentdisplay.</p><p>The segmentdisplay class tries to reduce flickering caused by clearing / re-displaying numbers. It does so by caching the displayed characters and updating only those that are different. Not all features supported by the segmented display are implemented. You can use the MATLAB class we created as a starting point for your own implementation. Here is a MATLAB code snippet implementing an up counter:</p><div class="code_responsive"><pre id="d120e1030" class="programlisting">N = 1000;
+delay = 0.01;
+clr(sd);
+<span style="color:#0000FF">for</span> i = 1:N
+    print(sd,num2str(i));
+    pause(delay);
+<span style="color:#0000FF">end</span>
+</pre></div><h3 class="title" id="d120e1032">Summary<span id="ControllingA4Digit7SegmentDisplayUsingI2CExample-13" class="anchor_target"></span></h3><p>This example introduced the workflow for working with I2C interface. You learned how to control a 4-digit 7-segment display to display hexadecimal numbers.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:04 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">MATLAB Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="raspi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="InvalidCredential">The user name or password for {0} is incorrect.</entry>
+        <entry key="NotAuthorized">Connection to IO server on hardware at device address {0} is not authorized.</entry>
+        <entry key="InvalidDeviceAddress">There is no saved deviceAddress value. Specify the hostname or the IP address of your board to connect to it.</entry>
+        <entry key="InvalidUsername">There is no saved username value. Specify a valid username to connect to your board.</entry>
+        <entry key="InvalidPassword">There is no saved password value. Specify a valid password to connect to your board.</entry>
+        <entry key="UnableToConnect">Cannot establish a connection to the board with device address "{0}". Wait 30 seconds and try again.</entry>
+        <entry key="UnexpectedLedNumber">Unexpected LED number. Use AvailableLEDs property to see a list of available LED numbers.</entry>   
+        <entry key="DeprecateConfigureDigitalPin">configureDigitalPin will be deprecated in the future. Use configurePin instead.</entry>
+        <entry key="UnexpectedDigitalPinNumber">Unexpected pin number. Use AvailableDigitalPins property for a list of pin numbers you can use.</entry>
+        <entry key="UnexpectedHwObject">Expected the first argument to be a raspi object.</entry>
+        <entry key="InvalidDigitalInputValue">Unexpected digital I/O value. Digital I/O values must be logical (true or false).</entry>   
+        <entry key="UnknownBoardRevision">Unable to determine hardware version. Report this issue to MathWorks support along with an output of 'cat /proc/cpuinfo' Linux command.</entry>
+        <entry key="BoardRevision">Error retrieving the board revision.</entry>
+        <entry key="PopenError">Error executing command. System returned an exit status of {0}.</entry>
+        <entry key="SSHConnectionError">Cannot establish an SSH connection to the board with device address "{0}".</entry>
+        <entry key="ServerConnectionError">Cannot establish a connection to the board with device address "{0}".</entry>
+        <entry key="UnexpectedServerVersion">The MATLAB communication server running on your board is not compatible with this version of the raspi interface. Execute "raspi.updateServer" command on the MATLAB command line to upgrade the MATLAB server running on your board.</entry>
+        <entry key="CannotGetI2CBusSpeed">Cannot query I2C bus speed.</entry>
+        <entry key="ServoInUse">Pin {0} is already being used for servo pulse output. You cannot create another servo object using the same pin.</entry>
+        <entry key="InvalidNVPropertyName">Invalid name-value pair for {0}. Valid names for name-value pairs are {1}.</entry>
+        <entry key="InvalidDigitalWrite">Pin {0} was previously configured as ''{1}''. Set the pin configuration to 'DigitalOutput' using configurePin method to set the pin state.</entry>
+        <entry key="InvalidDigitalRead">Pin {0} was previously configured as ''{1}''. Set the pin configuration to 'DigitalInput' using configurePin method to read the pin state.</entry>
+        <entry key="InvalidPWMWrite">Pin {0} was previously configured as ''{1}''. Set the pin configuration to 'PWM' using configurePin method to output a PWM waveform.</entry>
+        <entry key="InvalidPWMFrequency">Expected PWM frequency to be one of the following: {0}</entry>
+        <entry key="I2CBusNotFound">No active I2C busses available. Use enableI2C method to enable I2C peripheral on the Raspberry Pi before attempting to scan the I2C bus.</entry>
+        <entry key="InvalidI2CAddress">Invalid I2C address. I2C address must be in the range [0x0..0x7f].</entry>
+        <entry key="NoSuchI2CDevice">There is no I2C device with address {0} on the I2C bus. Use scanI2CBus method of the raspi object to see addresses of I2C devices attached to the I2C bus.</entry>
+        <entry key="InvalidI2CBus">I2C bus {0} is not available. Use AvailableI2CBuses property of the raspi object to see a list of available I2C buses.</entry>
+        <entry key="CannotEnableSPI">Cannot enable SPI peripheral.
+            Try enabling the SPI peripheral by following the instructions below:\n
+            Open an interactive Linux command shell by executing the following on the MATLAB command line:\n
+            >> r = raspi;\n
+            >> openShell(r);\n
+            On the interactive Linux command shell:\n
+            1. Run "sudo raspi-config"\n
+            2. Select "Advanced Options"\n
+            3. Select "SPI"\n
+            4. Select "Yes" to enable SPI\n
+            5. Select "Yes" to automatically load the SPI kernel module\n
+            6. Use the right arrow to select the "Finish"\n
+            7. Select "Yes" to reboot\n
+        </entry>
+        <entry key="CannotDisableSPI">Cannot disable SPI peripheral.</entry>
+        <entry key="CannotEnableI2C">Cannot enable I2C peripheral.</entry>
+        <entry key="CannotEnableI2Cbaudrate">Cannot configure baudrate parameter for i2c_bcm2835</entry>
+        <entry key="CannotDisableI2C">Cannot disable I2C peripheral.</entry>
+        <entry key="InvalidSPIMode">Invalid SPI mode. Supported SPI modes are: {0}.</entry>
+        <entry key="InvalidSPIBitsPerWord">Invalid value for BitsPerWord parameter. Valid values are: {0}.</entry>
+        <entry key="InvalidSPIChannel">SPI channel {0} is not available. Use AvailableSPIChannels property of the raspi object to see a list of available SPI channels.</entry>
+        <entry key="InvalidSPISpeed">Invalid SPI speed. Supported SPI speeds are: {0}.</entry>
+        <entry key="InvalidBaudRate">Invalid value for BaudRate parameter. Valid values are: {0}.</entry>
+        <entry key="InvalidDataBits">Invalid value for DataBits parameter. Valid values are: {0}.</entry>
+        <entry key="InvalidStopBits">Invalid value for StopBits parameter. Valid values are: {0}.</entry>
+        <entry key="ConnectionExists">An active connection to {0} already exists. You cannot create another connection.</entry>
+        <entry key="I2CAddressInUse">An active connection to I2C device at address {0} already exists. You cannot create another connection.</entry>
+        <entry key="SPIChannelInUse">An active connection to the SPI device on channel {0} already exists. You cannot create another connection.</entry>
+        <entry key="SerialPortInUse">An active connection to serial device at {0} already exists. You cannot create another connection.</entry>
+        <entry key="CannotOpenCameraBoard">Cannot connect to the Camera Board.</entry>
+        <entry key="CameraBoardInUse">A camera board object already exists. You cannot create another object.</entry>
+        <entry key="CameraBoardRecording">Camera board is currently recording video. You cannot perform this operation at this time. Either wait until video recording is complete or stop the current recording session using stop method.</entry>
+        <entry key="CannotCreateObjectWhileRecording">Camera board is currently recording video. You cannot create a cameraboard object until recording is complete. If you do not want to wait until recording is complete, you can cancel the current video recording session by executing "system(rpi, 'killall raspivid')", where rpi is a handle to a raspi object, on the MATLAB command prompt.</entry>
+        <entry key="CameraBoardRecordFailed">Cannot start recording.</entry>
+        <entry key="NoCameraBoard">Failed to detect a Camera Board connected to the Raspberry Pi hardware. If you connected a Camera Board, check that:\n1. The ribbon cable connecting the camera module to the board is securely seated at both ends\n2. The connectors on the ribbon cable are inserted to the CSI connector and the camera PCB the right way\n3. Camera Board is enabled in the "raspi-config" Linux utility</entry>
+        <entry key="CameraBoardStopFailed">Cannot stop recording.</entry>
+        <entry key="CameraBoardOpen">Camera board is currently recording video. You cannot create a camera board object while it is being used for recording.</entry>
+        <entry key="RecordingCannotBeSet">Invalid name - value pair. You cannot set the property Recording.</entry>
+        <entry key="InvalidFrameRate">FrameRate must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidQuality">Quality must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidBrightness">Brightness must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidContrast">Contrast must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidSaturation">Saturation must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidSharpness">Sharpness must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidExposureCompensation">ExposureCompensation must be an integer between {0} and {1}.</entry>
+        <entry key="InvalidRotation">Rotation must be one of the following values: 0, 90, 180 or 270.</entry>
+        <entry key="InvalidCameraOption">Expected the value of the camera option {0} to be a numeric scalar or text. Instead got {1}.</entry>
+        <entry key="InvalidROI">Invalid ROI. ROI must be a vector of size [1, 4] with each element between 0.0 and 1.0.</entry>
+        <entry key="InvalidVerticalFlip">Invalid VerticalFlip. Vertical flip must be a logical value (true or false).</entry>
+        <entry key="ExpectedLogicalValue">Expected a logical value (true or false) for {0}.</entry>
+        <entry key="InvalidHorizontalFlip">Invalid HorizontalFlip. Horizontal flip must be a logical value (true or false).</entry>
+        <entry key="ExpectedRaspiObj">Expected a raspi object as the first parameter.</entry>
+        <entry key="NoSuchProperty">Invalid name - value pair. There is no property called {0}.</entry>
+        <entry key="MissingValue">Missing value in name - value pairs. The property {0} has no corresponding value.</entry>
+        <entry key="InvalidLEDValue">Invalid LED value. LED value must be a logical value (true or false).</entry>
+        <entry key="SaveNotSupported">{0} objects cannot be saved to or loaded from a MAT-file.</entry>
+        <entry key="LoadNotSupported">{0} objects cannot be loaded from a MAT-File. Clear the {1} object loaded from the MAT-file and re-create it.</entry>
+        <entry key="InvalidFileName">Invalid file name.</entry>
+        <entry key="InvalidWebcamIdx">Invalid webcamera index.</entry>
+        <entry key="NoWebcam">No web camera detected.</entry>
+        <entry key="WebcamInUse">{0} is in use. You need to terminate the existing connection first by clearing the webcam object.</entry>
+        <entry key="InvalidWebcamIndex">{0} is not a valid camera index. Check the AvailableWebcams property of the raspi object to find the valid camera index.</entry>
+        <entry key="InvalidWebcamName">{0} is not a valid camera name. Check the AvailableWebcams property of the raspi object for valid camera names.</entry>
+        <entry key="InvalidWebcamResolution">{0} is not a valid resolution setting. Check the AvailableResolutions property of the raspi object for valid resolutions.</entry>
+        <entry key="ErrorWebcamSnapshot">Failed to get a snapshot from the webcam. Try calling snapshot again.</entry>
+        <entry key="InternalError">{0}.</entry>
+        <entry key="SenseHATInUse">{0} is in use. You need to terminate the existing connection first by clearing the {0} object.</entry>        
+        <entry key="NoSenseHAT">No SenseHAT found.</entry>
+        <entry key="InvalidSensorSetting">Invalid value for {0}. Valid values are: {1}.</entry>
+        <entry key="InvalidValue">Invalid value for {0}.Valid values are:{1}.</entry>
+        <entry key="SensorDisabled">{0} sensor is disabled. Enable {0} sensor to read {1}.</entry>
+        <entry key="ImageFileNotFound">Image file not found. Make sure the file you want to display is available and is on MATLAB path.</entry>
+        <entry key="InvalidImageSize">The Image you want to load is incompatible with the LED Matrix on SenseHAT. The Image must be 8 X 8 pixel and each pixel must be represented as three bytes(R,G and B).</entry>
+        <entry key="InvalidCharacter">{0} is not a supported character for display. {0} will be replaced by '?' when the message is displayed on the LED matrix.</entry>
+        <entry key="InvalidNumberOfInputs">Incorrect number of inputs. Make sure you have provided the correct number of parameter value pairs.</entry>
+        <entry key="InvalidParamOption">Invalid parameter name. Supported parameters are: 'scrollingSpeed', 'textColor' and 'bgColor'.</entry>
+        <entry key="v4l2InstallFailed">Failed to install v4l2 utility tools. Ensure that Raspberry Pi has Internet access.</entry>
+        <entry key="UnsupportedAudioFileType">Unsupported audio file format.</entry>
+        <entry key="UnsupportedInterface">Function is not supported in desktop MATLAB.</entry>
+        <entry key="videoDisplayInUse"> Connection to videoDisplay already exits. Only one videoDisplay connection is permitted.</entry>
+    </message>
+</rsccat>
+<!-- Copyright 2014-2018 The MathWorks, Inc.
+-->

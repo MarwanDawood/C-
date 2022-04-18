@@ -1,0 +1,380 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Working with Raspberry Pi SenseHAT</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-04-27"><meta name="DC.source" content="WorkingWithRaspberryPiSenseHATExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypiio/WorkingWithRaspberryPiSenseHATExample')">Open this Example</a></div><div class="content"><h1>Working with Raspberry Pi SenseHAT</h1><!--introduction--><p>This example shows you how to read the sensor values, read the position of joystick and control the LED Matrix on Raspberry Pi&reg; Sense HAT using MATLAB&reg; Support Package for Raspberry Pi Hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#3">Prerequisites</a></li><li><a href="#4">Required Hardware</a></li><li><a href="#5">Connect Sense HAT</a></li><li><a href="#6">Create a Sense HAT object</a></li><li><a href="#7">Reading Environmental Sensors</a></li><li><a href="#8">Read the IMU sensor.</a></li><li><a href="#9">Read the state of the joystick</a></li><li><a href="#10">Use the LED matrix</a></li><li><a href="#11">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>The Raspberry Pi Sense HAT is an add-on board that includes an 8X8 RGB LED matrix, a five-position joystick and the following sensors:</p><div><ul><li>Humidity sensor</li><li>Pressure sensor</li><li>IMU sensor (Accelerometer, Gyroscope, and Magnetometer).</li></ul></div><p>In this example you will learn how to create a <b><tt>sensehat</tt></b> object to connect to the Raspberry Pi Sense HAT, read sensor values, read the position of the joystick and control the LED matrix.</p><h2 id="3">Prerequisites</h2><div><ul><li>We recommend completing <a href="docid:raspberrypiio_examples.example-raspi_gettingstarted">Getting Started with MATLAB Support Package for Raspberry Pi Hardware</a> example</li></ul></div><h2 id="4">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li><li>Raspberry Pi Sense HAT</li></ul></div><h2 id="5">Connect Sense HAT</h2><p>Attach the Sense HAT to the Raspberry Pi expansion header. Make sure that you power down your Raspberry Pi before attempting to attach the Sense HAT.</p><p><img vspace="5" hspace="5" src="../sensehat_connection.png" alt=""> </p><h2 id="6">Create a Sense HAT object</h2><p>Create a Sense HAT object by executing the following on the MATLAB prompt.</p><pre class="language-matlab">clear <span class="string">rpi</span>
+clear <span class="string">mysensehat</span>
+rpi = raspi;
+mysensehat = sensehat(rpi);
+</pre><p><tt>mysensehat</tt> is a handle to a sensehat object.</p><p>Let us read the temperature from Sense HAT.</p><pre class="language-matlab">readTemperature(mysensehat)
+</pre><h2 id="7">Reading Environmental Sensors</h2><p>Sense HAT includes humidity and pressure sensors which measure the temperature, the pressure and the humidity. Let's read the value of humidity and pressure measured by these sensors.</p><pre class="language-matlab">readHumidity(mysensehat)
+readPressure(mysensehat)
+</pre><p>Temperature can be read from either the humidity sensor or the pressure sensor. To read the temperature from the humidity sensor, execute the following on the MATLAB prompt:</p><pre class="language-matlab">readTemperature(mysensehat,<span class="string">'usehumiditysensor'</span>)
+</pre><p>To read the temperature from the pressure sensor, execute the following on the MATLAB prompt:</p><pre class="language-matlab">readTemperature(mysensehat,<span class="string">'usepressuresensor'</span>)
+</pre><p>By default, the temperature is read from the humidity sensor. Hence, <tt>readTemperature(mysensehat)</tt> is same as <tt>readTemperature(mysensehat,'HumiditySensor')</tt>.</p><h2 id="8">Read the IMU sensor.</h2><p>Sense HAT has an IMU sensor which consists of an accelerometer, a gyroscope and a magnetometer. The IMU sensor measures acceleration, angular velocity and magnetic field along the X, Y and Z axis. To read the acceleration, execute the following on the MATLAB prompt:</p><pre class="language-matlab">readAcceleration(mysensehat)
+</pre><p><tt>readAcceleration</tt> returns a 1-by-3 vector of acceleration values measured along the X, Y and Z axis.</p><p>To read the angular velocity, execute the following on the MATLAB prompt:</p><pre class="language-matlab">readAngularVelocity(mysensehat)
+</pre><p><tt>readAngularVelocity</tt> returns a 1-by-3 vector of angular velocity values measured along the X, Y, and Z axis.</p><p>To read the magnetic field, execute the following on the MATLAB prompt:</p><pre class="language-matlab">readMagneticField(mysensehat)
+</pre><p><tt>readMagneticField</tt> returns a 1-by-3 vector of magnetic field values measured along the X, Y, and Z axis.</p><p><img vspace="5" hspace="5" src="../sensehat_axisinfo.png" alt=""> </p><h2 id="9">Read the state of the joystick</h2><p>Sense HAT has a 5 position mini joystick. Let us read the position of the joystick.</p><pre class="language-matlab">readJoystick(mysensehat)
+</pre><p><tt>readJoystick</tt> returns the a value between 0 to 5 depending on the position of the joystick.</p><div><ul><li>0 - Not pressed</li><li>1 - Centre</li><li>2 - Left</li><li>3 - Up</li><li>4 - Right</li><li>5 - Down</li></ul></div><p>The numerical values representing joystick positions are ordered with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p><img vspace="5" hspace="5" src="../sensehat_joystick.png" alt=""> </p><p>You can monitor a particular joystick position by executing the following on the MATLAB prompt:</p><pre>readJoystick(mysensehat,'Up')</pre><p><tt>readJoystick(sensehatObj,position)</tt> will return a logical one if the joystick is in the specified position and zero otherwise.</p><h2 id="10">Use the LED matrix</h2><p>Sense HAT has a matrix of 8x8 RGB LEDs. You can set the color of a particular pixel, display an image or display a scrolling message on the LED matrix.  Let us set the color of the pixel in the 3rd row, 6th column to cyan.</p><pre class="language-matlab">writePixel(mysensehat,[6 3],<span class="string">'cyan'</span>)
+</pre><p>Observe that the pixel in the specified location is now cyan in color.</p><p>The rows and columns are numbered 1 to 8. Pixel at location [1 1] is at the top left corner of the LED Matrix. The location is with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p><img vspace="5" hspace="5" src="../sensehat_pixel.png" alt=""> </p><p>Color of a pixel can be specified by name. The supported colors are:</p><div><ul><li>Red</li><li>Blue</li><li>Green</li><li>Cyan</li><li>Magenta</li><li>Yellow</li><li>White</li></ul></div><p>You can also specify any other color by using a 1x3 array of R, G, B values. For example, setting the pixel to [255 192 203], would set it to pink. Now, let us display an image on the LED matrix.</p><pre class="language-matlab">image = imread(<span class="string">'senseHAT_demo.png'</span>);
+displayImage(mysensehat,image)
+</pre><p>The image must be an NxMx3 array of uint8 values. You can change the orientation of the displayed image by executing the following on the MATLAB prompt:</p><pre class="language-matlab">image = imread(<span class="string">'sensehat_demo.png'</span>);
+displayImage(mysensehat,image,90)
+</pre><p>The Orientation of the image can be set to 0, 90, 180 or 270 degrees. These are defined with respect to the reference position of the Sense HAT. The HDMI port of the Raspberry Pi board facing downwards is the reference position.</p><p><img vspace="5" hspace="5" src="../sensehat_orientation.png" alt=""> </p><p>LED Matrix can be used to display messages in the form of a scrolling text. The text scrolls from left to right. You can change the orientation of scroll by setting the 'Orientation' property of LEDMatrix. Let us display 'Hello World' on the LED Matrix.</p><pre class="language-matlab">displayMessage(mysensehat,<span class="string">'Hello World'</span>);
+</pre><p>By default, the text scrolls with a scrolling speed of 0.1 second and the color of the text is red. To increase the scrolling speed to 0.05 second, execute the following on the MATLAB prompt:</p><pre class="language-matlab">displayMessage(mysensehat,<span class="string">'Hello World'</span>,<span class="string">'ScrollingSpeed'</span>,0.05);
+</pre><p>In order to set the text color to yellow, execute the following on the MATLAB prompt:</p><pre class="language-matlab">displayMessage(mysensehat,<span class="string">'Hello World'</span>,<span class="string">'textcolor'</span>,<span class="string">'y'</span>);
+</pre><p>Similarly, in order to set the background color to white, execute the following on the MATLAB prompt:</p><pre class="language-matlab">displayMessage(mysensehat,<span class="string">'Hello World'</span>,<span class="string">'textColor'</span>,<span class="string">'y'</span>,<span class="string">'backgroundColor'</span>,<span class="string">'w'</span>);
+</pre><p>You can rotate the text by specifying the orientation for the display. Let us specify orientation as 90 and display the text message.</p><pre class="language-matlab">displayMessage(mysensehat,<span class="string">'Hello World'</span>,<span class="string">'orientation'</span>,90);
+</pre><p>Now, let us try to display a numeric value on the LED matrix. Read the value of temperature and display it on the LED matrix.</p><pre class="language-matlab">displayMessage(mysensehat,readTemperature(mysensehat));
+</pre><p>To clear the LED matrix, execute the following on the MATLAB prompt.</p><pre class="language-matlab">clearLEDMatrix(mysensehat);
+</pre><h2 id="11">Summary</h2><p>This example introduced the workflow for using MATLAB Support Package for Raspberry Pi Sense HAT.</p><p class="footer">Copyright 2016 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Working with Raspberry Pi SenseHAT
+%
+% This example shows you how to read the sensor values, read the position of 
+% joystick and control the LED Matrix on Raspberry Pi(R) Sense HAT
+% using MATLAB(R) Support Package for Raspberry Pi Hardware.
+ 
+% Copyright 2016 The MathWorks, Inc.
+ 
+
+%% Introduction
+%
+% The Raspberry Pi Sense HAT is an add-on board that includes an 8X8 RGB
+% LED matrix, a five-position joystick and the following sensors:
+%%
+% * Humidity sensor
+% * Pressure sensor
+% * IMU sensor (Accelerometer, Gyroscope, and Magnetometer).
+%
+% In this example you will learn how to create a *|sensehat|* object to
+% connect to the Raspberry Pi Sense HAT, read sensor values, read the
+% position of the joystick and control the LED matrix.
+
+%% Prerequisites
+%
+% * We recommend completing
+% <docid:raspberrypiio_examples.example-raspi_gettingstarted Getting Started with MATLAB Support Package for Raspberry Pi Hardware> example
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+% * Raspberry Pi Sense HAT
+
+%% Connect Sense HAT
+%
+% Attach the Sense HAT to the Raspberry Pi expansion header. Make sure that
+% you power down your Raspberry Pi before attempting to attach the Sense
+% HAT.
+%
+% <<../sensehat_connection.png>>
+% 
+% 
+
+%% Create a Sense HAT object
+%
+% Create a Sense HAT object by executing the following on the MATLAB
+% prompt.
+%
+%   clear rpi
+%   clear mysensehat
+%   rpi = raspi;
+%   mysensehat = sensehat(rpi);
+%
+% |mysensehat| is a handle to a sensehat object. 
+% 
+% Let us read the temperature from Sense HAT.
+% 
+%   readTemperature(mysensehat)
+
+ 
+%% Reading Environmental Sensors
+% Sense HAT includes humidity and pressure sensors which measure the
+% temperature, the pressure and the humidity. Let's read the value of
+% humidity and pressure measured by these sensors.
+% 
+%   readHumidity(mysensehat)
+%   readPressure(mysensehat)
+% 
+% Temperature can be read from either the humidity sensor or the pressure
+% sensor. To read the temperature from the humidity sensor, execute the
+% following on the MATLAB prompt:
+% 
+%   readTemperature(mysensehat,'usehumiditysensor')
+% 
+% To read the temperature from the pressure sensor, execute the following on
+% the MATLAB prompt:
+% 
+%   readTemperature(mysensehat,'usepressuresensor')
+% 
+% By default, the temperature is read from the humidity sensor. Hence,
+% |readTemperature(mysensehat)| is same as |readTemperature(mysensehat,'HumiditySensor')|.  
+% 
+% 
+
+
+%% Read the IMU sensor.
+% Sense HAT has an IMU sensor which consists of an accelerometer, a
+% gyroscope and a magnetometer. The IMU sensor measures acceleration,
+% angular velocity and magnetic field along the X, Y and Z axis. To read
+% the acceleration, execute the following on the MATLAB prompt:
+% 
+%   readAcceleration(mysensehat)
+% 
+% |readAcceleration| returns a 1-by-3 vector of acceleration values
+% measured along the X, Y and Z axis.
+% 
+% To read the angular velocity, execute the following on the MATLAB prompt:
+% 
+%   readAngularVelocity(mysensehat)
+% 
+% |readAngularVelocity| returns a 1-by-3 vector of angular velocity values
+% measured along the X, Y, and Z axis.
+% 
+% To read the magnetic field, execute the following on the MATLAB prompt:
+% 
+%   readMagneticField(mysensehat)
+% 
+% |readMagneticField| returns a 1-by-3 vector of magnetic field values
+% measured along the X, Y, and Z axis.
+% 
+% <<../sensehat_axisinfo.png>>
+% 
+
+
+%% Read the state of the joystick
+% Sense HAT has a 5 position mini joystick. Let us read the position of the
+% joystick.
+% 
+%   readJoystick(mysensehat)
+% 
+% |readJoystick| returns the a value between 0 to 5 depending on the position of the joystick.
+% 
+% * 0 - Not pressed
+% * 1 - Centre
+% * 2 - Left
+% * 3 - Up
+% * 4 - Right
+% * 5 - Down
+% 
+% The numerical values representing joystick positions are ordered with
+% respect to the reference position of the Sense HAT. The HDMI port of the
+% Raspberry Pi board facing downwards is the reference position.
+% 
+% <<../sensehat_joystick.png>>
+% 
+% You can monitor a particular joystick position by executing the following on the
+% MATLAB prompt:
+% 
+%  readJoystick(mysensehat,'Up') 
+% 
+% |readJoystick(sensehatObj,position)| will return a logical one if the
+% joystick is in the specified position and zero otherwise.
+% 
+
+
+%% Use the LED matrix
+% Sense HAT has a matrix of 8x8 RGB LEDs. You can set the color of a
+% particular pixel, display an image or display a scrolling message on the
+% LED matrix.  Let us set the color of the pixel in the 3rd row, 6th column
+% to cyan.
+% 
+%   writePixel(mysensehat,[6 3],'cyan')
+% 
+% Observe that the pixel in the specified location is now cyan in color.
+% 
+% The rows and columns are numbered 1 to 8. Pixel at location [1 1] is at
+% the top left corner of the LED Matrix. The location is with respect to
+% the reference position of the Sense HAT. The HDMI port of the Raspberry
+% Pi board facing downwards is the reference position.
+% 
+% <<../sensehat_pixel.png>>
+% 
+% Color of a pixel can be specified by name. The supported colors
+% are:
+% 
+% * Red
+% * Blue
+% * Green
+% * Cyan
+% * Magenta
+% * Yellow
+% * White
+% 
+% You can also specify any other color by using a 1x3 array of R, G, B
+% values. For example, setting the pixel to [255 192 203], would set it to
+% pink. Now, let us display an image on the LED matrix.
+% 
+%   image = imread('senseHAT_demo.png'); 
+%   displayImage(mysensehat,image)
+% 
+% The image must be an NxMx3 array of uint8 values. You can change the
+% orientation of the displayed image by executing the following on the
+% MATLAB prompt:
+% 
+%   image = imread('sensehat_demo.png'); 
+%   displayImage(mysensehat,image,90)
+% 
+% The Orientation of the image can be set to 0, 90, 180 or 270 degrees.
+% These are defined with respect to the reference position of the Sense
+% HAT. The HDMI port of the Raspberry Pi board facing downwards is the
+% reference position.
+% 
+% <<../sensehat_orientation.png>>
+% 
+% LED Matrix can be used to display messages in the form of a scrolling
+% text. The text scrolls from left to right. You can change the orientation
+% of scroll by setting the 'Orientation' property of LEDMatrix. Let us
+% display 'Hello World' on the LED Matrix.
+% 
+%   displayMessage(mysensehat,'Hello World');
+% 
+% By default, the text scrolls with a scrolling speed of 0.1 second and the
+% color of the text is red. To increase the scrolling speed to 0.05 second,
+% execute the following on the MATLAB prompt:
+% 
+%   displayMessage(mysensehat,'Hello World','ScrollingSpeed',0.05);
+% 
+% In order to set the text color to yellow, execute the following on the
+% MATLAB prompt:
+% 
+%   displayMessage(mysensehat,'Hello World','textcolor','y');
+% 
+% Similarly, in order to set the background color to white, execute the
+% following on the MATLAB prompt:
+% 
+%   displayMessage(mysensehat,'Hello World','textColor','y','backgroundColor','w');
+%
+% You can rotate the text by specifying the orientation for the
+% display. Let us specify orientation as 90 and display the text message.
+%
+%   displayMessage(mysensehat,'Hello World','orientation',90);
+%
+% Now, let us try to display a numeric value on the LED matrix. Read the
+% value of temperature and display it on the LED matrix.
+% 
+%   displayMessage(mysensehat,readTemperature(mysensehat));
+% 
+% To clear the LED matrix, execute the following on the MATLAB prompt.
+% 
+%   clearLEDMatrix(mysensehat);
+%
+
+%% Summary
+% This example introduced the workflow for using MATLAB Support Package for
+% Raspberry Pi Sense HAT.
+ 
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

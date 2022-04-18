@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Import MAT-Files into MATLAB</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="View MAT-files on SD card"></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150939" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150939" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150939" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150939" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150939" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150939" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Import MAT-Files into MATLAB</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e7155" class="intrnllnk">Related Topics</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-topic">
+<section itemprop="content"><h2 class="title r2018b" itemprop="title content" id="mw_2d237d99-8037-477e-a628-11ce6e6f8f82">Import MAT-Files into <span class="trademark entity">MATLAB</span></h2><div class="topic_progress_container pull-left remove_margin_0"><div class="topic_progress_desc"><a href="sd-card-logging.html"><strong>Step 5 of 5 in Log Signals on an SD Card</strong></a></div><div class="topic_progress_indicator"><ul><li><a href="prerequisite.html"></a></li><li><a href="enable-mat-file-logging.html"></a></li><li><a href="configure-model-to-log-signals-on-sd-card.html"></a></li><li><a href="run-model-on-target-hardware.html"></a></li><li><a href="import-mat-files-into-matlab.html" class="active"></a></li></ul></div></div><div class="clearfix"></div><p>After logging is complete, you can open MAT-files in MATLAB<sup>&#x00AE;</sup>, and use them for further analysis. Since the data points are stored in
+            MAT files, you can directly open the files in MATLAB without converting them into any other format.</p>
+<div class="orderedlist"><ol style="list-style: decimal;"><li><p>In your target hardware, go to the location specified in <strong class="guimenuitem">Simulation</strong> &gt; <strong class="guimenuitem">Model Configuration Parameters</strong> &gt; <strong class="guimenuitem">Hardware Implementation</strong> &gt; <strong class="guimenuitem">Target hardware resources</strong> &gt; <strong class="guimenuitem">Build options </strong> &gt; <strong class="guimenuitem">Build directory</strong>. The default location where the MAT-files are saved is
+                            <code class="literal">/home/pi</code>.</p><p>The files are named as
+                            &lt;<code class="literal">modelname</code>&gt;<code class="literal">_</code>&lt;<code class="literal">runnumber</code>&gt;<code class="literal">_</code>&lt;<code class="literal">indexnumber</code>&gt;<code class="literal">.mat</code>.
+                        The name of your Simulink<sup>&#x00AE;</sup> model is
+                            <code class="literal">modelname</code>. <code class="literal">runnumber</code> is the number
+                        of times the model is run. <code class="literal">runnumber</code> starts with
+                            <code class="literal">1</code> and is incremented by one for every successive run.
+                            <code class="literal">indexnumber</code> is the MAT-file number in a run.
+                            <code class="literal">indexnumber</code> starts with <code class="literal">1</code> and is
+                        incremented by one for every new file that is created in the same
+                        run.</p><p>Suppose that the name of the model is <code class="literal">sdcard</code>. In the
+                        first run, Simulink creates
+                            <code class="literal">sdcard_1_1.mat</code> file and starts logging data in this
+                        file. After the logging in the first file is completed, Simulink creates
+                            <code class="literal">sdcard_1_2.mat</code> file and continues logging data in
+                        this file. Likewise, the logging continues in mutiple MAT-files until the
+                            <strong class="guilabel">Simulation stop time</strong> is elapsed. If the same model
+                        is run again, the new files are named as <code class="literal">sdcard_2_1.mat</code>,
+                            <code class="literal">sdcard_2_2.mat</code>, and so on.</p><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>Data loss occurs when:</p>
+<div class="itemizedlist"><ul><li><p>The total file size exceeds the available SD card storage
+                                        capacity.</p></li><li><p>The signal logging rate is faster than the SD card writing
+                                        speed.</p></li></ul></div><p>
+</p></div><div class="informalfigure"><div id="d120e7055" class="mediaobject"><p class="listimage"><img src="mat_files_on_sdcard.png" alt="" height="130" width="680"></img></p></div></div></li><li><p>Create a <strong class="guilabel">raspberrypi</strong> object. In the MATLAB command window, type this command.</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>r = raspberrypi(&lt;IPaddress&gt;,&lt;username&gt;,&lt;password&gt;)</pre></div></div></div><p>For example,</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>r=raspberrypi(<span style="color:#A020F0">'172.28.195.59'</span>,<span style="color:#A020F0">'pi'</span>,<span style="color:#A020F0">'raspberry'</span>)</pre></div></div></div><p>The parameters specified in this command must match the board parameters
+                        specified in <strong class="guimenuitem">Simulation</strong> &gt; <strong class="guimenuitem">Model Configuration Parameters</strong> &gt; <strong class="guimenuitem">Hardware Implementation</strong> &gt; <strong class="guimenuitem">Hardware board settings</strong> &gt; <strong class="guimenuitem">Target hardware resources</strong> &gt; <strong class="guimenuitem">Board Parameters</strong>.</p></li><li><p>To copy a MAT-file from the target hardware to the computer, use the
+                            <code class="literal">getFile</code> command.</p><div class="code_responsive"><pre class="programlisting">getFile(r,&lt;modelname&gt;.mat)</pre></div><p>For example,</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>getFile(r,<span style="color:#A020F0">'/home/pi/SDcard/sdcard0.mat'</span>)</pre></div></div></div><p>Here, <code class="literal">r</code> specifies the <strong class="guilabel">raspberrypi</strong>
+                        object and <code class="literal">modelname</code> specifies the path and name of the
+                        file on the target hardware.</p><p>To copy all the MAT-files from the target hardware to the computer specify
+                            <code class="literal">*</code> in the <code class="literal">getFile</code> command.</p><div class="code_responsive"><pre class="programlisting">getFile(r,&lt;modelname&gt;*.mat)</pre></div><p>For example,</p><div class="code_responsive"><div class="programlisting"><div class="codeinput"><pre>getFile(r,<span style="color:#A020F0">'/home/pi/SDcard/sdcard*.mat'</span>)</pre></div></div></div><p>Here, <code class="literal">*</code> copies all the files having names that start
+                        with <code class="literal">&lt;modelname&gt;</code> and ends with
+                        <code class="literal">.mat</code>.</p><div class="informalfigure"><div id="d120e7138" class="mediaobject"><p class="listimage"><img src="mat_files_in_matlab.png" alt="" height="414" width="898"></img></p></div></div><p>After copying the files to the computer, you can use them like
+                        conventional MAT-files. For example, you can load and plot data points using
+                        the <code class="literal">load</code> and <code class="literal">plot</code> commands in the
+                            MATLAB command window.</p></li></ol></div><p>
+</p>
+            <h2 id="d120e7155">Related Topics</h2><ul><li><a href="../ref/mat-file-logging-on-raspberry-pi-hardware.html" class="a">MAT-file logging on Raspberry Pi&#8482; Hardware</a></li><li><a href="../ref/counting-steps-using-raspberry-pi-sensehat.html" class="a">Counting Steps using Raspberry Pi Sense HAT</a></li></ul>
+        </section>
+    </div><div class="topic_progress_container"><div class="topic_progress_desc"><a href="sd-card-logging.html"><strong>Log Signals on an SD Card</strong></a></div><div class="topic_progress_indicator"><ul><li><a href="prerequisite.html"></a></li><li><a href="enable-mat-file-logging.html"></a></li><li><a href="configure-model-to-log-signals-on-sd-card.html"></a></li><li><a href="run-model-on-target-hardware.html"></a></li><li><a href="import-mat-files-into-matlab.html" class="active"></a></li></ul></div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:39:54 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

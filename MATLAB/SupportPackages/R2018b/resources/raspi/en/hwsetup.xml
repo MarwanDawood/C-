@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="raspi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="RaspberryPi3ModelBPlus">Raspberry Pi 3 Model B+</entry>
+        <entry key="RaspberryPi3ModelB">Raspberry Pi 3 Model B</entry>
+        <entry key="RaspberryPi2ModelB">Raspberry Pi 2 Model B</entry>
+        <entry key="RaspberryPiModelB">Raspberry Pi Model B</entry>
+        <entry key="RaspberryPiModelBPlus">Raspberry Pi Model B+</entry>
+        <entry key="RaspberryPiZeroW">Raspberry Pi Zero W</entry>
+        <entry key="SelectBoardTitle">Select a Hardware Board</entry>
+        <entry key="SelectBoardLabel">Hardware Board:</entry>
+        <entry key="SelectBoardDescription">Select a hardware board to set-up</entry>
+        <entry key="SelectBoardWhatToConsider">The hardware setup configures the hardware to run a custom image of Raspbian Linux operating system on the hardware. The custom image is composed of all the required software packages for the OS to be compatible with MATLAB and Simulink</entry>
+        <entry key="RaspberryPiBInfo">Raspberry Pi B has Broadcom BCM2835 chip and an ARMv6 single core processor. It uses SD card storage with 26 GPIO pins and 2 USB ports.</entry>
+        <entry key="RaspberryPiZeroWInfo">Raspberry Pi Zero W has Broadcom BCM2835 chip and an ARMv6 single core processor. It uses MicroSD card storage with 40 GPIO pins and 2 micro USB ports.</entry>
+        <entry key="RaspberryPiBPlusInfo">Raspberry Pi B+ has a Broadcom BCM2835 chip and an ARMv6 single core processor. It uses MicroSD card storage with 40 GPIO pins and 4 USB ports.</entry>
+        <entry key="RaspberryPiTwoBInfo">Raspberry Pi 2.0 B has a Broadcom BCM2836 chip and an ARMv7 quad core processor. It uses MicroSD card storage with 40 GPIO pins and 4 USB ports.</entry>
+        <entry key="RaspberryPiThreeBInfo">Raspberry Pi 3.0 B has a Broadcom BCM2837 chip and an ARM Cortex A-53 quad core processor. It uses MicroSD card storage with 40 GPIO pins and 4 USB ports.</entry>
+        <entry key="RaspberryPiThreeBPlusInfo">Raspberry Pi 3.0 B+ has a Broadcom BCM2837 chip and an ARM Cortex A-53 quad core processor. It uses MicroSD card storage with 40 GPIO pins and 4 USB ports.</entry>
+        <entry key="SelectNetwork">Select Network Configuration</entry>
+        <entry key="SelectNetworkLAN">Local area or home network</entry>
+        <entry key="SelectNetworkDirectConnection">Direct connection to host computer</entry>
+        <entry key="SelectNetworkManual">Manually enter network settings</entry>
+        <entry key="SelectNetworkLANWhatToConsider">Make sure that the Raspberry Pi is connected to your host computer using a local area network (LAN) or home network similar to the ones that the installer displays, as shown in the images. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkLANAboutSelection">This option in Select Network Configuration applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="SelectNetworkDirectWhatToConsider">Make sure that the Raspberry Pi is connected to your host computer using a direct connection similar to the one that the installer displays, as shown in the image. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkDirectAboutSelection">This option in Select Network Configuration applies static network settings based upon the network settings of the host computer.</entry>
+        <entry key="SelectNetworkManualWhatToConsider">To manually configure the network settings, select this option and connect Raspberry Pi to your host computer over the network. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectNetworkManualAboutSelection">This option in Select Network Configuration allows you to manually enter network settings.</entry>
+        <entry key="SelectConnectWirelessWhatToConsider">Make sure that the Raspberry Pi is in the vicinity of the wireless access point you want to connect. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectConnectWirelessAboutSelection">This option in Select Network Configuration allows you to connect to a wireless network.</entry>
+        <entry key="SelectConnectUSBGadgetWhatToConsider">USB Gadget what to consider. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="SelectConnectUSBGadgetAboutSelection">USB Gadget about selection.</entry>
+        <entry key="SelectNetworkTitle">Network Settings</entry>
+        <entry key="SelectNetworkDescription">Choose your network configuration:</entry>
+        <entry key="SelectNetworkSelectionRadioGroupTitle">Select Network configuration</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem1">Connect to LAN or home network</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem2">Connect to wireless network</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem3">Connect directly to host computer</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem4">Manually enter network settings</entry>
+        <entry key="SelectNetworkSelectionRadioGroupItem5">Connect via USB Gadget</entry>
+        <entry key="ManualNetConfigTitle">Configure Network</entry>
+        <entry key="ManualNetConfigHostNameLabel">Host name:</entry>
+        <entry key="ManualNetConfigIPAddressLabel">IP address:</entry>
+        <entry key="ManualNetConfigNetworkMaskLabel">Network mask:</entry>
+        <entry key="ManualNetConfigDefaultGatewayLabel">Default gateway:</entry>
+        <entry key="ManualNetConfigIPAssignmentRGTitle">IP Assignment</entry>
+        <entry key="ManualNetConfigAutomaticIP">Automatically get IP address</entry>
+        <entry key="ManualNetConfigManualIP">Manually enter IP address</entry>
+        <entry key="ManualNetConfigHostNameWhatToConsider">If multiple Raspberry Pi boards are connected to same network, manually edit the host name to make it unique.</entry>
+        <entry key="ManualNetConfigAutomaticIPAboutSelection">The HostName parameter displays the host name that is assigned to the Raspberry Pi.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;The selected IP assignment applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="ManualNetConfigManualIPAboutSelection">The HostName parameter displays the host name that is assigned to the Raspberry Pi.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;Manual IP assignment allows to edit the IP address, Network mask, and Default gateway settings. Also see &lt;a href="http://www.mathworks.com/help/supportpkg/raspberrypiio/ug/guidelines-for-entering-static-ip-settings.html&quot;&gt;Guidelines for Entering Static IP Settings.&lt;/a&gt;</entry>
+        <entry key="ManualNetConfigWhatToConsider">The set up process for Raspberry Pi board consists of copying a supported Raspbian Linux firmware image onto a memory card and booting the Raspberry Pi with this memory card.&lt;br&gt; Checklist &lt;/br&gt; &lt;ul class="bullets"&gt;&lt;li&gt; Raspberry Pi &lt;/li&gt; &lt;li&gt; SD Card (4GB or larger) &lt;/li&gt; &lt;li&gt; 5V micro USB power supply&lt;/li&gt; &lt;li&gt; Ethernet Cable &lt;/li&gt;&lt;/ul&gt;</entry>
+        <entry key="ConfigureWirelessSkip">Skip this step</entry>
+        <entry key="ConfigureWirelessScan">Yes, Connect to a wireless network</entry>
+        <entry key="ConfigureWirelessSkip_AboutSelection">This will skip the wireless configuration step. You can access the Raspberry Pi over USB using the IP address 192.168.9.2</entry>
+        <entry key="ConfigureWirelessSkip_WhatToConsider">Raspberry Pi is directly connected to the host computer via USB/Ethernet Gadget.</entry>
+        <entry key="ConfigureWireless_AboutSelection">This will allow you to connect Raspberry Pi to a wireless network.</entry>
+        <entry key="ConfigureWireless_WhatToConsider">Ensure that Raspberry Pi is in the vicinity of the wireless network before clicking the &lt;b&gt;Scan&lt;/b&gt; button.</entry>
+        <entry key="WirelessConfigTitle">Wireless Configuration</entry>
+        <entry key="WirelessConfigSSIDLabel">SSID:</entry>
+        <entry key="WirelessConfigSSIDEditText">Enter SSID</entry>
+        <entry key="WirelessConfigSecurityLabel">Security:</entry>
+        <entry key="WirelessSecurityDropDown1">WPA/WPA2 Personal</entry>
+        <entry key="WirelessSecurityDropDown2">WPA/WPA2 Enterprise</entry>
+        <entry key="WirelessSecurityDropDown3">WEP 128-bit Passphrase</entry>
+        <entry key="WirelessSecurityDropDown4">None</entry>
+        <entry key="WiFiAutomaticIPAboutSelection">Set the security options for the selected wireless network.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;The selected IP assignment applies dynamic network settings provided by a DHCP service on the network.</entry>
+        <entry key="WiFiManualIPAboutSelection">Set the security options for the selected wireless network.&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;Manual IP assignment allows to edit the IP address, Network mask, and Default gateway settings. Also see &lt;a href="http://www.mathworks.com/help/supportpkg/raspberrypiio/ug/guidelines-for-entering-static-ip-settings.html&quot;&gt;Guidelines for Entering Static IP Settings.&lt;/a&gt;</entry>     
+        <entry key="WirelessConfigWhatToConsider">Ensure that you have selected the correct security option for the wireless network to be connected.</entry>
+        <entry key="ScanAndConnectTitle">Scan &amp; Connect to wireless network</entry>
+		<entry key="ScanAndConnectRadioGrp">Do you want to connect to a wireless network?</entry>
+		<entry key="ScanAndConnectError">Error in scanning</entry>
+		<entry key="ScanAndConnectButton">Scan</entry>
+        <entry key="ConnectHardwareTitle">Connect Hardware</entry>
+        <entry key="ConnectHardwareDescription">Connect the Raspberry Pi using the following instructions:</entry>
+        <entry key="ConnectHardware_Instruction1">1. Remove the memory card from the host computer and insert into the Raspberry Pi.</entry>
+        <entry key="ConnectHardware_Instruction1_MAC">1. Unmount and remove the memory card from the host computer and insert into the Raspberry Pi.</entry>
+        <entry key="ConnectHardware_Instruction2_LAN">2. Connect an Ethernet cable to the Raspberry Pi. Connect the other end of the Ethernet cable to your LAN or HOME network.</entry>
+        <entry key="ConnectHardware_Instruction2_Direct">2. Connect an Ethernet cable to the Raspberry Pi Connect the other end of the Ethernet cable directly to the host computer.</entry>
+        <entry key="ConnectHardware_Instruction2_Manual">2. Connect an Ethernet cable to the Raspberry Pi Connect the other end of the Ethernet cable to your network.</entry>
+        <entry key="ConnectHardware_Instruction2_Wireless">2. Make sure Raspberry Pi is in the vicinity of the wireless router.</entry>
+        <entry key="ConnectHardware_Instruction2_Wireless2">2. Connect the USB WiFi dongle and make sure Raspberry Pi is in the vicinity of the wireless router.</entry>
+        <entry key="ConnectHardware_Instruction3">3. Connect a 5V micro USB power supply to the Raspberry Pi. The power supply should be rated for at least 700 mA.</entry>
+        <entry key="ConnectHardware_Instruction2PiZeroW">2. Connect Raspberry Pi to your host computer via micro USB cable. Please make sure that you have connected to the data USB port as shown below.</entry>
+        <entry key="ConnectHardware_WhatToConsider">Make sure that the 'PWR' LED is solid red and the {0} LED indicating SD card activity, starts blinking. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="ConnectHardware_WhatToConsiderPiZeroW">Make sure that the green 'ACT' LED indicating SD card activity starts blinking. Then, click &lt;b&gt;Next&lt;/b&gt;.</entry>
+        <entry key="ConnectHardware_AdditionalInfo">You may connect optional peripherals such as a monitor, keyboard, etc. at this time.</entry>
+        <entry key="ConnectHardwareFindBoard">Detecting Raspberry Pi</entry>
+        <entry key="ConnectHardwareBoardDetected">Detected Raspberry Pi at {0}</entry>
+        <entry key="ConnectHardwareTerminated">Detecting Raspberry Pi terminated, please check the connection and try again.</entry>
+        <entry key="CouldNotDetectRpi">Could not detect the Raspberry Pi in allotted time. Try using 'Test Connection' option in the next screen.</entry>
+        <entry key="WriteFirmwareTitle">Write Firmware</entry>
+        <entry key="WriteFirmwareDrive">drive</entry>
+        <entry key="WriteFirmwareVolume">volume</entry>
+        <entry key="WriteFirmwareDescription">To write firmware to the SD card {0}, click 'Write'.</entry>
+        <entry key="WriteFirmwareStatusWriting">Writing to SD card...</entry>
+        <entry key="WriteFirmwareStatusCompleted">Completed writing to SD card.</entry>
+        <entry key="WriteFirmwareButtonText">Write</entry>
+        <entry key="WriteFirmwareWhatToConsider">The write operation may take several minutes.&lt;br&gt;&lt;br&gt;&lt;/br&gt;&lt;/br&gt;After first successful 'write firmware to SD card' operation, any changes made to the Network Settings do not effect the firmware already written on the SD card. So, the need for writing the firmware again is not required.</entry>
+        <entry key="WriteFirmwareWhatToConsiderAfterWrite">Write Firmware successful. Click &lt;b&gt;Next&lt;/b&gt; to continue.&lt;br&gt;&lt;br&gt;&lt;/br&gt;&lt;/br&gt;Writing firmware to SD card can be skipped, if at least once the write operation was successful. After successful write, even if changes are made in Network Settings screen, writing firmware again can be skipped.</entry>
+        <entry key="WriteFirmware_Note1">If changes are made to the network configuration in the future, writing firmware to SD card can be skipped.</entry>
+        <entry key="WriteFirmware_Note2">&lt;b&gt;Do not take out inserted SD Card&lt;/b&gt;, after successful writing of firmware. Additional configuration files are written to SD card in the next step, click &lt;b&gt;Next.&lt;/b&gt;</entry>
+        <entry key="WriteFirmwareError">Error writing the firmware to the SD card: {0}</entry>
+        <entry key="WriteFirmwareScriptError">Error creating SD card writer script</entry>
+        <entry key="WriteFirmware_Warning">WARNING:</entry>
+        <entry key="WriteFirmware_WarningText">All data in the memory card will be erased during firmware write!</entry>
+        <entry key="ErrorWritingFirmware">Error writing firmware to the memory card: {0}</entry>
+        <entry key="Error_ddmsg">Unable to write the firmware to the SD card. Make sure the SD card is not in use. Try reinserting and unmounting the SD card. Repeat the Write Firmware process. If the error still persists then format the SD card and reinsert.</entry>
+        <entry key="RemovableDriveQuery">Error while querying removable drives: {0}</entry>
+        <entry key="RemovableDriveDetectionFailed">Not able to detect any SD card with FAT-32 partition. Insert an SD card (>= 4GB) with at least one FAT-32 partition on the host computer.</entry>
+        <entry key="RaspberryPiDriveLinux_NoCardInserted">Not able to detect any SD card with FAT-32 partition. Insert an SD card (>= 4GB) with at least one FAT-32 partition on the host computer.\nRestart the set-up process.</entry>
+        <entry key="KeepMemoryCardInserted_ToWriteFW">Not able to detect the memory card.\nKeep the memory card inserted to write firmware.</entry>
+        <entry key="KeepMemoryCardInserted">Not able to detect the memory card.\nKeep the memory card inserted to write additional configuration files.</entry>
+        <entry key="SelectDriveTitle">Select a Drive</entry>
+        <entry key="SelectDriveLabel">Drive:</entry>
+        <entry key="SelectDriveDescription">Insert a 4 GB or larger {0} memory card into a memory card reader on the host computer.\n\nSelect the drive that corresponds to the memory card reader:</entry>
+        <entry key="SelectVolumeTitle">Select a Volume</entry>
+        <entry key="SelectVolumeLabel">Volume:</entry>
+        <entry key="SelectVolumeDescription">Insert a 4 GB or larger {0} memory card into a memory card reader on the host computer.\n\nSelect the Volume that corresponds to the memory card reader:</entry>
+        <entry key="SelectDriveWhatToConsider">If you do not find the memory card reader in the list of drives, reinsert the memory card fully. Then, click &lt;b&gt;Refresh&lt;/b&gt;.</entry>
+        <entry key="SelectDriveAdditional">Navigating to next screen is allowed only when inserted SD card's file system is selected.</entry>
+        <entry key="WMIErrorMessage">Cannot retrieve removable drives: {0}</entry>
+        <entry key="InvalidArgument">{0} must be a character array.</entry>
+        <entry key="InvalidHostName">Invalid host name. Host name must be composed of ASCII letters ('a-z', 'A-Z'), the digits ('0-9'),\nand the hyphen ('-') and must be between 1 and 63 characters long.</entry>
+        <entry key="InvalidSSID">Invalid SSID.</entry>
+        <entry key="InvalidIpAddress">{0} is not a valid IP address.</entry>
+        <entry key="HWSetupError">HW Set-up Validation Error</entry>         
+        <entry key="ConfirmConfiguration_Title">Confirm Hardware Configuration</entry>
+        <entry key="ConfirmConfiguration_Label1ZeroW">USB IP address</entry>
+        <entry key="ConfirmConfiguration_Label2ZeroW">WLAN IP address</entry>
+        <entry key="ConfirmConfiguration_Label1">IP address</entry>
+        <entry key="ConfirmConfiguration_Label2">Host name</entry>
+        <entry key="ConfirmConfiguration_Label3">User name</entry>
+        <entry key="ConfirmConfiguration_Label4">Password</entry>
+        <entry key="ConfirmConfiguration_TestConnection">Test Connection</entry>
+        <entry key="ConfirmConfiguration_StatusTitle">Test Hardware Connection Status</entry>
+        <entry key="ConfirmConfiguration_StatusItem1">Connect via SSH, pinging {0} of 3</entry>
+        <entry key="ConfirmConfiguration_StatusItem2">Discovering Raspberry Pi...</entry>
+        <entry key="ConfirmConfiguration_WhatToConsider">If you want to login to the Raspberry Pi in the future, the host name, IP address, user name, and password are displayed in the screen.&lt;br&gt;Click &lt;b&gt;Test Connection&lt;/b&gt; to verify the SSH connection to the Raspberry Pi.</entry>
+        <entry key="ConfirmConfiguration_WhatToConsiderPiZeroW">USB interface ip address, 192.168.9.2 will be used to verify the connection.</entry>
+        <entry key="Note">&lt;h1&gt;Note&lt;/h1&gt;</entry>
+        <entry key="ConfirmConfiguration_Note1">1. Your Raspberry Pi will speak its IP address through the analog audio connector when it boots.</entry>
+        <entry key="ConfirmConfiguration_Note2">2. You can configure your Raspberry Pi to automatically send an e-mail when IP address changes.</entry>
+        <entry key="TestConnectionFailed">Test Hardware Connection Failed</entry>
+        <entry key="TestConnectionSuccessful">Test Hardware Connection successful</entry>
+        <entry key="ConfirmConfiguration_TestPass">If the Test Connection succeeds, click &lt;b&gt;Next&lt;/b&gt; to finish the set-up process. </entry>
+        <entry key="ConfirmConfiguration_TestFail1">If the Test Connection FAILS, click &lt;b&gt;Back&lt;/b&gt; and follow the instructions again or try switching to another Network Setting.</entry>
+        <entry key="ConfirmConfiguration_TestFail2">If the &lt;font color ="red"&gt;Test Connection FAILS&lt;/font&gt;, click &lt;b&gt;Back&lt;/b&gt; and follow the instructions again or try switching to another Network Setting.</entry>
+        <entry key="TestingConnectionTerminated">Test connection terminated, please try again.</entry>
+        <entry key="SetupCompleteDescription">The hardware set-up process for Raspberry Pi is complete.</entry>
+        <entry key="HWSetupValidationErrorTag">Msgbox_HW Set-up Validation Error</entry>
+        <entry key="SelectLinuxImageTitle">Select Linux Operating System</entry>
+        <entry key="SelectLinuxImageDesc">MATLAB and Simulink support package for Raspberry Pi require a customized version of Raspbian Linux Operating System (OS) running on the hardware.</entry>
+        <entry key="SelectLinuxImageRadioTitle">I want to:</entry>
+        <entry key="SelectLinuxImageSel_1">Setup hardware with MathWorks Raspbian image</entry>
+        <entry key="SelectLinuxImageSel_2">Customize the existing operating system running on my hardware</entry>
+        <entry key="SelectLinuxImageAbtSel_1">The option uses the Raspbian image provided by MathWorks to setup the hardware. MathWorks Raspbian Linux image is composed of default Raspbian Stretch Lite image with all the required libraries and packages for the image to be compatible with MATLAB and Simulink</entry>
+        <entry key="SelectLinuxImageAbtSel_2">The option validates and installs all the missing Linux packages and libraries required to make the Raspbian OS compatible with MATLAB and Simulink.</entry> 
+        <entry key="CustomSetupWhatToConsider_1">To setup the hardware, the hardware setup app copies a supported Raspbian Linux firmware image to a memory card, and then boots the hardware with this memory card..&lt;br&gt;&lt;br&gt;&lt;b&gt; Checklist:&lt;/b&gt; &lt;ul class="bullets"&gt;&lt;li&gt; Raspberry Pi Board &lt;/li&gt; &lt;li&gt; SD Card (4GB or larger) &lt;/li&gt; &lt;li&gt; 5V micro USB power supply&lt;/li&gt; &lt;li&gt; Ethernet cable or Wireless access point &lt;/li&gt;&lt;/ul&gt;</entry>
+        <entry key="CustomSetupWhatToConsider_1_ZeroW">To setup the hardware, the hardware setup app copies a supported Raspbian Linux firmware image to a memory card, and then boots the hardware with this memory card..&lt;br&gt;&lt;br&gt;&lt;b&gt; Checklist:&lt;/b&gt; &lt;ul class="bullets"&gt;&lt;li&gt; Raspberry Pi Board &lt;/li&gt; &lt;li&gt; SD Card (4GB or larger) &lt;/li&gt; &lt;li&gt; 5V micro USB power supply&lt;/li&gt;&lt;/ul&gt;</entry>
+        <entry key="CustomSetupWhatToConsider_2">To update the operating system, installation of new software packages and libraries is required. Ensure that the hardware has internet acces&lt;b&gt;&lt;br&gt; We recommend you take a backup of the operating system running on your hardware before proceeding with the customization.&lt;/br&gt;&lt;/b&gt;</entry>
+        <entry key="ConnectForCustomiztionTitle">Enter Login Credentials</entry>
+        <entry key="ConnectForCustomiztionWhatToConsider">Before connecting to the hardware, ensure that the hardware:&lt;ul class="bullets"&gt;&lt;li&gt; Is powered ON&lt;/li&gt;&lt;li&gt;Is running a valid Raspbian operating system image and is bootable&lt;/li&gt; &lt;li&gt;Can be connected using a Secure Shell (SSH) terminal. &lt;/li&gt;&lt;li&gt;Has Internet access&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt; If the &lt;b&gt;Test connection&lt;/b&gt; succeeds click&lt;b&gt; Next&lt;/b&gt; to proceed, else verify the login credentials and re-test.&lt;/br&gt;&lt;/br&gt;</entry>
+        <entry key="ConnectForCustomiztionDesc">The Operating System (OS) customization process requires a network connection to the hardware.\nSpecify the login details of the hardware.</entry>
+        <entry key="ConnectForCustomiztionHostName">Device address:</entry>
+        <entry key="ConnectForCustomiztionUsrName">Device username:</entry>
+        <entry key="ConnectForCustomiztionPsswd">Device password:</entry>
+        <entry key="ConnectForCustomiztionButtonTitle">Test connection</entry>        
+        <entry key="ConnectForCustomiztionPingStatus">Ping hardware test status</entry>        
+        <entry key="ConnectForCustomiztionSSHStatus">SSH connection test status</entry>
+        <entry key="ConnectForCustomiztionSudoStatus">Sudo user privilege verification status</entry>
+        <entry key="ConnectForCustomiztionInternetStatus">Internet access verification status</entry>
+        <entry key="ConnectForCustomiztionPing">Pinging hardware at {0} ...</entry>        
+        <entry key="ConnectForCustomiztionSSH">Establishing SSH connection with hardware at {0} ...</entry>
+        <entry key="ConnectForCustomiztionSudo">Verifying Sudo user privilege ...</entry>
+        <entry key="ConnectForCustomiztionInternet">Verifying Internet access ...</entry>
+        <entry key="ConnectForCustomiztionPingPass">Pinging hardware successful</entry>
+        <entry key="ConnectForCustomiztionSSHPass">Establishing SSH connection successful</entry> 
+        <entry key="ConnectForCustomiztionSudoPass">Verifying sudo user privilege successful</entry> 
+        <entry key="ConnectForCustomiztionInternetPass">Verifying Internet access successful</entry>
+        <entry key="ConnectForCustomiztionPingFail">Pinging hardware failed</entry>
+        <entry key="ConnectForCustomiztionSSHFail">Establishing SSH connection with hardware failed</entry> 
+        <entry key="ConnectForCustomiztionSudoFail">Verifying Sudo user privilege failed</entry> 
+        <entry key="ConnectForCustomiztionInternetFail">Verifying Internet access failed</entry>
+        <entry key="ConnectForCustomiztionPingFailDesc">Before connecting to the hardware, ensure that the hardware:&lt;ul class="bullets"&gt;&lt;li&gt; Is powered ON&lt;/li&gt;&lt;li&gt;Is running a valid Raspbian operating system image and is bootable&lt;/li&gt; &lt;li&gt;Can be connected using a Secure Shell (SSH) terminal.&lt;/li&gt;&lt;li&gt;Has Internet access&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt;If the&lt;b&gt; Test connection&lt;/b&gt; FAILS with the &lt;font color ="red"&gt;Pinging hardware failed&lt;/font&gt; message,verify the&lt;b&gt; Device address &lt;/b&gt;and re-test.</entry>
+        <entry key="ConnectForCustomiztionSSHFailDesc">Before connecting to the hardware, ensure that the hardware:&lt;ul class="bullets"&gt;&lt;li&gt; Is powered ON&lt;/li&gt;&lt;li&gt;Is running a valid Raspbian operating system image and is bootable&lt;/li&gt; &lt;li&gt;Can be connected using a Secure Shell (SSH) terminal.&lt;/li&gt;&lt;li&gt;Has Internet access&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt;If the&lt;b&gt; Test connection&lt;/b&gt; FAILS with the &lt;font color ="red"&gt;Establishing SSH connection with hardware failed&lt;/font&gt; message, verify login credentials and ensure that SSH is enabled on the hardware, else click &lt;b&gt;Next&lt;/b&gt; to proceed.</entry> 
+        <entry key="ConnectForCustomiztionSudoFailDesc">Before connecting to the hardware, ensure that the hardware:&lt;ul class="bullets"&gt;&lt;li&gt; Is powered ON&lt;/li&gt;&lt;li&gt;Is running a valid Raspbian operating system image and is bootable&lt;/li&gt; &lt;li&gt;Can be connected using a Secure Shell (SSH) terminal.&lt;/li&gt;&lt;li&gt;Has Internet access&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt;If the&lt;b&gt; Test connection&lt;/b&gt; FAILS with the &lt;font color ="red"&gt;Verifying Sudo user privilege failed&lt;/font&gt; message,verify that the username provided has sudoer access and password less sudo is enabled and re-test. For more information on enabling sudo privilege click here</entry>
+        <entry key="ConnectForCustomiztionInternetFailDesc">Before connecting to the hardware, ensure that the hardware:&lt;ul class="bullets"&gt;&lt;li&gt; Is powered ON&lt;/li&gt;&lt;li&gt;Is running a valid Raspbian operating system image and is bootable&lt;/li&gt; &lt;li&gt;Can be connected using a Secure Shell (SSH) terminal.&lt;/li&gt;&lt;li&gt;Has Internet access&lt;/li&gt;&lt;/ul&gt; &lt;br&gt;&lt;br&gt;If the&lt;b&gt; Test connection&lt;/b&gt; FAILS with the &lt;font color ="red"&gt;Verifying Internet access failed&lt;/font&gt; message,verify that the hardware has Internet access and re-test.</entry>
+        <entry key="DisplayPackageListTitle">Review Required Packages and Libraries</entry>
+        <entry key="DisplayPackageListDesc">The listed software packages and libraries will be validated and installed on your hardware.</entry>
+        <entry key="DisplayPackageListConsider">Installation of software packages and libraries on the Raspberry Pi OS requires Internet access. Ensure that the hardware has internet access.</entry> 
+        <entry key="ConfigurePeripheralsTitle">Configure Peripheral Modules</entry>
+        <entry key="ConfigurePeripheralsDesc">Sensors and Actuators can be interfaced to various peripherals available on Raspberry Pi.\nSet the state of each peripheral module</entry>
+        <entry key="ConfigurePeripheralsConsider">The current state of the peripheral modules on Raspberry Pi are being displayed. Enable or Disable the required peripheral modules and click &lt;b&gt;Next.&lt;/b&gt; The changes made will take effect after the Raspberry Pi reboots.</entry>
+        <entry key="EnableSPI">SPI module</entry>
+        <entry key="Enablei2c">I2C module</entry>
+        <entry key="EnableUART">Serial(UART) module</entry>
+        <entry key="EnableCamera">Camera module</entry>
+        <entry key="InstallPkgsTitle">Install Packages and Libraries</entry>
+        <entry key="InstallPkgsDesc">Install the required packages and libraries on the Raspbian Operating System (OS) running on the hardware.</entry>
+        <entry key="InstallPkgsDesc_Pkgs">Installing packages ...</entry>
+        <entry key="InstallPkgsDesc_Libs">Installing libraries ...</entry>
+        <entry key="InstallPkgsDesc_setup">Setting up hardware ...</entry>
+        <entry key="InstallPkgsDesc_pass">Installation Successful</entry>
+        <entry key="InstallPkgsDesc_fail">Installation Failed</entry>
+        <entry key="InstallPkgsConsider">This task will modify the OS by installing new software packages and libraries that are missing.&lt;br&gt;&lt;b&gt;We recommend that you perform a backup of the operating system running on your hardware before proceeding with the installation.&lt;/b&gt;&lt;/br&gt;.</entry>
+        <entry key="InstallPkgsWriteButton_Install">Install</entry>
+        <entry key="InstallPkgsWriteButton_Success">Success</entry>
+        <entry key="InstallPkgsWriteButton_Retry">Retry</entry>
+        <entry key="InstallPkgsConnectError">Unable to connect hardware</entry>
+        <entry key="RebootRaspiTitle">Reboot Raspberry Pi</entry>
+        <entry key="RebootRaspiDesc">The changes applied during the customization process of the operating system require a reboot of Raspberry Pi to take effect.</entry>
+        <entry key="RebootRaspiChkBoxTitle">I want to</entry>
+        <entry key="RebootRaspiNow">Reboot Now</entry>
+        <entry key="RebootRaspiLater">Reboot Later</entry>
+        <entry key="RebootRaspiAbtSel_1">This option will initiate a reboot of the Raspberry Pi. Click &lt;b&gt;Next&lt;/b&gt; to reboot Raspberry Pi and complete the Hardware Setup.</entry>
+        <entry key="RebootRaspiAbtSel_2">Click &lt;b&gt;Next&lt;/b&gt; to complete Hardware Setup.&lt;br&gt;&lt;b&gt;Remember to reboot Raspberry Pi before using it with MATLAB and Simulink.&lt;/b&gt;&lt;/br&gt;</entry>
+    </message>
+</rsccat>
+<!-- Copyright 2016-2017 The MathWorks, Inc.
+-->
+
+<!-- LocalWords:  Raspberrypi raspberrypi
+     LocalWords:  
+-->

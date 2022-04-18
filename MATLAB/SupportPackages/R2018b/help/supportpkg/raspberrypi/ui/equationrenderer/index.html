@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Equation Renderer</title>
+    <!-- This loads the renderer: -->
+    <!-- add as many ../ you need to reach the matlab/ folder -->
+    <script type="text/javascript" src="../../ui/equationrenderer/release/MathRenderer.js"></script>
+ </head>
+ <body class="tundra">
+   <div>A rendered equation:
+     <!-- Some arbitrary math element with MaThML encoding, which is picked up
+          by the renderer and replaced by the rendered equation. 
+          A fallback image is provided for older browsers.-->
+  <math altimg="pngs/fallback.png" altimg-valign="-3px" altimg-height='16' altimg-width='17' alttext='some text' display='block' xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mfrac><mrow><mi>d</mi><msub><mi>F</mi><mi>i</mi></msub><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo></mrow><mrow><msub><mi>F</mi><mi>i</mi></msub></mrow></mfrac><mo>=</mo><mo>&#x2212;</mo><msub><mi>&#x03BC;</mi><mi>i</mi></msub><mi>d</mi><mi>t</mi><mo>+</mo><msub><mi>&#x03C3;</mi><mi>i</mi></msub><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mi>d</mi><msub><mi>W</mi><mi>i</mi></msub></mrow></math></div>
+ </body>
+ </html>

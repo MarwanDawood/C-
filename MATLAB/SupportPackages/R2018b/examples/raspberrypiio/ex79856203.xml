@@ -1,0 +1,12 @@
+<example>
+  <main>WorkingWithRaspberryPiSenseHATExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <file timestamp="1524848889" component="raspberrypiio">sensehat_axisinfo.png</file>
+  <file timestamp="1524848889" component="raspberrypiio">sensehat_connection.png</file>
+  <file timestamp="1524848889" component="raspberrypiio">sensehat_joystick.png</file>
+  <file timestamp="1524848889" component="raspberrypiio">sensehat_pixel.png</file>
+  <file timestamp="1524848889" component="raspberrypiio">sensehat_orientation.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

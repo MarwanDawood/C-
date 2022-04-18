@@ -1,0 +1,265 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Getting Started with Simulink Support Package for Raspberry Pi Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-08"><meta name="DC.source" content="GettingStartedWithSimulinkRaspberryPiHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/GettingStartedWithSimulinkRaspberryPiHardwareExample')">Open this Example</a></div><div class="content"><h1>Getting Started with Simulink Support Package for Raspberry Pi Hardware</h1><!--introduction--><p>This example shows you how to use Simulink&reg; Support Package for Raspberry Pi&#8482; Hardware to run a Simulink models on Raspberry Pi hardware.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Task 1 - Review Raspberry Pi Block Library</a></li><li><a href="#5">Task 2 - Configure model for code generation</a></li><li><a href="#6">Task 3 - Stop Simulink model running on Raspberry Pi hardware</a></li><li><a href="#7">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>Simulink Support Package for Raspberry Pi Hardware enables you to create and run Simulink models on Raspberry Pi hardware. The support package includes a library of Simulink blocks for configuring and accessing Raspberry Pi peripherals and communication interfaces.</p><p>In this example you will learn how to configure a simple Simulink model to generate code for Raspberry Pi hardware and run the generated code on the board to periodically turn an LED on and off.</p><h2 id="2">Prerequisites</h2><p>If you are new to Simulink, we recommend completing <a href="matlab:web('https://www.mathworks.com/academia/student_center/tutorials/slregister.html','-browser')">Interactive Simulink Tutorial</a>, reading the Getting Started section of the <a href="matlab:doc('simulink')">Simulink documentation</a> and running <a href="matlab:web('https://www.mathworks.com/videos/getting-started-with-simulink-102159.html','-browser')">Simulink Getting Started example</a>.</p><h2 id="3">Required Hardware</h2><p>To run this example you need the following hardware:</p><div><ul><li>Raspberry Pi board</li></ul></div><img vspace="5" hspace="5" src="GettingStartedWithSimulinkRaspberryPiHardwareExample_01.png" alt=""> <h2 id="4">Task 1 - Review Raspberry Pi Block Library</h2><p>Simulink Support Package for Raspberry Pi Hardware provides an easy way to create algorithms that use Raspberry Pi peripherals by using blocks that can be added to your raspberrypi_ model. The blocks are used to configure the associated sensors and actuators, as well as to read and write data to them.</p><p><b>1.</b> Enter <a href="matlab:slLibraryBrowser">slLibraryBrowser</a> at the MATLAB&reg; prompt. This opens the Simulink Library Browser.</p><p><b>2.</b> In the Simulink Library Browser, navigate to <b>Libraries &gt; Simulink Support Package for Raspberry Pi Hardware</b>. Right-click on the <b>LED</b> block and choose <b>Add block to a new model</b>. You will see a new Simulink model with an LED block.</p><p><b>3.</b> Double-click the <b>LED</b> block. Review the block mask, which contains a description of the block and parameters for configuring the associated user LED. Click on <b>View LED location</b> button to see a diagram of user LEDs on Raspberry Pi hardware.</p><h2 id="5">Task 2 - Configure model for code generation</h2><p>In this task, you will configure a simple model blinking an on-board LED to run on Raspberry Pi hardware.</p><p><b>1.</b> Open the unconfigured <a href="matlab:open_system('raspberrypi_gettingstarted_unconfigured.slx')">Getting Started with Raspberry Pi Support Package model</a>. In order to configure the model for Raspberry Pi hardware follow the steps shown in the figure below:</p><p><img vspace="5" hspace="5" src="../raspberrypi_workflow.png" alt=""> </p><p>For convenience, a <a href="matlab:open_system('raspberrypi_gettingstarted.slx')">Getting Started with Raspberry Pi Support Package model</a> pre-configured to generate code for Raspberry Pi hardware is also available.</p><p><b>2.</b> Verify the connectivity parameters for your Raspberry Pi hardware by following the steps below:</p><p><img vspace="5" hspace="5" src="../raspberrypi_verify_device_address.png" alt=""> </p><p>The username and the password shown on the screen shot above shows the default username and password for the Raspbian Linux distribution.</p><p><b>3.</b> Generate code for the model by clicking on the <b>Deploy to Hardware</b> button:</p><p><img vspace="5" hspace="5" src="../raspberrypi_build_model.png" alt=""> </p><p><b>4.</b> The generated code is built on theRaspberry Pi hardware and run automatically. When the model starts running on the Raspberry Pi hardware, observe that the user LED on the board blinks with a period of 1 second.</p><h2 id="6">Task 3 - Stop Simulink model running on Raspberry Pi hardware</h2><p>Simulink Support Package for Raspberry Pi Hardware generates a Linux executable for each Simulink model you run on the Raspberry Pi hardware. The generated executable is an ELF file that has the same name as the Simulink model and is stored in your home directory on the Raspberry Pi hardware.</p><p>1. To run/stop a Simulink model, you use the runModel and stopModel methods of the raspberrypi communication object. First, create a communication object to the Raspberry Pi hardware:</p><pre>r = raspberrypi;</pre><p>This command generates a Raspberry Pi object that is your gateway to communicating with your Raspberry Pi hardware from MATLAB command line. Execute the following on the MATLAB command line to see if the <b>raspberrypi_gettingstarted_unconfigured</b> model is running:</p><pre>isModelRunning(r,'raspberrypi_gettingstarted_unconfigured')</pre><p>The isModelRunning method of raspberrypi returns true if the model is running on the Raspberry Pi hardware.</p><p>2. Execute the following on the MATLAB command line to stop the Simulink model you ran in Task 2:</p><pre>stopModel(r,'raspberrypi_gettingstarted_unconfigured')</pre><p>You should see the user LED stop blinking at this point. You can also use the isModelRunning method to test if the model has stopped.</p><p>3. To run a previously built Simulink model on your board, you use runModel method. In order to run the <b>raspberrypi_gettingstarted_unconfigured</b> model, execute the following on the MATLAB command line:</p><pre>runModel(r,'raspberrypi_gettingstarted_unconfigured')</pre><p>4. The output of the executable running on the Raspberry Pi hardware is re-directed to a log file. To see the contents of the log file for the executable corresponding to the <b>raspberrypi_gettingstarted_unconfigured</b> model, execute the following on the MATLAB command line:</p><pre>system(r,'cat raspberrypi_gettingstarted_unconfigured.log')</pre><p>In case of unexpected results when running an Simulink model on hardware, examine the contents of the log file for diagnostic messages. You can also bring the log file back to your host computer by executing the following on the MATLAB command line:</p><pre>getFile(r,'raspberrypi_gettingstarted_unconfigured.log')</pre><p>The getFile command above saves the log file to the current MATLAB directory.</p><h2 id="7">Summary</h2><p>This example introduced the workflow for configuring and running a Simulink model on the Raspberry Pi Hardware.</p><p class="footer">Copyright 2015 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Getting Started with Simulink Support Package for Raspberry Pi Hardware
+%
+% This example shows you how to use Simulink(R) Support Package for
+% Raspberry Pi(TM) Hardware to run a Simulink models on Raspberry Pi
+% hardware.
+ 
+% Copyright 2015 The MathWorks, Inc.
+ 
+%% Introduction
+%
+% Simulink Support Package for Raspberry Pi Hardware enables you
+% to create and run Simulink models on Raspberry Pi hardware. 
+% The support package includes a library of Simulink blocks for configuring
+% and accessing Raspberry Pi peripherals and communication interfaces.
+% 
+% In this example you will learn how to configure a simple Simulink model
+% to generate code for Raspberry Pi hardware and run the generated code
+% on the board to periodically turn an LED on and off. 
+
+%% Prerequisites
+%
+% If you are new to Simulink, we recommend completing 
+% <matlab:web('https://www.mathworks.com/academia/student_center/tutorials/slregister.html','-browser') Interactive Simulink Tutorial>, 
+% reading the Getting Started section of the <matlab:doc('simulink') Simulink documentation>   
+% and running <matlab:web('https://www.mathworks.com/videos/getting-started-with-simulink-102159.html','-browser') Simulink Getting Started example>. 
+
+%% Required Hardware
+%
+% To run this example you need the following hardware:
+% 
+% * Raspberry Pi board
+
+open_system('raspberrypi_gettingstarted');
+
+%% Task 1 - Review Raspberry Pi Block Library
+%
+% Simulink Support Package for Raspberry Pi Hardware provides an
+% easy way to create algorithms that use Raspberry Pi peripherals by
+% using blocks that can be added to your raspberrypi_ model. The blocks are
+% used to configure the associated sensors and actuators, as well as to
+% read and write data to them.
+%
+% *1.* Enter <matlab:slLibraryBrowser slLibraryBrowser> at the MATLAB(R) prompt. This opens
+% the Simulink Library Browser.
+%
+% *2.* In the Simulink Library Browser, navigate to *Libraries > Simulink
+% Support Package for Raspberry Pi Hardware*. Right-click on the
+% *LED* block and choose *Add block to a new model*. You will see a new
+% Simulink model with an LED block.
+%
+% *3.* Double-click the *LED* block. Review the block mask, which contains
+% a description of the block and parameters for configuring the associated
+% user LED. Click on *View LED location* button to see a diagram of user
+% LEDs on Raspberry Pi hardware.
+ 
+%% Task 2 - Configure model for code generation
+%
+% In this task, you will configure a simple model blinking an on-board LED
+% to run on Raspberry Pi hardware.
+%
+% *1.* Open the unconfigured
+% <matlab:open_system('raspberrypi_gettingstarted_unconfigured.slx') Getting
+% Started with Raspberry Pi Support Package model>. In order to
+% configure the model for Raspberry Pi hardware follow the steps shown
+% in the figure below:
+%
+% <<../raspberrypi_workflow.png>>
+%
+% For convenience, a
+% <matlab:open_system('raspberrypi_gettingstarted.slx') Getting Started with
+% Raspberry Pi Support Package model> pre-configured to generate code for
+% Raspberry Pi hardware is also available.
+% 
+% *2.* Verify the connectivity parameters for your Raspberry Pi
+% hardware by following the steps below:
+% 
+% <<../raspberrypi_verify_device_address.png>>
+%
+% The username and the password shown on the screen shot above shows the
+% default username and password for the Raspbian Linux distribution.
+%
+% *3.* Generate code for the model by clicking on the *Deploy to Hardware*
+% button:
+% 
+% <<../raspberrypi_build_model.png>>
+%
+% *4.* The generated code is built on theRaspberry Pi hardware and run
+% automatically. When the model starts running on the Raspberry Pi
+% hardware, observe that the user LED on the board blinks with a period of
+% 1 second.
+
+%% Task 3 - Stop Simulink model running on Raspberry Pi hardware
+%
+% Simulink Support Package for Raspberry Pi Hardware generates a
+% Linux executable for each Simulink model you run on the Raspberry Pi
+% hardware. The generated executable is an ELF file that has the same name
+% as the Simulink model and is stored in your home directory on the
+% Raspberry Pi hardware.
+%
+% 1. To run/stop a Simulink model, you use the runModel and stopModel
+% methods of the raspberrypi communication object. First, create a
+% communication object to the Raspberry Pi hardware:
+%
+%  r = raspberrypi;
+%
+% This command generates a Raspberry Pi object that is your gateway to
+% communicating with your Raspberry Pi hardware from MATLAB command
+% line. Execute the following on the MATLAB command line to see if the
+% *raspberrypi_gettingstarted_unconfigured* model is running:
+%
+%  isModelRunning(r,'raspberrypi_gettingstarted_unconfigured')
+%
+% The isModelRunning method of raspberrypi returns true if the model
+% is running on the Raspberry Pi hardware.
+%
+% 2. Execute the following on the MATLAB command line to stop the Simulink
+% model you ran in Task 2:
+%
+%  stopModel(r,'raspberrypi_gettingstarted_unconfigured')
+%
+% You should see the user LED stop blinking at this point. You can also use
+% the isModelRunning method to test if the model has stopped.
+%
+% 3. To run a previously built Simulink model on your board, you use
+% runModel method. In order to run the
+% *raspberrypi_gettingstarted_unconfigured* model, execute the following on
+% the MATLAB command line:
+%
+%  runModel(r,'raspberrypi_gettingstarted_unconfigured')
+% 
+% 4. The output of the executable running on the Raspberry Pi hardware
+% is re-directed to a log file. To see the contents of the log file for the
+% executable corresponding to the *raspberrypi_gettingstarted_unconfigured*
+% model, execute the following on the MATLAB command line:
+%
+%  system(r,'cat raspberrypi_gettingstarted_unconfigured.log')
+%
+% In case of unexpected results when running an Simulink model on hardware,
+% examine the contents of the log file for diagnostic messages. You can
+% also bring the log file back to your host computer by executing the
+% following on the MATLAB command line:
+%
+%  getFile(r,'raspberrypi_gettingstarted_unconfigured.log')
+%
+% The getFile command above saves the log file to the current MATLAB
+% directory.
+
+%% Summary
+% 
+% This example introduced the workflow for configuring and running a
+% Simulink model on the Raspberry Pi Hardware. 
+
+close_system('raspberrypi_gettingstarted', 0); 
+%LocalWords: slregister postbuild eabi ihex extmode pid pil codertarget
+
+##### SOURCE END #####
+--></body></html>

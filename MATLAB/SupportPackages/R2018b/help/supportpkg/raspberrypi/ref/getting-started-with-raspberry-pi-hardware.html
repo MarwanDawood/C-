@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Getting Started with Simulink Support Package for Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Getting Started with Simulink Support Package for Raspberry Pi Hardware",
+          "description": "This example shows you how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to run a Simulink models on Raspberry Pi hardware.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_build_model.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.GettingStartedWithSimulinkRaspberryPiHardwareExample",
+          "name": "GettingStartedWithSimulinkRaspberryPiHardwareExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/GettingStartedWithSimulinkRaspberryPiHardwareExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_workflow.png",
+        "raspberrypi_verify_device_address.png",
+        "raspberrypi_build_model.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example shows you how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to run a Simulink models on Raspberry Pi hardware."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_build_model.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e10963" class="intrnllnk">Introduction</a></li><li><a href="#d120e10971" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e10986" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e11000" class="intrnllnk">Task 1 - Review Raspberry Pi Block Library</a></li><li><a href="#d120e11036" class="intrnllnk">Task 2 - Configure model for code generation</a></li><li><a href="#d120e11089" class="intrnllnk">Task 3 - Stop Simulink model running on Raspberry Pi hardware</a></li><li><a href="#d120e11135" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_gettingstarted">Getting Started with Simulink Support Package for Raspberry Pi Hardware</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/GettingStartedWithSimulinkRaspberryPiHardwareExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex74263426"></meta><meta itemprop="exampletitle" content="Getting Started with Simulink Support Package for Raspberry Pi Hardware"></meta></div><span id="GettingStartedWithSimulinkRaspberryPiHardwareExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example shows you how to use Simulink&#174; Support Package for Raspberry Pi&#8482; Hardware to run a Simulink models on Raspberry Pi hardware.</p>
+
+<div class="procedure"><h3 class="title" id="d120e10963">Introduction<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-1" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi Hardware enables you to create and run Simulink models on Raspberry Pi hardware. The support package includes a library of Simulink blocks for configuring and accessing Raspberry Pi peripherals and communication interfaces.</p><p>In this example you will learn how to configure a simple Simulink model to generate code for Raspberry Pi hardware and run the generated code on the board to periodically turn an LED on and off.</p><h3 class="title" id="d120e10971">Prerequisites<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-2" class="anchor_target"></span></h3><p>If you are new to Simulink, we recommend completing <a href="https://www.mathworks.com/academia/student_center/tutorials/slregister.html" target="_blank">Interactive Simulink Tutorial</a>, reading the Getting Started section of the <a href="matlab:doc('simulink')" target="_blank">Simulink documentation</a> and running <a href="https://www.mathworks.com/videos/getting-started-with-simulink-102159.html" target="_blank">Simulink Getting Started example</a>.</p><h3 class="title" id="d120e10986">Required Hardware<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-3" class="anchor_target"></span></h3><p>To run this example you need the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li></ul></div><div class="informalfigure"><div id="d120e10997" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/GettingStartedWithSimulinkRaspberryPiHardwareExample_01.png" alt=""></img></p></div></div><h3 class="title" id="d120e11000">Task 1 - Review Raspberry Pi Block Library<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-4" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi Hardware provides an easy way to create algorithms that use Raspberry Pi peripherals by using blocks that can be added to your raspberrypi_ model. The blocks are used to configure the associated sensors and actuators, as well as to read and write data to them.</p><p><strong class="emphasis bold">1.</strong> Enter <a href="matlab:slLibraryBrowser" target="_blank">slLibraryBrowser</a> at the MATLAB&#174; prompt. This opens the Simulink Library Browser.</p><p><strong class="emphasis bold">2.</strong> In the Simulink Library Browser, navigate to <strong class="emphasis bold">Libraries &gt; Simulink Support Package for Raspberry Pi Hardware</strong>. Right-click on the <strong class="emphasis bold">LED</strong> block and choose <strong class="emphasis bold">Add block to a new model</strong>. You will see a new Simulink model with an LED block.</p><p><strong class="emphasis bold">3.</strong> Double-click the <strong class="emphasis bold">LED</strong> block. Review the block mask, which contains a description of the block and parameters for configuring the associated user LED. Click on <strong class="emphasis bold">View LED location</strong> button to see a diagram of user LEDs on Raspberry Pi hardware.</p><h3 class="title" id="d120e11036">Task 2 - Configure model for code generation<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-5" class="anchor_target"></span></h3><p>In this task, you will configure a simple model blinking an on-board LED to run on Raspberry Pi hardware.</p><p><strong class="emphasis bold">1.</strong> Open the unconfigured <a href="matlab:open_system('raspberrypi_gettingstarted_unconfigured.slx')" target="_blank">Getting Started with Raspberry Pi Support Package model</a>. In order to configure the model for Raspberry Pi hardware follow the steps shown in the figure below:</p><p></p>
+<div class="informalfigure"><div id="d120e11051" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_workflow.png" alt=""></img></p></div></div><p>
+ </p><p>For convenience, a <a href="matlab:open_system('raspberrypi_gettingstarted.slx')" target="_blank">Getting Started with Raspberry Pi Support Package model</a> pre-configured to generate code for Raspberry Pi hardware is also available.</p><p><strong class="emphasis bold">2.</strong> Verify the connectivity parameters for your Raspberry Pi hardware by following the steps below:</p><p></p>
+<div class="informalfigure"><div id="d120e11066" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_verify_device_address.png" alt=""></img></p></div></div><p>
+ </p><p>The username and the password shown on the screen shot above shows the default username and password for the Raspbian Linux distribution.</p><p><strong class="emphasis bold">3.</strong> Generate code for the model by clicking on the <strong class="emphasis bold">Deploy to Hardware</strong> button:</p><p></p>
+<div class="informalfigure"><div id="d120e11081" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_build_model.png" alt=""></img></p></div></div><p>
+ </p><p><strong class="emphasis bold">4.</strong> The generated code is built on theRaspberry Pi hardware and run automatically. When the model starts running on the Raspberry Pi hardware, observe that the user LED on the board blinks with a period of 1 second.</p><h3 class="title" id="d120e11089">Task 3 - Stop Simulink model running on Raspberry Pi hardware<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-6" class="anchor_target"></span></h3><p>Simulink Support Package for Raspberry Pi Hardware generates a Linux executable for each Simulink model you run on the Raspberry Pi hardware. The generated executable is an ELF file that has the same name as the Simulink model and is stored in your home directory on the Raspberry Pi hardware.</p><p>1. To run/stop a Simulink model, you use the runModel and stopModel methods of the raspberrypi communication object. First, create a communication object to the Raspberry Pi hardware:</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi;</pre></div><p>This command generates a Raspberry Pi object that is your gateway to communicating with your Raspberry Pi hardware from MATLAB command line. Execute the following on the MATLAB command line to see if the <strong class="emphasis bold">raspberrypi_gettingstarted_unconfigured</strong> model is running:</p><div class="code_responsive"><pre class="programlisting">isModelRunning(r,'raspberrypi_gettingstarted_unconfigured')</pre></div><p>The isModelRunning method of raspberrypi returns true if the model is running on the Raspberry Pi hardware.</p><p>2. Execute the following on the MATLAB command line to stop the Simulink model you ran in Task 2:</p><div class="code_responsive"><pre class="programlisting">stopModel(r,'raspberrypi_gettingstarted_unconfigured')</pre></div><p>You should see the user LED stop blinking at this point. You can also use the isModelRunning method to test if the model has stopped.</p><p>3. To run a previously built Simulink model on your board, you use runModel method. In order to run the <strong class="emphasis bold">raspberrypi_gettingstarted_unconfigured</strong> model, execute the following on the MATLAB command line:</p><div class="code_responsive"><pre class="programlisting">runModel(r,'raspberrypi_gettingstarted_unconfigured')</pre></div><p>4. The output of the executable running on the Raspberry Pi hardware is re-directed to a log file. To see the contents of the log file for the executable corresponding to the <strong class="emphasis bold">raspberrypi_gettingstarted_unconfigured</strong> model, execute the following on the MATLAB command line:</p><div class="code_responsive"><pre class="programlisting">system(r,'cat raspberrypi_gettingstarted_unconfigured.log')</pre></div><p>In case of unexpected results when running an Simulink model on hardware, examine the contents of the log file for diagnostic messages. You can also bring the log file back to your host computer by executing the following on the MATLAB command line:</p><div class="code_responsive"><pre class="programlisting">getFile(r,'raspberrypi_gettingstarted_unconfigured.log')</pre></div><p>The getFile command above saves the log file to the current MATLAB directory.</p><h3 class="title" id="d120e11135">Summary<span id="GettingStartedWithSimulinkRaspberryPiHardwareExample-7" class="anchor_target"></span></h3><p>This example introduced the workflow for configuring and running a Simulink model on the Raspberry Pi Hardware.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

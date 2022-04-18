@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Counting Steps using Raspberry Pi Sense HAT</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "DigitalDocument",
+          "headline": "Counting Steps using Raspberry Pi Sense HAT",
+          "description": "This example demonstrates an application that counts the number of steps a person walked while holding a Raspberry Pi&#8482; Sense HAT.",
+          "thumbnailURL": "../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig4.png",
+          "genre": "Example",
+          "isBasedOn": {
+          "@type": "Product",
+          "name": "Simulink"
+
+        },
+          "identifier": "raspberrypi.CountingStepsUsingRaspberryPiSenseHATExample",
+          "name": "CountingStepsUsingRaspberryPiSenseHATExample"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "PropertyValue",
+          "name": "open_command",
+          "value": "matlab:openExample('raspberrypi/CountingStepsUsingRaspberryPiSenseHATExample')"
+
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "SupportingFiles",
+
+        "itemListElement":
+        [
+        "raspberrypi_countstep_fig1.png",
+        "raspberrypi_countstep_fig2.png",
+        "raspberrypi_countstep_fig3.png",
+        "raspberrypi_countstep_fig4.png"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="fe"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="This example demonstrates an application that counts the number of steps a person walked while holding a Raspberry Pi&#8482; Sense HAT."></meta><meta xmlns="http://www.w3.org/1999/xhtml" content="../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig4.png" itemprop="thumbnailUrl"></meta>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150941" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150941" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150941" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150941" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150941" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150941" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../examples.html" itemprop="url"><span itemprop="title">Examples Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+</ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Counting Steps using Raspberry Pi Sense HAT</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#d120e5040" class="intrnllnk">Introduction</a></li><li><a href="#d120e5050" class="intrnllnk">Prerequisites</a></li><li><a href="#d120e5060" class="intrnllnk">Required Hardware</a></li><li><a href="#d120e5073" class="intrnllnk">Task 1 &#8212; Create a Simulink model for Raspberry Pi Hardware</a></li><li><a href="#d120e5121" class="intrnllnk">Task 2 &#8212; Enable MAT file logging</a></li><li><a href="#d120e5197" class="intrnllnk">Task 3 &#8212; Deploy the Model on Raspberry Pi Hardware</a></li><li><a href="#d120e5215" class="intrnllnk">Task 4 &#8212; Import and Analyze Data</a></li><li><a href="#d120e5322" class="intrnllnk">Summary</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-example">
+<section itemprop="content"><div class="example_icon"></div><h2 class="title r2018b example" itemprop="title content" id="example-raspberrypi_countstep">Counting Steps using Raspberry Pi Sense HAT</h2><div class="pull-right examples_short_list" style="width:250px; margin-left: 10px; margin-bottom: 10px;"><div data-pane="metadata" style="margin-bottom: 0px;" class="panel metadata_container"><div class="panel-body metadata_content" style="padding-top:0px; padding-bottom:0px;"><div class="row"><div class="col-xs-12"><a class="btn btn_secondary btn-block" href="matlab:openExample('raspberrypi/CountingStepsUsingRaspberryPiSenseHATExample')">Open Example</a></div></div></div></div></div><div itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/Example" itemprop="example" class="em_example"><meta itemprop="exampleid" content="raspberrypi-ex81140827"></meta><meta itemprop="exampletitle" content="Counting Steps using Raspberry Pi Sense HAT"></meta></div><span id="CountingStepsUsingRaspberryPiSenseHATExample" class="anchor_target"></span>
+
+<p class="shortdesc">This example demonstrates an application that counts the number of steps a person walked while holding a Raspberry Pi&#8482; Sense HAT.</p>
+
+<div class="procedure"><h3 class="title" id="d120e5040">Introduction<span id="CountingStepsUsingRaspberryPiSenseHATExample-1" class="anchor_target"></span></h3><p>A pedometer is an electronic device that estimates the distance traveled by a person by recording the number of steps walked. Pedometers use an accelerometer to count the number of steps.</p><p>In this example, a Raspberry Pi&#8482; SenseHAT records acceleration along X, Y, and Z axes. This data is recorded over a duration of time using the MAT-file logging feature. You can then use MATLAB&#174; to analyze the imported MAT-files to count the number of steps.</p><p>To use the MAT-file logging feature with the Simulink&#174; Support Package for Raspberry Pi&#8482; hardware, you must have a Simulink Coder&#8482; license.</p><h3 class="title" id="d120e5050">Prerequisites<span id="CountingStepsUsingRaspberryPiSenseHATExample-2" class="anchor_target"></span></h3><p>Before you start with this example, we recommend you to complete the <a href="../ref/getting-started-with-raspberry-pi-hardware.html" class="a">Getting Started with Simulink Support Package for Raspberry Pi Hardware</a> and <a href="../ref/mat-file-logging-on-raspberry-pi-hardware.html" class="a">MAT-file logging on Raspberry Pi&#8482; Hardware</a> examples.</p><h3 class="title" id="d120e5060">Required Hardware<span id="CountingStepsUsingRaspberryPiSenseHATExample-3" class="anchor_target"></span></h3><p>To run this example, you must have the following hardware:</p><div class="itemizedlist"><ul><li><p>Raspberry Pi board</p></li><li><p>Raspberry Pi Sense HAT</p></li></ul></div><h3 class="title" id="d120e5073">Task 1 &#8212; Create a Simulink model for Raspberry Pi Hardware<span id="CountingStepsUsingRaspberryPiSenseHATExample-4" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> Open the <a href="matlab:raspberrypi_countstep" target="_blank">Log Accelerometer data using Raspberry Pi Hardware</a> model.</p><div class="informalfigure"><div id="d120e5085" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/CountingStepsUsingRaspberryPiSenseHATExample_01.png" alt=""></img></p></div></div><p><strong class="emphasis bold">2.</strong>  In your Simulink model, click <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters</strong> to open the <strong class="emphasis bold">Configuration Parameters</strong> dialog box.</p><p><strong class="emphasis bold">3.</strong> Under the <strong class="emphasis bold">Hardware Implementation</strong> pane, select <code class="literal">Raspberry Pi</code> in the <strong class="emphasis bold">Hardware    board</strong> list. Do not change any other settings.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">Apply</strong> to save your changes, and then click <strong class="emphasis bold">OK</strong>.</p><h3 class="title" id="d120e5121">Task 2 &#8212; Enable MAT file logging<span id="CountingStepsUsingRaspberryPiSenseHATExample-7" class="anchor_target"></span></h3><p>This task explains how to enable MAT-file logging to save acceleration data as MAT-files.</p><p><strong class="emphasis bold">1.</strong> To open the <strong class="emphasis bold">Model Configuration Parameters</strong> dialog box, click the gear icon on the Simulink model toolbar.</p><p><strong class="emphasis bold">2.</strong> Browse to <strong class="emphasis bold">Code Generation &gt; Interface &gt; Advanced Parameters</strong>, or type <code class="literal">MAT-file logging</code> in the search box.</p><p><strong class="emphasis bold">3.</strong> Select the <strong class="emphasis bold">MAT-file logging</strong> option and click <strong class="emphasis bold">Apply</strong> to save the changes.</p><p><strong class="emphasis bold">4.</strong> Click <strong class="emphasis bold">OK</strong> to close the dialog box.</p><p><strong class="emphasis bold">5.</strong> In the Simulink model, double-click the <code class="literal">Scope</code> block, and click the gear icon to open the <strong class="emphasis bold">Configuration Properties</strong> dialog box.</p><p><strong class="emphasis bold">6.</strong>  In the <strong class="emphasis bold">Logging</strong> tab, select the <strong class="emphasis bold">Log data to workspace</strong> option, and click <strong class="emphasis bold">Apply</strong> to save the changes.</p><p><strong class="emphasis bold">7.</strong> On the Simulink model toolbar, set the <strong class="emphasis bold">Simulation stop time</strong>    parameter. This parameter specifies the duration for which the signals are logged.    After the simulation stop time elapses, the logging of signals stops. However, your model continues to run.    For example, if the <strong class="emphasis bold">Simulation stop time</strong> parameter is specified as    <code class="literal">10.0</code> seconds, the signals are logged for 10.0 seconds, and then the logging stops. However, the model continues to run for indefinite time.</p><h3 class="title" id="d120e5197">Task 3 &#8212; Deploy the Model on Raspberry Pi Hardware<span id="CountingStepsUsingRaspberryPiSenseHATExample-8" class="anchor_target"></span></h3><p><strong class="emphasis bold">1.</strong> On the Simulink model toolbar, click the <strong class="emphasis bold">Deploy To Hardware</strong> button. This action builds, downloads, and runs the model on the Raspberry Pi hardware.</p><p><strong class="emphasis bold">2.</strong> Walk a few steps while holding the Raspberry Pi&#8482; hardware. Make sure that you walk at least for the duration specified by the <strong class="emphasis bold">Simulation stop time</strong> parameter.</p><h3 class="title" id="d120e5215">Task 4 &#8212; Import and Analyze Data<span id="CountingStepsUsingRaspberryPiSenseHATExample-9" class="anchor_target"></span></h3><p>This task explains how to import the generated MAT-files from the hardware to your computer after the logging is completed.</p><p><strong class="emphasis bold">1.</strong> In the MATLAB command window, use the following command to create a raspberrypi object. The parameters specified in this command must match the board parameters specified in <strong class="emphasis bold">Simulation &gt; Model Configuration Parameters &gt; Target hardware resources &gt; Board Parameters</strong>.</p><div class="code_responsive"><pre class="programlisting">r = raspberrypi(&lt;IP address&gt;, &lt;username&gt;, &lt;password&gt;);</pre></div><p><strong class="emphasis bold">2.</strong> Use the <code class="literal">getFile</code> function to copy the MAT-files from the Raspberry Pi&#8482; board to your computer.</p><div class="code_responsive"><pre id="d120e5237" class="programlisting">getFile(r,&lt;filename&gt;)
+</pre></div><p>Here, <code class="literal">r</code> specifies the raspberrypi object and <code class="literal">filename</code> specifies the path and name of the file created. After importing the MAT-files, you can use it like a regular MAT-file for any further analysis in MATLAB&#174;.</p><p><strong class="emphasis bold">3.</strong> Load the MAT files into workspace variables.</p><div class="code_responsive"><pre id="d120e5251" class="programlisting">load(<span style="color:#A020F0">'raspberrypi_countstep_1_1.mat'</span>);
+a(:,:) =  rt_simout.signals.values(1,:,:) * 9.8;
+a = a';
+t =  rt_tout;
+</pre></div><p><strong class="emphasis bold">4.</strong> Plot raw sensor data.</p><div class="code_responsive"><pre id="d120e5257" class="programlisting">plot(t, a);
+legend(<span style="color:#A020F0">'X'</span>, <span style="color:#A020F0">'Y'</span>, <span style="color:#A020F0">'Z'</span>);
+xlabel(<span style="color:#A020F0">'Relative time (s)'</span>);
+ylabel(<span style="color:#A020F0">'Acceleration (m/s^2)'</span>);
+</pre></div><p></p>
+<div class="informalfigure"><div id="d120e5262" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig1.png" alt=""></img></p></div></div><p>
+ </p><p><strong class="emphasis bold">5.</strong> Process raw acceleration data.</p><p>To convert the XYZ acceleration vectors at each point in time into scalar values, calculate the magnitude of each vector. This way, you can detect large changes in overall acceleration, such as steps taken while walking, regardless of device orientation.</p><div class="code_responsive"><pre id="d120e5272" class="programlisting">x = a(:,1);
+y = a(:,2);
+z = a(:,3);
+mag = sqrt(sum(x.^2 + y.^2 + z.^2, 2));
+</pre></div><p>Plot the magnitude to visualize the general changes in acceleration.</p><div class="code_responsive"><pre id="d120e5276" class="programlisting">plot(t, mag);
+xlabel(<span style="color:#A020F0">'Time (s)'</span>);
+ylabel(<span style="color:#A020F0">'Acceleration (m/s^2)'</span>);
+</pre></div><p></p>
+<div class="informalfigure"><div id="d120e5280" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig2.png" alt=""></img></p></div></div><p>
+ </p><p>The plot shows that the acceleration magnitude is not zero mean. Subtract the mean from the data to remove any constant effects, such as gravity.</p><div class="code_responsive"><pre id="d120e5286" class="programlisting">magNoG = mag - mean(mag);
+plot(t, magNoG);
+xlabel(<span style="color:#A020F0">'Time (s)'</span>);
+ylabel(<span style="color:#A020F0">'Acceleration (m/s^2)'</span>);
+</pre></div><p></p>
+<div class="informalfigure"><div id="d120e5290" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig3.png" alt=""></img></p></div></div><p>
+ </p><p>The plotted data is now centered about zero and clearly shows peaks in acceleration magnitude. Each peak corresponds to a step being taken while walking.</p><p><strong class="emphasis bold">6.</strong> Count the number of steps taken.</p><p>Use <code class="literal">findpeaks</code>, a function from the Signal Processing Toolbox&#8482;, to find the local maxima of the acceleration magnitude data. Only peaks with a minimum height above one standard deviation are treated as a step. This threshold must be tuned experimentally to match a person's level of movement while walking, hardness of floor surfaces, and other variables.</p><div class="code_responsive"><pre id="d120e5306" class="programlisting">minPeakHeight = std(magNoG);
+[pks, locs] = findpeaks(magNoG, <span style="color:#A020F0">'MINPEAKHEIGHT'</span>, minPeakHeight);
+</pre></div><p>The number of steps taken is simply the number of peaks found.</p><div class="code_responsive"><pre id="d120e5310" class="programlisting">numSteps = numel(pks)
+</pre></div><p>Visualize the peak locations with the acceleration magnitude data.</p><div class="code_responsive"><pre id="d120e5314" class="programlisting">hold <span style="color:#A020F0">on</span>;
+plot(t(locs), pks, <span style="color:#A020F0">'r'</span>, <span style="color:#A020F0">'Marker'</span>, <span style="color:#A020F0">'v'</span>, <span style="color:#A020F0">'LineStyle'</span>, <span style="color:#A020F0">'none'</span>);
+title(<span style="color:#A020F0">'Counting Steps'</span>);
+xlabel(<span style="color:#A020F0">'Time (s)'</span>);
+ylabel(<span style="color:#A020F0">'Acceleration Magnitude, No Gravity (m/s^2)'</span>);
+hold <span style="color:#A020F0">off</span>;
+</pre></div><p></p>
+<div class="informalfigure"><div id="d120e5318" class="mediaobject"><p><img src="../../../examples/raspberrypi/win64/xxraspberrypi_countstep_fig4.png" alt=""></img></p></div></div><p>
+ </p><h3 class="title" id="d120e5322">Summary<span id="CountingStepsUsingRaspberryPiSenseHATExample-10" class="anchor_target"></span></h3><p>This example demonstrated the use of the IMU sensor on Raspberry Pi&#8482; Sense HAT to count the number of steps a person walked.</p></div></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:41:23 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../index.html?s_cid=doc_ftr">Documentation</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

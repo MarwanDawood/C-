@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toc version="2.0">
+<tocitem target="functionlistbycat.html">Functions
+<tocitem target="setup-and-configuration.html">Installation and Setup
+<tocitem target="ref/raspi_examples.html">
+<name>raspi_examples</name>
+<purpose>Open featured examples for this support package</purpose>
+</tocitem>
+<tocitem target="../../matlab/ref/matlabshared.supportpkg.checkforupdate.html">
+<name>matlabshared.supportpkg.checkForUpdate</name>
+<purpose>List of support packages that can be updated (Not recommended)</purpose>
+</tocitem>
+<tocitem target="../../matlab/ref/matlabshared.supportpkg.getinstalled.html">
+<name>matlabshared.supportpkg.getInstalled</name>
+<purpose>List of installed support packages</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="connection-to-raspberry-pi-hardware.html">Connection to Raspberry
+        Pi Hardware
+<tocitem target="ref/raspilist.html">
+<name>raspilist</name>
+<purpose>List Raspberry
+        Pi hardware boards available for MATLAB
+            Online connection</purpose>
+</tocitem>
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="run-on-hardware.html">Run on Target Hardware
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/targethardware.targethardware.html">
+<name>targetHardware</name>
+<purpose>Create configuration object for hardware</purpose>
+</tocitem>
+<tocitem target="ref/deploy.html">
+<name>deploy</name>
+<purpose>Deploy MATLAB function on hardware</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="leds.html">LEDs
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/writeled.html">
+<name>writeLED</name>
+<purpose>Turn LED on or off</purpose>
+</tocitem>
+<tocitem target="ref/showleds.html">
+<name>showLEDs</name>
+<purpose>Show location, name, and color of user-controllable LEDs</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="gpio-pins.html">GPIO Pins
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/configurepin.html">
+<name>configurePin</name>
+<purpose>Configure GPIO pin as digital input, digital output, or PWM output</purpose>
+</tocitem>
+<tocitem target="ref/readdigitalpin.html">
+<name>readDigitalPin</name>
+<purpose>Read logical value from GPIO input pin</purpose>
+</tocitem>
+<tocitem target="ref/writedigitalpin.html">
+<name>writeDigitalPin</name>
+<purpose>Write logical value to GPIO output pin</purpose>
+</tocitem>
+<tocitem target="ref/showpins.html">
+<name>showPins</name>
+<purpose>Show diagram of GPIO pins</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="serial-port.html">Serial Port
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/serialdev.serialdev.html">
+<name>serialdev</name>
+<purpose>Create connection to serial device</purpose>
+</tocitem>
+<tocitem target="ref/raspi.serialdev.read.html">
+<name>read</name>
+<purpose>Read data from serial device</purpose>
+</tocitem>
+<tocitem target="ref/raspi.serialdev.write.html">
+<name>write</name>
+<purpose>Write data to serial device</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="i2c-interface.html">I2C Interface
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/scani2cbus.html">
+<name>scanI2CBus</name>
+<purpose>Scan I2C bus device addresses</purpose>
+</tocitem>
+<tocitem target="ref/i2cdev.i2cdev.html">
+<name>i2cdev</name>
+<purpose>Create connection to I2C device</purpose>
+</tocitem>
+<tocitem target="ref/raspi.i2cdev.read.html">
+<name>read</name>
+<purpose>Read data from I2C device</purpose>
+</tocitem>
+<tocitem target="ref/raspi.i2cdev.write.html">
+<name>write</name>
+<purpose>Write data to I2C device</purpose>
+</tocitem>
+<tocitem target="ref/readregister.html">
+<name>readRegister</name>
+<purpose>Read from register on I2C device</purpose>
+</tocitem>
+<tocitem target="ref/writeregister.html">
+<name>writeRegister</name>
+<purpose>Write to register on I2C device</purpose>
+</tocitem>
+<tocitem target="ref/enablei2c.html">
+<name>enableI2C</name>
+<purpose>Enable I2C interface</purpose>
+</tocitem>
+<tocitem target="ref/disablei2c.html">
+<name>disableI2C</name>
+<purpose>Disable I2C interface</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="spi-interface.html">SPI Interface
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/spidev.spidev.html">
+<name>spidev</name>
+<purpose>Create connection to SPI device</purpose>
+</tocitem>
+<tocitem target="ref/writeread.html">
+<name>writeRead</name>
+<purpose>Write data to and read data from SPI device</purpose>
+</tocitem>
+<tocitem target="ref/enablespi.html">
+<name>enableSPI</name>
+<purpose>Enable SPI interface</purpose>
+</tocitem>
+<tocitem target="ref/disablespi.html">
+<name>disableSPI</name>
+<purpose>Disable SPI interface</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="camera-board.html">Camera Board
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/cameraboard.cameraboard.html">
+<name>cameraboard</name>
+<purpose>Create connection to Raspberry
+        Pi Camera Board Module</purpose>
+</tocitem>
+<tocitem target="ref/raspi.cameraboard.snapshot.html">
+<name>snapshot</name>
+<purpose>Capture RGB image from Camera</purpose>
+</tocitem>
+<tocitem target="ref/raspi.cameraboard.record.html">
+<name>record</name>
+<purpose>Record video from Camera Board</purpose>
+</tocitem>
+<tocitem target="ref/raspi.cameraboard.stop.html">
+<name>stop</name>
+<purpose>Stop video recording from Camera Board</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="sense-hat.html">Sense HAT
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/sensehat.sensehat.html">
+<name>sensehat</name>
+<purpose>Create a Sense HAT object passing raspi object</purpose>
+</tocitem>
+<tocitem target="ref/readhumidity.html">
+<name>readHumidity</name>
+<purpose>Read the humidity value from the Humidity sensor</purpose>
+</tocitem>
+<tocitem target="ref/readpressure.html">
+<name>readPressure</name>
+<purpose>Read the pressure value from the Air Pressure sensor</purpose>
+</tocitem>
+<tocitem target="ref/readtemperature.html">
+<name>readTemperature</name>
+<purpose>Read the temperature value from the Humidity sensor or
+the Air Pressure sensor</purpose>
+</tocitem>
+<tocitem target="ref/readangularvelocity.html">
+<name>readAngularVelocity</name>
+<purpose>Read angular velocity measured by the gyroscope along
+x, y, and z axes</purpose>
+</tocitem>
+<tocitem target="ref/readacceleration.html">
+<name>readAcceleration</name>
+<purpose>Read acceleration measured by the Accelerometer along
+x, y, and z axes</purpose>
+</tocitem>
+<tocitem target="ref/readmagneticfield.html">
+<name>readMagneticField</name>
+<purpose>Read the magnetic field measured by the Magnetometer along
+the x, y and z axis</purpose>
+</tocitem>
+<tocitem target="ref/readjoystick.html">
+<name>readJoystick</name>
+<purpose>Read the status of the joystick</purpose>
+</tocitem>
+<tocitem target="ref/displayimage.html">
+<name>displayImage</name>
+<purpose>Display an image on the Raspberry
+        Pi hardware or on the LED Matrix of SenseHAT</purpose>
+</tocitem>
+<tocitem target="ref/writepixel.html">
+<name>writePixel</name>
+<purpose>Write the specified color to an individual pixel at the
+specified column and row of LED Matrix</purpose>
+</tocitem>
+<tocitem target="ref/clearledmatrix.html">
+<name>clearLEDMatrix</name>
+<purpose>Clears the entire LED matrix and sets the all the pixels
+to blank ([0, 0, 0])</purpose>
+</tocitem>
+<tocitem target="ref/displaymessage.html">
+<name>displayMessage</name>
+<purpose>Scrolls a text message across the LED Matrix</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="webcam.html">Web Camera
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/webcam.webcam.html">
+<name>webcam</name>
+<purpose>Create connection to Raspberry Pi web camera</purpose>
+</tocitem>
+<tocitem target="ref/raspi.cameraboard.snapshot.html">
+<name>snapshot</name>
+<purpose>Capture RGB image from Camera</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="pwm.html">Pulse Width Modulation
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/writepwmfrequency.html">
+<name>writePWMFrequency</name>
+<purpose>Writes PWM frequency to a GPIO pin</purpose>
+</tocitem>
+<tocitem target="ref/writepwmdutycycle.html">
+<name>writePWMDutyCycle</name>
+<purpose>Writes PWM duty cycle to PWM pin</purpose>
+</tocitem>
+<tocitem target="ref/writepwmvoltage.html">
+<name>writePWMVoltage</name>
+<purpose>Writes average PWM voltage to a GPIO pin</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="servo.html">Servo
+<tocitem target="ref/servo.html">
+<name>servo</name>
+<purpose>Create connection to servo motor</purpose>
+</tocitem>
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/writeposition.html">
+<name>writePosition</name>
+<purpose>Write position of servo motor</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="linux.html">Linux
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/raspi.system.html">
+<name>system</name>
+<purpose>Run command in Linux shell on Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/openshell.html">
+<name>openShell</name>
+<purpose>Open terminal on host computer to use Linux shell on Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/getfile.html">
+<name>getFile</name>
+<purpose>Transfer file from Raspberry
+        Pi hardware to host computer or MATLAB
+            Drive</purpose>
+</tocitem>
+<tocitem target="ref/putfile.html">
+<name>putFile</name>
+<purpose>Transfer file from host computer to target hardware</purpose>
+</tocitem>
+<tocitem target="ref/deletefile.html">
+<name>deleteFile</name>
+<purpose>Delete file on target hardware</purpose>
+</tocitem>
+</tocitem>
+<tocitem target="display.html">Display
+<tocitem target="ref/raspi.raspi.html">
+<name>raspi</name>
+<purpose>Create connection to Raspberry
+        Pi hardware</purpose>
+</tocitem>
+<tocitem target="ref/displayimage.html">
+<name>displayImage</name>
+<purpose>Display an image on the Raspberry
+        Pi hardware or on the LED Matrix of SenseHAT</purpose>
+</tocitem>
+</tocitem>
+</tocitem>
+</toc>

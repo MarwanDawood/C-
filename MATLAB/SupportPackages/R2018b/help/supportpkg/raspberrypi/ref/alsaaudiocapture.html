@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>ALSA Audio Capture</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+            ,
+          {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../referencelist.html?type=block",
+          "name": "Block Libraries"
+}
+
+          }]
+        }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="chunktype" content="refpage"></meta><meta xmlns="http://www.w3.org/1999/xhtml" name="refentity" itemprop="refentity" content="block:ALSA Audio Capture"></meta><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ref/block"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="The ALSA Audio Capture block reads audio data from the audio input device connected to the hardware."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas"><span class="refname">ALSA Audio Capture</span></a></li>
+<li class="nav_scrollspy_title" id="SSPY810-refentry">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-1" class="intrnllnk">Description</a><ul class="nav"><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvupe0r-1" class="intrnllnk">Algorithm</a></li></ul></li><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-2" class="intrnllnk">Ports</a><ul class="nav"><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-3" class="intrnllnk">Output</a><ul class="nav"><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" class="intrnllnk">Port_1</a></li></ul></li></ul></li><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-4" class="intrnllnk">Parameters</a><ul class="nav"><li><a href="#d120e359" class="intrnllnk">Device name</a></li><li><a href="#d120e391" class="intrnllnk">Device Bit depth</a></li><li><a href="#d120e421" class="intrnllnk">Number of channels (C)</a></li><li><a href="#d120e450" class="intrnllnk">Audio sampling frequency (Hz)</a></li><li><a href="#d120e482" class="intrnllnk">Samples per frame (N)</a></li></ul></li><li><a href="#mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_seealso" class="intrnllnk">See Also</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-ref"><div class="block_ref"><span id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e" class="anchor_target"></span><span id="libalsaaudiocapture" class="anchor_target"></span><h1 class="r2018b" itemprop="title"><span class="refname">ALSA Audio Capture</span></h1><div class="doc_topic_desc"><div class="purpose_container"><p itemprop="purpose">Capture audio from sound card using ALSA</p><div class="switch"><a href="javascript:void(0);" id="expandAllPage">expand all in page</a></div></div></div><div itemprop="content" class="ref_sect"><div class="row"><div class="col-xs-12 col-sm-9 col-md-10"><ul class="list-unstyled library_path_container"><li><strong>Library:</strong></li><li><p class="library_path">
+                Simulink Support Package for Raspberry Pi Hardware
+            </p></li></ul></div><div class="col-xs-12 col-sm-3 col-md-2"><p class="text-right text_center_xs"><span class="guiicon"><span class="inlinemediaobject"><img src="alsa_audio_capture_icon.png" alt="" height="83" width="135"></img></span></span></p></div></div></div><h2 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-1">Description</h2><p>The <span class="block">ALSA Audio Capture</span> block reads audio data from the audio input
+            device connected to the hardware. The block uses the Advanced Linux Sound Architecture
+            (ALSA) driver framework to read audio data.</p><p>The block outputs the audio data as an <em class="varname">N</em>-by-<em class="varname">C</em>
+            matrix, where <em class="varname">N</em> is the samples per audio channel, and
+                <em class="varname">C</em> is the number of channels supported by the audio device.
+            Specify the values for <em class="varname">N</em> and <em class="varname">C</em> in the
+                <strong class="guilabel">Samples per frame (N)</strong> and <strong class="guilabel">Number of channels
+                (C)</strong> parameters, respectively.</p><div class="alert alert-info"><span class="alert_icon icon-alert-info-reverse"></span><h3>Note</h3><p>To use the <span class="block">ALSA Audio Capture</span> block with audio devices that support
+                more than two channels, you must have an Audio System
+            Toolbox&#x2122; license.</p></div><div id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvupe0r-1_div" class="refsect2"><h3 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvupe0r-1">Algorithm</h3><p>Consider a Simulink<sup>&#x00AE;</sup> model that includes an <span class="block">ALSA Audio Capture</span> block and an
+                    <a href="alsaaudioplayback.html" class="a">ALSA Audio Playback</a> block. At
+                each sample time, the <span class="block">ALSA Audio Capture</span> reads stereo audio data from
+                the microphone connected to the audio input connector of the hardware. The block
+                outputs data as a 3-by-2 matrix. The <span class="block">ALSA Audio Playback</span> block
+                accepts the audio matrix and sends audio to the headphones connected to the audio
+                output jack of the hardware.</p><div class="informalfigure"><div id="d120e211" class="mediaobject"><p><img src="audio_workflow.png" alt="" height="335" width="900"></img></p></div></div><p>The <span class="block">ALSA Audio Capture</span> block determines the sample time
+                    (<em class="varname">T</em><sub>s</sub>) from the samples per audio
+                channel (<em class="varname">N</em>) and sampling frequency
+                (<em class="varname">F</em>s).</p><p><span class="inlineequation"><em class="varname">T</em><sub>s</sub> = <em class="varname">N</em>
+                        / <em class="varname">F</em>s</span></p><p>For example, if <em class="varname">N</em> is 4410 samples and <em class="varname">F</em>s is
+                44,100 Hz, the block sample time is <span class="inlineequation">4410/44,100 = 0.1</span> seconds.</p><p><em class="varname">N</em> is the number of samples per audio channel specified in the
+                    <strong class="guilabel">Number of channels (C)</strong> parameter. <em class="varname">F</em>s is
+                the sampling frequency of audio data specified in the <strong class="guilabel">Audio sampling
+                    frequency (Hz)</strong> parameter.</p></div><div class="ref_sect"><h2 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-2">Ports</h2></div><div class="ref_sect"><h3 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-3">Output</h3><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-3_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" data-target="#expand_panel_body_mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" aria-controls="expand_panel_body_mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><h3 class="panel-title" id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1"><code class="name">Port_1</code> &#8212; Audio data<br/>
+<span class="add_font_color_general remove_bold"><span class="example_desc"><em class="varname">N</em>-by-<em class="varname">C</em> matrix</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" aria-labelledby="expand_panel_heading_mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_sep_bvg0sz1-Port_1" class="panel-collapse collapse"><div class="panel-body">
+                        <p>The block outputs the audio data as an
+                                <em class="varname">N</em>-by-<em class="varname">C</em> matrix, where
+                                <em class="varname">N</em> is the samples per channel, and
+                                <em class="varname">C</em> is the number of channels supported by the
+                            audio. Specify the values of <em class="varname">N</em> and
+                                <em class="varname">C</em> in the <strong class="guilabel">Samples per frame
+                                (N)</strong> and <strong class="guilabel">Number of channels (C)</strong>
+                            parameters, respectively.</p>
+                        <p>For example, for a stereo audio source file with three samples per
+                            channel, the block organizes the audio data into a 3-by-2 matrix.</p>
+                        <div class="informalfigure"><div id="d120e330" class="mediaobject"><p><img src="multichannel_framebased.png" alt="" height="161" width="287"></img></p></div></div>
+                        <p>The data type of the output matrix is of the type specified in the
+                                <strong class="guilabel">Device Bit depth</strong> parameter.</p>
+                    <p class="datatypelist"><strong>Data Types: </strong><code>int8</code> | <code>int16</code> | <code>int32</code></p></div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-4">Parameters</h2><div class="expandableContent"><p class="switch "><a href="javascript:void(0);" class="expandAllLink" data-allexpanded="false">expand all</a></p><div class="panel-group" id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e.bvsea_l-4_panel-group" role="tablist" aria-multiselectable="true"><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_d120e359" data-target="#expand_panel_body_d120e359" aria-controls="expand_panel_body_d120e359" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_Devicename" class="anchor_target"></span><h3 class="panel-title" id="d120e359"><code class="name">Device name</code> &#8212; ALSA audio input device<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">'hw:1,0'</code> (default) | any connected ALSA audio input device</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_d120e359" aria-labelledby="expand_panel_heading_d120e359" class="panel-collapse collapse"><div class="panel-body">
+                    <p>Specify the ALSA audio input device connected to the hardware from which
+                        the block reads audio data.</p>
+                    <p>You can receive audio from any ALSA audio input device connected to the
+                        hardware. To get the list of audio input devices connected to the hardware,
+                        use the <a href="listaudiodevices.html" class="a"><code class="olink">listAudioDevices</code></a>
+                        function as described in <a href="listaudiodevices.html#mw_e6c0f601-0b30-44d9-8d73-6dc5546e8969" class="a">List Available ALSA Audio Input Devices</a>.</p>
+                </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_d120e391" data-target="#expand_panel_body_d120e391" aria-controls="expand_panel_body_d120e391" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_DeviceBitdepth" class="anchor_target"></span><h3 class="panel-title" id="d120e391"><code class="name">Device Bit depth</code> &#8212; Audio data type<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="guidropdown">16-bit integer</code> (default) | <code class="guidropdown">8-bit integer</code> | <code class="guidropdown">32-bit integer</code></span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_d120e391" aria-labelledby="expand_panel_heading_d120e391" class="panel-collapse collapse"><div class="panel-body">
+                    <p>Before performing analog-to-digital conversion, the audio data is cast to
+                        the data type specified in this parameter.</p>
+                </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_d120e421" data-target="#expand_panel_body_d120e421" aria-controls="expand_panel_body_d120e421" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_NumberofchannelsC" class="anchor_target"></span><h3 class="panel-title" id="d120e421"><code class="name">Number of channels (C)</code> &#8212; Number of channels supported<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">2</code> (default) | any positive integer</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_d120e421" aria-labelledby="expand_panel_heading_d120e421" class="panel-collapse collapse"><div class="panel-body">
+                    <p>To find the number of channels supported by the audio input device, use
+                        the <a href="listaudiodevices.html" class="a"><code class="olink">listAudioDevices</code></a>
+                        function as described in <a href="listaudiodevices.html#mw_e6c0f601-0b30-44d9-8d73-6dc5546e8969" class="a">List Available ALSA Audio Input Devices</a>.</p>
+                </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_d120e450" data-target="#expand_panel_body_d120e450" aria-controls="expand_panel_body_d120e450" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_AudiosamplingfrequencyHz" class="anchor_target"></span><h3 class="panel-title" id="d120e450"><code class="name">Audio sampling frequency (Hz)</code> &#8212; Audio sample rate<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">44100</code> (default) | any positive integer</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_d120e450" aria-labelledby="expand_panel_heading_d120e450" class="panel-collapse collapse"><div class="panel-body">
+                    <p>Specify the sample rate used by the audio input device to read audio data,
+                        in Hz. The sample rates listed in the <strong class="guilabel">Audio sampling frequency
+                            (Hz)</strong> parameter depends on the audio input device. To find the
+                        sample rates supported by the audio input device, use the <a href="listaudiodevices.html" class="a"><code class="olink">listAudioDevices</code></a>
+                        function as described in <a href="listaudiodevices.html#mw_e6c0f601-0b30-44d9-8d73-6dc5546e8969" class="a">List Available ALSA Audio Input Devices</a>.</p>
+                </div></div></div></div><div class="panel-group" role="tablist" aria-multiselectable="true"><div class="panel panel-default "><div role="tab" data-toggle="collapse" id="expand_panel_heading_d120e482" data-target="#expand_panel_body_d120e482" aria-controls="expand_panel_body_d120e482" class="panel-heading add_cursor_pointer collapsed" aria-expanded="false"><span id="inputarg_SamplesperframeN" class="anchor_target"></span><h3 class="panel-title" id="d120e482"><code class="name">Samples per frame (N)</code> &#8212; Number of samples per audio channel<br/> <span class="add_font_color_general remove_bold"><span class="example_desc"><code class="literal">4410</code> (default) | any positive integer</span></span></h3><span class="icon-arrow-open-down icon_24"></span><span class="icon-arrow-open-right icon_24"></span></div><div role="tabpanel" id="expand_panel_body_d120e482" aria-labelledby="expand_panel_heading_d120e482" class="panel-collapse collapse"><div class="panel-body">
+                    <p>This parameter specifies the number of rows of the output matrix that the
+                        block outputs. The output matrix has dimensions
+                            <em class="varname">N</em>-by-<em class="varname">C</em>, where <em class="varname">N</em>
+                        is the number of samples per channel, and <em class="varname">C</em> is the number
+                        of channels.</p>
+                </div></div></div></div></div></div></div><div class="ref_sect"><h2 id="mw_1265d549-4fbd-4b4a-96bd-5ac02d04902e_seealso">See Also</h2><p><span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="alsaaudioplayback.html"><span itemprop="name">ALSA Audio Playback</span></a></span> | <span itemscope="" itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage/SeeAlso" itemprop="seealso"><a itemprop="url" href="listaudiodevices.html"><span itemprop="name"><code xmlns:mtmp="http://www.mathworks.com/dev/doc/tools/tempstruct" class="olink">listAudioDevices</code></span></a></span></p></div><div class="release_introduced"><h4>Introduced in R2013a</h4></div>
+    </div></div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

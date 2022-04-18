@@ -1,0 +1,9 @@
+<example>
+  <main>CommunicatingWithAnEEPROMExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_SPI_EEPROM');</callback>
+  <file component="raspberrypi" timestamp="1524247750">raspberrypi_3_modelb_gpio_pinmap.jpg</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

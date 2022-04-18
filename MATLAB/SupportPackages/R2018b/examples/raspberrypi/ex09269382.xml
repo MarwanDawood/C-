@@ -1,0 +1,13 @@
+<example>
+  <main>AutorotateAnImageDisplayedOnSenseHATLEDMatrixExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_sensehat_autorotate');</callback>
+  <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot0.png</file>
+  <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot90.png</file>
+  <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot180.png</file>
+  <file timestamp="1524250264" component="raspberrypi">raspberrypi_sensehat_rot270.png</file>
+  <file timestamp="1524250264" component="raspberrypi">raspberrypi_autorotate_staeflow.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

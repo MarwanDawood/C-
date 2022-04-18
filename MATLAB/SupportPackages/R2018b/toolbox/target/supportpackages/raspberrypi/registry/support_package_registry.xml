@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--Copyright 2015-2019 The MathWorks, Inc. -->
+<!--Support Package Repository -->
+<RTTPackageRepository>
+    <SupportPackage 
+        name="Raspberry Pi" 
+        fullname="Simulink Support Package for Raspberry Pi Hardware"
+	fwupdatedisplayname = "Raspberry Pi"
+        firmwareupdate="matlab.hwmgr.internal.hwsetup.register.RaspberryPiWorkflow"
+        version="18.2.2"
+        infotext="Run models on Raspberry Pi."
+        basecode="RASPPI" 
+        platform="PCWIN64,MACI64,GLNXA64"
+        visible="1"
+        enable="1"
+        baseproduct="Simulink"
+        url="http://www.mathworks.com" 
+        downloadurl="http://sharepoint/dev/spc/verdeploy/senthilteam/HardwareInterface/Documents/Research" 
+        licenseurl="http://www.mathworks.com/matlabcentral/fileexchange/view_license?file_info_id=32374"
+        folder="raspberrypi"
+        demoxml="raspberrypiexamples/demos.xml">
+        <DependsOn name="Raspberry Pi I/O" version="18.2.2"></DependsOn>	
+        <Path name="$(INSTALLDIR)/raspberrypi"></Path>
+        <Path name="$(INSTALLDIR)/raspberrypi/blocks"></Path>
+        <Path name="$(INSTALLDIR)/raspberrypi/registry"></Path>
+        <Path name="$(INSTALLDIR)/raspberrypi/raspberrypiexamples"></Path>
+        </SupportPackage>
+</RTTPackageRepository>

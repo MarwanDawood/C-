@@ -1,0 +1,8 @@
+<example>
+  <main>ExternalModeWithRaspberryPiRHardwareExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_external_mode');</callback>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

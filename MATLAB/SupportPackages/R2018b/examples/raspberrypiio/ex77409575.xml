@@ -1,0 +1,7 @@
+<example>
+  <main>TrackingAGreenBallExample</main>
+  <product>matlab</product>
+  <product>raspberrypiio</product>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>

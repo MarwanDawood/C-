@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title>Model Configuration Simulink Support Package for Raspberry Pi Hardware</title>
+<script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+      {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement":
+      [{
+          "@type": "ListItem",
+          "position": 1,
+
+          "item": {
+          "@id": "../index.html",
+          "name": "Simulink Support Package for Raspberry Pi Hardware"
+}
+
+          } 
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+
+          "item": {
+          "@id": "../model-preparation.html",
+          "name": "Modeling"
+}
+
+          }]
+      }</script><script xmlns="http://www.w3.org/1999/xhtml" type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+          "name": "VisibleBreadcrumbs",
+
+        "itemListElement":
+        [
+        "model-preparation"
+        ],
+        "itemListOrder": "http://schema.org/ItemListOrderAscending"
+        }
+        </script><link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+
+
+  <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="Content-Script-Type" content="text/javascript"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="toctype" itemprop="pagetype" content="ug"></meta>
+<meta xmlns="http://www.w3.org/1999/xhtml" name="infotype" itemprop="infotype" content="ex"></meta>
+
+<meta xmlns="http://www.w3.org/1999/xhtml" name="description" itemprop="description" content="Specify hardware options to simulate and generate code for models of computer-based systems, such as embedded controllers."></meta><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/product/scripts/jquery/jquery-latest.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6.css?201901150940" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_lg.css?201901150940" rel="stylesheet" media="screen and (min-width: 1200px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_md.css?201901150940" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm+xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_sm.css?201901150940" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_xs.css?201901150940" rel="stylesheet" media="screen and (max-width: 767px)"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/site6_offcanvas.css?201901150940" rel="stylesheet" type="text/css"></link>
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/l10n.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/f1help.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/docscripts.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/mw.imageanimation.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/jquery.highlight.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/underscore-min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/examples.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/use_platform_screenshots.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/suggest.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/overload.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/shared/scripts/helpservices.js"></script>
+
+
+
+
+
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/jquery/jquery.mobile.custom.min.js"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script xmlns="http://www.w3.org/1999/xhtml" src="../includes/product/scripts/global.js"></script>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_base.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_installed.css" rel="stylesheet" type="text/css"></link>
+<link xmlns="http://www.w3.org/1999/xhtml" href="../includes/product/css/doc_center_print.css" rel="stylesheet" type="text/css" media="print"></link>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../includes/shared/equationrenderer/release/MathRenderer.js"></script>
+</head>
+<body id="responsive_offcanvas">
+<div xmlns="http://www.w3.org/1999/xhtml" id="doc_header_spacer" class="header"></div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="sticky_header_container includes_subnav affix-top"><div class="section_header level_3"><div class="container-fluid"><div class="row" id="mobile_search_row"><div class="col-xs-12 has_horizontal_local_nav" id="section_header_title"><div class="section_header_content"><div class="section_header_title"><h1><a href="../../../documentation-center.html">Documentation</a></h1></div><button type="button" class="navbar-toggle collapsed subnav visible-xs" data-toggle="collapse" data-target=".mobile_subnav_content"><span class="icon-arrow-down icon_24"></span></button></div><div class="crux_nav_container hidden-xs"><div class="crux_nav"><ul id="topnav_main"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li><li role="presentation" class="dropdown" id="topnav_more" style="display:none;"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul></div></div></div><div class="col-xs-12" id="mobile_search"><div class="search_nested_content_container"><form id="docsearch_form" name="docsearch_form" method="get" data-release="R2018b" data-language="en" action="../../../templates/searchresults.html"><div class="input-group tokenized_search_field"><label class="sr-only">Search Help</label><input type="text" class="form-control conjoined_search" autocomplete="off" name="qdoc" placeholder="Search Help" id="docsearch"> </input><div class="input-group-btn"><button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button></div></div></form></div><button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div><div class="visible-xs" id="search_actuator"><button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"></button></div></div><div class="row visible-xs" id="mobile_subnav"><div class="col-xs-12"><div class="navbar-collapse collapse mobile_subnav_content"><div class="crux_nav_container"><div class="crux_nav"><ul class="nav navbar-nav subnav"><li id="crux_nav_documentation" class="crux_nav_active"><a>All</a></li><li id="crux_nav_example"><a href="../examples.html?category=model-preparation">Examples</a></li><li id="crux_nav_function"><a href="../referencelist.html?type=function&amp;category=model-preparation">Functions</a></li><li id="crux_nav_block"><a href="../referencelist.html?type=block&amp;category=model-preparation">Blocks</a></li></ul></div></div></div></div></div></div></div><div class="horizontal_nav"><div class="horizontal_nav_container"><div class="offcanvas_actuator" data-toggle="offcanvas" data-target="#sidebar" id="nav_toggle"><button type="button" class="btn"><span class="sr-only">Toggle navigation</span><span class="icon-menu"></span></button><span class="offcanvas_actuator_label" id="translation_icon-filter" tabindex="0"></span><span class="offcanvas_actuator_close" tabindex="0"></span></div><div class="offcanvas_horizontal_nav"><div class="container-fluid"><div class="row"><div class="col-md-12 hidden-xs hidden-sm"></div></div></div></div></div></div></div><div class="row-offcanvas row-offcanvas-left">
+<div xmlns="http://www.w3.org/1999/xhtml" class="sidebar-offcanvas" id="sidebar" role="navigation">
+<nav class="offcanvas_nav" role="navigation">
+<ul class="nav_breadcrumb"><li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../../../documentation-center.html" itemprop="url"><span itemprop="title">Documentation Home</span></a></li></ul>
+<ul class="nav_disambiguation"><li><a href="../index.html">Simulink Support Package for Raspberry Pi Hardware</a>
+</li>
+<li itemscope="" itemtype="http://www.data-vocabulary.org/Breadcrumb" itemprop="breadcrumb"><a href="../model-preparation.html" itemprop="url"><span itemprop="title">Modeling</span></a></li></ul><ul class="nav_scrollspy nav">
+<li class="nav_scrollspy_function"><a href="#responsive_offcanvas">Model Configuration Simulink Support Package for Raspberry Pi Hardware</a></li>
+<li class="nav_scrollspy_title" id="SSPY810-section">On this page</li>
+<!--ADD_REFENTRY_TITLE_HERE 11--><li><a href="#bvpvs9m-1" class="intrnllnk">Hardware Implementation Overview</a><ul class="nav"><li><a href="#bvpvs9m-3" class="intrnllnk">See Also</a></li></ul></li><li><a href="#bvpvs9m-4" class="intrnllnk">Hardware board</a><ul class="nav"><li><a href="#bvpvs9m-6" class="intrnllnk">Settings</a></li><li><a href="#bvpvs9m-7" class="intrnllnk">Tips</a></li><li><a href="#bvpvs9m-8" class="intrnllnk">Dependencies</a></li><li><a href="#bvpvs9m-9" class="intrnllnk">Command-Line Information</a></li><li><a href="#bvpvs9m-10" class="intrnllnk">Recommended Settings</a></li></ul></li><li><a href="#bvp2cwz-1" class="intrnllnk">Base Rate Task Priority</a><ul class="nav"><li><a href="#bvp2cwz-3" class="intrnllnk">Settings</a></li></ul></li><li><a href="#bvp2cwz-4" class="intrnllnk">Detect task overruns</a><ul class="nav"><li><a href="#bvp2cwz-6" class="intrnllnk">Settings</a></li></ul></li><li><a href="#bvpv8d5" class="intrnllnk">Board Parameters</a></li><li><a href="#bvpv8eg-1" class="intrnllnk">Build options</a></li><li><a href="#bvpv8ei-1" class="intrnllnk">SPI</a></li><li><a href="#mw_3508bb0c-7188-4c75-b721-e514532b28d4" class="intrnllnk">MQTT</a></li><li><a href="#bvpv8ek-1" class="intrnllnk">External mode</a></li></ul>
+</nav>
+<script src="../includes/product/scripts/offcanvas.js"></script></div><!--END.CLASS sidebar-offcanvas-->
+<div class="content_container" id="content_container" itemprop="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+
+<section xmlns="http://www.w3.org/1999/xhtml" id="doc_center_content" lang="en"><div id="pgtype-topic">
+<section itemprop="content"><h2 class="title r2018b" itemprop="title content" id="bvpvqjn-1">Model Configuration <span class="entity"><span class="trademark">Simulink</span> Support Package for <span class="trademark">Raspberry Pi</span> Hardware</span></h2><section itemprop="content"><h3 class="title" id="bvpvs9m-1"><span id="help_button" class="anchor_target"></span>Hardware Implementation Overview</h3><a class="indexterm" name="d120e9085"></a><p>Specify hardware options to simulate and generate code for models
+of computer-based systems, such as embedded controllers.</p><p><strong class="guilabel">Hardware Implementation</strong> pane parameters
+do not control hardware or compiler behavior. The parameters describe
+hardware and compiler properties for the MATLAB<sup>&#x00AE;</sup> software.</p><div class="itemizedlist"><ul><li><p>Specifying hardware characteristics enables simulation
+of the model to detect error conditions that can arise when executing
+code, such as hardware overflow.</p></li><li><p> MATLAB uses the information to generate code
+for the platform that runs as efficiently as possible. MATLAB software
+also uses the information to give bit-true agreement for the results
+of integer and fixed-point operations in simulation and generated
+code.</p></li></ul></div><section itemprop="content"><h4 class="title" id="bvpvs9m-3">See Also</h4><div class="itemizedlist"><ul><li><p><a href="../../../rtw/ug/hardware-targets.html" class="a">Hardware Implementation
+Options</a> (Simulink Coder)</p></li></ul></div></section></section><section itemprop="content"><h3 class="title" id="bvpvs9m-4">Hardware board</h3><span id="Tag_ConfigSet_RTW_TargetHardware" class="anchor_target"></span><a class="indexterm" name="d120e9124"></a><p>Select the hardware board upon which to run your model.</p><p>Changing this parameter updates the dialog box display so that
+it displays parameters that are relevant to your hardware board.</p><p>To install support for a hardware board, start the Support Package
+Installer by selecting <code class="guidropdown">Get Hardware Support Packages</code>.
+Alternatively, in the MATLAB Command Window, enter <a href="../../../matlab/ref/supportpackageinstaller.html"><code class="function">supportPackageInstaller</code></a>.</p><p>After installing support for a hardware board, reopen the Configuration
+Parameters dialog box and select the hardware board.</p><section itemprop="content"><h4 class="title" id="bvpvs9m-6">Settings</h4><p><strong class="emphasis bold">Default:</strong> <code class="guidropdown">None</code> if
+the specified system target file is <code class="literal">ert.tlc</code>, <code class="literal">realtime.tlc</code>,
+or <code class="literal">autosar.tlc</code>. Otherwise, the default is <code class="guidropdown">Determine
+by Code Generation system target file</code>.</p><div class="variablelist"><dl><dt><span id="d120e9171" class="anchor_target"></span><span class="term"><code class="guidropdown">None</code></span></dt><dd><p>No hardware board is specified. The system target file specified
+for the model is <code class="literal">ert.tlc</code>, <code class="literal">realtime.tlc</code>,
+or <code class="literal">autosar.tlc</code>.</p></dd><dt><span id="d120e9187" class="anchor_target"></span><span class="term"><code class="guidropdown">Determine by Code Generation system
+target file</code></span></dt><dd><p>Specifies that the system target file setting determines the
+hardware board.</p></dd><dt><span id="d120e9194" class="anchor_target"></span><span class="term"><code class="guidropdown">Get Hardware Support Packages</code></span></dt><dd><p>Invokes the Support Package Installer. After you install a hardware
+support package, the list includes relevant hardware board names.</p></dd><dt><span id="d120e9201" class="anchor_target"></span><span class="term">Hardware board name</span></dt><dd><p>Specifies the hardware board to use to implement the system
+this model represents.</p></dd></dl></div></section><section itemprop="content"><h4 class="title" id="bvpvs9m-7">Tips</h4><div class="itemizedlist"><ul><li><p>When you select a hardware board, parameters for board
+settings appear in the dialog box display.</p></li><li><p>After you select a hardware board, you can select
+a device vendor and type.</p></li></ul></div></section><section itemprop="content"><h4 class="title" id="bvpvs9m-8">Dependencies</h4><p>The <strong class="guilabel">Device vendor</strong> and <strong class="guilabel">Device
+type</strong> parameter values reflect available device support
+for the selected hardware board.</p><p>When you select a hardware board, the selection potentially
+changes the <code class="literal">Toolchain</code> parameter value and other
+configuration parameter values. For example, if you change the hardware
+board selection to <code class="literal">ARM Cortex-A9 (QEMU)</code>, the <code class="literal">Toolchain</code> parameter
+value changes to a supported toolchain, such as <code class="literal">Linaro Toolchain
+v4.8</code>. </p></section><section itemprop="content"><h4 class="title" id="bvpvs9m-9">Command-Line Information</h4><table border="0" summary="Simple list" class="simplelist"><tr><td><span class="member"><strong class="emphasis bold">Parameter:</strong> <code class="literal">HardwareBoard</code></span></td></tr><tr><td><span class="member"><strong class="emphasis bold">Type:</strong> character array</span></td></tr><tr><td><span class="member"><strong class="emphasis bold">Default:</strong> <code class="literal">'Determine
+by Code Generation system target file'</code></span></td></tr></table></section><section itemprop="content"><h4 class="title" id="bvpvs9m-10">Recommended Settings</h4><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="42%"></col><col class="tcol2" width="58%"></col></colgroup><thead><tr><th>Application</th><th>Setting</th></tr></thead><tbody><tr><td>Debugging</td><td>No impact</td></tr><tr><td>Traceability</td><td>No impact</td></tr><tr><td>Efficiency</td><td>No impact</td></tr><tr><td>Safety precaution</td><td>No impact</td></tr></tbody></table></div></section></section><section itemprop="content"><h3 class="title" id="bvp2cwz-1">Base Rate Task Priority</h3><span id="Tag_ConfigSet_CoderTarget_Base_Rate_Task_Priority" class="anchor_target"></span><p>This parameter sets the static priority of the base rate task.
+However, the changes that you make in this parameter do not result
+in any functionality differences on the LEGO<sup>&#x00AE;</sup> MINDSTORMS<sup>&#x00AE;</sup> EV3
+brick.</p><section itemprop="content"><h4 class="title" id="bvp2cwz-3">Settings</h4><p><strong class="emphasis bold">Default:</strong> <code class="literal">40</code></p></section></section><section itemprop="content"><h3 class="title" id="bvp2cwz-4">Detect task overruns</h3><span id="Tag_ConfigSet_CoderTarget_Detect_Task_Overruns" class="anchor_target"></span><p>Detect when a task overrun occurs in a Simulink<sup>&#x00AE;</sup> model running
+on the target hardware. Indicate when an overrun has occurred.</p><p>A task overrun occurs if the target hardware is still performing
+one instance of a task when the next instance of that task is scheduled
+to begin. </p><p>You can fix overruns by decreasing the frequency with which
+tasks are scheduled to run, and by reducing the number or complexity
+of the tasks defined by your model. </p><p>If those solutions do not fix the task overrun condition, and
+you are using External mode, consider disabling External mode.</p><section itemprop="content"><h4 class="title" id="bvp2cwz-6">Settings</h4><p><strong class="emphasis bold">Default:</strong> <code class="literal">None</code></p></section></section><section itemprop="content"><h3 class="title" id="bvpv8d5">Board Parameters</h3><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Parameter</th><th>Description</th><th>Default Value</th></tr></thead><tbody><tr><td><a href="board-parameters.html#bvpv_ps-1" class="a">Device Address</a></td><td>IP address or host name of the hardware board.</td><td>172.18.76.166</td></tr><tr><td><a href="board-parameters.html#bvpv_q_-1" class="a">Username</a></td><td>Root user name for Linux<sup>&#x00AE;</sup> running on the hardware board.</td><td>pi</td></tr><tr><td><a href="board-parameters.html#bvpv_r7-1" class="a">Password</a></td><td>Root password for Linux running on the hardware board.</td><td>raspberry</td></tr></tbody></table></div></section><section itemprop="content"><h3 class="title" id="bvpv8eg-1">Build options</h3><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Parameter</th><th>Description</th><th>Default Value</th></tr></thead><tbody><tr><td><a href="build-options.html#bvpv_u7-1" class="a">Build action</a></td><td>Option to specify whether you want only build or build and
+run actions during code generation.</td><td>Build and run</td></tr><tr><td><a href="build-options.html#bvpv_u7-4" class="a">Build directory</a></td><td>Build directory for Linux running on the hardware board.</td><td>/home/root</td></tr><tr><td><a href="build-options.html#mw_f48fd923-84ae-4ff7-80dd-d6aa07f46505" class="a">Run on boot</a></td><td>
+                                <p>Automatically starts a Simulink model deployed on the hardware every time you
+                                    restart the hardware.</p>
+                            </td><td>off</td></tr></tbody></table></div></section><section itemprop="content"><h3 class="title" id="bvpv8ei-1">SPI</h3><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Parameter</th><th>Description</th><th>Default Value</th></tr></thead><tbody><tr><td><a href="spi.html#bvpv_xa-1" class="a">SPI0 CE0 Bus Speed (kHz)</a></td><td>Bus speed in kilo hertz for channel 0.</td><td>500</td></tr><tr><td><a href="spi.html#bvpv_xa-3" class="a">SPI0 CE1 Bus Speed (kHz)</a></td><td>Bus speed in kilo hertz for channel 1.</td><td>500</td></tr></tbody></table></div></section><section itemprop="content"><h3 class="title" id="mw_3508bb0c-7188-4c75-b721-e514532b28d4">MQTT</h3><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Parameter</th><th>Description</th><th>Default Value</th></tr></thead><tbody><tr><td><a href="mqtt.html#mw_356aaba6-e12d-4d92-9eda-ae8730f086f4" class="a">Broker Address</a></td><td>The address of the MQTT broker.</td><td><code class="literal">mqtt.thingspeak.com</code></td></tr><tr><td><a href="mqtt.html#mw_72d3b2fb-4b0e-40b6-9995-4ec6073370ac" class="a">Username</a></td><td>User name for MQTT broker to authenticate the client.</td><td><code class="literal"><em class="varname">&lt;empty&gt;</em></code></td></tr><tr><td><a href="mqtt.html#mw_f4dbe53a-6be8-45d4-a1d4-a0a46ac1b2a0" class="a">Password</a></td><td>Password for MQTT broker to authenticate the client.</td><td><code class="literal"><em class="varname">&lt;empty&gt;</em></code></td></tr><tr><td><a href="mqtt.html#mw_1a3a1654-2c65-454a-8c60-e4190af650e9" class="a">Client ID</a></td><td>A unique identifier for the client that is connected to the MQTT
+                                broker. </td><td><code class="literal"><em class="varname">&lt;empty&gt;</em></code></td></tr></tbody></table></div></section><section itemprop="content"><h3 class="title" id="bvpv8ek-1">External mode</h3><div class="table-responsive"><table class="table table-condensed"><colgroup><col class="tcol1" width="33%"></col><col class="tcol2" width="33%"></col><col class="tcol3" width="33%"></col></colgroup><thead><tr><th>Parameter</th><th>Description</th><th>Default Value</th></tr></thead><tbody><tr><td><a href="external-mode.html#bvpv_y2-1" class="a">Communication interface</a></td><td>The option used to run your model in the External mode with
+serial communication.</td><td>TCP/IP</td></tr><tr><td><a href="external-mode.html#bvpv_1q-1" class="a">Run external mode in a background</a></td><td>The option to force the External mode engine to run the generated
+code in a background task.</td><td>Selected</td></tr><tr><td><a href="external-mode.html#bvpwa16-1" class="a">Port</a></td><td>The port the External mode uses for communications between
+the hardware board and host computer.</td><td>17725</td></tr><tr><td><a href="external-mode.html#bvpv_3n-1" class="a">Verbose</a></td><td>Option to view the External Mode execution progress and updates
+in the Diagnostic Viewer or in the MATLAB Command Window</td><td>Selected</td></tr></tbody></table></div></section></section>
+    </div><div class="clearfix"></div>
+<div class="feedbackblock">Was this topic helpful?
+<input type="button" value="Yes" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-YES-R2018b');"></input>
+<input type="button" value="No" onClick="openFeedbackWindow('https://www.mathworks.com/programs/bounce_hub_help.html?s_cid=Help_Topic_Survey&amp;surveyParams='+document.location.href+'-NO-R2018b');"></input>
+</div>
+</section>
+
+<!--Last updated: Tue Jan 15 09:40:40 EST 2019-->
+</div>
+</div>
+</div><!--close_0960-->
+</div><!--close_0970-->
+<div xmlns="http://www.w3.org/1999/xhtml" class="body_trail_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12">
+<div class="row"><div class="col-xs-12 col-sm-3"><h5><a href="../index.html?s_cid=doc_ftr">Simulink Support Package for Raspberry Pi Hardware Documentation</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="../examples.html?s_cid=doc_ftr">Examples</a></li>
+<li><a href="../referencelist.html?type=function&amp;s_cid=doc_ftr">Functions and Other Reference</a></li>
+<li><a href="../release-notes.html?s_cid=doc_ftr">Release Notes</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-3"><h5><a href="https://www.mathworks.com/support.html?s_cid=doc_ftr">Support</a></h5>
+<ul class="list-unstyled hidden-xs"><li><a href="https://www.mathworks.com/matlabcentral/answers/index?s_cid=doc_ftr">MATLAB Answers</a></li><li><a href="https://www.mathworks.com/support/install-matlab.html?s_cid=doc_ftr">Installation Help</a></li><li><a href="https://www.mathworks.com/support/bugreports/?s_cid=doc_ftr">Bug Reports</a></li><li><a href="https://www.mathworks.com/products/availability.html?s_cid=doc_ftr">Product Requirements</a></li><li><a href="https://www.mathworks.com/downloads/?s_cid=doc_ftr">Software Downloads</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+</div><!--END.CLASS container-fluid-->
+</div><!--END.CLASS body_trail_container-->
+<footer xmlns="http://www.w3.org/1999/xhtml" id="footer" class="bs-footer">
+<div class="container-fluid">
+<div class="footer">
+<div class="row">
+<div class="col-xs-12">
+<p class="copyright">© 1994-2019 The MathWorks, Inc.</p>
+<ul class="footernav"><li class="footernav_help"><a href="MATLAB:web(matlab.internal.licenseAgreement)">Terms of Use</a></li><li class="footernav_patents"><a href="MATLAB:web([matlabroot '/patents.txt'])">Patents</a></li><li class="footernav_trademarks"><a href="MATLAB:web([matlabroot '/trademarks.txt'])">Trademarks</a></li><li class="footernav_piracy"><a href="MATLAB:web([docroot '/acknowledgments.html'])">Acknowledgments</a></li></ul></div>
+</div>
+</div>
+</div>
+</footer>
+</div><!--close row-offcanvas-->
+</body>
+</html>

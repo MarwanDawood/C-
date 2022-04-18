@@ -1,0 +1,232 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Communicating with Raspberry Pi&reg; Hardware</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-08"><meta name="DC.source" content="CommunicatingWithRaspberryPiRHardwareExample.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><style>
+.open_example { 
+    padding:0px 0px 1px 0px;
+    margin:20px;
+    font-size:0.9em;
+    border:1px solid #aeaeae;
+    display:block;
+    float:right;
+    border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%); /* FF3.6+ */	
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFFFFF 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#e6e6e6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#E6E6E6',GradientType=0 ); /* IE6-9 */
+}
+
+.open_example:hover {
+    background: #f3f3f3; /* Old browsers */
+    background: -moz-linear-gradient(top, #f3f3f3 0%, #d7d7d7 100%); /* FF3.6+ */    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#d7d7d7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f3f3f3 0%,#d7d7d7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* IE10+ */
+    background: linear-gradient(top,  #f3f3f3 0%,#d7d7d7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#d7d7d7',GradientType=0 ); /* IE6-9 */
+} 
+
+.open_example a { 
+    padding:6px 10px; 
+    line-height:130%;
+    text-decoration:none;
+    float:left;
+}
+      </style><div class="open_example"><a href="matlab:openExample('raspberrypi/CommunicatingWithRaspberryPiRHardwareExample')">Open this Example</a></div><div class="content"><h1>Communicating with Raspberry Pi&reg; Hardware</h1><!--introduction--><p>This example shows you how to send data using the UDP Ethernet protocol from a Simulink&reg; model running on Raspberry Pi&reg; hardware to another model running on the host computer</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">Prerequisites</a></li><li><a href="#3">Required Hardware</a></li><li><a href="#4">Target Hardware Model</a></li><li><a href="#5">Host Model</a></li><li><a href="#6">Task 1 - Review Raspberry Pi Block Library</a></li><li><a href="#7">Task 2 - Run UDP Communication Model on Raspberry Pi Hardware</a></li><li><a href="#8">Task 3 - Run UDP Communication Model on the Host Computer</a></li><li><a href="#9">Task 4 - Stop the Model Running on Raspberry Pi Hardware</a></li><li><a href="#10">Other Things to Try:</a></li><li><a href="#11">Summary</a></li></ul></div><h2 id="1">Introduction</h2><p>In this example you will learn how to create and run a simple Simulink model on Raspberry Pi hardware that sends data to the host computer using <a href="matlab:web('http://en.wikipedia.org/wiki/User_Datagram_Protocol','-browser')">User Datagram Protocol (UDP)</a>. A companion model running on the host computer will receive UDP data packets coming from Raspberry Pi hardware.</p><h2 id="2">Prerequisites</h2><div><ul><li>We recommend completing <a href="raspberrypi_gettingstarted.html">Getting Started with Raspberry Pi&reg; Hardware</a> example.</li></ul></div><h2 id="3">Required Hardware</h2><p>To run this example you will need the following hardware:</p><div><ul><li>Raspberry Pi hardware</li></ul></div><h2 id="4">Target Hardware Model</h2><img vspace="5" hspace="5" src="CommunicatingWithRaspberryPiRHardwareExample_01.png" alt=""> <h2 id="5">Host Model</h2><img vspace="5" hspace="5" src="CommunicatingWithRaspberryPiRHardwareExample_02.png" alt=""> <h2 id="6">Task 1 - Review Raspberry Pi Block Library</h2><p>Simulink Support Package for Raspberry Pi Hardware provides I/O peripheral blocks for Raspberry Pi hardware for easy integration with algorithms designed in Simulink.</p><p><b>1.</b> Enter <a href="matlab:simulink">simulink</a> at the MATLAB&reg; prompt to open the Simulink Library Browser.</p><p><b>2.</b> In the Simulink Library Browser, navigate to <b>Simulink Support Package for Raspberry Pi Hardware</b>.</p><p><b>3.</b> Double-click the <b>UDP Send</b> or <b>UDP Receive</b> blocks. This opens the block mask, which contains a description of the block and parameters for configuring for UDP-based communications.</p><img vspace="5" hspace="5" src="CommunicatingWithRaspberryPiRHardwareExample_03.png" alt=""> <h2 id="7">Task 2 - Run UDP Communication Model on Raspberry Pi Hardware</h2><p>In this task, you will configure and run a simple model that sends UDP packets to the host computer.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_communication"><tt>target hardware model</tt></a>.</p><p><b>2.</b> Double-click on the <b>UDP Send</b> block. Open the block mask and enter the <a href="matlab:realtime.internal.displayHostIPAddress"><tt>IP address of your host computer</tt></a> in the <b>Remote IP address</b> edit box. For example, if the IP address of your host computer is 10.10.10.1, enter '10.10.10.1' in the block mask. Do not change the <b>Remote IP port</b> parameter. Click OK to save and close the block mask.</p><p><b>3.</b> In your Simulink model, click the <b>Deploy To Hardware</b> button on the toolbar.</p><p><b>4.</b> The model running on Raspberry Pi hardware will start sending UDP packets to port 25000 of your host computer.</p><h2 id="8">Task 3 - Run UDP Communication Model on the Host Computer</h2><p>In this task, you will run the host model that receives the UDP packets sent by the model running on Raspberry Pi hardware.</p><p><b>1.</b> Open the <a href="matlab:raspberrypi_host_communication"><tt>host model</tt></a>. This model has a UDP Receive block that is configured to receive UDP packets sent by the model running on Raspberry Pi hardware. Double-click on the <b>UDP Receive</b> block mask. Note that the Local IP port is set to 25000, and the output data type is set to "double".</p><p><b>2.</b> Click the Play button to start simulation.</p><p><b>3.</b> Double-click on the <b>Scope</b> block to see the sine wave sent by the model that is running on Raspberry Pi hardware. The <b>Display</b> block in the model shows the number of UDP packets received from the Raspberry Pi hardware since the start of simulation of the host model.</p><h2 id="9">Task 4 - Stop the Model Running on Raspberry Pi Hardware</h2><p><b>1.</b> On MATLAB command line, execute the following</p><pre>r = raspberrypi;
+stopModel(r,'raspberrypi_communication');</pre><h2 id="10">Other Things to Try:</h2><div><ul><li>Modify the <a href="matlab:raspberrypi_host_communication"><tt>host model</tt></a> so that the <b>Scope</b> block displays data only when Size port of the <b>UDP Receive</b> block outputs a positive number.</li></ul></div><h2 id="11">Summary</h2><p>This example showed how to send data from a model running on Raspberry Pi hardware to the host computer using UDP protocol, and also described how the data may be received by another model running on the host computer.</p><p class="footer">Copyright 2012-2014 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br><br>
+		  MATLAB and Simulink are registered trademarks of The MathWorks, Inc.  Please see <a href="http://www.mathworks.com/trademarks">www.mathworks.com/trademarks</a> for a list of other trademarks owned by The MathWorks, Inc.  Other product or brand names are trademarks or registered trademarks of their respective owners.
+      </p></div><!--
+##### SOURCE BEGIN #####
+%% Communicating with Raspberry Pi(R) Hardware
+%
+% This example shows you how to send data using the UDP Ethernet protocol from
+% a Simulink(R) model running on Raspberry Pi(R) hardware to another model
+% running on the host computer
+ 
+% Copyright 2012-2014 The MathWorks, Inc.
+
+%% Introduction
+%
+% In this example you will learn how to create and run a simple Simulink model
+% on Raspberry Pi hardware that sends data to the host computer using 
+% <matlab:web('http://en.wikipedia.org/wiki/User_Datagram_Protocol','-browser') User Datagram Protocol (UDP)>.
+% A companion model running on the host computer will receive UDP data
+% packets coming from Raspberry Pi hardware.
+
+%% Prerequisites
+%
+% * We recommend completing
+% <raspberrypi_gettingstarted.html Getting Started with Raspberry Pi(R) Hardware> example. 
+
+
+%% Required Hardware
+% 
+% To run this example you will need the following hardware:
+% 
+% * Raspberry Pi hardware
+
+%% Target Hardware Model
+open_system('raspberrypi_communication');
+
+
+%% Host Model
+open_system('raspberrypi_host_communication');
+ 
+
+%% Task 1 - Review Raspberry Pi Block Library
+%
+% Simulink Support Package for Raspberry Pi Hardware provides I/O
+% peripheral blocks for Raspberry Pi hardware for easy integration with
+% algorithms designed in Simulink.
+%
+% *1.* Enter <matlab:simulink simulink> at the MATLAB(R) prompt to open
+% the Simulink Library Browser.
+%
+% *2.* In the Simulink Library Browser, navigate to *Simulink Support
+% Package for Raspberry Pi Hardware*.
+%
+% *3.* Double-click the *UDP Send* or *UDP Receive* blocks. This opens the
+% block mask, which contains a description of the block and parameters for
+% configuring for UDP-based communications.
+
+open_system('raspberrypilib');
+
+
+%% Task 2 - Run UDP Communication Model on Raspberry Pi Hardware
+%
+% In this task, you will configure and run a simple model that sends UDP
+% packets to the host computer.
+%
+% *1.* Open the <matlab:raspberrypi_communication |target hardware model|>. 
+%
+% *2.* Double-click on the *UDP Send* block. Open the block mask and enter
+% the <matlab:realtime.internal.displayHostIPAddress |IP address of your host computer|>
+% in the *Remote IP address* edit box. For example, if the IP address of
+% your host computer is 10.10.10.1, enter '10.10.10.1' in the block mask. Do not
+% change the *Remote IP port* parameter. Click OK to save and close the
+% block mask.
+%
+% *3.* In your Simulink model, click the *Deploy To Hardware* button on 
+% the toolbar.
+%
+% *4.* The model running on Raspberry Pi hardware will start sending UDP
+% packets to port 25000 of your host computer.
+ 
+
+%% Task 3 - Run UDP Communication Model on the Host Computer
+%
+% In this task, you will run the host model that receives the UDP packets
+% sent by the model running on Raspberry Pi hardware.
+%
+% *1.* Open the <matlab:raspberrypi_host_communication |host model|>. This model has a
+% UDP Receive block that is configured to receive UDP packets sent by the
+% model running on Raspberry Pi hardware. Double-click on the *UDP Receive*
+% block mask. Note that the Local IP port is set to 25000, and the output
+% data type is set to "double".
+%
+% *2.* Click the Play button to start simulation. 
+%
+% *3.* Double-click on the *Scope* block to see the sine wave sent by the
+% model that is running on Raspberry Pi hardware. The *Display* block
+% in the model shows the number of UDP packets received from the
+% Raspberry Pi hardware since the start of simulation of the host model.
+
+
+%% Task 4 - Stop the Model Running on Raspberry Pi Hardware
+%
+% *1.* On MATLAB command line, execute the following
+%
+%  r = raspberrypi;
+%  stopModel(r,'raspberrypi_communication');
+
+
+%% Other Things to Try:
+% 
+% * Modify the <matlab:raspberrypi_host_communication |host model|> so that the *Scope*
+% block displays data only when Size port of the *UDP Receive* block
+% outputs a positive number.
+
+
+%% Summary
+% 
+% This example showed how to send data from a model running on Raspberry Pi
+% hardware to the host computer using UDP protocol, and also described how
+% the data may be received by another model running on the host computer.
+
+
+close_system('raspberrypilib', 0);
+close_system('raspberrypi_host_communication', 0); 
+close_system('raspberrypi_communication', 0); 
+ 
+##### SOURCE END #####
+--></body></html>

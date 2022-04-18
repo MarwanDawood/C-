@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rsccat version="1.0" locale="en_US" product="raspi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../schema/msgcat.xsd">
+    <message>
+        <entry key="ERRNO">An error has occurred while communicating with the server running on Raspberry Pi hardware.</entry>    
+        <!--- 
+        #define ERR_LED_BASE               (1000)
+        #define ERR_LED_OPEN               (ERR_LED_BASE+1)
+        #define ERR_LED_GET_TRIGGER_OPEN   (ERR_LED_BASE+2)
+        #define ERR_LED_GET_TRIGGER_READ   (ERR_LED_BASE+3)
+        #define ERR_LED_SET_TRIGGER_OPEN   (ERR_LED_BASE+4)
+        #define ERR_LED_SET_TRIGGER_WRITE  (ERR_LED_BASE+5)
+        #define ERR_LED_WRITE_OPEN         (ERR_LED_BASE+6)
+        #define ERR_LED_WRITE_WRITE        (ERR_LED_BASE+7)
+        -->
+        <entry key="ERRNO1001">Cannot open LED device file.</entry>    
+        <entry key="ERRNO1002">Cannot open the device file for LED trigger source.</entry>
+        <entry key="ERRNO1003">Cannot read the device file for LED trigger source.</entry>
+        <entry key="ERRNO1004">Cannot open the device file for LED trigger source.</entry>
+        <entry key="ERRNO1005">Cannot write to the device file for LED trigger source.</entry>
+        <entry key="ERRNO1006">Cannot write to the LED.</entry>
+        <entry key="ERRNO1007">Cannot write to the LED.</entry>
+        <!--- 
+        #define ERR_GPIO_BASE               (2000)
+        #define ERR_GPIO_INIT_EXPORT        (ERR_GPIO_BASE+1)
+        #define ERR_GPIO_INIT_DIRECTION     (ERR_GPIO_BASE+2)
+        #define ERR_GPIO_INIT_OPEN          (ERR_GPIO_BASE+3)
+        #define ERR_GPIO_INIT_UNEXPORT      (ERR_GPIO_BASE+4)
+        #define ERR_GPIO_TERMINATE_UNEXPORT (ERR_GPIO_BASE+5)
+        #define ERR_GPIO_READ_READ          (ERR_GPIO_BASE+6)
+        #define ERR_GPIO_WRITE_WRITE        (ERR_GPIO_BASE+7)
+        #define ERR_GPIO_GET_DIRECTION_OPEN (ERR_GPIO_BASE+8)
+        #define ERR_GPIO_GET_DIRECTION_READ (ERR_GPIO_BASE+9)
+        -->
+        <entry key="ERRNO2001">Error locking digital pin for use.</entry> 
+        <entry key="ERRNO2002">Error configuring digital pin.</entry>
+        <entry key="ERRNO2003">Error opening digital pin.</entry>
+        <entry key="ERRNO2004">Error releasing digital pin</entry>
+        <entry key="ERRNO2005">Error releasing digital pin.</entry>
+        <entry key="ERRNO2006">Error reading from the digital pin.</entry>
+        <entry key="ERRNO2007">Error writing to the digital pin.</entry>
+        <entry key="ERRNO2008">Error configuring digital pin.</entry>
+        <entry key="ERRNO2009">Error reading digital pin configuration.</entry>
+        <!--
+        #define ERR_I2C_BASE                  (3000)
+        #define ERR_I2C_INIT                  (ERR_I2C_BASE)
+        #define ERR_I2C_READ_READ             (ERR_I2C_BASE+1)
+        #define ERR_I2C_WRITE_WRITE           (ERR_I2C_BASE+2)
+        #define ERR_I2C_READ_REGISTER_WRITE   (ERR_I2C_BASE+3)
+        #define ERR_I2C_READ_REGISTER_READ    (ERR_I2C_BASE+4)
+        #define ERR_I2C_WRITE_REGISTER_WRITE  (ERR_I2C_BASE+5)
+        -->
+        <entry key="ERRNO3000">Error opening I2C bus.</entry> 
+        <entry key="ERRNO3001">Error reading from I2C bus.</entry>
+        <entry key="ERRNO3002">Error writing to I2C bus.</entry>
+        <entry key="ERRNO3003">Error writing to I2C bus.</entry>
+        <entry key="ERRNO3004">Error reading from I2C bus.</entry>
+        <entry key="ERRNO3005">Error writing to I2C bus.</entry>
+        <!--
+        #define ERR_SPI_BASE                (4000)
+        #define ERR_SPI_INIT                (ERR_SPI_BASE)
+        #define ERR_SPI_READ_READ           (ERR_SPI_BASE+1)
+        #define ERR_SPI_WRITE_WRITE         (ERR_SPI_BASE+2)
+        #define ERR_SPI_WRITEREAD_IOCTL     (ERR_SPI_BASE+3)
+        -->
+        <entry key="ERRNO4000">Error opening SPI bus.</entry> 
+        <entry key="ERRNO4001">Error reading from SPI bus.</entry>
+        <entry key="ERRNO4002">Error writing to SPI bus.</entry>
+        <entry key="ERRNO4003">Error reading from / writing to SPI bus.</entry>
+        <!--
+        #define ERR_SERIAL_BASE             (5000)
+        #define ERR_SERIAL_INIT             (ERR_SERIAL_BASE)
+        #define ERR_SERIAL_READ_READ        (ERR_SERIAL_BASE+1)
+        #define ERR_SERIAL_WRITE_WRITE      (ERR_SERIAL_BASE+2)
+        #define ERR_SERIAL_TERMINATE        (ERR_SERIAL_BASE+3)
+        -->
+        <entry key="ERRNO5000">Error opening serial bus.</entry> 
+        <entry key="ERRNO5001">Error reading from serial bus.</entry>
+        <entry key="ERRNO5002">Error writing to serial bus.</entry>
+        <entry key="ERRNO5003">Error closing bus.</entry>
+        <!--
+        #define ERR_CAMERABOARD_BASE           (6000)
+        #define ERR_CAMERABOARD_INIT           (ERR_CAMERABOARD_BASE+1)
+        #define ERR_CAMERABOARD_CONTROL        (ERR_CAMERABOARD_BASE+2)
+        -->
+        <entry key="ERRNO6001">Error initializing camera board.</entry> 
+        <entry key="ERRNO6002">Error changing camera control parameter.</entry>
+        <!--
+        #define ERR_SYSTEM_BASE      (10000)
+        #define ERR_SYSTEM_SYSTEM    (ERR_SYSTEM_BASE)
+        #define ERR_SYSTEM_POPEN     (ERR_SYSTEM_BASE+1)
+        -->
+        <entry key="ERRNO10000">Error executing system call.</entry> 
+        <entry key="ERRNO10001">Error executing system call.</entry> 
+        <!--
+        #define ERR_HANDLER_INVALID_REQUEST (1) 
+        #define ERR_HANDLER_OUT_OF_MEMORY   (2)
+        #define ERR_HANDLER_AUTHORIZATION   (3)
+        #define ERR_HANDLER_AUTHORIZATION   (4)
+        -->
+        <entry key="ERRNO1">Invalid request.</entry> 
+        <entry key="ERRNO2">Out of memory.</entry>
+        <entry key="ERRNO3">Incorrect user name or password.</entry>
+        <entry key="ERRNO4">Another client is already connected. Please try after sometime.</entry>
+        <!--
+        #define ERR_PWM_BASE                (2100)
+        #define ERR_PWM_PIGPIOINIT          (ERR_PWM_BASE+1)
+        #define ERR_PWM_SETMODE             (ERR_PWM_BASE+2)
+        #define ERR_PWM_SETFREQUENCY        (ERR_PWM_BASE+3)
+        #define ERR_PWM_SETRANGE            (ERR_PWM_BASE+4)
+        #define ERR_PWM_SETDUTYCYLE         (ERR_PWM_BASE+5)
+        #define ERR_SERVO_INIT              (ERR_PWM_BASE+6)
+        #define ERR_SERVO_SETPW             (ERR_PWM_BASE+7)
+        -->
+        <entry key="ERRNO2101">Unable to configure pin for PWM output.</entry> 
+        <entry key="ERRNO2102">Unable to configure pin for output.</entry>
+        <entry key="ERRNO2103">Unable to set the PWM frequency.</entry>
+        <entry key="ERRNO2104">Unable to set the PWM range.</entry>
+        <entry key="ERRNO2105">Unable to set the PWM duty cycle.</entry>
+        <entry key="ERRNO2106">Unable to configure pin for servo pulse output.</entry>
+        <entry key="ERRNO2107">Unable to set servo pulse width.</entry>
+        
+        <!--
+        #define ERR_JOYSTICK_BASE               (7000)
+        #define ERR_JOYSTICK_NOTFOUND           (ERR_JOYSTICK_BASE+1)
+        #define ERR_JOYSTICK_OPEN               (ERR_JOYSTICK_BASE+2)
+        -->
+        <entry key="ERRNO7001">Sense HAT joystick not recognized</entry> 
+        <entry key="ERRNO7002">Error opening Sense HAT joystick device file</entry> 
+        
+        <!--
+        #define ERR_FRAMEBUFFER_BASE               (7500)
+        #define ERR_FRAMEBUFFER_NOTFOUND           (ERR_FRAMEBUFFER_BASE+1)
+        #define ERR_FRAMEBUFFER_OPEN               (ERR_FRAMEBUFFER_BASE+2)
+        -->
+        <entry key="ERRNO7501">Sense HAT LED matrix not recognized</entry> 
+        <entry key="ERRNO7502">Error opening Sense HAT LED matrix device file</entry> 
+        
+    </message>
+</rsccat>
+<!-- Copyright 2012 The MathWorks, Inc.
+-->

@@ -1,0 +1,28 @@
+@import "variables";
+
+
+.mwDefaultVisualFamily.mwDropDownButton:not(.mwDisabled) .mwFocusNode:hover,
+.mwDefaultVisualFamily.mwSplitButton:not(.mwDisabled) .mwButtonNode:hover,
+.mwDefaultVisualFamily.mwSplitButton:not(.mwDisabled) .mwFocusNode:hover,
+.mwDefaultVisualFamily.mwToggleSplitButton:not(.mwDisabled) .mwButtonNode:hover,
+.mwDefaultVisualFamily.mwToggleSplitButton:not(.mwDisabled) .mwFocusNode:hover {
+
+  background: $color-dropdownbutton-background-hover;
+
+  box-shadow: $color-dropdownbutton-boxshadow-hover;
+}
+
+.mwDefaultVisualFamily.mwDropDownButton:not(.mwDisabled) .mwFocusNode:active,
+.mwDefaultVisualFamily.mwDropDownButton.mwHasMenuOpened,
+.mwDefaultVisualFamily.mwSplitButton:not(.mwDisabled) .mwButtonNode:active,
+.mwDefaultVisualFamily.mwSplitButton.mwHasMenuOpened .mwFocusNode,
+.mwDefaultVisualFamily.mwToggleSplitButton:not(.mwDisabled) .mwButtonNode:active,
+.mwDefaultVisualFamily.mwToggleSplitButton.mwToggleSplitButtonChecked .mwButtonNode,
+.mwDefaultVisualFamily.mwToggleSplitButton.mwHasMenuOpened .mwFocusNode  {
+
+  background: $color-dropdownbutton-background-active;
+
+  border-color: $color-dropdownbutton-border-active;
+
+  box-shadow: $color-dropdownbutton-boxshadow-active;
+}

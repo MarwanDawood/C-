@@ -1,0 +1,10 @@
+<example>
+  <main>MotionSensorExample</main>
+  <product>matlab</product>
+  <product>raspberrypi</product>
+  <callback>open_system('raspberrypi_motion_sensor_led');</callback>
+  <file timestamp="1524249680" component="raspberrypi">motion_sensor.png</file>
+  <file timestamp="1524249680" component="raspberrypi">push_button.png</file>
+  <hideCode/>
+  <sandboxPublished reasons="other" other="Board support package example"/>
+</example>
