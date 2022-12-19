@@ -12,6 +12,7 @@
     sh = remote show origin
     sh-delta = show --color --pretty=format:%b
     sh-tag = name-rev --tags --name-only
+    adog = log --all --decorate --oneline --graph
 
 [merge]
 	tool = KDiff3
