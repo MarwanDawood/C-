@@ -1,9 +1,7 @@
 ### Compile files, run the following:
-`g++ file.cpp`
- 
+* `g++ file.cpp`
 or
-
-`g++ file.cpp  -std=c++14 && chmod 777 a.out`
+* `g++ file.cpp  -std=c++14 && chmod 777 a.out`
 
 To compile and link threads, add the option `-pthread`
 
@@ -14,4 +12,3 @@ To compile and link threads, add the option `-pthread`
 * Build the project `cd src && make`
 * Run the binary `./a.out`
 * Debug programs (signals, arguments, callers, ...) `strace ./a.out`
-

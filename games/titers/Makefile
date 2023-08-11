@@ -8,7 +8,7 @@ CC         = g++
 CCFLAGS    = -Wall -std=c++11 -O3
 LDFLAGS    = -lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system
 
-TARGET     = a
+TARGET     = tetris.bin
 HFILES     =
 CFILES     = *.cpp
 SRCS       = $(HFILES) $(CFILES)

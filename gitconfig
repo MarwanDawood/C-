@@ -1,6 +1,6 @@
 [user]
 	name = Marwan Farrah
-	email = eng.marwan.dawood@gmail.com
+	email = <email>
 [alias]
     push-for-review = push origin master
     unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -13,6 +13,13 @@
     sh-delta = show --color --pretty=format:%b
     sh-tag = name-rev --tags --name-only
     adog = log --all --decorate --oneline --graph
-
 [merge]
-	tool = KDiff3
+    tool = KDiff3
+[format]
+    signoff = true
+[sendemail]
+    smtpserver = smtp.gmail.com
+    smtpserverport = 587
+    smtpencryption = tls
+    smtpuser = mdy.farrah
+    smtppass = <App Password>
